@@ -1,0 +1,105 @@
+I"�<p>Follow this process to install Ruby on Ubuntu Linux</p>
+
+<p><img src="/assets/images/installing-ruby-on-ubuntu.png" alt="Installing Ruby on Ubuntu" /></p>
+
+<h2 id="installing-ruby-on-ubuntu">Installing Ruby on Ubuntu</h2>
+
+<p>As seen on <a href="http://rvm.io/" target="_blank">RVM</a></p>
+
+<p>Go to the terminal in Ubuntu.</p>
+
+<p>On the Terminal go to the <code class="language-plaintext highlighter-rouge">Menu/Edit/Profile Preferences/Title</code> and Command.</p>
+
+<p>Check <code class="language-plaintext highlighter-rouge">Run command as a login shell</code>.</p>
+
+<p>Close the Terminal and start a new one.</p>
+
+<p>Add the public key from RVM</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+</code></pre></div></div>
+
+<p>Then run this command to install RVM</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ \curl -sSL https://get.rvm.io | bash -s stable
+</code></pre></div></div>
+
+<p>If the result says “GPG signature verification failed”. It says to “try to install GPG v2 and then fetch the public key”:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gpg2 --recv-keys string-letters-numbers
+</code></pre></div></div>
+
+<p>Above copy/paste the corresponding string that is shown on your terminal.</p>
+
+<p>If that still doesn’t work it will say:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg: keyserver receive failed: No keyserver available
+</code></pre></div></div>
+
+<p>The next troubleshooting is to enter this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ command curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
+</code></pre></div></div>
+
+<p>If that works it should say something like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg: starting migration...
+gpg: porting secret keys
+gpg: migration succeeded
+gpg: key...public key...
+gpg: Total number processed: 1
+gpg: ....imported: 1
+</code></pre></div></div>
+
+<p>Then run the command again to install RVM:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ \curl -sSL https://get.rvm.io | bash -s stable
+</code></pre></div></div>
+
+<p>If it works it should say something like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Installing RVM to /home...
+Adding RVM PATH line to ...
+Adding rvm loading line to ...
+* To start using RVM you need...
+</code></pre></div></div>
+
+<p>Close the terminal and open it again.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source ~/.rvm/scripts/rvm
+
+$ type rvm | head -n 1
+</code></pre></div></div>
+
+<p>This should now say <code class="language-plaintext highlighter-rouge">rvm is a function</code></p>
+
+<p>Install Ruby. As of this writing the stable version was <code class="language-plaintext highlighter-rouge">2.4.2</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rvm install 2.4.2
+$ rvm use 2.4.2 --default
+</code></pre></div></div>
+
+<h2 id="use-gemsets">Use Gemsets</h2>
+
+<p>To work on different projects <a href="http://rvm.io/gemsets/creating" target="_blank">create a Gemset</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rvm use 2.4.2@name-of-project --create
+</code></pre></div></div>
+
+<p>List gemsets with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rvm gemset list
+</code></pre></div></div>
+
+<p>Switch gemsets with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rvm gemset use name-of-gemset
+</code></pre></div></div>
+
+<h2 id="if-you-have-questions-or-comments-please-add-them-below">If you have questions or comments please add them below</h2>
+
+<p><img src="/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" />
+ below</p>
+
+<p><img src="/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" /></p>
+:ET

@@ -1,0 +1,59 @@
+I"�<p>Follow this process to <strong>disable touchscreen on Ubuntu</strong>.</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/disable-touchscreen-ubuntu.jpg" alt="Disable Touchscreen on Ubuntu" /></p>
+
+<p>Go to the terminal and type <code class="language-plaintext highlighter-rouge">man xinput</code></p>
+
+<p>It says that <code class="language-plaintext highlighter-rouge">xinput</code> is a utility to configure and test X input devices.</p>
+
+<p>It has a lot of options but the one we are interested in is <code class="language-plaintext highlighter-rouge">list</code></p>
+
+<p>Then do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xinput --list
+</code></pre></div></div>
+
+<p>It will show you something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Virtual core pointer                            id=2    [master pointer  (3)]
+⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
+⎜   ↳ SynPS/2 Synaptics TouchPad                id=13   [slave  pointer  (2)]
+⎜   ↳ Raydium Corporation Raydium Touch System  id=15   [slave  pointer  (2)]
+⎣ Virtual core keyboard                         id=3    [master keyboard (2)]
+    ↳ Virtual core XTEST keyboard               id=5    [slave  keyboard (3)]
+    ↳ Power Button                              id=6    [slave  keyboard (3)]
+    ↳ Video Bus                                 id=7    [slave  keyboard (3)]
+    ↳ Video Bus                                 id=8    [slave  keyboard (3)]
+    ↳ Sleep Button                              id=9    [slave  keyboard (3)]
+    ↳ Integrated Camera                         id=11   [slave  keyboard (3)]
+    ↳ AT Translated Set 2 keyboard              id=12   [slave  keyboard (3)]
+</code></pre></div></div>
+
+<p>Find the touchscreen system id and disable it.</p>
+
+<p>I initially got confused between choosing Touchpad and Touch System.</p>
+
+<p>I looked up Raydium Corporation and indeed they do touch screens.</p>
+
+<p>In my case the <code class="language-plaintext highlighter-rouge">id</code> is <code class="language-plaintext highlighter-rouge">15</code></p>
+
+<p>So I did this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xinput disable 15
+</code></pre></div></div>
+
+<p>If you feel like you made a mistake and cannot live without the touchscreen then just do the opposite:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xinput enable 15
+</code></pre></div></div>
+
+<p>Using obviously the <code class="language-plaintext highlighter-rouge">id</code> that corresponds to your config.</p>
+
+<p>osite:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xinput enable 15
+</code></pre></div></div>
+
+<p>Using obviously the <code class="language-plaintext highlighter-rouge">id</code> that corresponds to your config.</p>
+
+:ET

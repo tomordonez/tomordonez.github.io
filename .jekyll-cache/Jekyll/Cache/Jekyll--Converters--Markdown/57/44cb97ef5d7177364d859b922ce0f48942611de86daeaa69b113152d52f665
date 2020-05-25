@@ -1,0 +1,170 @@
+I"�<p><strong>Updated Jan 11, 2020</strong></p>
+
+<p>This is a setup to practice git and Github. It requires the following:</p>
+
+<ul>
+  <li>Two Github accounts.</li>
+  <li>Two computers in the same network or a computer and a remote server.</li>
+  <li>A static website.</li>
+</ul>
+
+<p>For a while I have been thinking of an interactive process to learn and improve skills in git and Github.</p>
+
+<h2 id="static-website-platform">Static Website Platform</h2>
+
+<p>For this Git/Github learning lab I am using a static website platform. Here is a tutorial to <a href="https://www.tomordonez.com/make-static-website-python-github-pages.html">install a static website with Python</a>.</p>
+
+<p>The static website uses Github pages. The goal is to have an interaction with two github accounts. Use a development environment to write the blog posts and create pull requests. Then a server environment to approve requests and update the website.</p>
+
+<h2 id="two-github-accounts">Two Github Accounts</h2>
+
+<p>For this setup I have two computers in the same network.</p>
+
+<p><strong>Server</strong></p>
+
+<ul>
+  <li>I use it as a server to approve requests and update the website.</li>
+  <li>Setup with my Main Github account.</li>
+  <li>It has the static website platform installed.</li>
+</ul>
+
+<p><strong>Development</strong></p>
+
+<ul>
+  <li>I use it as development to write the blog posts and create pull requests.</li>
+  <li>Setup with my 2nd Github account.</li>
+  <li>Forked repo from Main Github account.</li>
+</ul>
+
+<h2 id="writing-blog-posts-in-development">Writing blog posts in Development</h2>
+
+<p>I created a new branch called <code class="language-plaintext highlighter-rouge">newposts</code>.</p>
+
+<ul>
+  <li>Write/update the blog posts</li>
+  <li>Push to forked repo on the 2nd Github account.</li>
+</ul>
+
+<p>First, check status:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git status
+</code></pre></div></div>
+
+<p>If new changes were made on the server, then sync the forked repo. As seen on <a href="https://www.tomordonez.com/make-static-website-python-github-pages.html">installing a static website with Python</a>. Follow the section “Fork and sync a local with a remote repo.”</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git fetch upstream
+$ git checkout master
+$ git merge upstream/master
+</code></pre></div></div>
+
+<p>As seen <a href="https://stackoverflow.com/questions/16955980/git-merge-master-into-feature-branch">here</a>. To merge <code class="language-plaintext highlighter-rouge">master</code> with <code class="language-plaintext highlighter-rouge">newposts</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout newposts
+$ git merge master
+</code></pre></div></div>
+
+<p>Resolve conflicts then commit:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git commit -m "merged master"
+</code></pre></div></div>
+
+<p>Then add and push the commits</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add .
+$ git commit -m "new blog post draft"
+$ git push -u origin newposts
+</code></pre></div></div>
+
+<h2 id="error-on-git-push">Error on Git push</h2>
+
+<p>You might get this error if there are conflicts</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>! [rejected]        newposts -&gt; newposts (fetch first)
+error: failed to push some refs to 'https://github.com/...
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+</code></pre></div></div>
+
+<h2 id="create-a-pull-request-2nd-github-account">Create a pull request (2nd Github account)</h2>
+
+<p>Login to the 2nd Github account:</p>
+
+<ul>
+  <li>Navigate to the original repo on Main Github account.</li>
+  <li>Create a pull request.</li>
+</ul>
+
+<p>Using this format with no comments added:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[newpost] name of the blog post
+</code></pre></div></div>
+
+<h2 id="merge-pull-request-main-github-account">Merge pull request (Main Github account)</h2>
+
+<p>Login to the Main Github account:</p>
+
+<ul>
+  <li>Go to the repo.</li>
+  <li>Review if a pull request was sent.</li>
+  <li>If there are no conflicts, merge the commit into master.</li>
+</ul>
+
+<h2 id="ssh-to-from-development-to-server">SSH to from Development to Server</h2>
+
+<p>This is how I <a href="https://www.tomordonez.com/remote-access-linux-fedora.html">remote access Linux</a>.</p>
+
+<p>From my Local computer, I SSH into my LAN server using the server’s IP address.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh server-IP
+</code></pre></div></div>
+
+<p>I attach to my Server tmux environment:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(server)$ tmuxinator tom
+</code></pre></div></div>
+
+<p>Using already a Local tmux, inside Server tmux I have to use the prefix twice <code class="language-plaintext highlighter-rouge">Ctrl+a Ctrl+a</code> before any binding.</p>
+
+<p>Then I pull the changes and publish the blog.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(server)$ git pull
+(server)$ make html &amp;&amp; make publish
+</code></pre></div></div>
+
+<h2 id="publishing-the-blog-in-server">Publishing the blog in Server</h2>
+
+<p>Once I generate the static pages, I just follow my usual process. Push the HTML output.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(server)$ cd output
+(server)$ git add .
+(server)$ git commit -m "new post"
+(server)$ git push -u origin master
+</code></pre></div></div>
+
+<p>Then push the source.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(server)$ cd ..
+(server)$ git add .
+(server)$ git commit -m "new post"
+(server)$ git push -u origin master
+</code></pre></div></div>
+
+<h2 id="exit-server">Exit server</h2>
+
+<p>When the website is published into Github pages. Detach from tmux <code class="language-plaintext highlighter-rouge">Ctrl+a Ctrl+a + D</code>.</p>
+
+<p>Then exit:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(server)$ exit
+$o Github pages. Detach from tmux `Ctrl+a Ctrl+a + D`.
+</code></pre></div></div>
+
+<p>Then exit:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(server)$ exit
+$
+</code></pre></div></div>
+:ET

@@ -1,0 +1,150 @@
+I"ç<p><strong>Updated on Jan 11, 2020</strong></p>
+
+<p>Follow this short tutorial for installing Dropbox on Linux</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/installing-dropbox-linux.gif" alt="Installing Dropbox on Linux" /></p>
+
+<p>Go <a href="https://www.dropbox.com/install-linux" target="_blank">here</a> and choose an installer.</p>
+
+<p>There are 3 install options. Choose the one that applies to you:</p>
+
+<ul>
+  <li>Ubuntu</li>
+  <li>Fedora</li>
+  <li>Compile from source</li>
+</ul>
+
+<p>Then you have to install the dropbox deamon. As seen on the source above. For example, for 64-bit you need to run this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd ~ &amp;&amp; wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+</code></pre></div></div>
+
+<p>Then run it with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ~/.dropbox-dist/dropboxd
+</code></pre></div></div>
+
+<h2 id="too-many-dropbox-directories">Too Many Dropbox Directories</h2>
+
+<p>If you have too many directories. More than 10,000. Dropbox will stop running.</p>
+
+<p>Stop dropbox:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dropbox stop
+</code></pre></div></div>
+
+<p>Run this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo fs.inotify.max_user_watches=100000 | sudo tee -a /etc/sysctl.conf; sudo sysctl -p
+</code></pre></div></div>
+
+<p>Restart Dropbox:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dropbox start
+</code></pre></div></div>
+
+<h2 id="install-dropbox-tray-icon">Install Dropbox Tray Icon</h2>
+
+<p>The Dropbox icon might not show up on the tray. You need to install a Gnome extension.</p>
+
+<p>First stop dropbox:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dropbox stop
+</code></pre></div></div>
+
+<p>On Chrome. Install <a href="https://extensions.gnome.org/" target="_blank">GNOME shell extensions</a></p>
+
+<p>If you donâ€™t have it installed. When you open this page. There will be a notification towards the top that says:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>To control GNOME Shell extensions using this site you must install
+GNOME Shell integration that consists of two parts:
+browser extension and native host messaging application.
+Click here to install browser extension.
+</code></pre></div></div>
+
+<p>Go to <code class="language-plaintext highlighter-rouge">Click here to install browser extension</code>.</p>
+
+<p>A popup opens asking <code class="language-plaintext highlighter-rouge">Add GNOME shell integration?</code>. Hit <code class="language-plaintext highlighter-rouge">Add extension</code>.</p>
+
+<p>A new notification (warning) message now shows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Although GNOME Shell integration extension is running,
+native host connector is not detected.
+</code></pre></div></div>
+
+<p>Install <code class="language-plaintext highlighter-rouge">chrome-gnome-shell</code>. Applicable to Ubuntu or Fedora. Mine is Fedora:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install chrome-gnome-shell
+</code></pre></div></div>
+
+<h2 id="install-the-gnome-shell-extension-topicons-fix">Install the GNOME Shell extension TopIcons Fix</h2>
+
+<p>In a previous Fedora version, this extension used to work:</p>
+
+<p><code class="language-plaintext highlighter-rouge">TopIcons Plus</code>. Link <a href="https://extensions.gnome.org/extension/1031/topicons/">here</a></p>
+
+<p>I am currently on <code class="language-plaintext highlighter-rouge">Fedora 31</code> with <code class="language-plaintext highlighter-rouge">GNOME 3.34.2</code>.</p>
+
+<p>I removed TopIcons Plus and installed this <code class="language-plaintext highlighter-rouge">TopIcons Fix</code>. Link <a href="https://extensions.gnome.org/extension/1674/topiconsfix/">here</a></p>
+
+<p>Restart dropbox:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dropbox start
+</code></pre></div></div>
+
+<h2 id="sync-specific-folder">Sync specific folder</h2>
+
+<p>Now the Dropbox icon should be on the taskbar.</p>
+
+<p>Go to:</p>
+
+<ul>
+  <li>Dropbox icon</li>
+  <li>Preferences</li>
+  <li>Sync</li>
+  <li>Selective Sync</li>
+</ul>
+
+<p>Then choose the folders that you want to sync.</p>
+
+<h2 id="dropbox-cli-command-line">Dropbox CLI command line</h2>
+
+<p>On the command line run this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dropbox help
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>commands:
+
+Note: use dropbox help &lt;command&gt; to view usage for a specific command.
+
+ autostart    automatically start Dropbox at login
+ exclude      ignores/excludes a directory from syncing
+ filestatus   get current sync status of one or more files
+ help         provide help
+ lansync      enables or disables LAN sync
+ ls           list directory contents with current sync status
+ proxy        set proxy settings for Dropbox
+ puburl       get public url of a file in your Dropbox's public folder
+ running      return whether Dropbox is running
+ sharelink    get a shared link for a file in your Dropbox
+ start        start dropboxd
+ status       get current status of the dropboxd
+ stop         stop dropboxd
+ throttle     set bandwidth limits for Dropbox
+ update       download latest version of Dropbox
+ version      print version information for Dropbox
+</code></pre></div></div>
+
+<p>Update dropbox with this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dropbox updateversion information for Dropbox
+</code></pre></div></div>
+
+<p>Update dropbox with this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dropbox update
+</code></pre></div></div>
+:ET

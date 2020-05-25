@@ -1,0 +1,89 @@
+I"�<p>I thought of building an app about dogs, where the interface is swiping pictures of dogs.</p>
+
+<p>A quick search for ‘dog pictures dataset’ turned to this result…</p>
+
+<h2 id="stanford-dogs-dataset">Stanford Dogs Dataset</h2>
+
+<p><a href="http://vision.stanford.edu/aditya86/ImageNetDogs/">Stanford Dogs Dataset</a></p>
+
+<p>I downloaded these files:</p>
+
+<ul>
+  <li>images.tar</li>
+  <li>annotations.tar</li>
+  <li>lists.tar</li>
+</ul>
+
+<p>The file <code class="language-plaintext highlighter-rouge">lists.tar</code> had these files:</p>
+
+<ul>
+  <li>file_list.mat</li>
+  <li>test_list.mat</li>
+  <li>train_list.mat</li>
+</ul>
+
+<p>I created a new <code class="language-plaintext highlighter-rouge">conda</code> environment to open the mat files:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda create --name dogs scipy
+</code></pre></div></div>
+
+<p>Loaded the data with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import scipy.io
+data = scipy.io.loadmat('file_list.mat')
+</code></pre></div></div>
+
+<p>Here is a sample of the data:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'annotation_list': array([[array(['n02085620-Chihuahua/n02085620_10074'], dtype='&lt;U35')],
+   [array(['n02085620-Chihuahua/n02085620_10131'], dtype='&lt;U35')],
+   [array(['n02085620-Chihuahua/n02085620_10621'], dtype='&lt;U35')],
+   ...,
+   [array(['n02116738-African_hunting_dog/n02116738_9829'], dtype='&lt;U44')],
+</code></pre></div></div>
+
+<p>I also opened the <code class="language-plaintext highlighter-rouge">images.tar</code> and found the files that corresponded to the data above:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n02085620-Chihuahua/n02085620_10131
+n02085620-Chihuahua/n02085620_10621
+n02116738-African_hunting_dog/n02116738_9829
+</code></pre></div></div>
+
+<p>This is the content of <code class="language-plaintext highlighter-rouge">annotations.tar</code> for the first file above:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;annotation&gt;
+    &lt;folder&gt;02085620&lt;/folder&gt;
+    &lt;filename&gt;n02085620_10131&lt;/filename&gt;
+    &lt;source&gt;
+            &lt;database&gt;ImageNet database&lt;/database&gt;
+    &lt;/source&gt;
+    &lt;size&gt;
+            &lt;width&gt;395&lt;/width&gt;
+            &lt;height&gt;495&lt;/height&gt;
+            &lt;depth&gt;3&lt;/depth&gt;
+    &lt;/size&gt;
+    &lt;segment&gt;0&lt;/segment&gt;
+    &lt;object&gt;
+            &lt;name&gt;Chihuahua&lt;/name&gt;
+            &lt;pose&gt;Unspecified&lt;/pose&gt;
+            &lt;truncated&gt;0&lt;/truncated&gt;
+            &lt;difficult&gt;0&lt;/difficult&gt;
+            &lt;bndbox&gt;
+                &lt;xmin&gt;49&lt;/xmin&gt;
+                &lt;ymin&gt;9&lt;/ymin&gt;
+                &lt;xmax&gt;393&lt;/xmax&gt;
+                &lt;ymax&gt;493&lt;/ymax&gt;
+            &lt;/bndbox&gt;
+    &lt;/object&gt;
+&lt;/annotation&gt;
+</code></pre></div></div>
+
+<h2 id="from-flutterdart-to-java">From Flutter/Dart to Java</h2>
+
+<p>I studied Flutter and Dart for about a month. This is a great stack. However, I wanted to build knowledge that could be used for something other than just building an Android app. I am sure that Dart can be used for other types of applications. However, Java is still used for pretty much everything.</p>
+
+<p>I dropped Flutter/Dart and decided to move forward with Java to build a few simple Android apps.
+tty much everything.</p>
+
+<p>I dropped Flutter/Dart and decided to move forward with Java to build a few simple Android apps.</p>
+:ET

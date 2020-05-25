@@ -1,0 +1,584 @@
+I"et<p>Last year I did some research about ozone levels and wrote a blog post about the <a href="https://www.tomordonez.com/best-time-to-run-according-to-science.html" target="_blank">best time to run</a> outside.</p>
+
+<p>This post is based on that research. This is an R tutorial with Rstudio and the data analysis from an ozone dataset.</p>
+
+<h2 id="r-tutorial-with-rstudio">R tutorial with Rstudio</h2>
+
+<p><strong>Rstudio</strong> is an open source software for <code class="language-plaintext highlighter-rouge">R</code>, a programming language for statistical computing.</p>
+
+<p>The Environmental Protection Agency (EPA) website has data sets about ozone levels.</p>
+
+<p>I downloaded 2 data sets from their website:</p>
+
+<ul>
+  <li>Hourly ozone levels in the US from 2016. The zip file was 69MB. Uncompressed, the csv file is 2.1GB.</li>
+  <li>Daily AQI by county from 2016. The zip file was 1.6MB and the csv file was 26.4MB.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">AQI</code> stands for <code class="language-plaintext highlighter-rouge">Air Quality Index</code>. A measure developed by EPA to explain pollution levels to the general public.</p>
+
+<h2 id="data-visualization">Data Visualization</h2>
+
+<p>This is the data visualization that we are getting from this <strong>R tutorial using Rstudio</strong>.</p>
+
+<p>The best time to run outside in San Francisco.</p>
+
+<p><img src="/assets/images/ozone-sf-2016.jpg" alt="Best time to run in San Francisco" /></p>
+
+<h2 id="a-bit-more-context-about-ozone">A bit more context about Ozone</h2>
+
+<p>To do exploratory data analysis from a data set you need to have a general understanding what the data is about.</p>
+
+<ul>
+  <li>Ozone is a pale blue gas with a bad smell.</li>
+  <li>Ozone odour is sharp, smells like chlorine and is measured in parts per billion (ppb).</li>
+  <li>Concentrations of 100ppb and above damages respiratory tissues.</li>
+  <li>Ozone layer is a portion of the stratosphere. About 20 miles above the ground. At about 100,000 feet.</li>
+  <li>The ozone layer prevents UV light from reaching the surface. Which is actually good. But ozone at surface level. Not good.</li>
+  <li>Bad ozone is due to fossil fuel burning.</li>
+</ul>
+
+<h2 id="loading-the-dataset-into-rstudio">Loading the dataset into Rstudio</h2>
+
+<ol>
+  <li>File &gt; New Project</li>
+  <li>New Directory</li>
+  <li>Empty Project</li>
+  <li>Enter name and browse to subdirectory</li>
+</ol>
+
+<h2 id="install-readr">Install <code class="language-plaintext highlighter-rouge">readr</code></h2>
+
+<p>If you don’t have the package <code class="language-plaintext highlighter-rouge">readr</code> you need to install it. It will take about 5 minutes:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; install.packages("readr")
+</code></pre></div></div>
+
+<p>The library <code class="language-plaintext highlighter-rouge">readr</code> is needed to read <code class="language-plaintext highlighter-rouge">rectangular data</code> such as <code class="language-plaintext highlighter-rouge">csv</code>.</p>
+
+<p>Then load the library:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; library(readr)
+</code></pre></div></div>
+
+<h2 id="load-the-dataset-csv-file-with-read_csv">Load the dataset <code class="language-plaintext highlighter-rouge">CSV</code> file with <code class="language-plaintext highlighter-rouge">read_csv</code></h2>
+
+<p>Load the <code class="language-plaintext highlighter-rouge">CSV</code> file in Rstudio and create an object. The function <code class="language-plaintext highlighter-rouge">read_csv</code> converts the <code class="language-plaintext highlighter-rouge">csv</code> file into a data frame. If you don’t specify the types for columns, strange things happen.</p>
+
+<p>For example the data set has a column called <code class="language-plaintext highlighter-rouge">Time.Local</code>, which by default is of type integer. If you run a plot using <code class="language-plaintext highlighter-rouge">Time.Local</code> you will get the time in seconds instead of hours, such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3600, representing 1am
+7200, representing 2am
+and so on...
+</code></pre></div></div>
+
+<p>The column type has to be set to <code class="language-plaintext highlighter-rouge">c</code> character so that <code class="language-plaintext highlighter-rouge">Time.Local</code> can take values like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00:00
+01:00
+02:00
+and so on...
+</code></pre></div></div>
+
+<p>Setting the column types depend on the columns.</p>
+
+<p>But how do you set them up if you haven’t loaded the data?</p>
+
+<p>The data source should have a description of the data. In this case there is more information about this data set on the <a href="http://aqsdr1.epa.gov/aqsweb/aqstmp/airdata/FileFormats.html#_hourly_data_files" target="_blank">EPA website</a>.</p>
+
+<p>Here is the line to load the <code class="language-plaintext highlighter-rouge">CSV</code> into the object <code class="language-plaintext highlighter-rouge">ozone</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; ozone &lt;- read_csv("ozone_data_2016.csv", 
+col_types = "ccccinnccccccncnnccccccc")
+</code></pre></div></div>
+
+<h2 id="get-the-names-of-the-columns">Get the names of the columns</h2>
+
+<p>If you call this function: <code class="language-plaintext highlighter-rouge">names(ozone)</code> you get this result:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; names(ozone)
+ [1] "State Code"      "County Code"         "Site Num"           
+ [4] "Parameter Code"  "POC"                 "Latitude"           
+ [7] "Longitude"       "Datum"               "Parameter Name"     
+[10] "Date Local"      "Time Local"          "Date GMT"           
+[13] "Time GMT"        "Sample Measurement"  "Units of Measure"   
+[16] "MDL"             "Uncertainty"         "Qualifier"          
+[19] "Method Type"     "Method Code"         "Method Name"        
+[22] "State Name"      "County Name"         "Date of Last Change"
+</code></pre></div></div>
+
+<p>By definition <code class="language-plaintext highlighter-rouge">names</code> is used to get or set the name of an object.</p>
+
+<p>If the object is a dataframe it gets the names of the columns.</p>
+
+<h2 id="normalize-the-column-names">Normalize the column names</h2>
+
+<p>If you call this function: <code class="language-plaintext highlighter-rouge">make.names(names(ozone))</code> you get this result:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; make.names(names(ozone))
+ [1] "State.Code"      "County.Code"         "Site.Num"           
+ [4] "Parameter.Code"  "POC"                 "Latitude"           
+ [7] "Longitude"       "Datum"               "Parameter.Name"     
+[10] "Date.Local"      "Time.Local"          "Date.GMT"           
+[13] "Time.GMT"        "Sample.Measurement"  "Units.of.Measure"   
+[16] "MDL"             "Uncertainty"         "Qualifier"          
+[19] "Method.Type"     "Method.Code"         "Method.Name"        
+[22] "State.Name"      "County.Name"         "Date.of.Last.Change"
+</code></pre></div></div>
+
+<p>By definition <code class="language-plaintext highlighter-rouge">make.names</code> is used to make valid names out of character vectors. The <code class="language-plaintext highlighter-rouge">help</code> page explains that syntactically valid names consist of letters, numbers and dot or underline and start with a letter or the dot but not followed by a number. For instance <code class="language-plaintext highlighter-rouge">.2file</code> is not a valid name.</p>
+
+<p>To normalize the column names, and replace spaces with periods, use: <code class="language-plaintext highlighter-rouge">make.names(names(ozone))</code>.</p>
+
+<h2 id="replace-the-names-of-columns">Replace the names of columns</h2>
+
+<p>Finally, this is used to set this conversion back to the <code class="language-plaintext highlighter-rouge">names</code> object:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; names(ozone) &lt;- make.names(names(ozone))
+</code></pre></div></div>
+
+<p>Now, when you call <code class="language-plaintext highlighter-rouge">names(ozone)</code> the spaces are replaced by dots.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; names(ozone)
+ [1] "State.Code"      "County.Code"         "Site.Num"           
+ [4] "Parameter.Code"  "POC"                 "Latitude"           
+ [7] "Longitude"       "Datum"               "Parameter.Name"     
+[10] "Date.Local"      "Time.Local"          "Date.GMT"           
+[13] "Time.GMT"        "Sample.Measurement"  "Units.of.Measure"   
+[16] "MDL"             "Uncertainty"         "Qualifier"          
+[19] "Method.Type"     "Method.Code"         "Method.Name"        
+[22] "State.Name"      "County.Name"         "Date.of.Last.Change"
+</code></pre></div></div>
+
+<h2 id="explore-the-data-in-rstudio">Explore the data in Rstudio</h2>
+
+<p>Check the number of rows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; nrow(ozone)
+[1] 9124268
+</code></pre></div></div>
+
+<p>Check the number of columns:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; ncol(ozone)
+[1] 24
+</code></pre></div></div>
+
+<p>Check the top of the file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; head(ozone[, c(6:7, 10)])
+
+# A tibble: 6 x 3
+Latitude Longitude Date.Local
+      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;     
+1     30.5     -87.9 2016-03-01
+2     30.5     -87.9 2016-03-01
+3     30.5     -87.9 2016-03-01
+4     30.5     -87.9 2016-03-01
+5     30.5     -87.9 2016-03-01
+6     30.5     -87.9 2016-03-01
+</code></pre></div></div>
+
+<p>Check the bottom of the file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; tail(ozone[, c(6:7, 10)])
+
+# A tibble: 6 x 3
+Latitude Longitude Date.Local
+    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;     
+1     18.2     -65.9 2016-12-31
+2     18.2     -65.9 2016-12-31
+3     18.2     -65.9 2016-12-31
+4     18.2     -65.9 2016-12-31
+5     18.2     -65.9 2016-12-31
+6     18.2     -65.9 2016-12-31
+</code></pre></div></div>
+
+<h2 id="check-the-number-of-records-for-each-hour">Check the number of records for each hour</h2>
+
+<p>Using the <code class="language-plaintext highlighter-rouge">table</code> function in Rstudio.</p>
+
+<p>This function “uses the cross classifying factors to build a contingency table of counts at each combination of factor levels”.</p>
+
+<p>In this case I know that the ozone levels are measured every hour from midnight to noon to 11pm. I would like to know the number of records for each hour.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>table(ozone$Time.Local)
+</code></pre></div></div>
+
+<p>This results in:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00:00  01:00  02:00  03:00  04:00  05:00  06:00  07:00  08:00  
+369489 373144 359722 358576 363421 385829 386222 384176 381303 
+09:00  10:00  11:00  12:00  13:00  14:00  15:00  16:00
+379689 379424 380814 381202 383439 385152 386580 387565
+17:00  18:00  19:00  20:00  21:00  22:00  23:00 
+388252 388576 388656 388650 387492 377278 379617
+</code></pre></div></div>
+
+<h2 id="what-does-this-data-mean">What does this data mean?</h2>
+
+<p>I selected and filtered parts of the data to understand more about it.</p>
+
+<p>Was the data grouped by state? Or was the data grouped by hour?</p>
+
+<h2 id="install-dplyr-for-data-frames-in-rstudio">Install <code class="language-plaintext highlighter-rouge">dplyr</code> for data frames in Rstudio</h2>
+
+<p>The next step requires to use the library <code class="language-plaintext highlighter-rouge">dplyr</code>. Which is the next iteration of <code class="language-plaintext highlighter-rouge">plyr</code>, a set of tools for splitting, applying and combining data. <code class="language-plaintext highlighter-rouge">dplyr</code> “provides a flexible grammar of data manipulation…focused on tools for working with data frames”.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; install.packages("dplyr")
+</code></pre></div></div>
+
+<p>This might ask to restart the <code class="language-plaintext highlighter-rouge">R</code> session before installing. Then try again. Now load the library.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; library(dplyr)
+</code></pre></div></div>
+
+<h2 id="us-states-in-the-data-set">US States in the data set</h2>
+
+<p>I wanted to see which states were included in the data set I loaded.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; select(ozone, State.Name) %&gt;% unique
+
+# A tibble: 52 x 1
+State.Name          
+   &lt;chr&gt;               
+ 1 Alabama             
+ 2 Alaska              
+ 3 Arizona             
+ 4 Arkansas            
+ 5 California          
+ 6 Colorado            
+ 7 Connecticut         
+ 8 Delaware            
+ 9 District Of Columbia
+10 Florida             
+# ... with 42 more rows
+</code></pre></div></div>
+
+<h2 id="ozone-levels-in-florida">Ozone levels in Florida</h2>
+
+<p>I filtered the data set to see the ozone levels in Florida on July 9, 2016 at 6am for all counties</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; filter(ozone, State.Name == "Florida", 
+Date.Local == "2016-07-09", 
+Time.Local == "06:00") %&gt;% select(County.Name, 
+    Sample.Measurement)
+</code></pre></div></div>
+
+<p>The result was:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># A tibble: 58 x 2
+   County.Name Sample.Measurement
+         &lt;chr&gt;              &lt;dbl&gt;
+ 1     Alachua              0.002
+ 2       Baker              0.001
+ 3         Bay              0.017
+ 4     Brevard              0.014
+ 5     Brevard              0.016
+ 6     Broward              0.005
+ 7     Broward              0.004
+ 8     Broward              0.004
+ 9     Broward              0.008
+10     Collier              0.004
+# ... with 48 more rows
+</code></pre></div></div>
+
+<h2 id="convert-ppm-parts-per-million-to-ppm-per-billion">Convert PPM (parts per million) to PPM (per billion)</h2>
+
+<p>The sample measurement has units of <code class="language-plaintext highlighter-rouge">ppm</code> (parts per million).</p>
+
+<p>To convert to <code class="language-plaintext highlighter-rouge">ppb</code> (parts per billion) you just move the dot three times to the right.</p>
+
+<p>For instance, the first row that says <code class="language-plaintext highlighter-rouge">0.002 ppm</code> converts to <code class="language-plaintext highlighter-rouge">2 ppb</code>.</p>
+
+<p>I learned that the EPA has an <code class="language-plaintext highlighter-rouge">AQI</code> calculator to convert from ppb to AQI (air quality index).</p>
+
+<p>In the AQI calculator you have a few choices as shown here:</p>
+
+<p><img src="/assets/images/aqi-calculator-ppb-to-aqi.png" alt="AQI air quality index calculator" /></p>
+
+<ul>
+  <li>Select a pollutant: O3 - Ozone (8hr avg) or (1hr avg)</li>
+  <li>Units required: ppb</li>
+  <li>Enter the concentration</li>
+  <li>Calculate</li>
+</ul>
+
+<p>The way to choose between 8hr and 1hr is:</p>
+
+<p><code class="language-plaintext highlighter-rouge">AQI</code> values of <code class="language-plaintext highlighter-rouge">301</code> or greater are calculated with 1-hr ozone concentrations.</p>
+
+<h2 id="aqi-categories">AQI Categories</h2>
+
+<p>The EPA has a great website to learn more about the <a href="https://airnow.gov/index.cfm?action=aqibasics.aqi#good" target="_blank">
+Air Quality Index (AQI)</a>.</p>
+
+<p>The AQI is categorized like this:</p>
+
+<ul>
+  <li><strong>0-50</strong>. Good. Green</li>
+  <li><strong>51-100</strong>. Moderate. Yellow</li>
+  <li><strong>101-150</strong>. Unhealthy for sensitive groups. Orange</li>
+  <li><strong>151-200</strong>. Unhealthy. Red</li>
+  <li><strong>201-300</strong>. Very unhealthy. Purple</li>
+  <li><strong>301-500</strong>. Hazardous. Maroon.</li>
+</ul>
+
+<p>This information was very helpful to understand the data</p>
+
+<h2 id="very-unhealthy-jefferson-county-alabama">Very Unhealthy Jefferson county, Alabama</h2>
+
+<p>I filtered the data to find ozone measurements above 0.100 ppm (aka 100ppb). Which calculates to an AQI of 187 (Unhealthy).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; filter(ozone, Sample.Measurement &gt; 0.1) 
+%&gt;% select(State.Name, County.Name, Date.Local, 
+    Time.Local, Sample.Measurement)
+
+# A tibble: 1,407 x 5
+State.Name   County.Name Date.Local Time.Local Sample.Measurement
+.    &lt;chr&gt;      &lt;chr&gt;     &lt;date&gt;     &lt;time&gt;         &lt;dbl&gt;
+1    Alabama   Jefferson   2016-02-23   12:00:00   0.346
+2    Alabama   Jefferson   2016-02-23   13:00:00   0.202
+3    Alabama   Russell     2016-04-18   14:00:00   0.101
+4    Alaska    Matanuska   2016-04-08   02:00:00   0.102
+5    Arizona   Gila        2016-11-26   17:00:00   0.145
+6    Arkansas  Crittenden  2016-06-10   13:00:00   0.107
+7    Arkansas  Crittenden  2016-06-10   14:00:00   0.113
+8    Arkansas  Crittenden  2016-06-10   15:00:00   0.104
+9  California  Alameda     2016-06-03   15:00:00   0.102
+10 California  Alameda     2016-07-26   15:00:00   0.102
+# ... with 1,575 more rows
+</code></pre></div></div>
+
+<p>This shows that on <code class="language-plaintext highlighter-rouge">February 23, 2016</code> at noon, there was a measurement of <code class="language-plaintext highlighter-rouge">346ppb</code> in Jefferson county, Alabama.</p>
+
+<p>Converted to AQI results in <code class="language-plaintext highlighter-rouge">276</code> aka “Very Unhealthy” and very close to “Hazardous”, which is described as “Health warnings of emergency conditions. The entire population is more likely to be affected.”</p>
+
+<p>After a quick Google search I found that Jefferson county is amongst the top most polluted counties in the US.</p>
+
+<p><img src="/assets/images/jefferson-county-alabama.png" alt="Air quality in Jefferson County, Alabama" /></p>
+
+<h2 id="exploring-the-data-visualization-plots-in-rstudio">Exploring the data visualization plots in Rstudio</h2>
+
+<p>I know the names of some state counties in Florida. For example, for Miami, I know that the county is called “Miami Dade” but I wasn’t sure how they added this value into the data set. If they put “Dade” or “Miami” or what combination of Miami and Dade.</p>
+
+<p>For each state I created vectors with the names of counties. I visualized the vectors into a table and then created a filter for the specific county.</p>
+
+<p>Finally, I plotted <code class="language-plaintext highlighter-rouge">Time vs Sample Measurement</code>.</p>
+
+<p>I created a vector with Florida counties:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; florida.counties &lt;- filter(ozone, 
+    State.Name == "Florida") %&gt;% 
+    select(County.Name) %&gt;% unique
+</code></pre></div></div>
+
+<p>Then created a view:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; View(florida.counties)
+</code></pre></div></div>
+
+<p><img src="/assets/images/florida-counties.png" alt="Florida Counties" /></p>
+
+<p>On the view I saw they had it as <code class="language-plaintext highlighter-rouge">Miami-Dade</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; ozone.miami.2016 &lt;- filter(ozone, 
+    County.Name == "Miami-Dade") %&gt;% 
+    select(Date.Local, Time.Local, 
+        Sample.Measurement)
+</code></pre></div></div>
+
+<p>I filtered by county name and then plotted <code class="language-plaintext highlighter-rouge">Time.Local</code> vs <code class="language-plaintext highlighter-rouge">Sample.Measurement</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; plot(ozone.miami.2016$Time.Local, 
+    ozone.miami.2016$Sample.Measurement)
+</code></pre></div></div>
+
+<p>The output was an error:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error in plot.window(...) : need finite 
+'xlim' values
+In addition: Warning messages:
+1: In xy.coords(x, y, xlabel, ylabel, log)
+ : NAs introduced by coercion
+2: In min(x) : no non-missing arguments
+ to min; returning Inf
+3: In max(x) : no non-missing arguments
+ to max; returning -Inf
+</code></pre></div></div>
+
+<p>The error says that one of the coordinates is a vector with <code class="language-plaintext highlighter-rouge">NAs</code>.</p>
+
+<p>I looked up the types for each variable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; class(ozone.miami.2016$Time.Local)
+[1] "character"
+&gt; class(ozone.miami.2016$Sample.Measurement)
+[1] "numeric"
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Time.Local</code> is of type <code class="language-plaintext highlighter-rouge">character</code> and <code class="language-plaintext highlighter-rouge">Sample.Measurement</code> is of type <code class="language-plaintext highlighter-rouge">numeric</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; head(ozone$Time.Local)
+[1] "15:00" "16:00" "17:00" "18:00" "19:00" "20:00"
+
+&gt; head(ozone$Sample.Measurement)
+[1] 0.041 0.041 0.042 0.041 0.038 0.038
+</code></pre></div></div>
+
+<p><strong>You cannot plot character vs numeric.</strong></p>
+
+<p>To prove that <code class="language-plaintext highlighter-rouge">Time.Local</code> was a vector with <code class="language-plaintext highlighter-rouge">NAs</code> I used the function <code class="language-plaintext highlighter-rouge">strptime</code>.</p>
+
+<p>The function <code class="language-plaintext highlighter-rouge">strptime</code> is used to convert between character representations and objects of classes “POSIXlt” and “POSIXct” representing calendar dates and times.</p>
+
+<p>I read more about <code class="language-plaintext highlighter-rouge">POSIXt</code> and it seems to be a complicated topic as described <a href="http://biostat.mc.vanderbilt.edu/wiki/pub/Main/ColeBeck/datestimes.pdf" target="_blank">here</a>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">strptime</code> function is used like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strptime(x, format, tz = "")
+  
+x: An object to be converted: a character vector
+for strptime, an object which can be converted to
+"POSIXlt" for strftime.
+
+format: A character string. The default for
+the format methods is "%Y-%m-%d %H:%M:%S".
+
+tz: A character string specifying the
+time zone to be used for the conversion
+</code></pre></div></div>
+
+<p>I ran the <code class="language-plaintext highlighter-rouge">strptime</code> function like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; strptime(ozone.miami.2016$Time.Local, '%H:%M:%S')
+</code></pre></div></div>
+
+<p>The result was something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1] NA NA NA NA NA NA NA
+NA NA NA NA NA NA NA NA 
+NA NA NA NA NA NA NA NA 
+NA NA NA
+</code></pre></div></div>
+
+<p>As far as the error saying:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In xy.coords(x, y, xlabel, ylabel, log)
+ : NAs introduced by coercion
+</code></pre></div></div>
+
+<p>I assume that <code class="language-plaintext highlighter-rouge">plot</code> is trying to make <code class="language-plaintext highlighter-rouge">Time.Local</code> which is a character element into numeric data. And when it fails to do this, it is returning NAs.</p>
+
+<h2 id="normalizing-data-in-rstudio">Normalizing data in Rstudio</h2>
+
+<p>There is a way to plot <code class="language-plaintext highlighter-rouge">Time.Local</code> as a factor.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; plot(factor(ozone.miami.2016$Time.Local), 
+ozone.miami.2016$Sample.Measurement, 
+main = "Best Time to Run in Miami", 
+xlab = "Hour", ylab = "Ozone level in ppm")
+</code></pre></div></div>
+
+<p>I suffered a bit with lower case and upper case variables.</p>
+
+<p>To get the list of <code class="language-plaintext highlighter-rouge">State.Name</code> I did:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; unique(ozone$State.Name)
+ [1] "Alabama"      "Alaska"     "Arizona"             
+ [4] "Arkansas"     "California" "Colorado"            
+ [7] "Connecticut"  "Delaware"   "District Of Columbia"
+[10] "Florida"      "Georgia"
+</code></pre></div></div>
+
+<p>To get the <code class="language-plaintext highlighter-rouge">County.Name</code> for <code class="language-plaintext highlighter-rouge">District of Columbia</code> I did this but didn’t get any results:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; filter(ozone, State.Name == "District of Columbia") %&gt;% 
+select(County.Name) %&gt;% unique
+# A tibble: 0 x 1
+# ... with 1 variables: County.Name &lt;chr&gt;
+</code></pre></div></div>
+
+<p>I realized that I didn’t use the exact case. Instead of <code class="language-plaintext highlighter-rouge">Of</code>, I used <code class="language-plaintext highlighter-rouge">of</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; filter(ozone, State.Name == "District Of Columbia")
+ %&gt;% select(County.Name) %&gt;% unique
+# A tibble: 1 x 1
+           County.Name
+                 &lt;chr&gt;
+1 District of Columbia
+</code></pre></div></div>
+
+<p>I figured that normalizing the data is a pain in the butt.</p>
+
+<p>I followed the same process to plot Miami, Washington DC, San Francisco and Los Angeles.</p>
+
+<h2 id="creating-data-visualization-in-rstudio">Creating Data Visualization in Rstudio</h2>
+
+<p>Get a list of States:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unique(ozone$State.Name)
+</code></pre></div></div>
+
+<p>Find the County Name. This will give you a table of County names:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>florida.counties &lt;- filter(ozone, State.Name == "Florida") 
+%&gt;% select(County.Name) %&gt;% unique
+
+View(florida.counties)
+</code></pre></div></div>
+
+<p>In this case I found the county for Miami Dade to be <code class="language-plaintext highlighter-rouge">Miami-Dade</code>.</p>
+
+<p>Filter the data and create an object:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ozone.miami.2016 &lt;- filter(ozone, County.Name == "Miami-Dade")
+ %&gt;% select(Date.Local, Time.Local, Sample.Measurement)
+</code></pre></div></div>
+
+<p>Create a plot with this object and add titles:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plot(factor(ozone.miami.2016$Time.Local), 
+ozone.miami.2016$Sample.Measurement, main = 
+"Best Time to Run in Miami", xlab = "Hour", 
+ylab = "Ozone level in ppm")
+</code></pre></div></div>
+
+<h2 id="creating-the-plot-for-san-francisco">Creating the plot for San Francisco</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ca.counties &lt;- filter(ozone, State.Name == 
+    "California") %&gt;% select(County.Name) 
+    %&gt;% unique
+
+View(ca.counties)
+
+ozone.sf.2016 &lt;- filter(ozone, County.Name == 
+    "San Francisco") %&gt;% select(Date.Local, 
+        Time.Local, Sample.Measurement)
+
+plot(factor(ozone.sf.2016$Time.Local), 
+ozone.sf.2016$Sample.Measurement, main = 
+"Best Time to Run in San Francisco", 
+xlab = "Hour", ylab = "Ozone level in ppm")
+</code></pre></div></div>
+
+<p><img src="/assets/images/ozone-sf-2016.jpg" alt="Best time to run in San Francisco" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; summary(ozone.sf.2016$Sample.Measurement)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+0.00000 0.01600 0.02300 0.02243 0.03100 0.07000
+</code></pre></div></div>
+
+<p>Ozone levels in San Francisco:</p>
+
+<ul>
+  <li>The lowest ozone levels in San Francisco are between 5am and 7am.</li>
+  <li>The highest ozone levels are between 12pm and 3pm.</li>
+</ul>
+
+<p>est ozone levels in San Francisco are between 5am and 7am.</p>
+<ul>
+  <li>The highest ozone levels are between 12pm and 3pm.</li>
+</ul>
+
+:ET

@@ -1,0 +1,373 @@
+I"><p>How to install Sphinx and deploy to ReadTheDocs. Sphinx is used to write technical documentation, books or a structured document.</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/install-sphinx-and-readthedocs.jpg" alt="Install Sphinx and ReadTheDocs" /></p>
+
+<p>In a previous article I wrote about moving <a href="https://www.tomordonez.com/from-markdown-to-sphinx-restructuredtext.html">from Markdown to Sphinx reStructuredText</a>.</p>
+
+<p>Go to Readthedocs to see a preview of what I wanted to achieve. It has a table of contents on the sidebar and the content on the right. It’s also mobile friendly.</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/readthedocs_preview.jpg" alt="ReadTheDocs" /></p>
+
+<p>This blog uses Markdown but I have been looking to use something else to keep my diary of my studying. I have been taking online classes for the last year and I take notes using Markdown. I started school this semester and wanted to be more organized and have a way to deploy my notes somewhere.</p>
+
+<p>I followed <a href="https://www.youtube.com/watch?v=oJsUvBQyHBs" target="_blank">this video</a> to learn how to install Sphinx. Which is used to write Python documentation. But you can use it to write any type of technical documentation.</p>
+
+<p>The output formats for Sphinx are:</p>
+
+<ul>
+  <li>HTML</li>
+  <li>LaTeX (for printable PDF)</li>
+  <li>ePub</li>
+</ul>
+
+<p>The official Sphinx site has more details <a href="http://www.sphinx-doc.org/en/stable/" target="_blank">here</a>.</p>
+
+<h2 id="how-to-install-sphinx">How to Install Sphinx</h2>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">github</code> repo for your project.</p>
+
+<p>The repo won’t have any code. You can use the README file as a placeholder and will just have a link to the <code class="language-plaintext highlighter-rouge">readthedocs</code> site.</p>
+
+<p>I like to create an outer directory called <code class="language-plaintext highlighter-rouge">docs-repo</code> that contains these:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">docs</code> directory</li>
+  <li><code class="language-plaintext highlighter-rouge">env</code></li>
+  <li><code class="language-plaintext highlighter-rouge">README.md</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.gitignore</code></li>
+</ul>
+
+<p>Create the outer directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir docs-repo
+$ cd docs-repo
+</code></pre></div></div>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">docs</code> directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir docs
+</code></pre></div></div>
+
+<p>Create and activate a virtual environment</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv -p /usr/bin/python3 env
+$ source env/bin/activate
+</code></pre></div></div>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">.gitignore</code> and add:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env/
+</code></pre></div></div>
+
+<p>Initialize:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git init
+$ git remote add origin your-awesome-repo.git
+</code></pre></div></div>
+
+<p>Install Sphinx:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+../docs-repo/
+
+$ pip install sphinx sphinx-autobuild
+</code></pre></div></div>
+
+<p>Go inside <code class="language-plaintext highlighter-rouge">docs</code> and start <code class="language-plaintext highlighter-rouge">sphinx</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd docs
+$ sphinx-quickstart
+</code></pre></div></div>
+
+<p>This will start the config file and it will ask some questions.</p>
+
+<p>The first question was related to selecting the root path.</p>
+
+<p>Because I was already inside the <code class="language-plaintext highlighter-rouge">docs</code> directory. The first option was set to <code class="language-plaintext highlighter-rouge">selected root path: .</code>.</p>
+
+<p>Then I selected these options:</p>
+
+<ul>
+  <li>Separate source and build directories: <code class="language-plaintext highlighter-rouge">y</code></li>
+  <li>Name prefix for templates and static dir: <code class="language-plaintext highlighter-rouge">n</code></li>
+  <li>Project name: <code class="language-plaintext highlighter-rouge">(enter the project name you want)</code></li>
+  <li>Author name: <code class="language-plaintext highlighter-rouge">(your name)</code></li>
+  <li>Project release: <code class="language-plaintext highlighter-rouge">(up to you)</code></li>
+  <li>Project language[en]: <code class="language-plaintext highlighter-rouge">(hit enter for default)</code></li>
+  <li>Source file suffix [.rst]: <code class="language-plaintext highlighter-rouge">(hit enter for default)</code></li>
+  <li>Name your master document (without suffix) [index]: <code class="language-plaintext highlighter-rouge">(hit enter for default)</code></li>
+  <li>Do you want to use the epub builder: <code class="language-plaintext highlighter-rouge">n</code></li>
+  <li>autodoc: automatically insert docstrings from modules: <code class="language-plaintext highlighter-rouge">y</code></li>
+</ul>
+
+<p>For the rest I hit enter for the defaults.</p>
+
+<p>Then these:</p>
+
+<ul>
+  <li>Create Makefile: <code class="language-plaintext highlighter-rouge">y</code></li>
+  <li>Create windows command file: <code class="language-plaintext highlighter-rouge">n</code></li>
+</ul>
+
+<h2 id="files-created">Files Created</h2>
+
+<p>After the questions it created these files:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./source/conf.py
+./source/index.rst
+./Makefile
+</code></pre></div></div>
+
+<p>List the directories:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls
+
+build Makefile source
+</code></pre></div></div>
+
+<p>Open the <code class="language-plaintext highlighter-rouge">conf.py</code> file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim source/conf.py
+</code></pre></div></div>
+
+<p>This file shows all the options we configured.</p>
+
+<h2 id="build-the-documentation">Build the Documentation</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make html
+</code></pre></div></div>
+
+<p>Running Sphinx v1.7.7
+making output directory…
+loading pickled environment… not yet created
+building [mo]: targets for 0 po files that are out of date
+building [html]: targets for 1 source files that are out of date
+updating environment: 1 added, 0 changed, 0 removed
+reading sources… [100%] index
+looking for now-outdated files… none found
+pickling environment… done
+checking consistency… done
+preparing documents… done
+writing output… [100%] index
+generating indices… genindex
+writing additional pages… search
+copying static files… done
+copying extra files… done
+dumping search index in English (code: en) … done
+dumping object inventory… done
+build succeeded.</p>
+
+<h2 id="indexhtml">index.html</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls build/html/
+
+index.html
+</code></pre></div></div>
+
+<p>Open this file to review on the browser. I am on Linux. If you are on something else. Use your specific command or just browse to the file and open it.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xdg-open build/html/index.html
+</code></pre></div></div>
+
+<h2 id="indexrst">index.rst</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls source/
+
+index.rst
+</code></pre></div></div>
+
+<p>Open this file to review:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim source/index.rst
+</code></pre></div></div>
+
+<p>Make changes, then build again:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make html
+</code></pre></div></div>
+
+<p>Reload browser.</p>
+
+<p>Here is the <a href="https://raw.githubusercontent.com/rtfd/readthedocs.org/master/docs/index.rst" target="_blank">source code</a> of <code class="language-plaintext highlighter-rouge">index.rst</code> for <code class="language-plaintext highlighter-rouge">readthedocs</code>.</p>
+
+<p>I built my own <code class="language-plaintext highlighter-rouge">index.rst</code> based on this file. See my file at the end.</p>
+
+<h2 id="github">Github</h2>
+
+<p>Push to Github</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+../docs-repo/docs/
+
+$ cd ..
+$ ls
+
+docs env README.md
+
+$ git add .
+$ git commit -m "first commit for docs"
+$ git push -u origin master
+</code></pre></div></div>
+
+<h2 id="deploy-sphinx-to-readthedocs">Deploy Sphinx to Readthedocs</h2>
+
+<p>Go to your Readthedocs dashboard and go to “Import a Project”.</p>
+
+<ul>
+  <li>If you are not connected to Github it will ask to do so.</li>
+  <li>When you refresh, it will show a list of your repos.</li>
+  <li>Select the repo.</li>
+  <li>Edit Project Details.</li>
+  <li>It should take some moment to build the docs.</li>
+</ul>
+
+<p>You can also set your repo and your readthedocs to private.</p>
+
+<h2 id="my-indexrst-file">My index.rst file</h2>
+
+<p>It took me a while to get this right. I wanted to have this structure:</p>
+
+<p>Course Name</p>
+
+<ul>
+  <li>intro</li>
+  <li>Notes</li>
+  <li>Book</li>
+  <li>Udacity</li>
+  <li>Reading</li>
+  <li>Research</li>
+  <li>Software</li>
+</ul>
+
+<p>Course Name</p>
+
+<ul>
+  <li>same</li>
+  <li>…</li>
+</ul>
+
+<p>If you are not familiar with <code class="language-plaintext highlighter-rouge">reStructuredText</code> there are a lot of resources online. But here are a few tips:</p>
+
+<h3 id="adding-links">Adding Links</h3>
+
+<p>The format I am following is adding a link on the paragraph and adding the reference right after the paragraph. Readthedocs follows the same process.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>More `about me`_ and `my blog`_. Blabla
+more blabla.
+
+.. _about me: https://the-url-here
+.. _my blog: https://another-url-here
+</code></pre></div></div>
+
+<p>For my <code class="language-plaintext highlighter-rouge">index</code> I wanted the list of courses in bullet points and have this built into my sidebar Table of Contents.</p>
+
+<ul>
+  <li>Course 1</li>
+  <li>Course 2</li>
+  <li>…</li>
+</ul>
+
+<p>Follow this syntax to build bullet points:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:ref:`Course 1`
+:ref:`Course 1`
+</code></pre></div></div>
+
+<p>Follow this syntax to build the Table of Contents:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.. _Course 1:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Course 1
+
+   intro &lt;course1/index&gt;
+   course1/notes
+   course1/book/index
+   course1/udacity
+   course1/reading
+   course1/research
+   course1/software
+</code></pre></div></div>
+
+<p>The code follows the same tabbed whitespace as writing in Python.</p>
+
+<p>To be more organized I wanted each Course in its own directory. That’s why you see this <code class="language-plaintext highlighter-rouge">course1/notes</code>.</p>
+
+<p>The Table of Contents is built with the first headline found under <code class="language-plaintext highlighter-rouge">course1/notes</code>. In the case of that syntax.</p>
+
+<p>For <code class="language-plaintext highlighter-rouge">course1/book/index</code>. It takes the first headline inside that <code class="language-plaintext highlighter-rouge">index</code> file. This one has a subdirectory for <code class="language-plaintext highlighter-rouge">book</code> to organize it into chapters.</p>
+
+<p>For <code class="language-plaintext highlighter-rouge">intro &lt;course1/index&gt;</code>. intro is used as the name element in the table of contents.</p>
+
+<p>To test if you built your <code class="language-plaintext highlighter-rouge">index.rst</code> file correctly. Just run:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make html
+</code></pre></div></div>
+
+<p>It will read the <code class="language-plaintext highlighter-rouge">index.rst</code> file in your root path and it will show errors in the output. Then open the <code class="language-plaintext highlighter-rouge">build/html/index.html</code> file to preview.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="menu-options-showing-statics-instead-of-caption-names">Menu options showing statics instead of caption names</h3>
+
+<p>When you add the <code class="language-plaintext highlighter-rouge">toctree</code> to your <code class="language-plaintext highlighter-rouge">index.rst</code>. Such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.. toctree:
+:maxdepth: 2
+:caption: Course 1
+
+intro &lt;course1/index&gt;
+course1/notes
+</code></pre></div></div>
+
+<p>It seems to have a glitch when you click on a menu option. It will show the name of the file instead of the caption.</p>
+
+<p>In this example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>intro &lt;course1/index&gt;
+</code></pre></div></div>
+
+<p>It should have the URL pointing to <code class="language-plaintext highlighter-rouge">course1/index.rst</code> with the caption <code class="language-plaintext highlighter-rouge">intro</code>.</p>
+
+<p>I saw that upon initial configuration and creating the root <code class="language-plaintext highlighter-rouge">index.rst</code>. The menu options show up with the right caption. But when clicking on an option on the menu. The caption names would change to the file name.</p>
+
+<p>This is pretty confusing in case you have secondary indices:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Course1
+  subindex1
+  subindex2
+Course2
+  subindex1
+  subindex2
+</code></pre></div></div>
+
+<p>I don’t have a clear resolution for this but what I did was making sure that each <code class="language-plaintext highlighter-rouge">subindex</code> had:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A title
+=======
+
+A text. Followed by other types of text
+
+* such as bullet point
+</code></pre></div></div>
+
+<p>I initially had this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A title
+=======
+
+* Bullet points
+</code></pre></div></div>
+
+<p>I added a text before the bullet points then <code class="language-plaintext highlighter-rouge">make html</code>. Then it displayed the correct captions for the URL</p>
+
+<h3 id="make-html"><code class="language-plaintext highlighter-rouge">make html</code></h3>
+
+<p>When you run this command, it might show errors. Just read the output to correct those errors and then run again.
+layed the correct captions for the URL</p>
+
+<h3 id="make-html-1"><code class="language-plaintext highlighter-rouge">make html</code></h3>
+
+<p>When you run this command, it might show errors. Just read the output to correct those errors and then run again.</p>
+:ET

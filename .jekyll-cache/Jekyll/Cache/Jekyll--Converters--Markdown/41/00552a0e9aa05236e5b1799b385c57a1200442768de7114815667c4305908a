@@ -1,0 +1,278 @@
+I"c)<p>This is a regular expressions tutorial…regex heaven.</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/regular-expressions-tutorial-regex.jpg" alt="Regular Expressions Tutorial Regex Heaven" /></p>
+
+<p>Learning regular expressions will save you hours and hundreds of dollars.</p>
+
+<h2 id="problem-1-cleaning-a-massive-excel-file">Problem 1: Cleaning a Massive Excel File</h2>
+
+<ul>
+  <li>You have a massive Excel file with user data.</li>
+  <li>Maybe a product list or a contacts list.</li>
+  <li>Perhaps you want to send an email to all your contacts.</li>
+</ul>
+
+<p>To maximize your reach you might want to make sure all the email addresses are formatted correctly.</p>
+
+<h2 id="i-have-seen-this-too-many-times">I have seen this too many times:</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>johndoe@gmailcom
+marysmithyahoo.com
+</code></pre></div></div>
+
+<p>(not real emails)</p>
+
+<p>These emails will bounce because they have missing characters.</p>
+
+<h2 id="problem-2-cleaning-up-data-from-google-searches">Problem 2: Cleaning Up Data From Google Searches</h2>
+
+<p>Say that you want a list of all countries.</p>
+
+<p>You could copy/paste from Wikipedia into Excel and spend 1-2 hrs cleaning up whatever you pasted.</p>
+
+<p>That is if Excel doesn’t crash. Since Excel is not great at pasting things from the web.</p>
+
+<p>OR</p>
+
+<p><strong>You can learn Regular Expressions.</strong></p>
+
+<h2 id="a-regular-expression-aka-regex-is-a-sequence-of-characters-that-define-a-search-pattern">A Regular Expression (aka regex) is “a sequence of characters that define a search pattern”</h2>
+
+<ul>
+  <li>A sequence of characters.</li>
+  <li>That define a search pattern.</li>
+</ul>
+
+<p>A regex could find characters that make these patterns</p>
+
+<h2 id="example-marysmithyahoocom">Example: marysmithyahoo.com</h2>
+
+<ul>
+  <li><strong>Find a sequence of characters</strong>: any character up to “yahoo”</li>
+  <li><strong>That make a search pattern</strong>: any word before “yahoo” that doesn’t have the “@”.</li>
+</ul>
+
+<h2 id="requirements-for-regex">Requirements For Regex</h2>
+
+<ul>
+  <li>A (good) text editor (not word or google word)</li>
+  <li>Attention to detail (a lot of attention)</li>
+</ul>
+
+<h2 id="the-best-text-editors-for-regex">The Best Text Editors For Regex</h2>
+
+<ul>
+  <li>Sublime Text 2 (for Mac and Windows)</li>
+  <li>Vim (if you dare to)</li>
+</ul>
+
+<h2 id="basics-of-regular-expressions">Basics of Regular Expressions</h2>
+
+<p>Remember the concept:</p>
+
+<ul>
+  <li>A sequence of characters.</li>
+  <li>That define a search pattern.</li>
+</ul>
+
+<h2 id="1-regex-to-match-a-text">1. Regex to match a text</h2>
+
+<p>Open sublime and copy/paste this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apple
+application
+This is an app
+another apple
+apple
+capptain
+</code></pre></div></div>
+
+<ul>
+  <li>Type Ctrl+H or CMD+H to open the Find and Replace</li>
+  <li>Enable Regex with the button that has a period and star: .*</li>
+  <li>Type: app</li>
+  <li>It matches the pattern “app” everywhere.</li>
+</ul>
+
+<p>Even if you don’t have Regex enable it will do the same. So just wait for the magic…</p>
+
+<h2 id="2-magic-spells-of-regex">2. Magic Spells of Regex</h2>
+
+<ul>
+  <li><strong>\d</strong> Matches any digit</li>
+  <li><strong>.</strong> A period matches any character</li>
+  <li><strong>\.</strong> Used to literally match a period</li>
+  <li><strong>[A-Za-z0-9]</strong> Match from A to Z, a to z, 0 to 9</li>
+  <li><strong>+</strong> Match one or more repetitions</li>
+  <li><strong>\s</strong> Match any whitespace</li>
+  <li><strong>^</strong> Match the start of a line</li>
+  <li><strong>$</strong> Match the end of a line</li>
+</ul>
+
+<h2 id="3-please-do-not-drop-out-yet">3. Please do not drop out yet</h2>
+
+<p>I know this sounds like “code”. Might as well be in Martian.</p>
+
+<p><strong>Believe me. Regular expressions will save you hours and hundreds of dollars.</strong></p>
+
+<h2 id="4-get-a-list-of-countries-from-wikipedia">4. Get a list of countries from Wikipedia</h2>
+
+<p>Say that you need a list of all countries where Spanish is an official language.</p>
+
+<p>Open <a href="https://en.wikipedia.org/wiki/List_of_countries_where_Spanish_is_an_official_language" target="_blank">this</a> website in Google Chrome.</p>
+
+<p>I know this is a short list. But you could run into larger files to use Regex.</p>
+
+<ul>
+  <li>Right click on the list and hit “Inspect Element”</li>
+  <li>Click on the magnifying glass and click on a row on the table.</li>
+  <li>On the bottom section that shows html code. Click on an element until you find one that encloses the whole table.</li>
+  <li>Right click on that element.</li>
+  <li>Copy/ Paste into Sublime</li>
+</ul>
+
+<h2 id="5-use-regex-to-clean-up-this-code">5. Use Regex To Clean Up This Code</h2>
+
+<ul>
+  <li>Go to Sublime and open Find and Replace</li>
+  <li>Enable the Regex button</li>
+</ul>
+
+<p>Looking at this code. We need to remove everything up to where the country is.</p>
+
+<p>For example. To get “Mexico”. We need to remove all the code until we get to the word “Mexico”</p>
+
+<p>I also see that there are some HTML lines that can be easily removed with Find and Replace</p>
+
+<ul>
+  <li>Find short HTML line</li>
+  <li>Copy/Paste into Find</li>
+  <li>Replace With: (leave blank)</li>
+  <li>Replace All</li>
+</ul>
+
+<p>The Find and Replace panels will close.</p>
+
+<p>The best way is to learn the shortcuts. Go again to the top menu to see what the shortcuts are for Find and Replace.</p>
+
+<h2 id="6-remove-all-code-up-to-the-country">6. Remove all code up to the Country</h2>
+
+<p>We now see that every line starts with: <code class="language-plaintext highlighter-rouge">td style</code></p>
+
+<p>And right before the country there is a: <code class="language-plaintext highlighter-rouge">title="</code></p>
+
+<p>We could use a Regex to remove all this</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^.+title.+"&gt;
+</code></pre></div></div>
+
+<p><strong>Look how awesome this is</strong></p>
+
+<p>It found the first match and it outlines all 21 matches.</p>
+
+<h2 id="here-is-how-it-works">Here is how it works</h2>
+
+<ul>
+  <li><strong>^</strong> goes to the start of the line</li>
+  <li><strong>.</strong> matches any character</li>
+  <li><strong>+</strong> one or more times</li>
+  <li><strong>title</strong> matches the word title</li>
+  <li><strong>.</strong> matches any character after the word title</li>
+  <li><strong>“</strong> matches quotes character</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">&gt;</code></strong> matches greater than character</li>
+</ul>
+
+<p><strong>Replace With</strong>: Leave empty</p>
+
+<p><strong>Replace All.</strong></p>
+
+<h2 id="we-removed-a-lot-of-code-we-are-almost-done">We removed a lot of code. We are almost done.</h2>
+
+<p>Let’s remove everything after the less than sign: <code class="language-plaintext highlighter-rouge">&lt;</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;.+
+</code></pre></div></div>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">&lt;</code></strong> matches less than character</li>
+  <li><strong>.</strong> any character (after the <code class="language-plaintext highlighter-rouge">&lt;</code>)</li>
+  <li><strong>+</strong> one or more times</li>
+</ul>
+
+<h2 id="now-lets-remove-the-empty-lines-manually">Now let’s remove the empty lines manually.</h2>
+
+<p><strong>Wrong!</strong></p>
+
+<p>Another Regex</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^\s
+</code></pre></div></div>
+
+<ul>
+  <li><strong>^</strong> goes to the start of the line</li>
+  <li><strong>\s</strong> matches any whitespace</li>
+</ul>
+
+<p><strong>Replace With</strong>: Leave empty
+<strong>Replace All</strong></p>
+
+<h2 id="the-final-result-is-a-neat-list-of-countries">The final result is a neat list of countries</h2>
+
+<p>Using Regex for other things</p>
+
+<ul>
+  <li>Clean up a list of emails</li>
+  <li>Clean up a list of products</li>
+  <li>Extract emails from a list</li>
+  <li>Etc…</li>
+</ul>
+
+<h2 id="multiline-regex-on-mac">Multiline Regex on Mac</h2>
+
+<p>I want to get all the urls from a file that are followed by a line that has an <code class="language-plaintext highlighter-rouge">img</code> tag.
+For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a href="some-url.html"
+img
+</code></pre></div></div>
+
+<p>On the Mac this doesn’t work:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ grep 'a href=".*\n.*img'
+</code></pre></div></div>
+
+<p>This regular expression should find <code class="language-plaintext highlighter-rouge">a href</code> and any character until the end. Then find a new line and find any character on this line until <code class="language-plaintext highlighter-rouge">img</code>.</p>
+
+<p>But <code class="language-plaintext highlighter-rouge">grep</code> doesn’t work like that.</p>
+
+<h2 id="install-pcregrep">Install pcregrep</h2>
+
+<p>By default this command tool is not installed on the Mac.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$brew install pcre
+</code></pre></div></div>
+
+<p>You can read the man page by looking up:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$man pcregrep
+</code></pre></div></div>
+
+<p>To search multiple lines use the option <code class="language-plaintext highlighter-rouge">-M</code></p>
+
+<p>Such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$pcregrep -M
+</code></pre></div></div>
+
+<p>Now you can do something like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pcregrep -M 'a href=".*\n.*img'
+</code></pre></div></div>
+
+<h2 id="if-you-have-questions-or-comments-please-add-them-below">If you have questions or comments please add them below</h2>
+
+<p><img src="{{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" />
+ase add them below</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" /></p>
+:ET

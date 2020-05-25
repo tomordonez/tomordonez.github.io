@@ -1,0 +1,54 @@
+I"f<p>A short one on how to <em>install a plugin in Vim</em>.</p>
+
+<p>Install <code class="language-plaintext highlighter-rouge">Vundle</code>. More details <a href="https://github.com/VundleVim/Vundle.vim" target="_blank">here</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+</code></pre></div></div>
+
+<p>Edit the <code class="language-plaintext highlighter-rouge">.vimrc</code> file and add these lines:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set nocompatible
+filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+</code></pre></div></div>
+
+<p>This is how I <strong>install Vim plugins</strong>:</p>
+
+<ol>
+  <li>Go to a plugin that says you can install using <code class="language-plaintext highlighter-rouge">Vundle</code>.</li>
+  <li>For instance. This plugin auto saves when you are editing a file: <a href="https://github.com/907th/vim-auto-save" target="_blank">auto-save</a>.</li>
+  <li>The Github project should have a directory called <code class="language-plaintext highlighter-rouge">plugin</code>.</li>
+  <li>Add the <code class="language-plaintext highlighter-rouge">user/project</code> from Github to your <code class="language-plaintext highlighter-rouge">.vimrc</code> file. In the <code class="language-plaintext highlighter-rouge">auto-save</code> example. The user is <code class="language-plaintext highlighter-rouge">907th</code> and the project is <code class="language-plaintext highlighter-rouge">vim-auto-save</code>. I will add this line to my <code class="language-plaintext highlighter-rouge">.vimrc</code> file: <code class="language-plaintext highlighter-rouge">Plugin 907th/vim-auto-save</code> before a specific line as noted above.</li>
+  <li>Save <code class="language-plaintext highlighter-rouge">vimrc</code>. Source it with <code class="language-plaintext highlighter-rouge">:so %</code>.</li>
+  <li>List all <code class="language-plaintext highlighter-rouge">Vundle</code> plugins. Still inside Vim: <code class="language-plaintext highlighter-rouge">:PluginList</code>. Make sure the Plugin is listed. You can do <code class="language-plaintext highlighter-rouge">:q</code> to exit this view.</li>
+  <li>Inside Vim: <code class="language-plaintext highlighter-rouge">:PluginInstall</code>. This will install recently added Plugins.</li>
+</ol>
+
+<p>This particular <code class="language-plaintext highlighter-rouge">Plugin</code> for <code class="language-plaintext highlighter-rouge">auto-save</code> had a few more lines that had to be added. Depending on the <code class="language-plaintext highlighter-rouge">Plugin</code> readme page, please follow those specific instructions.</p>
+
+<p>For <code class="language-plaintext highlighter-rouge">auto-save</code>. You need to add these lines to the <code class="language-plaintext highlighter-rouge">.vimrc</code> file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
+</code></pre></div></div>
+
+<p>Here is a list of <code class="language-plaintext highlighter-rouge">Vim</code> plugins:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://vim-scripts.org/vim/scripts.html
+</code></pre></div></div>
+
+<p>Vim` plugins:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://vim-scripts.org/vim/scripts.html
+</code></pre></div></div>
+
+:ET

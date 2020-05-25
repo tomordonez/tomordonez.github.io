@@ -1,0 +1,360 @@
+I"+9<p>Follow this tutorial to generate a random number with Linux and Bash.</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/generate-random-number-linux.jpg" alt="Generate a Random Number in Linux" /></p>
+
+<p>This is what I was doing to give you some context.</p>
+
+<p>I wanted to automate loading images into a funnel to get them auto-published on a social media channel.</p>
+
+<p>Pictures of vintage cars.</p>
+
+<p>Each car had 4-5 images. Front, back, side, inside, etc.</p>
+
+<h2 id="source">Source</h2>
+
+<p>I didn’t want the images to be published sequentially like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>car1-image1.jpg
+car1-image2.jpg
+car1-image3.jpg
+car2-image1.jpg
+car2-image2.jpg
+car2-image3.jpg
+</code></pre></div></div>
+
+<p>I loaded the images in a different order such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>car2-image2.jpg
+car1-image3.jpg
+</code></pre></div></div>
+
+<p>But the tool wouldn’t publish the images like that. It would publish them in alphabetical order.</p>
+
+<h2 id="solution-1">Solution 1</h2>
+
+<p>Rename 600 images manually to a random number such as:</p>
+
+<p>Rename <code class="language-plaintext highlighter-rouge">car1-image1.jpg</code> to <code class="language-plaintext highlighter-rouge">image20.jpg</code>
+Rename <code class="language-plaintext highlighter-rouge">car1-image2.jpg</code> to <code class="language-plaintext highlighter-rouge">image5.jpg</code></p>
+
+<p>…and so on.</p>
+
+<p>Estimated time: 4 hours.</p>
+
+<h2 id="solution-2">Solution 2</h2>
+
+<p>Creating a bash script that can batch-rename files in Linux.</p>
+
+<p>Estimated time: 10 seconds.</p>
+
+<h2 id="batch-rename-files-in-linux">Batch Rename Files in Linux</h2>
+
+<p>This is the script I wrote. I will follow with more details.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/bin/bash
+
+for file in *.jpg; do
+  number="$((($RANDOM % 10) + 1))"
+  filetype=".jpg"
+  mv "$file" "$number$filetype"
+done
+</code></pre></div></div>
+
+<h2 id="the-random-function-in-linux">The Random function in Linux</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$RANDOM is a shell variable that gives you a random number between 0 and 32768.
+</code></pre></div></div>
+
+<p>This is some of the source code as seen <a href="http://www.bashcookbook.com/bashinfo/source/bash-4.0/variables.c" target="_blank">here</a>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* Returns a pseudo-random number between 0 and 32767. */
+static int
+brand ()
+{
+#if 0
+  rseed = rseed * 1103515245 + 12345;
+  return ((unsigned int)((rseed &gt;&gt; 16) &amp; 32767)); /* was % 32768 */
+#else
+  /* From "Random number generators: good ones are hard to find",
+     Park and Miller, Communications of the ACM, vol. 31, no. 10,
+     October 1988, p. 1195. filtered through FreeBSD */
+  long h, l;
+
+  if (rseed == 0)
+    seedrand ();
+  h = rseed / 127773;
+  l = rseed % 127773;
+  rseed = 16807 * l - 2836 * h;
+#if 0
+  if (rseed &lt; 0)
+    rseed += 0x7fffffff;
+#endif
+  return ((unsigned int)(rseed &amp; 32767)); /* was % 32768 */
+#endif
+}
+</code></pre></div></div>
+
+<h2 id="limit-the-random-number-to-a-range">Limit The Random Number To A Range</h2>
+
+<p>To limit the random number you need to use the <code class="language-plaintext highlighter-rouge">modulo</code> operator aka <code class="language-plaintext highlighter-rouge">%</code>
+Such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>number="$((($RANDOM % 10) + 1))"
+</code></pre></div></div>
+
+<p>Try this from the inside out so you understand what works and what doesn’t.</p>
+
+<p>Run this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo $RANDOM
+</code></pre></div></div>
+
+<p>I got this <code class="language-plaintext highlighter-rouge">29811</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$RANDOM
+</code></pre></div></div>
+
+<p>This will give you something like this: <code class="language-plaintext highlighter-rouge">21422: command not found</code>. It will give you a random number but it will complain.</p>
+
+<p>If you do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RANDOM
+</code></pre></div></div>
+
+<p>It will say <code class="language-plaintext highlighter-rouge">RANDOM: command not found</code></p>
+
+<p>So we know we cannot use <code class="language-plaintext highlighter-rouge">RANDOM</code> without the dollar sign.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$RANDOM + 1
+</code></pre></div></div>
+
+<p>This will give you something like: <code class="language-plaintext highlighter-rouge">24349: command not found</code>. It looks like is doing the math but it complains.</p>
+
+<p>Although the proper way to print something to output is with <code class="language-plaintext highlighter-rouge">echo</code>.</p>
+
+<h2 id="doing-math-on-the-shell">Doing math on the shell</h2>
+
+<p>The proper geek name for this is <a href="http://www.tldp.org/LDP/abs/html/arithexp.html" target="_blank">arithmetic expansion</a>.</p>
+
+<p>To do math on the shell you have to enclose the operation in double parenthesis.</p>
+
+<p>Such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "$((2+2))"
+</code></pre></div></div>
+
+<p>This will result in <code class="language-plaintext highlighter-rouge">4</code></p>
+
+<p>If you do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo 2+2
+</code></pre></div></div>
+
+<p>You will get: <code class="language-plaintext highlighter-rouge">2+2</code></p>
+
+<p>If you do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo (2+2)
+</code></pre></div></div>
+
+<p>You will get: <code class="language-plaintext highlighter-rouge">-bash:syntax error near unexpected token '2+2'</code></p>
+
+<p>If you do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo ((2+2))
+</code></pre></div></div>
+
+<p>You will get: <code class="language-plaintext highlighter-rouge">-bash:syntax error near unexpected token '('</code></p>
+
+<p>If you do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo $((2+2))
+</code></pre></div></div>
+
+<p>You will get: <code class="language-plaintext highlighter-rouge">4</code></p>
+
+<p>But the proper syntax for naming variables is <code class="language-plaintext highlighter-rouge">"$"</code>. A dollar sign inside double quotes.</p>
+
+<p>Now for sure we know this will work:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "$((4-2))"
+</code></pre></div></div>
+
+<h2 id="modulo-operator">Modulo operator</h2>
+
+<p>Wikipedia is an expert at explaining things in <a href="https://en.wikipedia.org/wiki/Modulo_operation" target="_blank">common terms</a>. Check this out:</p>
+
+<blockquote>Given two positive numbers, a (the dividend) and n (the divisor), a modulo n (abbreviated as a mod n) is the remainder of the Euclidean division of a by n</blockquote>
+
+<p>Got it right?</p>
+
+<p>They make it up to you with 2 simple examples:</p>
+
+<ul>
+  <li>“5 mod 2” would evaluate to 1 because 5 divided by 2 leaves a quotient of 2 and a remainder of 1.</li>
+  <li>“9 mod 3” would evaluate to 0 because the division of 9 by 3 has a quotient of 3 and leaves a remainder of 0.</li>
+</ul>
+
+<p>The modulo operator results in the remainder of the operation.</p>
+
+<p>Do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "$((4 % 2))".
+</code></pre></div></div>
+
+<p>This will result in <code class="language-plaintext highlighter-rouge">0</code>.</p>
+
+<p>4 divided by 2 results in 2 and a remainder of 0.</p>
+
+<p>Now do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "$((2 % 4))".
+</code></pre></div></div>
+
+<p>This will result in <code class="language-plaintext highlighter-rouge">2</code>.</p>
+
+<p>2 divided by 4 results in 0 and a remainder of 2.</p>
+
+<p>If the number on the left is smaller than the number on the right. The remainder will always be the number on the left.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "$((1 % 10))"&lt;/code&gt;. Will result in &lt;code&gt;1, because 1 divided by 10 is 0 with a remainder of 1.
+</code></pre></div></div>
+
+<p>Here is a good video about <a href="https://www.khanacademy.org/math/arithmetic-home/multiply-divide/remainders/v/long-division-with-remainder-example" target="_blank">long division</a> because as simple as this math may seem, it can easily get you all confused.</p>
+
+<h2 id="generate-a-random-number-within-a-range">Generate a Random number within a range</h2>
+
+<p>So…</p>
+
+<p>How does this work?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"$((($RANDOM % 10) + 1))"
+</code></pre></div></div>
+
+<p>This generates a random number from 1 to 10.</p>
+
+<p>Let’s take it from the inside out:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "$(($RANDOM % 10))"
+</code></pre></div></div>
+
+<p>If <code class="language-plaintext highlighter-rouge">$RANDOM</code> gives you this number: <code class="language-plaintext highlighter-rouge">22064</code>. Then the result is <code class="language-plaintext highlighter-rouge">4</code>.</p>
+
+<p>Let’s do some long division.</p>
+
+<p>22064 divided by 10. We know the answer is 2206.4 and the remainder is 4. But sometimes this computation is not so easy. For instance 22064 divided by 24.</p>
+
+<h2 id="long-division-of-random-number-22064-by-10">Long Division of Random Number 22064 by 10</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   _______
+10 | 22064
+</code></pre></div></div>
+
+<p>Does 10 fit into 2? No.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     0
+   _______
+10 | 22064
+</code></pre></div></div>
+
+<p>Does 10 fit into 22? Yes. 10 times 2 is 20. Subtract 20 from 22. Remainder is 2.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     02
+   _______
+10 | 22064
+    -20
+    ---
+      2
+</code></pre></div></div>
+
+<p>Does 10 fit into 2? No. So bring down the 0. Does 10 fit into 20? Yes. 10 times 2 is 20. Subtract 20 from 20. Remainder is 0.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     022
+   _______
+10 | 22064
+    -20
+    ---
+      20
+     -20
+     ---
+       0
+</code></pre></div></div>
+
+<p>Does 10 fit into 0? No. Bring down the 6. Does 10 fit into 6? No. Bring down the 4. Does 10 fit into 64? Yes.</p>
+
+<p>10 times 6 is 60. Subtract 60 from 64.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     02206
+   _______
+10 | 22064
+    -20
+    ---
+      20
+     -20
+     ---
+       064
+       -60
+       ---
+         4
+</code></pre></div></div>
+
+<p>The remainder is 4.</p>
+
+<p>This operation will result in <code class="language-plaintext highlighter-rouge">4</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "$((22064 % 10))"
+</code></pre></div></div>
+
+<p>Therefore this operation will result in <code class="language-plaintext highlighter-rouge">64</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "$((22064 % 100))"
+</code></pre></div></div>
+
+<p>We can conclude that to generate a random number from 0 to 10. We have to put a <code class="language-plaintext highlighter-rouge">10</code> on the right side of the modulo. Or to generate a random number from 0 to 100. We have to put a <code class="language-plaintext highlighter-rouge">100</code>.</p>
+
+<p>Going back to this example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "$(($RANDOM % 10))"
+</code></pre></div></div>
+
+<p>What if we don’t want a <code class="language-plaintext highlighter-rouge">0</code>. Which would be the case if the number ($RANDOM) on the left (dividend) is a multiple of 10 (divisor)</p>
+
+<p>If <code class="language-plaintext highlighter-rouge">$RANDOM</code> is 10 or 20 or 50 or 100. Then the operation above will result in a remainder of zero.</p>
+
+<p>We can just add a one <code class="language-plaintext highlighter-rouge">1</code> to the result of the operation. Such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"$((($RANDOM % 10) + 1))"
+</code></pre></div></div>
+
+<p>This will result in 1:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "$(((50 % 10) + 1))".
+</code></pre></div></div>
+
+<h2 id="why-are-there-3-parenthesis">Why are there 3 parenthesis?</h2>
+
+<p>This is the 1st parenthesis:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(50 % 10)
+</code></pre></div></div>
+
+<p>This is the 2nd parenthesis:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>((50 % 10) + 1)
+</code></pre></div></div>
+
+<p>The 3rd parenthesis is used for the <code class="language-plaintext highlighter-rouge">arithmetic expansion</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(((50 % 10) + 1))
+
+
+
+((50 % 10) + 1)
+</code></pre></div></div>
+
+<p>The 3rd parenthesis is used for the <code class="language-plaintext highlighter-rouge">arithmetic expansion</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(((50 % 10) + 1))
+</code></pre></div></div>
+
+:ET

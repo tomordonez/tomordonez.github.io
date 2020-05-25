@@ -1,0 +1,498 @@
+I"\h<p>This Python Lambda is a very weird concept. I almost grok it.</p>
+
+<p>I was trying to parse HTML comments using BeautifulSoup.</p>
+
+<p>After a quick Google search I found this solution:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>commments = soup.find_all(text=lambda text:isinstance(text, Comment))
+</code></pre></div></div>
+
+<p>Say what?</p>
+
+<p>You lost me at <code class="language-plaintext highlighter-rouge">lambda</code>.</p>
+
+<h2 id="here-is-an-easier-lambda-example">Here is an easier lambda example.</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def sum(x, y):
+    return x + y
+</code></pre></div></div>
+
+<p>This is easy right? Just a simple function that takes <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> and returns the <code class="language-plaintext highlighter-rouge">sum</code>.</p>
+
+<p>What if one day you say “I bet there is a one-liner for this”.</p>
+
+<p>And I am not talking about this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def sum(x, y): return x + y
+</code></pre></div></div>
+
+<p>I am talking about some mutant Python code skill that when you write it everybody in the room just faints.</p>
+
+<h2 id="python-lambda">Python Lambda</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sum = lambda x,y: x + y
+</code></pre></div></div>
+
+<p>Did you see that?</p>
+
+<p>From this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def sum(x, y):
+    return x + y
+</code></pre></div></div>
+
+<p>To this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sum = lambda x,y: x + y
+</code></pre></div></div>
+
+<p>I read it like this:</p>
+
+<p>“Invoke the powers of Lambda and take the parameters <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code>. Add them together and return the value. Assign the value to <code class="language-plaintext highlighter-rouge">sum</code>”.</p>
+
+<h2 id="python-lambda-details">Python Lambda Details</h2>
+
+<p>A Lambda function is an anonymous function. A function defined without a name.</p>
+
+<p>Your usual function is defined with <code class="language-plaintext highlighter-rouge">def</code>. While anonymous functions are defined with <code class="language-plaintext highlighter-rouge">lambda</code>.</p>
+
+<p>The syntax of the lambda function is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lambda arguments: expression
+</code></pre></div></div>
+
+<ul>
+  <li>Any number of arguments</li>
+  <li>One expression to rule them all</li>
+  <li>The expression needs to return a value</li>
+</ul>
+
+<h2 id="calling-lambda-helloooo-lambda">Calling Lambda Helloooo Lambda</h2>
+
+<p>This works:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; lambda1 = lambda x: x**2
+&gt;&gt;&gt; lambda1(3)
+9
+</code></pre></div></div>
+
+<h2 id="lambda-beautifulsoup-and-html-comments">Lambda, BeautifulSoup and HTML Comments</h2>
+
+<p>This is where I was tripping a bit.</p>
+
+<p>Given a <code class="language-plaintext highlighter-rouge">soup</code> object.</p>
+
+<p>And an <code class="language-plaintext highlighter-rouge">HTML</code> such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- Python is awesome --&gt;
+&lt;!-- Lambda is confusing --&gt;
+&lt;!-- name="Homer Simpson" --&gt;
+&lt;title&gt;I am grook&lt;/title&gt;
+&lt;h1&gt;Homer groks Lambda&lt;/h1&gt;
+&lt;p&gt;Lolcats&lt;/p&gt;
+&lt;a href="https://www.tomordonez.com"&gt;I grok Lambda too&lt;/a&gt;
+&lt;a href="https://twitter.com/tomordonez"&gt;I grok Twitter&lt;/a&gt;
+</code></pre></div></div>
+
+<p>I wanted to extract the text from the <code class="language-plaintext highlighter-rouge">HTML</code> comments.</p>
+
+<p><code class="language-plaintext highlighter-rouge">BeautifulSoup</code> has a module called <code class="language-plaintext highlighter-rouge">Comment</code> that is used for this.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from bs4 import Comment
+</code></pre></div></div>
+
+<p>The solution from StackOverflow says that to extract the comments to a list. You need <code class="language-plaintext highlighter-rouge">lambda</code> and the <code class="language-plaintext highlighter-rouge">isinstance</code> function.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>comments = soup.find_all(text=lambda text: isinstance(text, Comment))
+</code></pre></div></div>
+
+<h2 id="beautifulsoup-and-lambda">BeautifulSoup and Lambda</h2>
+
+<p>Keep as reference the short <code class="language-plaintext highlighter-rouge">HTML</code> example above.</p>
+
+<p>The “find all HTML comments code” starts with <code class="language-plaintext highlighter-rouge">find_all</code>.</p>
+
+<p>Some people keep using <code class="language-plaintext highlighter-rouge">findAll</code> too. But the new syntax is <code class="language-plaintext highlighter-rouge">find_all</code> to comply with <code class="language-plaintext highlighter-rouge">PEP8</code>. Using <code class="language-plaintext highlighter-rouge">underscores</code> and not <code class="language-plaintext highlighter-rouge">camelCase</code>.</p>
+
+<p>In <code class="language-plaintext highlighter-rouge">BeautifulSoup</code>, the <code class="language-plaintext highlighter-rouge">find_all</code> method, searches for all <code class="language-plaintext highlighter-rouge">tags</code> in the <code class="language-plaintext highlighter-rouge">soup</code> object.</p>
+
+<h2 id="using-find_all">Using <code class="language-plaintext highlighter-rouge">find_all()</code></h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find_all('a')
+[&lt;a href="https://www.tomordonez.com"&gt;I grok Lambda too&lt;/a&gt;,
+&lt;a href="https://twitter.com/tomordonez"&gt;I grok Twitter&lt;/a&gt;]
+</code></pre></div></div>
+
+<p>Will search for all <code class="language-plaintext highlighter-rouge">a</code> anchor tags and return a <code class="language-plaintext highlighter-rouge">list</code> of <code class="language-plaintext highlighter-rouge">tag</code> objects.</p>
+
+<h2 id="using-find">Using <code class="language-plaintext highlighter-rouge">find</code></h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find('a')
+&lt;a href="https://www.tomordonez.com"&gt;I grok Lambda too&lt;/a&gt;
+</code></pre></div></div>
+
+<p>Will only search for one <code class="language-plaintext highlighter-rouge">a</code> anchor tag and return a <code class="language-plaintext highlighter-rouge">tag</code> object.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;class 'bs4.element.Tag'&gt;
+</code></pre></div></div>
+
+<p>The default search method of a <code class="language-plaintext highlighter-rouge">soup</code> object is <code class="language-plaintext highlighter-rouge">find_all</code> so you can also do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup('a')
+[&lt;a href="https://www.tomordonez.com"&gt;I grok Lambda too&lt;/a&gt;,
+&lt;a href="https://twitter.com/tomordonez"&gt;I grok Twitter&lt;/a&gt;]
+</code></pre></div></div>
+
+<p>This will also return a <code class="language-plaintext highlighter-rouge">list</code> of <code class="language-plaintext highlighter-rouge">a</code> tags.</p>
+
+<p>I guess the difference of using <code class="language-plaintext highlighter-rouge">find_all</code> and <code class="language-plaintext highlighter-rouge">find</code> is about returning a list of results or returning just one result.</p>
+
+<p>In an <code class="language-plaintext highlighter-rouge">HTML</code> document there is only one <code class="language-plaintext highlighter-rouge">title</code> tag.</p>
+
+<p>Why would you use <code class="language-plaintext highlighter-rouge">find_all</code>? You wouldn’t.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find('title')
+&lt;title&gt;I am grook&lt;/title&gt;
+</code></pre></div></div>
+
+<p>If you use this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup('title')
+</code></pre></div></div>
+
+<p>It will default to using <code class="language-plaintext highlighter-rouge">find_all</code>.</p>
+
+<h2 id="anchor-tags-and-attributes">Anchor Tags and Attributes</h2>
+
+<p>In <code class="language-plaintext highlighter-rouge">BeautifulSoup</code> the attributes of an anchor tag can be accessed as a <code class="language-plaintext highlighter-rouge">dictionary</code>.</p>
+
+<p>Using <code class="language-plaintext highlighter-rouge">find</code> will only return the 1st value it finds.:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; anchor = soup.find('a')
+&gt;&gt;&gt; anchor
+&lt;a href="https://www.tomordonez.com"&gt;I grok Lambda too&lt;/a&gt;
+</code></pre></div></div>
+
+<p>To get the <code class="language-plaintext highlighter-rouge">string</code> from <code class="language-plaintext highlighter-rouge">href</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; anchor['href']
+https://www.tomordonez.com
+</code></pre></div></div>
+
+<p>The attributes of the anchor tag are defined as a dictionary such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'href': 'https://www.tomordonez.com'}
+</code></pre></div></div>
+
+<p>Which means that you can find a specific tag that has attributes such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>soup.find('tag_name', attrs={'key': 'value'})
+</code></pre></div></div>
+
+<h2 id="anchor-tags-and-strings">Anchor Tags and Strings</h2>
+
+<p>By default <code class="language-plaintext highlighter-rouge">find_all</code> and <code class="language-plaintext highlighter-rouge">find</code> are looking for <code class="language-plaintext highlighter-rouge">HTML</code> tags.</p>
+
+<p>What about <code class="language-plaintext highlighter-rouge">strings</code> such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I grok Lambda too
+</code></pre></div></div>
+
+<p>Which is inside of:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="https://www.tomordonez.com"&gt;I grok Lambda too&lt;/a&gt;
+</code></pre></div></div>
+
+<p>You can use the <code class="language-plaintext highlighter-rouge">string</code> argument.</p>
+
+<p>In a previous version of <code class="language-plaintext highlighter-rouge">BeautifulSoup</code> it was called <code class="language-plaintext highlighter-rouge">text</code>. They changed it to <code class="language-plaintext highlighter-rouge">string</code>.</p>
+
+<p>You could do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find(string='I grok Lambda too')
+"I grok Lambda too"
+</code></pre></div></div>
+
+<p>For this example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;title&gt;I am grook&lt;/title&gt;
+</code></pre></div></div>
+
+<p>You can do this. Which uses <code class="language-plaintext highlighter-rouge">find</code> to search for the tag <code class="language-plaintext highlighter-rouge">title</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find('title').string
+"I am grook"
+</code></pre></div></div>
+
+<p>Or this also works. Which uses the argument <code class="language-plaintext highlighter-rouge">string</code> to search for strings instead of tags:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find(string="I am grook")
+"I am grook"
+</code></pre></div></div>
+
+<h2 id="weird-lambda-code">Weird Lambda code</h2>
+
+<p>Let’s review that lambda code again to find <code class="language-plaintext highlighter-rouge">HTML</code> comments:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>comments = soup.find_all(text=lambda text: isinstance(text, Comment))
+</code></pre></div></div>
+
+<p>First of all <code class="language-plaintext highlighter-rouge">text=</code> is not used anymore. You should use <code class="language-plaintext highlighter-rouge">string=</code>.</p>
+
+<p>Let’s change that:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>comments = soup.find_all(string=lambda text: isinstance(text, Comment))
+</code></pre></div></div>
+
+<p>Now, <code class="language-plaintext highlighter-rouge">text</code> is just a variable. Which in this case is not a really good name. We are not looking for any text, we are looking for <code class="language-plaintext highlighter-rouge">HTML</code> comments. Let’s change that:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>comments = soup.find_all(string=lambda html_comment: isinstance(html_comment, Comment))
+</code></pre></div></div>
+
+<h2 id="what-is-comment">What is <code class="language-plaintext highlighter-rouge">Comment</code>?</h2>
+
+<p><code class="language-plaintext highlighter-rouge">BeautifulSoup</code> has a module called <code class="language-plaintext highlighter-rouge">Comment</code> that helps you find <code class="language-plaintext highlighter-rouge">HTML</code> comments.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from bs4 import Comment
+</code></pre></div></div>
+
+<h2 id="what-is-isinstance">What is <code class="language-plaintext highlighter-rouge">isinstance</code>?</h2>
+
+<p><code class="language-plaintext highlighter-rouge">isinstance</code> is a Python built-in function.</p>
+
+<p>The syntax is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>isinstance(object, classinfo)
+</code></pre></div></div>
+
+<p>It returns <code class="language-plaintext highlighter-rouge">True</code> if the object argument is an <code class="language-plaintext highlighter-rouge">instance</code> of the <code class="language-plaintext highlighter-rouge">classinfo</code> argument.</p>
+
+<p>And you could test it like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; isinstance('Homer', str)
+True
+&gt;&gt;&gt; isinstance('Homer', int)
+False
+</code></pre></div></div>
+
+<p>Which means that this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>isinstance(html_comment, Comment)
+</code></pre></div></div>
+
+<p>Returns <code class="language-plaintext highlighter-rouge">True</code> or <code class="language-plaintext highlighter-rouge">False</code>…</p>
+
+<p>“Is <code class="language-plaintext highlighter-rouge">html_comment</code> an <code class="language-plaintext highlighter-rouge">instance</code> of the <code class="language-plaintext highlighter-rouge">Comment</code> object?”</p>
+
+<p>The result will be either <code class="language-plaintext highlighter-rouge">True</code> or <code class="language-plaintext highlighter-rouge">False</code>.</p>
+
+<h2 id="lambda-function">Lambda function</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lambda html_comment: isinstance(html_comment, Comment)
+</code></pre></div></div>
+
+<p>This is the same as doing this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def comments(html_comment):
+    isinstance(html_comment, Comment)
+</code></pre></div></div>
+
+<p>Putting this together:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>soup.find_all(string=lambda html_comment: isinstance(html_comment, Comment))
+</code></pre></div></div>
+
+<p>This reads as:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">find_all</code> strings</li>
+  <li>Pass the <code class="language-plaintext highlighter-rouge">string</code> as an argument of the <code class="language-plaintext highlighter-rouge">lambda</code> function.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">string</code> uses the argument <code class="language-plaintext highlighter-rouge">html_comment</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">isinstance</code> says “Is <code class="language-plaintext highlighter-rouge">html_comment</code> an instance of <code class="language-plaintext highlighter-rouge">Comment</code>?”</li>
+  <li>If it is then return that <code class="language-plaintext highlighter-rouge">string</code>.</li>
+</ul>
+
+<h2 id="finding-html-comments-in-beautifulsoup">Finding HTML Comments in BeautifulSoup</h2>
+
+<p>To summarize.</p>
+
+<p>Given this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from bs4 import BeautifulSoup, Comment
+
+html = '''
+&lt;!-- Python is awesome --&gt;
+&lt;!-- Lambda is confusing --&gt;
+&lt;!-- name="Homer Simpson" --&gt;
+&lt;title&gt;I am grook&lt;/title&gt;
+&lt;h1&gt;Homer groks Lambda&lt;/h1&gt;
+&lt;p&gt;Lolcats&lt;/p&gt;
+&lt;a href="https://www.tomordonez.com"&gt;I grok Lambda too&lt;/a&gt;
+&lt;a href="https://twitter.com/tomordonez"&gt;I grok Twitter&lt;/a&gt;
+'''
+</code></pre></div></div>
+
+<p>We create a soup object:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>soup = BeautifulSoup(html, 'html.parser')
+</code></pre></div></div>
+
+<p>Using <code class="language-plaintext highlighter-rouge">find_all</code>, which is the default search method for <code class="language-plaintext highlighter-rouge">soup</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find_all('title')
+[&lt;title&gt;I am grook&lt;/title&gt;]
+</code></pre></div></div>
+
+<p>Keep in mind that <code class="language-plaintext highlighter-rouge">find_all</code> will always return a <code class="language-plaintext highlighter-rouge">list</code> of tag objects.</p>
+
+<p>And it’s the same as using this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup('title')
+[&lt;title&gt;I am grook&lt;/title&gt;]
+</code></pre></div></div>
+
+<p>Getting the string out of <code class="language-plaintext highlighter-rouge">title</code>. Remember that right now we have a <code class="language-plaintext highlighter-rouge">list</code> with one element.</p>
+
+<p>If you do this. It won’t work:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup('title').string
+Traceback...
+...
+Did you call find_all() when you
+meant to call find()?
+</code></pre></div></div>
+
+<p>This works:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup('title')[0].string
+'I am grook'
+</code></pre></div></div>
+
+<p>But it’s weird right?</p>
+
+<p>If there is only one <code class="language-plaintext highlighter-rouge">title</code> on the <code class="language-plaintext highlighter-rouge">HTML</code> then just use <code class="language-plaintext highlighter-rouge">find</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find('title')
+&lt;title&gt;I am grook&lt;/title&gt;
+</code></pre></div></div>
+
+<p>This doesn’t return a <code class="language-plaintext highlighter-rouge">list</code>. But only searches for the 1st result it finds.</p>
+
+<p>This is the same as using this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.title
+&lt;title&gt;I am grook&lt;/title&gt;
+</code></pre></div></div>
+
+<p>To get the <code class="language-plaintext highlighter-rouge">string</code>. These two do the same:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find('title').string
+&gt;&gt;&gt; soup.title.string
+</code></pre></div></div>
+
+<p>It will give you:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'I am grook'
+</code></pre></div></div>
+
+<h2 id="to-find-or-to-find_all-thats-the-question">To <code class="language-plaintext highlighter-rouge">find</code> or to <code class="language-plaintext highlighter-rouge">find_all</code>. That’s the question</h2>
+
+<p>The shorthand of <code class="language-plaintext highlighter-rouge">find_all</code> is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup('title')
+</code></pre></div></div>
+
+<p>The shorthand of <code class="language-plaintext highlighter-rouge">find</code> is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.title
+</code></pre></div></div>
+
+<p>It’s easy to get confused by this optimization.</p>
+
+<p>It’s better to just use the name of the method.</p>
+
+<h2 id="finding-attributes">Finding attributes</h2>
+
+<p>The methods <code class="language-plaintext highlighter-rouge">find_all</code> and <code class="language-plaintext highlighter-rouge">find</code> search for tags.</p>
+
+<p>Attributes can be accessed as dictionaries.</p>
+
+<p>Given:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="https://twitter.com/tomordonez"&gt;I grok Twitter&lt;/a&gt;
+&lt;a href="https://www.tomordonez.com" name="Awesome"&gt;I grok Lambda too&lt;/a&gt;
+</code></pre></div></div>
+
+<p>For the second <code class="language-plaintext highlighter-rouge">a</code> anchor, the attributes dictionary is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'href': 'https://www.tomordonez.com', 'name': 'Awesome'}
+</code></pre></div></div>
+
+<p>Find an anchor tag with a specific attribute:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find('a', attrs={'name': 'Awesome'})
+&lt;a href="https://www.tomordonez.com" name="Awesome"&gt;I grok Lambda too&lt;/a&gt;
+</code></pre></div></div>
+
+<p>Then to access the <code class="language-plaintext highlighter-rouge">href</code> you could do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; anchor_tag = soup.find('a', attrs={'name': 'Awesome'})
+&gt;&gt;&gt; anchor_tag
+&lt;a href="https://www.tomordonez.com" name="Awesome"&gt;I grok Lambda too&lt;/a&gt;
+
+&gt;&gt;&gt; anchor['href']
+'https://www.tomordonez.com'
+</code></pre></div></div>
+
+<p>Or all in one:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find('a', attrs={'name': 'Awesome'})['href']
+</code></pre></div></div>
+
+<h2 id="finding-strings">Finding Strings</h2>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">string</code> argument:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find(string="I grok Lambda")
+'I grok Lambda'
+</code></pre></div></div>
+
+<p>If you do this. It won’t work:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find(string="I ")
+</code></pre></div></div>
+
+<p>But you can use a regular expression:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find(string = re.compile(r'^I'))
+'I grok Lambda'
+</code></pre></div></div>
+
+<p>You can also pass a function to the <code class="language-plaintext highlighter-rouge">string</code> argument</p>
+
+<h2 id="passing-a-lambda-function-to-the-string-argument">Passing a Lambda function to the string argument</h2>
+
+<p>Given:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- Python is awesome --&gt;
+&lt;!-- Lambda is confusing --&gt;
+&lt;!-- name="Homer Simpson" --&gt;
+</code></pre></div></div>
+
+<p>To get only the 1st comment you can use <code class="language-plaintext highlighter-rouge">find</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find(string = lambda html_comment: isinstance(html_comment, Comment))
+' Python is awesome '
+</code></pre></div></div>
+
+<p>To get a <code class="language-plaintext highlighter-rouge">list</code> of comments then use <code class="language-plaintext highlighter-rouge">find_all</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; soup.find_all(string = lambda html_comment: isinstance(html_comment, Comment))
+[' Python is awesome ', ' Lambda is confusing ', ' name="Homer Simpson"']
+</code></pre></div></div>
+
+<p>But keep in mind in this case the <code class="language-plaintext highlighter-rouge">HTML</code> comments have leading and trailing whitespace. You can just use the <code class="language-plaintext highlighter-rouge">strip()</code> method.</p>
+
+<p>g and trailing whitespace. You can just use the <code class="language-plaintext highlighter-rouge">strip()</code> method.</p>
+
+:ET

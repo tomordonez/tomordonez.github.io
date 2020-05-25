@@ -1,0 +1,409 @@
+I"�J<p>From zero to hero in Linux is a tutorial to learn the command line and basic Linux commands.</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/from-zero-to-hero-linux.jpg" alt="From Zero to Hero in Linux" /></p>
+
+<p>This is a great tutorial if you are:</p>
+
+<ul>
+  <li>Learning a programming language</li>
+  <li>Growing tech teams</li>
+  <li>Interested in Linux</li>
+</ul>
+
+<h2 id="your-computer-setup">Your computer setup</h2>
+
+<p>These commands are applicable if you are on Mac or Linux.</p>
+
+<p>If you are on Windows. I recommend that you install Virtualbox and Linux.</p>
+
+<p>Follow the setup details on <a href="https://www.tomordonez.com/sourcing-twitter-api.html" target="_blank">this</a> page if you are on Mac or Windows.</p>
+
+<h2 id="video-tutorial">Video Tutorial</h2>
+
+<div class="videoWrapper">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/CjlRWA6wqpI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<h2 id="open-the-terminal">Open the Terminal</h2>
+
+<p>The Terminal is the interface to talk to the computer.</p>
+
+<p>If you are on Mac. Open <code class="language-plaintext highlighter-rouge">iterm2</code>. If you are on Linux (Virtualbox on Windows). Search for <code class="language-plaintext highlighter-rouge">Terminal</code>.</p>
+
+<p>The prompt will always show a dollar sign <code class="language-plaintext highlighter-rouge">$</code> with your username and computer name such as <code class="language-plaintext highlighter-rouge">user@computer:$</code>.</p>
+
+<p>You can change this prompt to show just a dollar sign <code class="language-plaintext highlighter-rouge">$</code>. And doing this customization is helpful once you start typing long commands.</p>
+
+<p>Let’s look at some Linux commands.</p>
+
+<h2 id="print-working-directory">Print working directory:</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+</code></pre></div></div>
+
+<p>This command is used to show the full path of the current directory.</p>
+
+<h2 id="list-contents">List contents:</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls
+</code></pre></div></div>
+
+<p>This one is used to show the contents of the current directory.</p>
+
+<p>To know more about how to use a command put the word <code class="language-plaintext highlighter-rouge">man</code> before a commmand such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ man ls
+</code></pre></div></div>
+
+<p>This is called the <code class="language-plaintext highlighter-rouge">manual page</code> aka <code class="language-plaintext highlighter-rouge">man page</code>.</p>
+
+<p>To navigate this window you can use the arrows up and down or navigate using the keyboard ala <code class="language-plaintext highlighter-rouge">vim style</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Vim</code> is a text editor that you can open within the Terminal. It has a big learning curve because you cannot use the mouse and only the keyboard.</p>
+
+<p>If you want to navigate a <code class="language-plaintext highlighter-rouge">man page</code> using what I call is the <code class="language-plaintext highlighter-rouge">vim style</code>. Press the key <code class="language-plaintext highlighter-rouge">J</code> to go down and the key <code class="language-plaintext highlighter-rouge">K</code> to go up.</p>
+
+<p>To quit this window just press the key <code class="language-plaintext highlighter-rouge">q</code>.</p>
+
+<p>A command can have options denoted by a single dash <code class="language-plaintext highlighter-rouge">-</code> or two dashes <code class="language-plaintext highlighter-rouge">--</code>.</p>
+
+<p>The two dashes are used for words and a single dash is used for single letters or numbers.</p>
+
+<p>For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls -a
+</code></pre></div></div>
+
+<p>Is the same as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls --all
+</code></pre></div></div>
+
+<p>If you look at the <code class="language-plaintext highlighter-rouge">man page</code> for <code class="language-plaintext highlighter-rouge">ls</code> you will see that <code class="language-plaintext highlighter-rouge">ls -a</code> is explained as “do not ignore entries starting with .” (…with a period)</p>
+
+<p>Files that start with a period are hidden files.</p>
+
+<p>Just like in Windows and Mac, some files are hidden from a folder. To view them you have to change the folder settings.</p>
+
+<h2 id="change-directory">Change directory</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd
+</code></pre></div></div>
+
+<p>This one has to be used with a parameter. If you want to move up or down a directory tree structure you have to use a special character.</p>
+
+<p>Let’s say that I am in this directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+/home/tom/Documents/sandbox
+</code></pre></div></div>
+
+<p>If I type this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls
+pictures
+</code></pre></div></div>
+
+<p>It shows there is another directory called <code class="language-plaintext highlighter-rouge">pictures</code>.</p>
+
+<p>To change to that directory I need to do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd pictures
+$ pwd
+/home/tom/Documents/sandbox/pictures
+</code></pre></div></div>
+
+<p>To go to the previous directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd ..
+</code></pre></div></div>
+
+<p>To see where you are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+</code></pre></div></div>
+
+<p>And the output is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/home/tom/Documents/sandbox
+</code></pre></div></div>
+
+<p>To go to your home directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd
+</code></pre></div></div>
+
+<p>That is with no paremeters. Check where you are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$pwd
+/home/tom
+</code></pre></div></div>
+
+<h2 id="clear-the-screen">Clear the screen</h2>
+
+<p>As you type many commands you want to go back to the top.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ clear
+</code></pre></div></div>
+
+<p>Or you can also use <code class="language-plaintext highlighter-rouge">Ctrl+L</code>.</p>
+
+<h2 id="create-a-directory">Create a directory</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir name-of-directory
+</code></pre></div></div>
+
+<p>Let’s see where we are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+/home/tom/Documents/sandbox
+</code></pre></div></div>
+
+<p>Let’s create a directory called <code class="language-plaintext highlighter-rouge">videos</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir videos
+</code></pre></div></div>
+
+<p>List contents:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls
+pictures  videos
+</code></pre></div></div>
+
+<h2 id="change-the-name-of-a-directory">Change the name of a directory</h2>
+
+<p>I want to change of a directory from <code class="language-plaintext highlighter-rouge">videos</code> to <code class="language-plaintext highlighter-rouge">data</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mv videos/ data
+</code></pre></div></div>
+
+<p>The formula is from old name to new name.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls
+data  pictures
+</code></pre></div></div>
+
+<h2 id="create-a-file-inside-data">Create a file inside data</h2>
+
+<p>I want to create a new <code class="language-plaintext highlighter-rouge">csv</code> file inside the <code class="language-plaintext highlighter-rouge">data</code> directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd data/ &amp;&amp; touch emails.csv
+</code></pre></div></div>
+
+<p>The characters <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> are used like this:</p>
+
+<p>Run B only if A works</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A &amp;&amp; B
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">touch</code> command is used to create a file.</p>
+
+<p>Let’s see where we are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+/home/tom/Documents/sandbox
+</code></pre></div></div>
+
+<p>List the contents:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls
+data  pictures
+</code></pre></div></div>
+
+<p>Let’s run that command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd data/ &amp;&amp; touch emails.csv
+</code></pre></div></div>
+
+<p>Let’s see where we are now:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+/home/tom/Documents/sandbox/data
+</code></pre></div></div>
+
+<p>List the contents:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls
+emails.csv
+</code></pre></div></div>
+
+<h2 id="list-of-computer-processes">List of computer processes</h2>
+
+<p>To see all the processes running in your computer you can use the <code class="language-plaintext highlighter-rouge">Task Manager</code>. In Mac you can use the <code class="language-plaintext highlighter-rouge">Activity Monitor</code>.</p>
+
+<p>For Linux you can use the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ top
+</code></pre></div></div>
+
+<p>This will show all the processes running in real time.</p>
+
+<p>To take a snapshot of the processes use:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ps aux
+</code></pre></div></div>
+
+<h2 id="input-and-output">Input and Output</h2>
+
+<p>Whenever you type a command and it gives you a result on the screen, this is called the “standard output” aka <code class="language-plaintext highlighter-rouge">stdout</code>.</p>
+
+<p>You can also redirect this output to a file.</p>
+
+<p>The input is called the “standard input” aka <code class="language-plaintext highlighter-rouge">stdin</code>.</p>
+
+<p>Let’s see where we are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+/home/tom/Documents/sandbox/data
+</code></pre></div></div>
+
+<p>The second line above is displayed on the <code class="language-plaintext highlighter-rouge">stdout</code> of the Terminal.</p>
+
+<p>I want this result to be sent to a file called <code class="language-plaintext highlighter-rouge">working_directory.txt</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd &gt; working_directory.txt
+</code></pre></div></div>
+
+<p>When you hit <code class="language-plaintext highlighter-rouge">Enter</code>. It will not show any result.</p>
+
+<p>List the contents:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls
+emails.csv  working_directory.txt
+</code></pre></div></div>
+
+<h2 id="add-to-a-file">Add to a file</h2>
+
+<p>What happened?</p>
+
+<p>Using the <code class="language-plaintext highlighter-rouge">greater than</code> sign. Sent the output to a new file called <code class="language-plaintext highlighter-rouge">working_directory.txt</code>.</p>
+
+<p>The way it works is that if such file doesn’t exist. Then create the file.</p>
+
+<p>If you open this file, it will have this content:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/home/tom/Documents/sandbox/data
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">greater than</code> sign adds to a file. But if you use it again on the same file it will replace the contents.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls &gt; working_directory.txt
+</code></pre></div></div>
+
+<p>If you hit <code class="language-plaintext highlighter-rouge">Enter</code> here it will not send the result to <code class="language-plaintext highlighter-rouge">stdout</code>.</p>
+
+<p>If you open the file again you will see that the content has been replaced:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emails.csv
+working_directory.txt
+</code></pre></div></div>
+
+<p>I used <code class="language-plaintext highlighter-rouge">ls</code> to list the contents of the current directory and sent this output to the file <code class="language-plaintext highlighter-rouge">working_directory.txt</code>.</p>
+
+<h2 id="append-to-a-file">Append to a file</h2>
+
+<p>If you don’t want to overwrite the contents of a file using redirection. You should use <code class="language-plaintext highlighter-rouge">two greater than</code> signs such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls &gt;&gt; working_directory.txt
+</code></pre></div></div>
+
+<p>Since the file previously had this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emails.csv
+working_directory.txt
+</code></pre></div></div>
+
+<p>Running such command will result in this content:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>emails.csv
+working_directory.txt
+emails.csv
+working_directory.txt
+</code></pre></div></div>
+
+<p>It appended to the end of the file.</p>
+
+<h2 id="redirection-with-pipe-">Redirection with Pipe |</h2>
+
+<p>You can also redirect the output of one command to the input of another.</p>
+
+<p>Previously we saw how to get a snapshot of processes:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ps aux
+</code></pre></div></div>
+
+<p>But this shows a long list. To show fewer results you can use the <code class="language-plaintext highlighter-rouge">less</code> or <code class="language-plaintext highlighter-rouge">more</code> commands.</p>
+
+<p>Run this command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ps aux | less
+</code></pre></div></div>
+
+<p>It will show the results in a way that you can navigate up and down either using the arrows or the “vim way” with J and K.</p>
+
+<p>The pipe is used to sent the output of <code class="language-plaintext highlighter-rouge">ps aux</code> to the input of <code class="language-plaintext highlighter-rouge">less</code>.</p>
+
+<h2 id="send-the-contents-of-a-file-to-stdout">Send the contents of a file to stdout</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat working_directory.txt
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">cat</code> concatenates a file and prints to <code class="language-plaintext highlighter-rouge">stdout</code>. What this means is that it opens the file and sends the content to the standard output.</p>
+
+<h2 id="add-contents-with-echo">Add contents with echo</h2>
+
+<p>Let’s see where we are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+/home/tom/Documents/sandbox/data
+</code></pre></div></div>
+
+<p>List the contents:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls
+emails.csv  working_directory.txt
+</code></pre></div></div>
+
+<p>Open the file <code class="language-plaintext highlighter-rouge">emails.csv</code> with Sublime.</p>
+
+<p>Add this content:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>first,last,email
+elon,musk,elon@tesla.com
+tim,cook,tim@apple.com
+</code></pre></div></div>
+
+<p>Save and close the file. Then go back to the terminal.</p>
+
+<p>Let’s add another row to this file like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo "homer,simpson,homer@aol.com" &gt;&gt; emails.csv
+</code></pre></div></div>
+
+<p>Use <code class="language-plaintext highlighter-rouge">cat</code> to show the content of <code class="language-plaintext highlighter-rouge">emails.csv</code> in <code class="language-plaintext highlighter-rouge">stdout</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat emails.csv
+first,last,email
+elon,musk,elon@tesla.com
+tim,cook,tim@apple.com
+homer,simpson,homer@aol.com
+</code></pre></div></div>
+
+<h2 id="count-the-number-of-lines">Count the number of lines</h2>
+
+<p>Open the <code class="language-plaintext highlighter-rouge">man page</code> of the command <code class="language-plaintext highlighter-rouge">wc</code>.</p>
+
+<p>Using the option <code class="language-plaintext highlighter-rouge">-l</code> (dash lowercase L). It prints the number of lines.</p>
+
+<p>Let’s use a combination of previous commands:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat emails.csv | wc -l
+4
+</code></pre></div></div>
+
+<p>I used <code class="language-plaintext highlighter-rouge">cat emails.csv</code> to open the file. Used the <code class="language-plaintext highlighter-rouge">|</code> pipe to send the output of that to the input of <code class="language-plaintext highlighter-rouge">wc -l</code> which is used to count the lines. In this case four lines.</p>
+
+<p>the <code class="language-plaintext highlighter-rouge">|</code> pipe to send the output of that to the input of <code class="language-plaintext highlighter-rouge">wc -l</code> which is used to count the lines. In this case four lines.</p>
+
+:ET

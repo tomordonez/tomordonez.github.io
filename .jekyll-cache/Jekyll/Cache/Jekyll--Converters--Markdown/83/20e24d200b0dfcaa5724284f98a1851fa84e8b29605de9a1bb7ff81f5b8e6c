@@ -1,0 +1,1070 @@
+I"ts<p>Follow this simple tutorial to install React Native on Mac.</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/install-react-native-mac.jpg" alt="Install React Native on Mac" /></p>
+
+<h2 id="install-node">Install Node</h2>
+
+<p>Download the Node installer from <a href="https://nodejs.org/en/" target="_blank">here</a>.</p>
+
+<p>When I published this tutorial 12/17/17. The current Node version was <code class="language-plaintext highlighter-rouge">8.9.3 LTS</code>.</p>
+
+<h2 id="this-package-will-install">This package will install:</h2>
+
+<ul>
+  <li>Node.js v8.9.3 to /usr/local/bin/node</li>
+  <li>npm v5.5.1 to /usr/local/bin/npm</li>
+</ul>
+
+<h2 id="make-sure-that-usrlocalbin-is-in-your-path">Make sure that /usr/local/bin is in your $PATH</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo $PATH
+
+/usr/local/bin
+</code></pre></div></div>
+
+<h2 id="check-node-version">Check node version</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ node -v
+v8.9.3
+
+$ npm -v
+5.5.1
+</code></pre></div></div>
+
+<h2 id="fixing-npm-permissions">Fixing npm permissions</h2>
+
+<p>Fixing npm permissions as seen <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions" target="_blank">here</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm config get prefix
+/usr/local
+
+$ sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+</code></pre></div></div>
+
+<p>&lt;blockquote class=”instagram-media” data-instgrm-captioned data-instgrm-permalink=https://www.instagram.com/p/Bcz_HZRFs_F/ data-instgrm-version=”8” style=” background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);”&gt;&lt;div style="padding:8px;"&gt; &lt;div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;"&gt; &lt;div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"&gt;&lt;/div&gt;&lt;/div&gt; &lt;p style=" margin:8px 0 0 0; padding:0 4px;"&gt; <a href="https://www.instagram.com/p/Bcz_HZRFs_F/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">😍Testing and writing my experience with React Native #coding #reactjs #reactnative #softwaredeveloper #sundayvibes</a>&lt;/p&gt; &lt;p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"&gt;A post shared by <a href="&lt;Macro &#39;profile_link&#39;&gt;" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> Tom Ordonez</a> (@tomordonez) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-12-17T17:48:04+00:00">Dec 17, 2017 at 9:48am PST</time>&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt; <script async="" defer="" src="//platform.instagram.com/en_US/embeds.js"></script></p>
+
+<h2 id="install-create-react-native-app">Install <code class="language-plaintext highlighter-rouge">create-react-native-app</code></h2>
+
+<p>Go to the official react native docs <a href="https://facebook.github.io/react-native/docs/getting-started.html" target="_blank">here</a>.</p>
+
+<p>“Create React Native App does not currently work with npm v5. We strongly recommend using npm v3, v4, or a recent version of Yarn”.</p>
+
+<h2 id="install-yarn">Install Yarn:</h2>
+
+<p>Follow the official Yarn doc <a href="https://yarnpkg.com/lang/en/docs/install/" target="_blank">here</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install yarn --without-node
+
+==&gt; Downloading https://yarnpkg.com/downloads/1.3.2/yarn-v1.3.2.tar.gz
+==&gt; Downloading from https://github.com/yarnpkg/yarn/releases/download/v1.3.2/yarn-v1.3.2.tar.gz
+/usr/local/Cellar/yarn/1.3.2: 14 files, 3.9MB, built in 8 seconds
+</code></pre></div></div>
+
+<h2 id="install-create-react-native-app-using-yarn">Install <code class="language-plaintext highlighter-rouge">create-react-native-app</code> using Yarn</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yarn global add create-react-native-app
+
+yarn global v1.3.2
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+success Installed "create-react-native-app@1.0.0" with binaries:
+  - create-react-native-app
+</code></pre></div></div>
+
+<h2 id="create-a-react-native-app">Create a react native app</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ create-react-native-app AwesomeProject
+
+Creating a new React Native app in /Users/../AwesomeProject.
+</code></pre></div></div>
+
+<h2 id="output">Output</h2>
+
+<p><em>Using package manager as yarnpkg with yarn interface.</em></p>
+
+<p><em>Installing packages. This might take a couple minutes.</em></p>
+
+<p><em>Installing react-native-scripts…</em></p>
+
+<p><em>yarn add v1.3.2</em></p>
+
+<p><em>info No lockfile found.</em></p>
+
+<p><em>[1/4] 🔍  Resolving packages…</em></p>
+
+<p><em>warning react-native-scripts &gt; xdl &gt; auth0-js &gt; xtend &gt; object-keys@0.4.0:</em></p>
+
+<p><em>[2/4] 🚚  Fetching packages…</em></p>
+
+<p><em>[3/4] 🔗  Linking dependencies…</em></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>*warning “react-native-scripts &gt; xdl &gt; react-redux@5.0.6” has unmet peer dependency “react@^0.14.0</td>
+      <td> </td>
+      <td>^15.0.0-0</td>
+      <td> </td>
+      <td>^16.0.0-0”.*</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>[4/4] 📃  Building fresh packages…</em></p>
+
+<p><em>success Saved lockfile.</em></p>
+
+<p><em>success Saved 379 new dependencies.</em></p>
+
+<p><em>├─ @expo/bunyan@1.8.10</em></p>
+
+<p><em>├─ @expo/json-file@5.3.0</em></p>
+
+<p><em>├─ @expo/osascript@1.8.1</em></p>
+
+<p><em>├─ @expo/schemer@1.1.0</em></p>
+
+<p><em>├─ @expo/spawn-async@1.3.0</em></p>
+
+<p><em>├─ @segment/loosely-validate-event@1.1.2</em></p>
+
+<p><em>├─ accepts@1.3.4</em></p>
+
+<p><em>├─ agent-base@2.1.1</em></p>
+
+<p><em>├─ ajv@5.5.1</em></p>
+
+<p><em>├─ analytics-node@2.4.1</em></p>
+
+<p><em>├─ ansi-escapes@3.0.0</em></p>
+
+<p><em>├─ ansi-regex@3.0.0</em></p>
+
+<p><em>├─ ansi-styles@3.2.0</em></p>
+
+<p><em>├─ any-promise@1.3.0</em></p>
+
+<p><em>├─ array-flatten@1.1.1</em></p>
+
+<p><em>├─ array-union@1.0.2</em></p>
+
+<p><em>├─ array-uniq@1.0.3</em></p>
+
+<p><em>├─ asap@2.0.6</em></p>
+
+<p><em>├─ asn1@0.2.3</em></p>
+
+<p><em>├─ assert-plus@1.0.0</em></p>
+
+<p><em>├─ ast-types@0.10.1</em></p>
+
+<p><em>├─ async@1.5.2</em></p>
+
+<p><em>├─ asynckit@0.4.0</em></p>
+
+<p><em>├─ auth0-js@7.6.1</em></p>
+
+<p><em>├─ auth0@2.9.1</em></p>
+
+<p><em>├─ aws-sign2@0.7.0</em></p>
+
+<p><em>├─ aws4@1.6.0</em></p>
+
+<p><em>├─ axios@0.16.2</em></p>
+
+<p><em>├─ babel-plugin-syntax-flow@6.18.0</em></p>
+
+<p><em>├─ babel-plugin-transform-flow-strip-types@6.22.0</em></p>
+
+<p><em>├─ babel-polyfill@6.26.0</em></p>
+
+<p><em>├─ babel-preset-flow@6.23.0</em></p>
+
+<p><em>├─ babel-runtime@6.26.0</em></p>
+
+<p><em>├─ balanced-match@1.0.0</em></p>
+
+<p><em>├─ base64-js@1.2.0</em></p>
+
+<p><em>├─ Base64@0.1.4</em></p>
+
+<p><em>├─ base64url@2.0.0</em></p>
+
+<p><em>├─ bcrypt-pbkdf@1.0.1</em></p>
+
+<p><em>├─ bluebird@2.11.0</em></p>
+
+<p><em>├─ body-parser@1.18.2</em></p>
+
+<p><em>├─ boom@4.3.1</em></p>
+
+<p><em>├─ brace-expansion@1.1.8</em></p>
+
+<p><em>├─ buffer-equal-constant-time@1.0.1</em></p>
+
+<p><em>├─ bytes@3.0.0</em></p>
+
+<p><em>├─ callsite@1.0.0</em></p>
+
+<p><em>├─ camel-case@1.2.2</em></p>
+
+<p><em>├─ capture-stack-trace@1.0.0</em></p>
+
+<p><em>├─ caseless@0.12.0</em></p>
+
+<p><em>├─ chalk@2.3.0</em></p>
+
+<p><em>├─ change-case@2.3.1</em></p>
+
+<p><em>├─ chardet@0.4.2</em></p>
+
+<p><em>├─ chownr@1.0.1</em></p>
+
+<p><em>├─ cli-cursor@2.1.0</em></p>
+
+<p><em>├─ cli-width@2.2.0</em></p>
+
+<p><em>├─ clone@2.1.1</em></p>
+
+<p><em>├─ co@4.6.0</em></p>
+
+<p><em>├─ color-convert@1.9.1</em></p>
+
+<p><em>├─ color-name@1.1.3</em></p>
+
+<p><em>├─ combined-stream@1.0.5</em></p>
+
+<p><em>├─ commander@2.12.2</em></p>
+
+<p><em>├─ component-emitter@1.2.1</em></p>
+
+<p><em>├─ component-type@1.2.1</em></p>
+
+<p><em>├─ concat-map@0.0.1</em></p>
+
+<p><em>├─ concat-stream@1.6.0</em></p>
+
+<p><em>├─ constant-case@1.1.2</em></p>
+
+<p><em>├─ content-disposition@0.5.2</em></p>
+
+<p><em>├─ content-type@1.0.4</em></p>
+
+<p><em>├─ cookie-signature@1.0.6</em></p>
+
+<p><em>├─ cookie@0.3.1</em></p>
+
+<p><em>├─ cookiejar@2.1.1</em></p>
+
+<p><em>├─ core-js@2.5.3</em></p>
+
+<p><em>├─ core-util-is@1.0.2</em></p>
+
+<p><em>├─ create-error-class@3.0.2</em></p>
+
+<p><em>├─ cross-spawn@5.1.0</em></p>
+
+<p><em>├─ cryptiles@3.1.2</em></p>
+
+<p><em>├─ crypto-token@1.0.1</em></p>
+
+<p><em>├─ dashdash@1.14.1</em></p>
+
+<p><em>├─ data-uri-to-buffer@1.2.0</em></p>
+
+<p><em>├─ debug@2.6.9</em></p>
+
+<p><em>├─ decache@4.3.0</em></p>
+
+<p><em>├─ deep-diff@0.3.4</em></p>
+
+<p><em>├─ deep-is@0.1.3</em></p>
+
+<p><em>├─ deepmerge@1.5.2</em></p>
+
+<p><em>├─ define-properties@1.1.2</em></p>
+
+<p><em>├─ degenerator@1.0.4</em></p>
+
+<p><em>├─ delay-async@1.1.0</em></p>
+
+<p><em>├─ delayed-stream@1.0.0</em></p>
+
+<p><em>├─ depd@1.1.1</em></p>
+
+<p><em>├─ destroy@1.0.4</em></p>
+
+<p><em>├─ dot-case@1.1.2</em></p>
+
+<p><em>├─ duplexer3@0.1.4</em></p>
+
+<p><em>├─ ecc-jsbn@0.1.1</em></p>
+
+<p><em>├─ ecdsa-sig-formatter@1.0.9</em></p>
+
+<p><em>├─ ee-first@1.1.1</em></p>
+
+<p><em>├─ encodeurl@1.0.1</em></p>
+
+<p><em>├─ encoding@0.1.12</em></p>
+
+<p><em>├─ es-abstract@1.10.0</em></p>
+
+<p><em>├─ es-to-primitive@1.1.1</em></p>
+
+<p><em>├─ es6-error@4.0.2</em></p>
+
+<p><em>├─ es6-promise@4.1.1</em></p>
+
+<p><em>├─ es6-promisify@5.0.0</em></p>
+
+<p><em>├─ escape-html@1.0.3</em></p>
+
+<p><em>├─ escape-string-regexp@1.0.5</em></p>
+
+<p><em>├─ escodegen@1.9.0</em></p>
+
+<p><em>├─ esprima@3.1.3</em></p>
+
+<p><em>├─ estraverse@4.2.0</em></p>
+
+<p><em>├─ esutils@2.0.2</em></p>
+
+<p><em>├─ etag@1.8.1</em></p>
+
+<p><em>├─ exec-async@2.2.0</em></p>
+
+<p><em>├─ exists-async@2.0.0</em></p>
+
+<p><em>├─ express@4.16.2</em></p>
+
+<p><em>├─ extend@3.0.1</em></p>
+
+<p><em>├─ external-editor@2.1.0</em></p>
+
+<p><em>├─ extsprintf@1.3.0</em></p>
+
+<p><em>├─ fast-deep-equal@1.0.0</em></p>
+
+<p><em>├─ fast-json-stable-stringify@2.0.0</em></p>
+
+<p><em>├─ fast-levenshtein@2.0.6</em></p>
+
+<p><em>├─ fbjs@0.8.16</em></p>
+
+<p><em>├─ figures@2.0.0</em></p>
+
+<p><em>├─ file-type@4.4.0</em></p>
+
+<p><em>├─ file-uri-to-path@1.0.0</em></p>
+
+<p><em>├─ finalhandler@1.1.0</em></p>
+
+<p><em>├─ follow-redirects@1.2.6</em></p>
+
+<p><em>├─ foreach@2.0.5</em></p>
+
+<p><em>├─ forever-agent@0.6.1</em></p>
+
+<p><em>├─ form-data@2.3.1</em></p>
+
+<p><em>├─ formidable@1.1.1</em></p>
+
+<p><em>├─ forwarded@0.1.2</em></p>
+
+<p><em>├─ freeport-async@1.1.1</em></p>
+
+<p><em>├─ fresh@0.5.2</em></p>
+
+<p><em>├─ fs-extra@3.0.1</em></p>
+
+<p><em>├─ fs-minipass@1.2.3</em></p>
+
+<p><em>├─ fs.realpath@1.0.0</em></p>
+
+<p><em>├─ ftp@0.3.10</em></p>
+
+<p><em>├─ function-bind@1.1.1</em></p>
+
+<p><em>├─ get-stream@3.0.0</em></p>
+
+<p><em>├─ get-uri@2.0.1</em></p>
+
+<p><em>├─ getenv@0.7.0</em></p>
+
+<p><em>├─ getpass@0.1.7</em></p>
+
+<p><em>├─ glob@7.1.2</em></p>
+
+<p><em>├─ globby@6.1.0</em></p>
+
+<p><em>├─ got@6.7.1</em></p>
+
+<p><em>├─ graceful-fs@4.1.11</em></p>
+
+<p><em>├─ har-schema@2.0.0</em></p>
+
+<p><em>├─ har-validator@5.0.3</em></p>
+
+<p><em>├─ has-flag@2.0.0</em></p>
+
+<p><em>├─ has@1.0.1</em></p>
+
+<p><em>├─ hasbin@1.2.3</em></p>
+
+<p><em>├─ hawk@6.0.2</em></p>
+
+<p><em>├─ hoek@4.2.0</em></p>
+
+<p><em>├─ hoist-non-react-statics@2.3.1</em></p>
+
+<p><em>├─ home-dir@1.0.0</em></p>
+
+<p><em>├─ http-errors@1.6.2</em></p>
+
+<p><em>├─ http-proxy-agent@1.0.0</em></p>
+
+<p><em>├─ http-signature@1.2.0</em></p>
+
+<p><em>├─ https-proxy-agent@1.0.0</em></p>
+
+<p><em>├─ iconv-lite@0.4.19</em></p>
+
+<p><em>├─ idx@2.2.0</em></p>
+
+<p><em>├─ indent-string@3.2.0</em></p>
+
+<p><em>├─ inflight@1.0.6</em></p>
+
+<p><em>├─ inherits@2.0.3</em></p>
+
+<p><em>├─ inquirer@3.3.0</em></p>
+
+<p><em>├─ instapromise@2.0.7-rc.1</em></p>
+
+<p><em>├─ invariant@2.2.2</em></p>
+
+<p><em>├─ ip@1.1.5</em></p>
+
+<p><em>├─ ipaddr.js@1.5.2</em></p>
+
+<p><em>├─ is-buffer@1.1.6</em></p>
+
+<p><em>├─ is-callable@1.1.3</em></p>
+
+<p><em>├─ is-date-object@1.0.1</em></p>
+
+<p><em>├─ is-fullwidth-code-point@2.0.0</em></p>
+
+<p><em>├─ is-lower-case@1.1.3</em></p>
+
+<p><em>├─ is-promise@2.1.0</em></p>
+
+<p><em>├─ is-redirect@1.0.0</em></p>
+
+<p><em>├─ is-regex@1.0.4</em></p>
+
+<p><em>├─ is-retry-allowed@1.1.0</em></p>
+
+<p><em>├─ is-stream@1.1.0</em></p>
+
+<p><em>├─ is-symbol@1.0.1</em></p>
+
+<p><em>├─ is-typedarray@1.0.0</em></p>
+
+<p><em>├─ is-upper-case@1.1.2</em></p>
+
+<p><em>├─ isarray@1.0.0</em></p>
+
+<p><em>├─ isemail@2.2.1</em></p>
+
+<p><em>├─ isexe@2.0.0</em></p>
+
+<p><em>├─ isomorphic-fetch@2.2.1</em></p>
+
+<p><em>├─ isstream@0.1.2</em></p>
+
+<p><em>├─ items@2.1.1</em></p>
+
+<p><em>├─ joi@10.6.0</em></p>
+
+<p><em>├─ join-component@1.1.0</em></p>
+
+<p><em>├─ js-tokens@3.0.2</em></p>
+
+<p><em>├─ jsbn@0.1.1</em></p>
+
+<p><em>├─ json-fallback@0.0.1</em></p>
+
+<p><em>├─ json-schema-traverse@0.3.1</em></p>
+
+<p><em>├─ json-schema@0.2.3</em></p>
+
+<p><em>├─ json-stringify-safe@5.0.1</em></p>
+
+<p><em>├─ json5@0.5.1</em></p>
+
+<p><em>├─ jsonfile@2.4.0</em></p>
+
+<p><em>├─ jsonp@0.0.4</em></p>
+
+<p><em>├─ jsonschema@1.2.2</em></p>
+
+<p><em>├─ jsonwebtoken@7.4.3</em></p>
+
+<p><em>├─ jsprim@1.4.1</em></p>
+
+<p><em>├─ jwa@1.1.5</em></p>
+
+<p><em>├─ jws@3.1.4</em></p>
+
+<p><em>├─ levn@0.3.0</em></p>
+
+<p><em>├─ lock@0.1.4</em></p>
+
+<p><em>├─ lodash-es@4.17.4</em></p>
+
+<p><em>├─ lodash.once@4.1.1</em></p>
+
+<p><em>├─ lodash@4.17.4</em></p>
+
+<p><em>├─ loose-envify@1.3.1</em></p>
+
+<p><em>├─ lower-case-first@1.0.2</em></p>
+
+<p><em>├─ lower-case@1.1.4</em></p>
+
+<p><em>├─ lowercase-keys@1.0.0</em></p>
+
+<p><em>├─ lru-cache@4.1.1</em></p>
+
+<p><em>├─ lru-memoizer@1.11.1</em></p>
+
+<p><em>├─ lsmod@1.0.0</em></p>
+
+<p><em>├─ match-require@2.1.0</em></p>
+
+<p><em>├─ md5hex@1.0.0</em></p>
+
+<p><em>├─ media-typer@0.3.0</em></p>
+
+<p><em>├─ merge-descriptors@1.0.1</em></p>
+
+<p><em>├─ methods@1.1.2</em></p>
+
+<p><em>├─ mime-db@1.30.0</em></p>
+
+<p><em>├─ mime-types@2.1.17</em></p>
+
+<p><em>├─ mime@1.4.1</em></p>
+
+<p><em>├─ mimic-fn@1.1.0</em></p>
+
+<p><em>├─ minimatch@3.0.4</em></p>
+
+<p><em>├─ minimist@1.2.0</em></p>
+
+<p><em>├─ minipass@2.2.1</em></p>
+
+<p><em>├─ minizlib@1.0.4</em></p>
+
+<p><em>├─ mkdirp-promise@5.0.1</em></p>
+
+<p><em>├─ mkdirp@0.5.1</em></p>
+
+<p><em>├─ moment@2.19.4</em></p>
+
+<p><em>├─ ms@2.0.0</em></p>
+
+<p><em>├─ mute-stream@0.0.7</em></p>
+
+<p><em>├─ mv@2.1.1</em></p>
+
+<p><em>├─ mz@2.7.0</em></p>
+
+<p><em>├─ ncp@2.0.0</em></p>
+
+<p><em>├─ negotiator@0.6.1</em></p>
+
+<p><em>├─ netmask@1.0.6</em></p>
+
+<p><em>├─ next-tick@1.0.0</em></p>
+
+<p><em>├─ node-fetch@1.7.3</em></p>
+
+<p><em>├─ oauth-sign@0.8.2</em></p>
+
+<p><em>├─ object-assign@4.1.1</em></p>
+
+<p><em>├─ object-keys@1.0.11</em></p>
+
+<p><em>├─ object.assign@4.0.4</em></p>
+
+<p><em>├─ object.getownpropertydescriptors@2.0.3</em></p>
+
+<p><em>├─ on-finished@2.3.0</em></p>
+
+<p><em>├─ once@1.4.0</em></p>
+
+<p><em>├─ onetime@2.0.1</em></p>
+
+<p><em>├─ opn@4.0.2</em></p>
+
+<p><em>├─ optionator@0.8.2</em></p>
+
+<p><em>├─ os-tmpdir@1.0.2</em></p>
+
+<p><em>├─ pac-proxy-agent@2.0.0</em></p>
+
+<p><em>├─ pac-resolver@3.0.0</em></p>
+
+<p><em>├─ param-case@1.1.2</em></p>
+
+<p><em>├─ parseurl@1.3.2</em></p>
+
+<p><em>├─ pascal-case@1.1.2</em></p>
+
+<p><em>├─ path-case@1.1.2</em></p>
+
+<p><em>├─ path-exists@3.0.0</em></p>
+
+<p><em>├─ path-is-absolute@1.0.1</em></p>
+
+<p><em>├─ path-to-regexp@0.1.7</em></p>
+
+<p><em>├─ performance-now@2.1.0</em></p>
+
+<p><em>├─ pify@2.3.0</em></p>
+
+<p><em>├─ pinkie-promise@2.0.1</em></p>
+
+<p><em>├─ pinkie@2.0.4</em></p>
+
+<p><em>├─ plist@2.1.0</em></p>
+
+<p><em>├─ prelude-ls@1.1.2</em></p>
+
+<p><em>├─ prepend-http@1.0.4</em></p>
+
+<p><em>├─ probe-image-size@3.2.0</em></p>
+
+<p><em>├─ process-nextick-args@1.0.7</em></p>
+
+<p><em>├─ progress@2.0.0</em></p>
+
+<p><em>├─ promise@7.3.1</em></p>
+
+<p><em>├─ prop-types@15.6.0</em></p>
+
+<p><em>├─ proxy-addr@2.0.2</em></p>
+
+<p><em>├─ proxy-agent@2.1.0</em></p>
+
+<p><em>├─ pseudomap@1.0.2</em></p>
+
+<p><em>├─ punycode@1.3.2</em></p>
+
+<p><em>├─ qrcode-terminal@0.11.0</em></p>
+
+<p><em>├─ qs@6.5.1</em></p>
+
+<p><em>├─ querystring@0.2.0</em></p>
+
+<p><em>├─ range-parser@1.2.0</em></p>
+
+<p><em>├─ raven-js@3.21.0</em></p>
+
+<p><em>├─ raven@2.3.0</em></p>
+
+<p><em>├─ raw-body@2.3.2</em></p>
+
+<p><em>├─ react-native-scripts@1.8.1</em></p>
+
+<p><em>├─ react-redux@5.0.6</em></p>
+
+<p><em>├─ read-chunk@2.1.0</em></p>
+
+<p><em>├─ readable-stream@2.3.3</em></p>
+
+<p><em>├─ redux-logger@2.10.2</em></p>
+
+<p><em>├─ redux@3.7.2</em></p>
+
+<p><em>├─ regenerator-runtime@0.11.1</em></p>
+
+<p><em>├─ remove-trailing-slash@0.1.0</em></p>
+
+<p><em>├─ replace-string@1.1.0</em></p>
+
+<p><em>├─ request-progress@3.0.0</em></p>
+
+<p><em>├─ request@2.83.0</em></p>
+
+<p><em>├─ reqwest@2.0.5</em></p>
+
+<p><em>├─ rest-facade@1.10.1</em></p>
+
+<p><em>├─ restore-cursor@2.0.0</em></p>
+
+<p><em>├─ retry@0.10.1</em></p>
+
+<p><em>├─ rimraf@2.6.2</em></p>
+
+<p><em>├─ run-async@2.3.0</em></p>
+
+<p><em>├─ rx-lite-aggregates@4.0.8</em></p>
+
+<p><em>├─ rx-lite@4.0.8</em></p>
+
+<p><em>├─ safe-buffer@5.1.1</em></p>
+
+<p><em>├─ safe-json-stringify@1.0.4</em></p>
+
+<p><em>├─ semver@5.0.3</em></p>
+
+<p><em>├─ send@0.16.1</em></p>
+
+<p><em>├─ sentence-case@1.1.3</em></p>
+
+<p><em>├─ serve-static@1.13.1</em></p>
+
+<p><em>├─ setimmediate@1.0.5</em></p>
+
+<p><em>├─ setprototypeof@1.1.0</em></p>
+
+<p><em>├─ shebang-command@1.2.0</em></p>
+
+<p><em>├─ shebang-regex@1.0.0</em></p>
+
+<p><em>├─ signal-exit@3.0.2</em></p>
+
+<p><em>├─ slugid@1.1.0</em></p>
+
+<p><em>├─ slugify@1.2.6</em></p>
+
+<p><em>├─ smart-buffer@1.1.15</em></p>
+
+<p><em>├─ snake-case@1.1.2</em></p>
+
+<p><em>├─ sntp@2.1.0</em></p>
+
+<p><em>├─ socks-proxy-agent@2.1.1</em></p>
+
+<p><em>├─ socks@1.1.10</em></p>
+
+<p><em>├─ source-map-support@0.4.18</em></p>
+
+<p><em>├─ source-map@0.5.7</em></p>
+
+<p><em>├─ sshpk@1.13.1</em></p>
+
+<p><em>├─ stack-trace@0.0.9</em></p>
+
+<p><em>├─ statuses@1.3.1</em></p>
+
+<p><em>├─ stream-parser@0.3.1</em></p>
+
+<p><em>├─ string_decoder@1.0.3</em></p>
+
+<p><em>├─ string-width@2.1.1</em></p>
+
+<p><em>├─ stringstream@0.0.5</em></p>
+
+<p><em>├─ strip-ansi@4.0.0</em></p>
+
+<p><em>├─ superagent-proxy@1.0.2</em></p>
+
+<p><em>├─ superagent-retry@0.6.0</em></p>
+
+<p><em>├─ superagent@3.8.2</em></p>
+
+<p><em>├─ supports-color@4.5.0</em></p>
+
+<p><em>├─ swap-case@1.1.2</em></p>
+
+<p><em>├─ symbol-observable@1.1.0</em></p>
+
+<p><em>├─ tar@4.1.1</em></p>
+
+<p><em>├─ thenify-all@1.6.0</em></p>
+
+<p><em>├─ thenify@3.3.0</em></p>
+
+<p><em>├─ throttleit@1.0.0</em></p>
+
+<p><em>├─ through@2.3.8</em></p>
+
+<p><em>├─ thunkify@2.1.2</em></p>
+
+<p><em>├─ timed-out@4.0.1</em></p>
+
+<p><em>├─ title-case@1.1.2</em></p>
+
+<p><em>├─ tmp@0.0.33</em></p>
+
+<p><em>├─ topo@2.0.2</em></p>
+
+<p><em>├─ tough-cookie@2.3.3</em></p>
+
+<p><em>├─ tree-kill@1.2.0</em></p>
+
+<p><em>├─ trim@0.0.1</em></p>
+
+<p><em>├─ tunnel-agent@0.6.0</em></p>
+
+<p><em>├─ tweetnacl@0.14.5</em></p>
+
+<p><em>├─ type-check@0.3.2</em></p>
+
+<p><em>├─ type-is@1.6.15</em></p>
+
+<p><em>├─ typedarray@0.0.6</em></p>
+
+<p><em>├─ ua-parser-js@0.7.17</em></p>
+
+<p><em>├─ universalify@0.1.1</em></p>
+
+<p><em>├─ unpipe@1.0.0</em></p>
+
+<p><em>├─ unzip-response@2.0.1</em></p>
+
+<p><em>├─ upper-case-first@1.1.2</em></p>
+
+<p><em>├─ upper-case@1.1.3</em></p>
+
+<p><em>├─ url-parse-lax@1.0.0</em></p>
+
+<p><em>├─ url@0.11.0</em></p>
+
+<p><em>├─ util-deprecate@1.0.2</em></p>
+
+<p><em>├─ util.promisify@1.0.0</em></p>
+
+<p><em>├─ utils-merge@1.0.1</em></p>
+
+<p><em>├─ uuid@3.1.0</em></p>
+
+<p><em>├─ vary@1.1.2</em></p>
+
+<p><em>├─ verror@1.10.0</em></p>
+
+<p><em>├─ very-fast-args@1.1.0</em></p>
+
+<p><em>├─ whatwg-fetch@2.0.3</em></p>
+
+<p><em>├─ which@1.3.0</em></p>
+
+<p><em>├─ winchan@0.1.4</em></p>
+
+<p><em>├─ wordwrap@1.0.0</em></p>
+
+<p><em>├─ wrappy@1.0.2</em></p>
+
+<p><em>├─ xdl@47.0.4</em></p>
+
+<p><em>├─ xmlbuilder@8.2.2</em></p>
+
+<p><em>├─ xmldom@0.1.27</em></p>
+
+<p><em>├─ xregexp@2.0.0</em></p>
+
+<p><em>├─ xtend@4.0.1</em></p>
+
+<p><em>├─ yallist@2.1.2</em></p>
+
+<p><em>└─ yesno@0.0.1</em></p>
+
+<p><em>✨  Done in 30.28s.</em></p>
+
+<p><em>Installing dependencies using yarn…</em></p>
+
+<p><em>yarn install v1.3.2</em></p>
+
+<p><em>[1/4] 🔍  Resolving packages…</em></p>
+
+<p><em>warning react-native &gt; connect@2.30.2: connect 2.x series is deprecated</em></p>
+
+<p><em>[2/4] 🚚  Fetching packages…</em></p>
+
+<p><em>[3/4] 🔗  Linking dependencies…</em></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>*warning “jest-expo &gt; babel-jest@21.2.0” has unmet peer dependency “babel-core@^6.0.0</td>
+      <td> </td>
+      <td>^7.0.0-alpha</td>
+      <td> </td>
+      <td>^7.0.0-beta</td>
+      <td> </td>
+      <td>^7.0.0”.*</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>[4/4] 📃  Building fresh packages…</em></p>
+
+<p><em>success Saved lockfile.</em></p>
+
+<p><em>✨  Done in 73.83s.</em></p>
+
+<p><em>Success! Created AwesomeProject at /Users/…/AwesomeProject</em></p>
+
+<p><em>Inside that directory, you can run several commands:</em></p>
+
+<p><em>yarn start</em></p>
+
+<p><em>Starts the development server so you can open your app in the Expo</em></p>
+
+<p><em>app on your phone.</em></p>
+
+<p><em>yarn run ios</em></p>
+
+<p><em>(Mac only, requires Xcode)</em></p>
+
+<p><em>Starts the development server and loads your app in an iOS simulator.</em></p>
+
+<p><em>yarn run android</em></p>
+
+<p><em>(Requires Android build tools)</em></p>
+
+<p><em>Starts the development server and loads your app on a connected Android</em></p>
+
+<p><em>device or emulator.</em></p>
+
+<p><em>yarn test</em></p>
+
+<p><em>Starts the test runner.</em></p>
+
+<p><em>yarn run eject</em></p>
+
+<p><em>Removes this tool and copies build dependencies, configuration files</em></p>
+
+<p><em>and scripts into the app directory. If you do this, you can’t go back!</em></p>
+
+<p><em>We suggest that you begin by typing:</em></p>
+
+<p><em>cd AwesomeProject</em></p>
+
+<p><em>yarn start</em></p>
+
+<p><em>Happy hacking!</em></p>
+
+<h2 id="start-the-app">Start the app</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd AwesomeProject
+
+$ yarn start
+yarn run v1.3.2
+</code></pre></div></div>
+
+<h2 id="output-error-unable-to-start-server">Output Error Unable to start server</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ react-native-scripts start
+
+23:15:49: Unable to start server
+See https://git.io/v5vcn for more information, either install watchman or run the following snippet:
+sudo sysctl -w kern.maxfiles=5242880
+sudo sysctl -w kern.maxfilesperproc=524288
+
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+</code></pre></div></div>
+
+<p><a href="https://github.com/react-community/create-react-native-app/issues/382" target="_blank">This</a> page had 2 solutions:</p>
+
+<ol>
+  <li>Run the <code class="language-plaintext highlighter-rouge">sudo sysctl</code> commands or</li>
+  <li>Install Watchman.</li>
+</ol>
+
+<p>Here is more info about <code class="language-plaintext highlighter-rouge">Watchman</code>:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Watchman</code> is a file watching service open sourced by Facebook.</p>
+
+<p>“<a href="https://facebook.github.io/watchman/" target="_blank">Watchman</a> exists to watch files and record when they change. It can also trigger actions (such as rebuilding assets) when matching files change.”</p>
+
+<p>The solution with the most thumbs up is this one:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo sysctl -w kern.maxfiles=5242880
+kern.maxfiles: 12288 -&gt; 5242880
+
+$ sudo sysctl -w kern.maxfilesperproc=524288
+kern.maxfilesperproc: 10240 -&gt; 524288
+</code></pre></div></div>
+
+<p>Here is more info about this command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">sysctl</code> is used to get or set kernel state.</p>
+
+<p><a href="https://www.freebsd.org/doc/handbook/configtuning-kernel-limits.html" target="_blank">Here</a> is more info about “tuning kernel limits”:</p>
+
+<p>It says that “The kern.maxfiles sysctl(8) variable can be raised or lowered based upon system requirements. This variable indicates the maximum number of file descriptors on the system”</p>
+
+<p><a href="http://krypted.com/mac-os-x/maximum-files-in-mac-os-x/" target="_blank">Here</a> is some more info about this:</p>
+
+<p>“By default, the maximum number of files that Mac OS X can open is set to 12,288 and the maximum number of files a given process can open is 10,240.”</p>
+
+<p>It also says that if you reboot, that it will go back to the original values. Although there is a workaround as seen on that post.</p>
+
+<h2 id="start-development-server">Start development server</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yarn start
+</code></pre></div></div>
+
+<p>It will show this output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn run v1.3.2
+$ react-native-scripts start
+12:11:00: Starting packager...
+Packager started!
+
+To view your app with live reloading, point the Expo app to this QR code.
+You'll find the QR scanner on the Projects tab of the app.
+
+GIANT QR CODE HERE
+...
+
+Or enter this address in the Expo app's search bar:
+
+exp://10.0.0.10:19000
+
+Your phone will need to be on the same local network as this computer.
+For links to install the Expo app, please visit https://expo.io.
+
+Logs from serving your app will appear here. Press Ctrl+C at any time to stop.
+
+› Press a to open Android device or emulator, or i to open iOS emulator.
+› Press q to display QR code.
+› Press r to restart packager, or R to restart packager and clear cache.
+› Press d to toggle development mode. (current mode: development)
+</code></pre></div></div>
+
+<h2 id="install-the-expo-client-app">Install the Expo client app</h2>
+
+<p>As seen in the Expo doc <a href="https://expo.io/learn" target="_blank">here</a>:</p>
+
+<p>Download the app on your phone. Then scan the QR code on your terminal.</p>
+
+<p>Back in the Terminal now says:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>12:17:51: Finished building JavaScript bundle in 69956ms
+12:17:58: Running app on Tom O in development mode
+</code></pre></div></div>
+
+<p>To stop use <code class="language-plaintext highlighter-rouge">Ctrl+C</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>12:36:05: Stopping packager...
+12:36:06: Packager stopped.
+</code></pre></div></div>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>I will follow with another tutorial to build an app. But for now you have a setup, which is often where most people drop out.</p>
+
+<h2 id="got-a-react-native-question-please-comment-belowost-people-drop-out">Got a React Native question? Please comment belowost people drop out.</h2>
+
+<h2 id="got-a-react-native-question-please-comment-below">Got a React Native question? Please comment below</h2>
+:ET

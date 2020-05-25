@@ -1,0 +1,120 @@
+I"]<p>As seen on late night TV…</p>
+
+<ul>
+  <li>Python3</li>
+  <li>Linux</li>
+</ul>
+
+<p>Thou shall:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import socket
+sux = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+</code></pre></div></div>
+
+<p>Did I dream this? I could be sure that I wrote this tutorial before but I cannot find it.</p>
+
+<p>To read the official docs about Python sockets go <a href="https://docs.python.org/3/library/socket.html" target="_blank">here</a>.</p>
+
+<p>First you start with importing the module:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import socket
+</code></pre></div></div>
+
+<p>Then you need to create a <code class="language-plaintext highlighter-rouge">socket</code> object and pass some arguments:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">socket.AF_INET</code>: This means <code class="language-plaintext highlighter-rouge">address family internet protocol v4</code></li>
+  <li><code class="language-plaintext highlighter-rouge">socket.SOCK_STREAM</code>: This means a <code class="language-plaintext highlighter-rouge">TCP socket</code>.</li>
+</ul>
+
+<h2 id="other-arguments">Other arguments</h2>
+
+<p>These are the default for IPv4 and TCP:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">socket.AF_INET</code></li>
+  <li><code class="language-plaintext highlighter-rouge">socket.SOCK_STREAM</code></li>
+</ul>
+
+<p>If you want <code class="language-plaintext highlighter-rouge">IPv6</code>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">socket.AF_INET6</code></li>
+</ul>
+
+<p>If you want <code class="language-plaintext highlighter-rouge">UDP</code>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">socket.DGRAM</code></li>
+</ul>
+
+<p>Different socket families use different number of arguments:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">AF_INET</code>: A pair-tuple <code class="language-plaintext highlighter-rouge">(host, port)</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">AF_INET6</code>: A four-tuple <code class="language-plaintext highlighter-rouge">(host, port, flowinfo, scopeid)</code>.</li>
+</ul>
+
+<p>You can also use <code class="language-plaintext highlighter-rouge">bluetooth</code>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">AF_BLUETOOTH</code></li>
+</ul>
+
+<h2 id="closing-the-socket">Closing the socket</h2>
+
+<p>If you do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import socket
+sux = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sux.connect( (host, port) )
+</code></pre></div></div>
+
+<p>Then you have to close it like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sux.close()
+</code></pre></div></div>
+
+<p>Keep in mind that the argument for <code class="language-plaintext highlighter-rouge">IPv4</code> (<code class="language-plaintext highlighter-rouge">AF_INET</code>) is a pair-tuple:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sux.connect( (host, port) )
+</code></pre></div></div>
+
+<p>You don’t need the whitespace but it helps me remember that it needs a tuple. This won’t work:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sux.connect(host, port)
+</code></pre></div></div>
+
+<p>You can also open and close the socket like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sux:
+    sux.connect( (host, port) )
+</code></pre></div></div>
+
+<p>Which has a similar syntax as the <code class="language-plaintext highlighter-rouge">open</code> method.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>with open('simpsons.txt', 'r') as fhandle:
+</code></pre></div></div>
+
+<h2 id="summary">Summary</h2>
+
+<p>The default:</p>
+
+<ul>
+  <li>AF_INET: IPv4</li>
+  <li>SOCK_STREAM: TCP</li>
+</ul>
+
+<p>Using <code class="language-plaintext highlighter-rouge">with...as</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import socket
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sux:
+    sux.connect( (host, port) )
+    ...
+    something_awesome_here
+    ...nnect( (host, port) )
+    ...
+    something_awesome_here
+    ...
+</code></pre></div></div>
+:ET

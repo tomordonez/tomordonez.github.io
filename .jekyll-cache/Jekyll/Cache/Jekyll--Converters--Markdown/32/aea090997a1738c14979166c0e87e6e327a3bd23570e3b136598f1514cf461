@@ -1,0 +1,30 @@
+I"û<p>Follow this to execute a script in a different directory in Linux.</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/execute-script-different-directory-linux.jpg" alt="Execute a Script in a Different Directory in Linux" /></p>
+
+<p>I had a script in <code class="language-plaintext highlighter-rouge">~/Documents/scripts/awesome-script.sh</code> and wanted to run it inside a different directory <code class="language-plaintext highlighter-rouge">~/Documents/images/awesome-images/</code>.</p>
+
+<h2 id="the-subshell">The Subshell</h2>
+
+<p>You can use parentheses to create a subshell. Once the command is completed, the subshell will close, such asâ€¦</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ (cd ~/Documents/images/awesome-images/ &amp;&amp; ~/Documents/scripts/awesome-script.sh)
+</code></pre></div></div>
+
+<p>This is how it works:</p>
+
+<ul>
+  <li>Use parentheses to create a subshell</li>
+  <li><code class="language-plaintext highlighter-rouge">cd</code> into <code class="language-plaintext highlighter-rouge">~/Documents/images/awesome-images/</code></li>
+  <li>If this command is successful then</li>
+  <li>Execute the script located in <code class="language-plaintext highlighter-rouge">~/Documents/scripts/awesome-script.sh</code></li>
+  <li>When this command is executed. Close the subshell</li>
+</ul>
+
+<h2 id="if-you-have-questions-or-comments-please-add-them-below">If you have questions or comments please add them below</h2>
+
+<p><img src="{{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" />
+ or comments please add them below</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" /></p>
+:ET

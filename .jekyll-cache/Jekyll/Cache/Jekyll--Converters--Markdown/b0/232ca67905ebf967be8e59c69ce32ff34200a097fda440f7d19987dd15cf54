@@ -1,0 +1,76 @@
+I"2<p>Follow this process to transfer files from <strong>Windows 10 to Ubuntu in VirtualBox</strong>.</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/windows-10-ubuntu-virtualbox-shared-folder.jpg" alt="Windows 10 to Ubuntu VirtualBox Shared Folder" /></p>
+
+<p>This applies when you have Ubuntu installed inside Windows 10. Where Windows is the host and Ubuntu is the guest.</p>
+
+<p>This assumes that you already have Virtualbox installed with Ubuntu.</p>
+
+<p>Follow this process to transfer files from Windows 10 to Ubuntu in VirtualBox.</p>
+
+<p>In Windows 10, open Virtualbox…</p>
+
+<h2 id="install-guest-additions">Install Guest Additions</h2>
+
+<p>If you haven’t installed guest additions…</p>
+
+<p>On the Virtualbox VM (virtual machine). In one of the menu drop downs there is an option that says “guest additions”.</p>
+
+<p>When you click on that, it should open a terminal on Linux. Follow the process that is shown there.</p>
+
+<p>When that is completed, shut down the VM.</p>
+
+<h2 id="go-to-shared-folder">Go to Shared Folder</h2>
+
+<p>Go to the VM settings. Then shared folders.</p>
+
+<ul>
+  <li>Add Folder</li>
+  <li>Use the drop down to lookup a folder (and create one)</li>
+  <li>Check: Auto-mount</li>
+  <li>OK and OK to update changes</li>
+</ul>
+
+<p>Please note <code class="language-plaintext highlighter-rouge">your-folder-name</code> since you will need this soon.</p>
+
+<p>Let’s say that you call this folder <code class="language-plaintext highlighter-rouge">win10-ubuntu</code></p>
+
+<p>Start the VM.</p>
+
+<h2 id="go-to-ubuntu-and-review-the-shared-folder">Go to Ubuntu and review the shared folder</h2>
+
+<p>Open a folder and you will see on the left side that a shared folder has been mounted. Following the example above. It would say <code class="language-plaintext highlighter-rouge">sf-win10-ubuntu</code>.</p>
+
+<p>You won’t be able to access the folder using the windows interface, since this directory is own by root.</p>
+
+<p>The location of this folder is: <code class="language-plaintext highlighter-rouge">/media/sf-win10-ubuntu</code></p>
+
+<p>You can either use <code class="language-plaintext highlighter-rouge">sudo</code> to copy files from this directory to your local Linux directory. Such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$sudo cp local-file.txt /media/sf-win10-ubuntu/
+</code></pre></div></div>
+
+<p>If you go back to Windows 10. This file will be on the shared folder you created.</p>
+
+<p>Or you can change the ownership and permissions of this directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo chown -R youruser:yourgroup /media/sf-win10-ubuntu/
+</code></pre></div></div>
+
+<p>On Linux you usually belong to a group that has the same name as your user.</p>
+
+<p>For example my user is <code class="language-plaintext highlighter-rouge">tom</code> and my group is <code class="language-plaintext highlighter-rouge">tom</code>.</p>
+
+<p>I would run the previous command like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo chown -R tom:tom /media/sf-win10-ubuntu/
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">tom</code> and my group is <code class="language-plaintext highlighter-rouge">tom</code>.</p>
+
+<p>I would run the previous command like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo chown -R tom:tom /media/sf-win10-ubuntu/
+</code></pre></div></div>
+
+:ET

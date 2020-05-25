@@ -1,0 +1,127 @@
+I"�<p>Follow this tutorial to <strong>install Tmux on Linux</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install tmux
+</code></pre></div></div>
+
+<p>Or for Fedora use <code class="language-plaintext highlighter-rouge">dnf</code>.</p>
+
+<p>Now type <code class="language-plaintext highlighter-rouge">tmux</code> and it should open the Tmux interface.</p>
+
+<p>If instead you get this <code class="language-plaintext highlighter-rouge">[exited]</code></p>
+
+<p>Open your tmux configuration (see below about Configuring Tmux):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.tmux.conf
+</code></pre></div></div>
+
+<p>If you have this line. Then either remove it or add it as a comment for future reference.</p>
+
+<p>It was:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set-option -g default-command "reattach-to-user-namespace -l $SHELL"
+</code></pre></div></div>
+
+<p>Now it is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># set-option -g default-command "reattach-to-user-namespace -l $SHELL"
+</code></pre></div></div>
+
+<p>To learn more about Tmux. You should get a book called “Tmux Productive Mouse Free Development”.</p>
+
+<h2 id="configuring-tmux">Configuring Tmux</h2>
+
+<p><img src="/assets/images/install-tmux-linux.gif" alt="How To Install Tmux on Linux" /></p>
+
+<p>Tmux has the config file <code class="language-plaintext highlighter-rouge">.tmux.conf</code>. If after installing is not in your home directory. Then create this file.</p>
+
+<p>The following configuration is from the Tmux book mentioned above:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set -g default-terminal "xterm"
+set -g prefix C-a
+unbind C-b
+set -s escape-time 1
+set -g base-index 1
+setw -g pane-base-index 1
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+bind C-a send-prefix
+bind | split-window -h
+bind - split-window -v
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 6
+set -g default-terminal "screen-256color"
+set-option -g status-bg colour235 #base02
+set-option -g status-fg colour136 #yellow
+set-option -g status-attr default
+set-window-option -g window-status-fg colour244 #base0
+set-window-option -g window-status-bg default
+set-window-option -g window-status-current-fg colour166 #orange
+set-window-option -g window-status-current-bg default
+set-option -g pane-border-fg colour235 #base02
+set-option -g pane-active-border-fg colour240 #base01  
+set-option -g message-bg colour235 #base02
+set-option -g message-fg colour166 #orange
+set-option -g display-panes-active-colour colour33 #blue
+set-option -g display-panes-colour colour166 #orange
+set-window-option -g clock-mode-colour colour64 #green
+set -g status-left-length 40
+set -g status-left "#[fg=green]SomeNameHere: #S #[fg=yellow]#I #[fg=cyan]#P"
+set -g status-right "#[fg=cyan]%d %b %R"
+set -g status-justify centre
+set -g monitor-activity on
+set -g visual-activity on
+setw -g mode-keys vi
+</code></pre></div></div>
+
+<h2 id="remap-the-caps-lock-with-ctrl">Remap the Caps Lock with Ctrl</h2>
+
+<p>Since Tmux uses shortcuts to navigate different panes and windows. You need to remap your <code class="language-plaintext highlighter-rouge">Caps Lock key</code> so that it behaves as a Ctrl key…you don’t have to but it’s easier to attach and detach tmux sessions using <code class="language-plaintext highlighter-rouge">Caps Lock + a</code>. Than doing <code class="language-plaintext highlighter-rouge">Ctrl + a</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ setxkbmap -option caps:ctrl_modifier
+</code></pre></div></div>
+
+<p>To change back to the original settings:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ setxkbmap -option
+</code></pre></div></div>
+
+<p>A stuck Caps Lock might happen when you remap the caps lock when it was enabled. To solve this, change back to the original settings and remap when the caps lock is not enabled.</p>
+
+<h2 id="install-tmuxinator-to-manage-tmux-sessions">Install Tmuxinator to manage Tmux sessions</h2>
+
+<p>This requires that you have Ruby installed. Follow this to <a href="https://www.tomordonez.com/installing-ruby-on-ubuntu.html" target="_blank">install Ruby on Ubuntu</a>. For Fedora, the tutorial is almost the same.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install tmuxinator
+</code></pre></div></div>
+
+<p>Open a configuration file for a Tmuxinator session</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ tmuxinator open awesome-project
+</code></pre></div></div>
+
+<p>Edit the settings as you want or go here to learn more about <a href="https://github.com/tmuxinator/tmuxinator" target="_blank">configuring Tmuxinator</a>.</p>
+
+<p>Open a tmuxinator session like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ tmuxinator awesome-project
+</code></pre></div></div>
+
+<p>To dettach from the session use the remapped key shortcut <code class="language-plaintext highlighter-rouge">CapsLock+a</code> then <code class="language-plaintext highlighter-rouge">d</code>.</p>
+
+<p>To get a list of all tmuxinator sessions do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ tmuxinator list
+</code></pre></div></div>
+
+<p>Get the book “Tmux Productive Mouse Free Development” to understand in more detail how Tmux works.</p>
+
+<p>ve Mouse Free Development” to understand in more detail how Tmux works.</p>
+
+:ET

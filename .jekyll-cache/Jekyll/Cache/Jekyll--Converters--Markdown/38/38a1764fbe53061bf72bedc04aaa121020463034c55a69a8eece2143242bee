@@ -1,0 +1,194 @@
+I"=!<p>In this bash script tutorial you will learn the basics to create bash scripts.</p>
+
+<p><img src="/assets/images/bash-script-tutorial.jpg" alt="Bash Script Tutorial" /></p>
+
+<h2 id="bash-script-environment">Bash Script Environment</h2>
+
+<p>In this bash script tutorial I am using Linux. But you can also use a Mac and perhaps Windows.</p>
+
+<h2 id="bash-script-linux">Bash Script Linux</h2>
+
+<p>My preference is creating bash scripts in Linux. Although I have the feeling that if you are in Linux you already know some Bash :)</p>
+
+<p>If you are not using Bash. Maybe you know some Linux commands? If not no problem. First find where <code class="language-plaintext highlighter-rouge">bash</code> is installed in your system.</p>
+
+<p>Open the terminal and type:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>which $BASH
+</code></pre></div></div>
+
+<p>It might say:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/bin/bash
+</code></pre></div></div>
+
+<p>If you are on Mac it might say:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/bash
+</code></pre></div></div>
+
+<p>Keep this in mind for later.</p>
+
+<h2 id="vim-text-editor">Vim Text Editor</h2>
+
+<p>I love Vim because it has a mouse free environment and helps you become hyperfocused. Although Vim has kind of a steep learning curve.</p>
+
+<p>Installing Vim on Ubuntu Linux:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install vim
+</code></pre></div></div>
+
+<p>Installing Vim on Fedora Linux:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install vim
+</code></pre></div></div>
+
+<p>Installing Vim on Mac:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install vim
+</code></pre></div></div>
+
+<p>Although keep in mind that for the Mac to use <code class="language-plaintext highlighter-rouge">brew</code> you need to install <code class="language-plaintext highlighter-rouge">homebrew</code>. Just go to <a href="https://brew.sh" target="_blank">Homebrew</a> and copy paste the command shown on the homepage into the terminal.</p>
+
+<h2 id="sublime-text-editor">Sublime Text Editor</h2>
+
+<p>Sublime is less geek and it looks just like any program. You can download it from <a href="https://www.sublimetext.com/3" target="_blank">here</a>.</p>
+
+<h2 id="bash-script-windows">Bash Script Windows</h2>
+
+<p>What I recommend is to install Linux using Virtualbox. A video will soon be posted here.</p>
+
+<h2 id="bash-script-basics">Bash Script Basics</h2>
+
+<p>Create a new file either and save it as <code class="language-plaintext highlighter-rouge">awesome-file.sh</code>. Yeah it ends with <code class="language-plaintext highlighter-rouge">.sh</code>.</p>
+
+<p>In the first line type in the location of bash.</p>
+
+<p>For Linux bin bash is often:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/bin/bash
+</code></pre></div></div>
+
+<p>For Mac bin bash is often:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/usr/local/bin/bash
+</code></pre></div></div>
+
+<p>The character <code class="language-plaintext highlighter-rouge">#!</code> is called a <code class="language-plaintext highlighter-rouge">shebang</code> or a <code class="language-plaintext highlighter-rouge">hashbang</code>.</p>
+
+<p>What follows the <code class="language-plaintext highlighter-rouge">shebang</code> is the location of bash binaries. In other words it tells the file what you want to execute the file with Bash.</p>
+
+<h2 id="bash-script-simple-silly-example">Bash script simple silly example</h2>
+
+<p>It’s downhill from here :)</p>
+
+<p>Below the bin bash line enter a new line and add this line:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "Hello"
+</code></pre></div></div>
+
+<p>With bin bash on Linux:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/bin/bash
+echo "Hello"
+</code></pre></div></div>
+
+<p>Or with bin bash on Mac:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/usr/local/bin/bash
+echo "Hello"
+</code></pre></div></div>
+
+<p>Save and close the file.</p>
+
+<h2 id="change-the-bash-script-file-to-execute">Change the bash script file to execute</h2>
+
+<p>Go back to the terminal and change directories to where the file is.</p>
+
+<p>Type this command to make the bash script executable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod +x awesome-file.sh
+</code></pre></div></div>
+
+<h2 id="execute-this-simple-silly-bash-script-example">Execute this simple silly bash script example</h2>
+
+<p>On the terminal type this to execute this bash script example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./awesome-file.sh
+</code></pre></div></div>
+
+<p>This means to execute in the current directory.</p>
+
+<p>The result should be:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hola
+</code></pre></div></div>
+
+<h2 id="these-are-other-advanced-examples">These are other advanced examples</h2>
+
+<p>How to declare variables and initialize some to zero.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>declare -i filenumber=0
+declare -i sponsornumber=0
+declare -i counter=0
+declare -i directory_size
+</code></pre></div></div>
+
+<h2 id="assign-a-string-to-a-variable">Assign a string to a variable</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>filetype=".jpg"
+</code></pre></div></div>
+
+<h2 id="calculate-the-directory-size-where-the-files-are-stored">Calculate the directory size where the files are stored</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>directory_size="$(ls -l ./ | grep 'jpg' | wc -l)"
+</code></pre></div></div>
+
+<h2 id="rename-files-in-the-directory-to-a-random-number">Rename files in the directory to a random number</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for file in *.jpg; do
+  number="$RANDOM"
+  mv "$file" "$number$filetype"
+done
+</code></pre></div></div>
+
+<h2 id="use-a-random-number-within-a-range">Use a random number within a range</h2>
+
+<p>Random number from 1 to 10:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>number="$(((RANDOM % 10) + 1))"
+</code></pre></div></div>
+
+<p>Random number from 1 to 100:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>number="$(((RANDOM % 100) + 1))"
+</code></pre></div></div>
+
+<h2 id="rename-files-into-a-sequential-number-1-2-3etc">Rename files into a sequential number 1, 2, 3…etc</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for file in *.jpg; do
+  filenumber="$(($filenumber + 1))"
+  mv "$file" "$filenumber$filetype"
+done
+</code></pre></div></div>
+
+<h2 id="insert-files-at-intervals-in-current-directory">Insert files at intervals in current directory</h2>
+
+<p>Copy files in this sequence: 2, 8, 14…etc.
+The sequence requires the algorithm: `2 + (6 * n)
+The files are copied like this: 2a, 8a, 14a.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>while [ $counter -lt $directory_size ]; do
+  sponsornumber="$(((6 * $counter) + 2))"
+  cp sponsor_directory/sponsor_file.jpg "$sponsornumber"a"$filetype"
+  counter="$(($counter + 1))"
+done
+</code></pre></div></div>
+
+<h2 id="if-you-have-questions-or-comments-please-add-them-below">If you have questions or comments please add them below</h2>
+
+<p><img src="/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" />
+ents please add them below</p>
+
+<p><img src="/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" /></p>
+:ET

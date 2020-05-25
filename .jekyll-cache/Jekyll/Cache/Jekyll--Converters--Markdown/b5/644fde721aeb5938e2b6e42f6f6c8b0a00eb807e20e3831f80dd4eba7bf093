@@ -1,0 +1,415 @@
+I"rJ<p>Follow this process for sourcing with the Twitter API. Getting data using Ruby and the Twitter API</p>
+
+<p><img src="/assets/images/sourcing-twitter-api.jpg" alt="Sourcing with the Twitter API" /></p>
+
+<p>Twitter CLI is a command line interface program that allows you to interact with your Twitter account using the command line.</p>
+
+<h2 id="objectives">Objectives</h2>
+
+<ul>
+  <li>Source on Twitter with the Twitter API.</li>
+  <li>Convert data into a clean list of users.</li>
+  <li>Get user information.</li>
+  <li>Find websites, emails, phone numbers.</li>
+  <li>Find out what users talk about to create a better outreach.</li>
+</ul>
+
+<p>Get massive amounts of data with a simple one-liner “formula”.</p>
+
+<h2 id="why">Why?</h2>
+
+<p>Perhaps you only source with Linkedin. Perhaps you know boolean searches.</p>
+
+<p>A boolean search is like a baby learning to swim. Learning how to source on Twitter with the API is like being Michael Phelps.</p>
+
+<p>Do you want to be Michael Phelps? Continue reading.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>This won’t be easy. If it were easy then anybody could do it.</p>
+
+<p>This requires:</p>
+
+<ul>
+  <li>A general understanding about how computers work.</li>
+  <li>You need to have: A Twitter account and a Twitter developer app.</li>
+  <li>You need to have a Windows with a Linux Virtual Machine or a Mac or a computer with Linux.</li>
+  <li>Ruby installed and some basic Ruby knowledge.</li>
+  <li>Knowledge of the command line.</li>
+  <li>Bash scripting knowledge.</li>
+  <li>A lot of confidence and attention to detail</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<div class="videoWrapper">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/zmxzEWYXC8A?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<h2 id="you-need-to-have-a-twitter-account">You need to have a Twitter account</h2>
+
+<p>If you don’t have a Twitter account. Something must be wrong in the Universe.</p>
+
+<h2 id="you-need-to-have-a-twitter-developer-app">You need to have a Twitter developer app</h2>
+
+<p>Go to <a href="https://apps.twitter.com/app/new" target="_blank">Twitter Application Management</a></p>
+
+<p>Sign-in using your Twitter account.</p>
+
+<p>Click on Create New App.</p>
+
+<p>Fill out the form.</p>
+
+<ul>
+  <li>Name of the app</li>
+  <li>Description</li>
+  <li>Website, including <code class="language-plaintext highlighter-rouge">http://</code></li>
+</ul>
+
+<p>Go to Permissions and set Access to “Read, Write and Access direct messages”</p>
+
+<p>You might need to authorize your Twitter account with your mobile phone. Go to: <a href="https://mobile.twitter.com/settings" target="_blank">Mobile Twitter settings</a>.</p>
+
+<p>Towards the bottom it should have a “Phone” listed.</p>
+
+<h2 id="if-you-are-on-windows-you-need-linux-in-a-virtual-machine">If you are on Windows you need Linux in a Virtual Machine</h2>
+
+<p>Your computer should have at least 8GB of RAM for this.</p>
+
+<p>A Virtual Machine (VM) is used to install an operating system inside another one. Therefore a “virtual machine”.</p>
+
+<p>In this case we need to install Linux inside Windows.</p>
+
+<p>Install the VM from <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Virtualbox</a>.</p>
+
+<p>Choose <code class="language-plaintext highlighter-rouge">Virtualbox for Windows</code></p>
+
+<p>Download and install the defaults.</p>
+
+<p>Now download Linux Ubuntu from <a href="http://www.ubuntu.com/download/desktop" target="_blank">here</a>.</p>
+
+<p>This downloads a file of type <code class="language-plaintext highlighter-rouge">.iso</code></p>
+
+<p>DO NOT double click on this file to open it. We will only open this file with VirtualBox.</p>
+
+<p>Open VirtualBox:</p>
+
+<ul>
+  <li>Click on the button “New”</li>
+  <li>Name: Ubuntu</li>
+  <li>Memory size: 4096</li>
+  <li>Choose: Create a virtual hard drive now</li>
+  <li>Hard drive file type: VDI (VirtualBox Disk Image)</li>
+  <li>Storage on physical hard drive: Dynamically allocated</li>
+  <li>Select the size of the virtual hard drive: 10.00 GB</li>
+</ul>
+
+<p>A new VM has been created with name “Ubuntu”. With status “Powered Off”.</p>
+
+<p>Click on the arrow “Start”.</p>
+
+<p>Choose the Ubuntu “iso” file that you downloaded.</p>
+
+<p>The VM will load with Ubuntu. Then follow the instructions to install the defaults.</p>
+
+<h2 id="do-you-have-a-mac">Do You have a Mac?</h2>
+
+<p>You are almost all set here.</p>
+
+<p>Just need to install 2 programs:</p>
+
+<p>The text editor Sublime. <a href="https://www.sublimetext.com/" target="_blank">Download here</a>.</p>
+
+<p>The terminal iTerm. <a href="https://www.iterm2.com/" target="_blank">Download here</a>.</p>
+
+<h2 id="you-need-to-have-knowledge-of-the-command-line">You need to have Knowledge of the command line.</h2>
+
+<p>In Windows there is a program called the “Command Prompt”. (We are not going to use this)</p>
+
+<p>In Mac or Linux there is a program called the “Terminal” aka “the shell” aka “the bash shell” aka “the command line”</p>
+
+<p>This “command line” helps you communicate with the computer by using code.</p>
+
+<p>A few basic “command line” examples are:</p>
+
+<p>Open the terminal and type this code to see who is the current user logged in:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ whoami
+</code></pre></div></div>
+
+<p>You don’t need to type in the <code class="language-plaintext highlighter-rouge">$</code> dollar sign. This is the Terminal “prompt” inviting you to talk to the computer. Whenever you see the dollar sign. It means this is a command line code.</p>
+
+<p>Type this code to see a list of directories:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls
+</code></pre></div></div>
+
+<p>Type this code to change directories:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd Downloads
+</code></pre></div></div>
+
+<p>Type this code to copy the contents of one file to another:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp this_file to_this_file
+</code></pre></div></div>
+
+<p>There are a lot more “commands” that you can use to communicate with the computer. Later, I will explain a few more.</p>
+
+<h2 id="you-need-to-install-ruby">You need to install Ruby</h2>
+
+<p>Ruby is a “high level programming language” that reads sort of like English.</p>
+
+<p>Ruby has “modules” called “Gems” that add more functionality to a program.</p>
+
+<h2 id="ruby-on-windows-with-linux-virtual-machine">Ruby on Windows with Linux Virtual Machine</h2>
+
+<p>Open VirtualBox and start the Ubuntu virtual machine.</p>
+
+<p>Open the terminal.</p>
+
+<p>Follow this guideline to <a href="https://www.tomordonez.com/installing-ruby-on-ubuntu.html" target="_blank">Install Ruby on Ubuntu</a>.</p>
+
+<h2 id="ruby-on-mac">Ruby on Mac</h2>
+
+<p>If you have a Mac. The installation process is similar to Ubuntu.</p>
+
+<h2 id="you-need-to-install-twitter-cli-ruby-gem">You need to Install Twitter CLI ruby gem</h2>
+
+<p>Twitter CLI aka <code class="language-plaintext highlighter-rouge">t</code> is a Ruby gem that helps you connect with the Twitter API using the command line. Say that out loud 3 times.</p>
+
+<p>In the Terminal type:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install t
+</code></pre></div></div>
+
+<p>Previously you created an app on Twitter. We need to authenticate this app with our (Twitter CLI) ruby gem.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ t authorize
+</code></pre></div></div>
+
+<p>This will say:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Welcome!...
+1. Sign in to Twitter..."create a new app"
+2. Complete the required fields...
+3. Go to Permissions tab...
+4. Go to the Keys and Access Tokens tab...
+
+Press Enter to open the Twitter Developer site
+</code></pre></div></div>
+
+<p>When you hit enter then:</p>
+
+<ul>
+  <li>Firefox opens Twitter Application Management</li>
+  <li>The terminal says Enter API Key</li>
+</ul>
+
+<p>Open the app that you created:</p>
+
+<ul>
+  <li>Go to permissions tab</li>
+  <li>Go to Keys and access tokens</li>
+</ul>
+
+<p>Copy/paste those into the Terminal.</p>
+
+<p>Then that opens a site that says “Authorize App”.</p>
+
+<p>Then it gives you a pin number that you have to enter in the Terminal.</p>
+
+<p>If it works, it will say:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Authorization successful
+</code></pre></div></div>
+
+<h2 id="input-and-output-to-send-data">Input and Output to send data</h2>
+
+<p>There is another important computer science concept that you need to learn.</p>
+
+<p>Input and Output.</p>
+
+<ul>
+  <li>When you type into Word. The input is the keyboard and the output is the Word document.</li>
+  <li>When you want to print the document. The input is the Word document. The output is the printer</li>
+</ul>
+
+<p>You can redirect data in different ways using simple code.</p>
+
+<h2 id="redirecting-data-with-add-and-append">Redirecting data with Add and Append</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; A greater than sign means "add".
+&gt;&gt; Two greater than signs mean "append".
+</code></pre></div></div>
+
+<p>When you use a command line such as <code class="language-plaintext highlighter-rouge">ls</code> to list the contents of your current directory. The output is sent to the “standard output” aka “stdout”. Which is the Terminal screen.</p>
+
+<p>Instead we could list the contents of a current directory and send the output to a file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls &gt; directory-contents.txt
+</code></pre></div></div>
+
+<p>In this example we are using <code class="language-plaintext highlighter-rouge">ls</code> to list the contents of the current directory. Then we are using <code class="language-plaintext highlighter-rouge">&gt;</code> to “add” the output to the file <code class="language-plaintext highlighter-rouge">directory-contents.txt</code>.</p>
+
+<h2 id="redirecting-data-with-pipe">Redirecting data with Pipe</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| This symbol is called a "Pipe".
+</code></pre></div></div>
+
+<p>With pipes you can redirect the output of one side to the input of another side.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls | wc -l
+</code></pre></div></div>
+
+<p>In this example we are using <code class="language-plaintext highlighter-rouge">ls</code> again to ask the computer for the contents in the current directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wc is another command called "word count" that helps you count words from a text file.
+</code></pre></div></div>
+
+<p>If you use it like this: <code class="language-plaintext highlighter-rouge">wc -l</code> it will count the number of lines from a text file.</p>
+
+<p>We use the pipe <code class="language-plaintext highlighter-rouge">|</code> to send the output of <code class="language-plaintext highlighter-rouge">ls</code> (the contents of the current directory) to the command <code class="language-plaintext highlighter-rouge">wc -l</code> to count the number of lines.</p>
+
+<h2 id="how-to-source-on-twitter">How to source on Twitter</h2>
+
+<p>Open the Terminal.</p>
+
+<p>Get a list of all available commands:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ t help
+</code></pre></div></div>
+
+<h2 id="send-a-tweet-from-the-command-line">Send a tweet from the command line</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ t update "I am tweeting from the command line"
+</code></pre></div></div>
+
+<h2 id="get-details-about-a-twitter-user">Get details about a Twitter user</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ t whois tomordonez
+</code></pre></div></div>
+
+<h2 id="create-a-list-of-people-that-dont-follow-you">Create a List of People That Don’t Follow You</h2>
+
+<p>First, count the number of people that you follow that don’t follow you back:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ t leaders | wc -l
+</code></pre></div></div>
+
+<p>With <code class="language-plaintext highlighter-rouge">leaders</code> you can get a list of people that you follow but don’t follow you.</p>
+
+<p>With <code class="language-plaintext highlighter-rouge">|</code> you are redirecting the output to the command <code class="language-plaintext highlighter-rouge">wc -l</code> to count the number of lines.</p>
+
+<p>If there is 1 user for each line. Then you will get the number of users.</p>
+
+<p>Now create a Twitter list:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ t list create NameoftheList
+</code></pre></div></div>
+
+<p>Add those people to the list. Keep in mind that it might get stuck up to 500 users. Just wait a few minutes and try it again.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ t leaders | xargs t list add NameoftheList
+</code></pre></div></div>
+
+<p>In this example we are using <code class="language-plaintext highlighter-rouge">t leaders</code> again to get a list of people that you follow but don’t follow you back.</p>
+
+<p>We are sending that output to <code class="language-plaintext highlighter-rouge">xargs</code>. Which reads the output line by line and executes the next command <code class="language-plaintext highlighter-rouge">t list add NameoftheList</code>, to add every user to that Twitter list.</p>
+
+<h2 id="download-users-that-belong-to-a-twitter-list">Download Users That Belong To A Twitter list</h2>
+
+<p>Let’s get back to the Ruby developer example.</p>
+
+<p>The most famous Ruby conference is called “Ruby Conf” and they often use the Twitter hashtag #RubyConf.</p>
+
+<p>You can create a Twitter list and add people that use this hashtag.</p>
+
+<p>Go to the Terminal and use this code to get a list of all your Twitter lists:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ t lists your-username
+</code></pre></div></div>
+
+<p>Replacing “your-username” with your Twitter username. With or without the <code class="language-plaintext highlighter-rouge">@</code>. It doesn’t matter.</p>
+
+<p>Find the Twitter list you created. Let’s say that the Twitter list is called <code class="language-plaintext highlighter-rouge">rubyconf</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ t lists tomordonez
+</code></pre></div></div>
+
+<p>This will display all my lists and it might be hard to find the one I am looking for.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ t lists tomordonez | grep 'ruby'
+</code></pre></div></div>
+
+<p>This code is using the pipe <code class="language-plaintext highlighter-rouge">|</code> to send the output of <code class="language-plaintext highlighter-rouge">t lists tomordonez</code> to the input of <code class="language-plaintext highlighter-rouge">grep 'ruby'</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">grep</code> is another command that “filters” data. In this case is filtering the output of all my Twitter lists and find only those that contain the word <code class="language-plaintext highlighter-rouge">ruby</code></p>
+
+<p>It will find a list such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@tomordonez/rubyconf
+</code></pre></div></div>
+
+<p>With the name of the Twitter list now we can download the list of all users that are members of this list.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ t list members -c @tomordonez/rubyconf &gt; twitter-list-rubyconf-members.csv
+</code></pre></div></div>
+
+<p>This code is using the redirection <code class="language-plaintext highlighter-rouge">&gt;</code> which sends the output of <code class="language-plaintext highlighter-rouge">t list members @tomordonez/rubyconf</code> to the input of <code class="language-plaintext highlighter-rouge">twitter-list-rubyconf-members.txt</code>.</p>
+
+<p>This code is pulling the list of members that belong to that list and saving them into that csv file.</p>
+
+<h2 id="create-a-csv-file-from-a-sourcecon-twitter-list">Create a CSV file from a Sourcecon Twitter list</h2>
+
+<p>I see that Sourcecon has 5 lists.</p>
+
+<p><img src="/assets/images/twitter-sourcing-tomordonez-sourcecon-lists.jpg" alt="Twitter Sourcing with Tom Ordonez" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>The first list is called “SourceCon 2017 Speakers”. It has 26 members.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p><img src="/assets/images/twitter-sourcing-tomordonez-sourcecon-speakers.jpg" alt="Twitter Sourcing with Tom Ordonez" /></p>
+
+<p>This is the URL of this list:</p>
+
+<p><code>https://twitter.com/SourceCon/lists/sourcecon-2017-speakers</code></p>
+
+<p>What you need to get is the user name and the list name:</p>
+
+<ul>
+  <li>User name: SourceCon</li>
+  <li>List name: sourcecon-2017-speakers</li>
+</ul>
+
+<p>Now let’s create a CSV file with all the users that belong to that list.</p>
+
+<p><code>t list members -c SourceCon/sourcecon-2017-speakers &gt; sourcecon-2017-speakers.csv</code></p>
+
+<p><img src="/assets/images/twitter-sourcing-tomordonez-csv-file.jpg" alt="Twitter Sourcing with Tom Ordonez" /></p>
+
+<p>These are some of the columns from the CSV file:</p>
+
+<ul>
+  <li>Date joined</li>
+  <li>Date of last tweet</li>
+  <li>Number of tweets, favorites, listed, following, followers</li>
+  <li>User name</li>
+  <li>Name</li>
+  <li>Bio</li>
+  <li>Location</li>
+  <li>URL</li>
+</ul>
+
+<p><img src="/assets/images/twitter-sourcing-tomordonez-csv-details.gif" alt="Twitter Sourcing with Tom Ordonez" /></p>
+
+<h2 id="if-you-have-questions-or-comments-please-add-them-below">If you have questions or comments please add them below</h2>
+
+<p><img src="/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" />
+ve questions or comments please add them below</p>
+
+<p><img src="/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" /></p>
+:ET

@@ -1,0 +1,249 @@
+I"I-<p>How to install Java on Fedora with OpenJDK. Also how to setup Android and a review of JShell.</p>
+
+<p>The Python shell has been a great learning tool and I wanted a similar experience in Java. There is a module called <code class="language-plaintext highlighter-rouge">JShell</code>, however, it’s not available for the default <code class="language-plaintext highlighter-rouge">Java 8</code> installed on my Linux. I had to at least upgrade to <code class="language-plaintext highlighter-rouge">Java 9</code>.</p>
+
+<h2 id="versions-for-fedora-java-android-studio">Versions for Fedora, Java, Android Studio</h2>
+
+<p>Fedora Version:</p>
+
+<ul>
+  <li>Fedora 31</li>
+</ul>
+
+<p>Java Version:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -version
+openjdk version "1.8.0_232"
+OpenJDK Runtime Environment (build 1.8.0_232-b09)
+OpenJDK 64-Bit Server VM (build 25.232-b09, mixed mode)
+</code></pre></div></div>
+
+<p>Which Java bin:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ which java
+/usr/bin/java
+</code></pre></div></div>
+
+<p>Android version:</p>
+
+<ul>
+  <li>Android Studio 3.5</li>
+</ul>
+
+<p>Android SDK Location:</p>
+
+<ul>
+  <li>Open Android Project Structure: <code class="language-plaintext highlighter-rouge">Menu &gt; File &gt; Project Structure &gt; SDK Location</code></li>
+  <li>Android SDK Location: <code class="language-plaintext highlighter-rouge">/home/tom/Android/Sdk</code></li>
+  <li>Android NDK Location: empty</li>
+  <li>JDK Location: <code class="language-plaintext highlighter-rouge">/usr/local/android-studio/jre</code></li>
+</ul>
+
+<p>Testing Android JShell Console:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Menu &gt; Tools &gt; JShell console</code></li>
+  <li>Entered: <code class="language-plaintext highlighter-rouge">out.println("Hello world");</code></li>
+  <li>Hit Run</li>
+  <li>An error shows: <code class="language-plaintext highlighter-rouge">JDK version is 8. JDK 9 or higher is needed to run JShell.</code></li>
+</ul>
+
+<h2 id="installation-summary">Installation Summary</h2>
+
+<ul>
+  <li>Download OpenJDK 13 from <a href="https://jdk.java.net/13/">here</a> using <code class="language-plaintext highlighter-rouge">wget</code>…</li>
+  <li>Following this tutorial <a href="https://www.tecmint.com/install-java-on-centos-rhel-fedora/">here</a></li>
+  <li>Change the Android JDK location as seen <a href="https://stackoverflow.com/questions/30631286/how-to-specify-the-jdk-version-in-android-studio">here</a></li>
+  <li>Test JShell on Android Studio and the command line as seen <a href="http://cr.openjdk.java.net/~rfield/tutorial/JShellTutorial.html">here</a></li>
+</ul>
+
+<p>What could go wrong…right?</p>
+
+<h2 id="installing-openjdk-13-on-fedora">Installing OpenJDK 13 on Fedora</h2>
+
+<p>Download OpenJDK 13 from <a href="https://jdk.java.net/13/">here</a> and following <a href="https://www.tecmint.com/install-java-on-centos-rhel-fedora/">this</a> tutorial.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /opt/
+$ sudo wget https://download.java.net/java/GA/jdk13.0.1/cec27d702aa74d5a8630c65ae61e4305/9/GPL/openjdk-13.0.1_linux-x64_bin.tar.gz
+$ sudo tar -xvf openjdk-13.0.1_linux-x64_bin.tar.gz
+</code></pre></div></div>
+
+<p>Check the Java version</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ /opt/jdk-13.0.1/bin/java -version
+openjdk version "13.0.1" 2019-10-15
+OpenJDK Runtime Environment (build 13.0.1+9)
+OpenJDK 64-Bit Server VM (build 13.0.1+9, mixed mode, sharing)
+</code></pre></div></div>
+
+<p>Setup environment by editing your <code class="language-plaintext highlighter-rouge">.bashrc</code>. Add these to the end of the file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># openjdk version "13.0.1"
+export JAVA_HOME=/opt/jdk-13.0.1/
+export PATH=/opt/jdk-13.0.1/bin:$PATH
+</code></pre></div></div>
+
+<p>Then run <code class="language-plaintext highlighter-rouge">$ source ~/.bashrc</code>. Restart the terminal.</p>
+
+<p>I tested the Java version:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -version
+openjdk version "13.0.1" 2019-10-15
+OpenJDK Runtime Environment (build 13.0.1+9)
+OpenJDK 64-Bit Server VM (build 13.0.1+9, mixed mode, sharing)
+
+$ which java
+/opt/jdk-13.0.1/bin/java
+</code></pre></div></div>
+
+<h3 id="alternative-installation-procedure">Alternative installation procedure</h3>
+
+<p>I tried the official Fedora docs as seen <a href="https://docs.fedoraproject.org/en-US/quick-docs/installing-java/">here</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf search openjdk
+$ sudo dnf install java-latest-openjdk.x86_64
+$ sudo alternatives --config java
+Select option: 2
+$ export JAVA_HOME=/usr/lib/jvm/java-13-openjdk-13.0.1.9-2.rolling.fc31.x86_64
+$ export PATH=$JAVA_HOME/bin:$PATH
+</code></pre></div></div>
+
+<p>(Learned about the <code class="language-plaintext highlighter-rouge">alternatives</code> command <a href="https://developers.redhat.com/blog/2018/11/05/migrating-from-oracle-jdk-to-openjdk-on-red-hat-enterprise-linux-what-you-need-to-know/">here</a>)</p>
+
+<p>However after multiple attempts I saw that the <code class="language-plaintext highlighter-rouge">jshell</code> module was missing and couldn’t figure out how to install it. It was supposed to come with the JDK already.</p>
+
+<h3 id="troubleshooting-your-path">Troubleshooting your PATH</h3>
+
+<p>I struggled with this for hours, trying to edit the <code class="language-plaintext highlighter-rouge">PATH</code> variable. I previously added the <code class="language-plaintext highlighter-rouge">JDK 13</code> path to the end causing trouble. The system would check first the default Java installed in <code class="language-plaintext highlighter-rouge">/usr/bin</code> because this path was added before.</p>
+
+<p>If you wish to edit your <code class="language-plaintext highlighter-rouge">PATH</code> variable. You can use <a href="https://unix.stackexchange.com/questions/108873/removing-a-directory-from-path">this</a> code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATH=$(echo "$PATH" | sed -e 's/\/usr\/bin:\/opt\/jdk-13.0.1\/bin$/\/opt\/jdk-13.0.1\/bin:\/usr\/bin/')
+</code></pre></div></div>
+
+<p>Following this syntax while escaping the forward slashes for the directories:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATH=$(echo "$PATH" | sed -e 's/replace_this/with_this/')
+</code></pre></div></div>
+
+<h2 id="change-the-android-jdk-location">Change the Android JDK Location</h2>
+
+<p>Here is where I learned the hard way that I couldn’t change the version of JDK in Android Studio.</p>
+
+<p>Open Android Project Structure: <code class="language-plaintext highlighter-rouge">Menu &gt; File &gt; Project Structure &gt; SDK Location</code></p>
+
+<ul>
+  <li>Current JDK Location: <code class="language-plaintext highlighter-rouge">/usr/local/android-studio/jre</code></li>
+</ul>
+
+<p>I tried to open this location:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/opt/jdk-13.0.1/
+</code></pre></div></div>
+
+<p>However, I got this error:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please choose a valid JDK 8 directory
+</code></pre></div></div>
+
+<p>More details <a href="https://stackoverflow.com/questions/56997930/how-to-use-jdk-12-with-android-project">here</a>.</p>
+
+<p>For now I just wanted to test <code class="language-plaintext highlighter-rouge">JShell</code>.</p>
+
+<h2 id="test-jshell-on-android-studio">Test JShell on Android Studio</h2>
+
+<p>In Android Studio: <code class="language-plaintext highlighter-rouge">Tools &gt; JShell Console</code>.</p>
+
+<p>An error says <code class="language-plaintext highlighter-rouge">JShell: JDK version is 8. JDK 9 or higher is needed to run JShell.</code></p>
+
+<p>I don’t see how <code class="language-plaintext highlighter-rouge">JShell</code> can be used in Android Studio if it won’t allow to choose a JDK other than version 8.</p>
+
+<h2 id="test-jshell-on-the-command-line">Test JShell on the Command Line</h2>
+
+<p>The Command Line is what I’ve used for the Python shell. I am happy enough to use the CLI for this Java shell.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jshell
+|  Welcome to JShell -- Version 13.0.1
+|  For an introduction type: /help intro
+
+jshell&gt;
+</code></pre></div></div>
+
+<p>I like it already.</p>
+
+<p>Exit with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jshell&gt; /exit
+</code></pre></div></div>
+
+<p>The next few lines follow <a href="http://cr.openjdk.java.net/~rfield/tutorial/JShellTutorial.html">this</a> tutorial.</p>
+
+<p>Start <code class="language-plaintext highlighter-rouge">jshell</code> in verbose mode to provide feedback about what you typed.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jshell -v
+
+jshell&gt; int x = 45;
+x ==&gt; 45
+|  created variable x : int
+
+jshell&gt; String twice(String s) {
+   ...&gt;     return s + s;
+   ...&gt; }
+|  created method twice(String)
+
+jshell&gt; twice("Ocean");
+$3 ==&gt; "OceanOcean"
+|  created scratch variable $3 : String
+
+jshell&gt; String x;
+x ==&gt; null
+|  replaced variable x : String
+|    update overwrote variable x : int
+</code></pre></div></div>
+
+<p>Use <code class="language-plaintext highlighter-rouge">tab</code> to autocomplete or show available methods:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jshell&gt; System.c
+class  clearProperty(  console()  currentTimeMillis()
+</code></pre></div></div>
+
+<p>Use <code class="language-plaintext highlighter-rouge">tab</code> before entering a method’s parameter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jshell&gt; twice(
+$3       twice(   x        
+
+Signatures:
+String twice(String s)
+
+&lt;press tab again to see documentation&gt;
+
+String twice(String s)
+&lt;no documentation found&gt;
+
+&lt;press tab again to see all possible completions;
+total possible completions: 542&gt;
+</code></pre></div></div>
+
+<p>Use <code class="language-plaintext highlighter-rouge">vim</code> as an editor within <code class="language-plaintext highlighter-rouge">JShell</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jshell&gt; /set editor vim
+|  Editor set to: vim
+
+jshell&gt; /edit
+</code></pre></div></div>
+
+<p>It opens <code class="language-plaintext highlighter-rouge">vim</code>, which has everything I typed so far. I added a method, then saved, and closed the file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|  created method cube(double)
+
+jshell&gt; cube(2);
+$6 ==&gt; 8.0
+|  created scratch variable $6 : doublen saved, and closed the file:
+
+|  created method cube(double)
+
+jshell&gt; cube(2);
+$6 ==&gt; 8.0
+|  created scratch variable $6 : double
+</code></pre></div></div>
+:ET

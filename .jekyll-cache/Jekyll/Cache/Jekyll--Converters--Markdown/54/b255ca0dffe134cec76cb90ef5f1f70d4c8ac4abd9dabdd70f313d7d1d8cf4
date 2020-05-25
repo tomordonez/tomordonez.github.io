@@ -1,0 +1,102 @@
+I"�<p>I have been on a data science quest on and off for about a year and a half.</p>
+
+<p>About a month ago I decided to accelerate my progress and I signed up to Python for Everybody in Coursera.</p>
+
+<p>I implemented some Python scripts in the past and this website uses Python. But I wanted to get some detailed foundations before moving on to using Python for data science.</p>
+
+<p>The first course in the Python for Everybody path is called “Programming for Everybody (Getting Started with Python)”.</p>
+
+<p>It’s the typical intro to programming.</p>
+
+<p>They teach you basic syntax, types, conditionals and iterations.</p>
+
+<p>They also teach you handling exceptions, which often is a more advanced topic but I am glad this was taught early on.</p>
+
+<h2 id="programming-for-everybody-in-python-curriculum">Programming for Everybody in Python Curriculum</h2>
+
+<p>Here is the curriculum for programming for everybody in Python:</p>
+
+<ul>
+  <li>Week 1: Why we program</li>
+  <li>Week 2: Installing and using Python</li>
+  <li>Week 3: Why we program (continued)</li>
+  <li>Week 4: Variables and expressions</li>
+  <li>Week 5: Conditional code</li>
+  <li>Week 6: Functions</li>
+  <li>Week 7: Loops and iteration</li>
+</ul>
+
+<p>I completed this course in about a week. Spent around 3-4 hours per day for 7 days.</p>
+
+<p>If you are familiar with C programming you can do this course in less than a week too.</p>
+
+<p>If you know what this is, you will find this course very easy:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (i = 1; i &lt;= 3; i++)
+</code></pre></div></div>
+
+<p>If you don’t have previous knowledge of programming I suggest that you take each week and spend time to get the knowledge to sink in correctly in your brain :)</p>
+
+<h2 id="programming-for-everybody-in-python-example">Programming for Everybody in Python Example</h2>
+
+<p>Here is a Python example related to programming for everybody.</p>
+
+<p>Let’s write a silly program that asks for the prices of items and calculate the total, the lowest and highest price.</p>
+
+<p>Also print an error when you don’t enter a number and finish when you enter the word “batman”.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lowest = None
+highest = None
+count = 0
+total = 0
+
+while True:
+    price = input('Enter price: ')
+if price == 'batman'
+    break
+try:
+    price = float(price)
+
+ except:
+    print('Master Bruce please enter a number!')
+    continue
+    
+total = total + price
+count = count + 1
+
+if highest is None or price &gt; highest
+    highest = price
+if lowest is None or price &lt; lowest
+    lowest = price
+
+print('Total is:', total)
+print('Number of items:', count)
+print('Highest price:', highest)
+print('Lowest price:', lowest)
+</code></pre></div></div>
+
+<p>Running the program shows:</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/programming-everybody-python-coursera.jpg" alt="Programming for Everybody in Python from Coursera example" /></p>
+
+<p>The example uses all the lessons from the course with the exception of the for loop:</p>
+
+<ul>
+  <li>while</li>
+  <li>try and except</li>
+  <li>if conditional</li>
+  <li>input</li>
+</ul>
+
+<p>oursera.jpg)</p>
+
+<p>The example uses all the lessons from the course with the exception of the for loop:</p>
+
+<ul>
+  <li>while</li>
+  <li>try and except</li>
+  <li>if conditional</li>
+  <li>input</li>
+</ul>
+
+:ET

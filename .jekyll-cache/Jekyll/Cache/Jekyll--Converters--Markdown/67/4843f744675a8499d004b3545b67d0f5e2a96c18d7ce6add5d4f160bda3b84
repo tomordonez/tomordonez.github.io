@@ -1,0 +1,508 @@
+I"9Z<p>These are my top 5 Python scripts I use for researching and sourcing data.</p>
+
+<p><img src="/assets/images/top-5-python-scripts-sourcing.jpg" alt="The Top 5 Python Scripts for Sourcing" /></p>
+
+<p><strong>Note: Use at your own risk</strong></p>
+
+<h2 id="0-virtualenv">0. Virtualenv</h2>
+
+<p>Before installing any script I recommend setting up a virtual environment for each project.</p>
+
+<p><code class="language-plaintext highlighter-rouge">virtualenv</code> is a tool to create isolated Python environments. You can get all the details <a href="http://pypi.python.org/pypi/virtualenv" target="_blank">here</a>.</p>
+
+<p>To install <code class="language-plaintext highlighter-rouge">virtualenv</code> do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip install virtualenv
+</code></pre></div></div>
+
+<p>Test the installation:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv --version
+</code></pre></div></div>
+
+<p>Find the directory for your python version. On Linux this is my output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ which python3
+/usr/bin/python3
+
+$ which python
+/usr/bin/python
+</code></pre></div></div>
+
+<p>Go to the script directory. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd awesome-directory/
+</code></pre></div></div>
+
+<p>Install <code class="language-plaintext highlighter-rouge">virtualenv</code> with the python version recommended for that script.</p>
+
+<p>For example for <code class="language-plaintext highlighter-rouge">python3</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv -p /usr/bin/python3 env
+</code></pre></div></div>
+
+<p>For <code class="language-plaintext highlighter-rouge">python2.7</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv -p /usr/bin/python env
+</code></pre></div></div>
+
+<p>This will create a virtual environment with the selected python version and create a directory called <code class="language-plaintext highlighter-rouge">env</code>.</p>
+
+<p>To activate the environment do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source env/bin/activate
+</code></pre></div></div>
+
+<p>This will change the prompt to this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $
+</code></pre></div></div>
+
+<p>To exit <code class="language-plaintext highlighter-rouge">virtualenv</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ deactivate
+</code></pre></div></div>
+
+<p>It will change the prompt back to just <code class="language-plaintext highlighter-rouge">$</code>.</p>
+
+<h2 id="1a-resumeparser-with-anaconda">1a. ResumeParser with Anaconda</h2>
+
+<p>ResumeParser is an awesome Python scripts to convert PDF resumes to a CSV file.</p>
+
+<p>The first step is to install <code class="language-plaintext highlighter-rouge">Anaconda</code>.</p>
+
+<p>Go to <a href="https://www.anaconda.com/download/#linux" target="_blank">Anaconda for Linux</a> and download the 64 bit x86 file for Python3.</p>
+
+<p>The file is about 500MB. It might take around 5 minutes to download.</p>
+
+<p>Let’s say you downloaded the file to ~/Downloads.</p>
+
+<p>Open the terminal and verify data integrity. Use the name of the file you downloaded, in this case I am calling it <code class="language-plaintext highlighter-rouge">anaconda.sh</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sha256sum ~/Downloads/anaconda.sh
+</code></pre></div></div>
+
+<p>This will produce a string that you need to match with the corresponding hash string <a href="https://docs.anaconda.com/anaconda/install/hashes/lin-3-64" target="_blank">here</a>.</p>
+
+<p>Then install:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bash ~/Downloads/anaconda.sh
+</code></pre></div></div>
+
+<p>If prompted about the license agreement. Hit “Enter” to scroll down until you see a prompt where you have to enter “Yes”.</p>
+
+<p>Choose the default installation.</p>
+
+<p>Prepend install location to PATH. “Yes”.</p>
+
+<p>When completed. Enter the command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source ~/.bashrc
+</code></pre></div></div>
+
+<p>Test that it was installed:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ anaconda-navigator
+</code></pre></div></div>
+
+<p>If the Navigator opens then it’s installed correctly. To learn more about the <code class="language-plaintext highlighter-rouge">Anaconda Navigator</code> go <a href="https://docs.anaconda.com/anaconda/navigator/index.html" target="_blank"> here</a>.</p>
+
+<p>Git clone ResumeParser:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/bjherger/ResumeParser.git
+</code></pre></div></div>
+
+<p>This will create a directory <code class="language-plaintext highlighter-rouge">ResumeParser</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd ResumeParser
+</code></pre></div></div>
+
+<p>This one follows a different way to configure the virtual environment, because many of the required packages are handled by Anaconda:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda env create -f environment.yml
+</code></pre></div></div>
+
+<p><strong>If this command stops with errors. I recommend to follow the next headline “ResumeParser Legacy”</strong></p>
+
+<p>Then activate the environment:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source activate resume
+</code></pre></div></div>
+
+<p>Now the magic potion is ready.</p>
+
+<p>Add resumes to this input directory. Although this directory comes with some defaults for PDF files for testing purposes. You can remove them:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data/input/example_resumes
+</code></pre></div></div>
+
+<p>To run the code do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd bin/
+$ python main.py
+</code></pre></div></div>
+
+<p>Open the CSV file in this directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ open data/output/resume_summary.csv
+</code></pre></div></div>
+
+<p>I recommend that you customize the data that you want extracted to your own needs.</p>
+
+<h2 id="1b-resumeparser-legacy">1b. ResumeParser Legacy</h2>
+
+<p>There is another way to install ResumeParser but the “legacy” source files are not found on the author’s Github project anymore.</p>
+
+<p>Follow the same process to download the project.</p>
+
+<p>If you are on Ubuntu and you haven’t installed git:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt install git
+</code></pre></div></div>
+
+<p>Git clone ResumeParser:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/bjherger/ResumeParser.git
+</code></pre></div></div>
+
+<p>This will create a directory <code class="language-plaintext highlighter-rouge">ResumeParser</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd ResumeParser
+</code></pre></div></div>
+
+<p>Create the virtual environment:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv -p /usr/bin/python env
+</code></pre></div></div>
+
+<p>To activate the environment do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source env/bin/activate
+</code></pre></div></div>
+
+<p>Create a file called <code class="language-plaintext highlighter-rouge">requirements.txt</code> and add this content:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>html2text==2016.9.19                                                    
+numpy==1.11.2                                                           
+pandas==0.19.0                                                          
+pdfminer==20140328                                                      
+python-dateutil==2.5.3                                                  
+pytz==2016.7                                                            
+six==1.10.0
+</code></pre></div></div>
+
+<p>Clone the file <code class="language-plaintext highlighter-rouge">ResumeChecker.py</code> from here:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ git clone https://gist.github.com/bb222f8b39f246d9add0644192e274e1.git
+</code></pre></div></div>
+
+<p>This will create a directory called <code class="language-plaintext highlighter-rouge">bb222f8b39f246d9add0644192e274e1</code> and inside there is a file called <code class="language-plaintext highlighter-rouge">ResumeChecker.py</code>.</p>
+
+<p>You need to move this file into the <code class="language-plaintext highlighter-rouge">bin</code> directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ mv bb222f8b39f246d9add0644192e274e1/ResumeChecker.py bin/
+</code></pre></div></div>
+
+<p>Install the dependencies:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ pip install -r requirements.txt
+</code></pre></div></div>
+
+<p>Now the magic potion is ready.</p>
+
+<p>Add resumes to this input directory. Although this directory comes with some defaults for PDF files for testing purposes. You can remove them:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data/input/example_resumes
+</code></pre></div></div>
+
+<p>To run the code do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd bin/
+$ python ResumeChecker.py --data_path ../data/input/example_resumes --output_path ../data/output/resume_summary.csv
+</code></pre></div></div>
+
+<p>Open the CSV file in this directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ open data/output/resume_summary.csv
+</code></pre></div></div>
+
+<p>Customize the code for your needs, extracting specific content that you want.</p>
+
+<p>For instance I like to create an attribute dashboard.</p>
+
+<p>The process is to add columns on the CSV for the keywords you want to extract. The script will count the number of times this keyword appears on the PDF.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Name         Java   Machine Learning     AWS
+Elon Musk      2          10              3
+Homer Simpson  1           2              1
+</code></pre></div></div>
+
+<p>Create a list of the keywords that you want to add. This can be any number of keywords.</p>
+
+<p>Add those keywords as columns on the CSV file here:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data/output/resume_summary.csv
+</code></pre></div></div>
+
+<p>Open the file ResumeChecker.py.</p>
+
+<p>Towards the bottom of the file there is code that looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resume_summary_df["file_path"] = file_list
+</code></pre></div></div>
+
+<p>Find the rows that start with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resume_summary_df
+</code></pre></div></div>
+
+<p>Scroll down a little bit more and find a section that starts with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Scrape skill information
+</code></pre></div></div>
+
+<p>Follow the format to add the keywords you want. Adding rows with the exact keywords you added on your CSV.</p>
+
+<p>For example, if you added <code class="language-plaintext highlighter-rouge">Machine Learning</code>. Then you could add a row like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>resume_summary_df["ml_count"] = resume_summary_df["raw_text"].apply(functools.partial(term_count, term=r"machine learning"))
+</code></pre></div></div>
+
+<p>Once you make all the changes, test the script with a small batch of PDFs. Perhaps up 10 files. Then look at the output CSV to see the results.</p>
+
+<p>When you are done using the script. You can deactivate the virtual environment like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ deactivate
+</code></pre></div></div>
+
+<h2 id="2-subbrute">2. Subbrute</h2>
+
+<p>Subbrute is a “DNS meta-query spider that enumerates DNS records and subdomains”.</p>
+
+<p>Let’s install it and then I will follow with an example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/TheRook/subbrute.git
+$ cd subbrute
+</code></pre></div></div>
+
+<p>Create the virtual environment:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv -p /usr/bin/python env
+</code></pre></div></div>
+
+<p>To activate the environment do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source env/bin/activate
+</code></pre></div></div>
+
+<p>Run this example to see what you get:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ ./subbrute.py google.com --type CNAME
+</code></pre></div></div>
+
+<p>If I run this I get this output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>google.com
+www.google.com
+alt1.aspmx.l.google.com
+alt4.aspmx.l.google.com
+_spf.google.com
+</code></pre></div></div>
+
+<p>It keeps on running giving more results. You can stop it using <code class="language-plaintext highlighter-rouge">Ctrl+C</code>.</p>
+
+<p>When you are done using the script. You can deactivate the virtual environment like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ deactivate
+</code></pre></div></div>
+
+<h2 id="3-googler">3. Googler</h2>
+
+<p>Googler is a Python script…“Google Search, Google Site Search, Google News from the terminal”</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/jarun/googler.git
+$ cd googler
+</code></pre></div></div>
+
+<p>Create the virtual environment:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv -p /usr/bin/python env
+</code></pre></div></div>
+
+<p>To activate the environment do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source env/bin/activate
+</code></pre></div></div>
+
+<p>Run a search:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ ./googler --count 3 --exact fender
+</code></pre></div></div>
+
+<p>It will produce these results:</p>
+
+<p><em>1 Fender Guitars | Electric, Acoustic &amp; Bass Guitars, Amps, Pro Audio</em>
+<em>https://www.fender.com/</em>
+<em>Since 1946, Fender’s iconic Stratocasters, Telecasters and Precision &amp; Jazz bass guitars have transformed nearly every music genre.</em></p>
+
+<p><em>2 Fender (@Fender) · Twitter</em>
+<em>https://twitter.com/Fender?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor</em></p>
+
+<p><em>3 Fender Musical Instruments Corporation - Wikipedia</em>
+<em>https://en.wikipedia.org/wiki/Fender_Musical_Instruments_Corporation</em>
+<em>Coordinates: 33°38′46″N 111°53′57″W﻿ / ﻿33.6460322°N 111.899058°W﻿ / 33.6460322; -111.899058. Fender Musical Instruments Corporation (FMIC), …</em></p>
+
+<p>The bottom of the screen will show:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>googler (? for help)
+</code></pre></div></div>
+
+<p>Type <code class="language-plaintext highlighter-rouge">?</code></p>
+
+<p>It will show help options:</p>
+
+<p>omniprompt keys:</p>
+
+<ul>
+  <li>n, p                  fetch the next or previous set of search results</li>
+  <li>index                 open the result corresponding to index in browser</li>
+  <li>f                     jump to the first page</li>
+  <li>o                     open the current search in browser</li>
+  <li>g keywords            initiate a new Google search for ‘keywords’ with original options</li>
+  <li>q, ^D, double Enter   exit googler</li>
+  <li>?                     show omniprompt help</li>
+  <li>*                     any other string initiates a new search with original options</li>
+</ul>
+
+<p>Type:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>site:github.com python
+</code></pre></div></div>
+
+<p>It will show 3 results from <code class="language-plaintext highlighter-rouge">Github</code>.</p>
+
+<p>Type:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>filetype:pdf python
+</code></pre></div></div>
+
+<p>It will show 3 PDF results.</p>
+
+<p>Hit the <code class="language-plaintext highlighter-rouge">Enter</code> key twice to exit.</p>
+
+<p>When you are done using the script. You can deactivate the virtual environment like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ deactivate
+</code></pre></div></div>
+
+<h2 id="4-parsero">4. Parsero</h2>
+
+<p>Parsero is a Python script that reads Robots.txt and looks for disallow entries.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/behindthefirewalls/Parsero.git
+$ cd Parsero
+</code></pre></div></div>
+
+<p>Create the virtual environment:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv -p /usr/bin/python env
+</code></pre></div></div>
+
+<p>To activate the environment do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source env/bin/activate
+</code></pre></div></div>
+
+<p>Setup the script:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ sudo setup.py install
+</code></pre></div></div>
+
+<p>Open the help options:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ parsero -h
+</code></pre></div></div>
+
+<p>usage: parsero.py [-h] [-u URL] [-o] [-sb]</p>
+
+<p>optional arguments:</p>
+
+<ul>
+  <li>-h, –help  show this help message and exit</li>
+  <li>-u URL      Type the URL which will be analyzed</li>
+  <li>-o          Show only the “HTTP 200” status code</li>
+  <li>-sb         Search in Bing indexed Disallows</li>
+  <li>-f FILE     Scan a list of domains from a list</li>
+</ul>
+
+<p>Run an example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ parsero -u google.com
+</code></pre></div></div>
+
+<p>When you are done using the script. You can deactivate the virtual environment like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ deactivate
+</code></pre></div></div>
+
+<h2 id="5-the-harvester">5. The Harvester</h2>
+
+<p>The Harvester is a Python script used to gather data from public sources.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/laramies/theHarvester.git
+$ cd theHarvester
+</code></pre></div></div>
+
+<p>Create the virtual environment:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv -p /usr/bin/python env
+</code></pre></div></div>
+
+<p>To activate the environment do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source env/bin/activate
+</code></pre></div></div>
+
+<p>Set execute permission for the script:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ chmod +x theHarvester.py
+</code></pre></div></div>
+
+<p>Install dependencies:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ pip install requests
+</code></pre></div></div>
+
+<p>Run with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ ./theHarvester.py
+</code></pre></div></div>
+
+<p>This will show the help page and how to use it.</p>
+
+<p>Here is an example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ ./theHarvester.py -d microsoft.com -l 50 -b google -f example1
+</code></pre></div></div>
+
+<p>This will search for data on that website. Find 50 results using google and save the results to an html file called example1.</p>
+
+<p>If you open the file <code class="language-plaintext highlighter-rouge">example1</code> in your browser, it looks like this:</p>
+
+<p>&nbsp;</p>
+
+<p><img src="/assets/images/python-script-example.jpg" alt="Python Scripts for Sourcing" /></p>
+
+<p>&nbsp;</p>
+
+<p>When you are done using the script. You can deactivate the virtual environment like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ deactivate
+</code></pre></div></div>
+
+<p>n you are done using the script. You can deactivate the virtual environment like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env) $ deactivate
+</code></pre></div></div>
+
+:ET

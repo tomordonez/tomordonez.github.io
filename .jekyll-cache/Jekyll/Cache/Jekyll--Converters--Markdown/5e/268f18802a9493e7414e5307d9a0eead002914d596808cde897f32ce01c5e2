@@ -1,0 +1,52 @@
+I"�<p>This is how to redirect stdout and stderr in bash.</p>
+
+<p><img src="/assets/images/redirect-stdout-stderr-bash.png" alt="Redirect stdout and stderr in bash" /></p>
+
+<p>Search for:</p>
+
+<ul>
+  <li>IO redirection in Linux</li>
+  <li>input redirection Linux</li>
+  <li>output redirection Linux</li>
+  <li>file descriptors bash</li>
+</ul>
+
+<p>As seen <a href="http://tldp.org/LDP/abs/html/io-redirection.html" target="_blank">here</a>.</p>
+
+<p>Redirect stdout to file “static.”</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1&gt;static
+</code></pre></div></div>
+
+<p>Redirect and append stdout to file “static.”</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1&gt;&gt;static
+</code></pre></div></div>
+
+<p>Redirect stderr to file “static.”</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2&gt;static
+</code></pre></div></div>
+
+<p>Redirect and append stderr to file “static.”</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2&gt;&gt;static
+</code></pre></div></div>
+
+<p>Redirect both stdout and stderr to file “static.”</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&amp;&gt;static
+</code></pre></div></div>
+
+<p>Redirect stderr to stdout.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2&gt;&amp;1
+</code></pre></div></div>
+
+<h2 id="if-you-have-questions-or-comments-please-add-them-below">If you have questions or comments please add them below</h2>
+
+<p><img src="/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" />
+elow</p>
+
+<p><img src="/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" /></p>
+:ET

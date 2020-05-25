@@ -1,0 +1,48 @@
+I"X<p>A mini tutorial about: <strong>remote access in Linux</strong>.</p>
+
+<p>This works if you have another computer in your LAN running a Linux Fedora Desktop. Tested on Fedora 27.</p>
+
+<h2 id="1-enable-remote-access-in-the-host">1. Enable Remote Access in the host</h2>
+
+<p>Make sure that <code class="language-plaintext highlighter-rouge">vino</code> is installed, as seen <a href="https://www.techotopia.com/index.php/Remote_Access_to_the_Fedora_Linux_Desktop" target="_blank">here</a>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rpm -q vino
+</code></pre></div></div>
+
+<p>If it says it’s not installed then install with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install vino
+</code></pre></div></div>
+
+<p>Go to Settings &gt; Sharing.</p>
+
+<p>Turn <strong>Sharing</strong> to <code class="language-plaintext highlighter-rouge">ON</code>. Then <strong>Remote Login</strong> to <code class="language-plaintext highlighter-rouge">ON</code>.</p>
+
+<p>It will show a message to use <code class="language-plaintext highlighter-rouge">ssh something.local</code> to connect to this host. Where <code class="language-plaintext highlighter-rouge">something</code> might be the host name.</p>
+
+<h2 id="2-test-remote-from-a-guest">2. Test Remote from a guest</h2>
+
+<p>From another computer’s terminal. Type the command that was shown on the host.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh something.local
+</code></pre></div></div>
+
+<p>It will ask to accept the signature and to login.</p>
+
+<p>The prompt will change to your prompt <code class="language-plaintext highlighter-rouge">$</code>. You could add <code class="language-plaintext highlighter-rouge">\h</code> to your <code class="language-plaintext highlighter-rouge">bashrc</code> config so you don’t get confused. Then use <code class="language-plaintext highlighter-rouge">exit</code> to go back to your local terminal.</p>
+
+<h2 id="3-ssh-to-ip-address">3. SSH to IP address</h2>
+
+<p>I found that connecting to <code class="language-plaintext highlighter-rouge">something.local</code> for the first time it worked with no problems. Further times it wouldn’t connect. I made sure the remote computer wouldn’t go into suspend mode. That didn’t solve the problem.</p>
+
+<p>Using the remote IP address works every time. Find the remote IP and connect using SSH.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh remote-IP-address
+</code></pre></div></div>
+
+<p>ss works every time. Find the remote IP and connect using SSH.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh remote-IP-address
+</code></pre></div></div>
+
+:ET

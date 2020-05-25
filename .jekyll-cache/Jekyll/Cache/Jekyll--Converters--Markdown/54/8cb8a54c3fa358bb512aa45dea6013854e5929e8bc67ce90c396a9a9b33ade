@@ -1,0 +1,26 @@
+I"<p>Execute many commands in one line in Linux</p>
+
+<p><img src="/assets/images/linux-execute-many-commands-one-line.jpg" alt="Linux execute many commands in one line" /></p>
+
+<p>Run A then B, even if A fails</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A; B
+</code></pre></div></div>
+
+<p>Run B only if A works</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A &amp;&amp; B
+</code></pre></div></div>
+
+<p>Run B only if A fails</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A || B
+</code></pre></div></div>
+
+<h2 id="if-you-have-questions-or-comments-please-add-them-below">If you have questions or comments please add them below</h2>
+
+<p><img src="/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" />
+below</p>
+
+<p><img src="/assets/images/tomordonez-ask-question-comment.gif" alt="Ask Question or Comment" /></p>
+:ET
