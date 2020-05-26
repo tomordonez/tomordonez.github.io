@@ -18,29 +18,30 @@ This is a tutorial on web scraping with Python. Learn to scrape websites with Py
 5. Scrape one page.
 6. Scrape multiple pages.
 
+
 ## To scrape or not to scrape
 
-There are a lot of tools with a user interface that allows you to point to content on a page and it scrapes everything for you.
+There are tools with a user interface that allow you to point to content on a page and they scrape everything for you.
 
 There is also the question of scraping or not. Can you easily copy/paste the content and modify it with Excel? Or with a text editor like Sublime Text?
 
-While some tools can scrape things for you. Sometimes it's hard to customize them or they don't have some features you want and you have to pay for them.
+While some tools can scrape things for you, sometimes they are hard to customize, or you have to pay for additional features.
 
 This tutorial assumes that you want the freedom to scrape anything you want and customize the tool however you think is best for your needs.
 
+
 ## 1. Setup web scraping with Python.
 
-For this tutorial on web scraping I am using Python3. There are a lot of tutorials online on how to install Python3.
+For this tutorial on web scraping I am using `Python 3`. There are a lot of tutorials online on how to install Python 3.
 
 If you are new to Python. This tutorial might not be the best first step for you. Here are some good resources:
 
 * [Official Python Docs](https://www.python.org/)
 * [Coursera Python for Everybody](https://www.coursera.org/specializations/python)
 
-I am also using a virtual environment. Here is a great blog post on Python virtual environments.
+I am also using a virtual environment with `miniconda`
 
-* [Python virtual environment](https://docs.python-guide.org/dev/virtualenvs/)
-* [Python docs on virtualenv](https://packaging.python.org/guides/installing-using-pip-and-virtualenv/)
+* [Install Miniconda](../install-miniconda-linux)
 
 If you are not familiar with Unix commands. Here are some resources:
 
@@ -49,16 +50,18 @@ If you are not familiar with Unix commands. Here are some resources:
 
 I am using Linux Fedora. The output of the commands you see in this tutorial might be different than yours.
 
-Once you have `Python3` and `virtualenv` installed then you can setup a virtual environment like this:
+Once you have `Python3` and `miniconda` installed then you can setup a virtual environment like this:
 
-* Create a project directory: `mkdir scraping`
-* Go there: `cd scraping`.
-* Where is Python3? `which python3`.
-* Output is: `/usr/bin/python3`.
-* Setup virtualenv: `virtualenv -p /usr/bin/python3 env`
-* Activate: `source env/bin/activate`.
+    $ conda create --name your-project
 
-Activating a virtual environment will add `(env)` to your terminal. To deactivate use `deactivate`.
+Activate:
+
+    $ conda activate your-project
+
+Go back to `base`:
+
+    $ conda activate
+
 
 ## 2. Web scraping target and expected result.
 
@@ -69,12 +72,6 @@ Unless you have some experience in Python. Then this should be easy.
 What do you want to scrape? A page or multiple pages? What output do you want?
 
 For this tutorial we are going to scrape speakers from a conference and the output is a CSV file with data about these speakers.
-
-I see that CES is coming up. Found the list of speakers on this page:
-
-`https://www.ces.tech/Conference/Speaker-Directory.aspx`.
-
-Scrolled all the way down. Looks like a lot of speakers.
 
 ![CES Speakers]({{ site.baseurl }}/assets/images/ces_speakers.gif)
 
@@ -133,8 +130,6 @@ We could also scrape the Speakers page but it doesn't have the bios. It just has
 
 ## To bio or not to bio
 
-Here is the dilemma.
-
 On the speakers page we have:
 
 * name
@@ -154,8 +149,6 @@ On each speaker page we have:
 
 Can we scrape the title and company from the same html tag? Then do some magic (regex) to separate the data?
 
-This seems risky.
-
 What if the title already has a comma?
 
 Such as:
@@ -170,11 +163,10 @@ This would be impossible to extract if speakers have different variations of whe
 
 If we only scrape the speakers page then we will miss the `bio`.
 
-We will look at both cases and make some decisions later.
 
 ## 3. Setup logging in Python.
 
-Here is a [Python logging tutorial](https://www.tomordonez.com/python-logging-tutorial.html) to get all the details.
+Here is a [Python logging tutorial](../python-logging-tutorial) to get all the details.
 
 We want to capture a log file when running the script. That way we can see what worked and what didn't. You could use `print` statements but it will be hard to read the terminal output after running the script a few times.
 
@@ -190,7 +182,7 @@ For this blog post we just have to add this code towards the top:
     fh.setFormatter(formatter)
     logger.addHandler(fh)
 
-Then `logger` can be used as in the following examples.
+Then `logger` can be used as this:
 
 Example 1:
 
@@ -207,6 +199,7 @@ Then we have to close the log file at the end of the script:
     for handler in logger.handlers:
         handler.close()
         logger.removeHandler(handler)
+
 
 ## 4. Setup BeautifulSoup and export to CSV.
 
@@ -238,6 +231,7 @@ Followed by closing the logging file:
 
 In between the logging setup we need to add our code.
 
+
 ## Setup BeautifulSoup
 
 Given a url:
@@ -248,7 +242,8 @@ Given a url:
 
 Read more about `BeautifulSoup` here:
 
-* [Python Lambda and BeautifulSoup](https://www.tomordonez.com/python-lambda.html)
+* [Python Lambda and BeautifulSoup](../python-lambda)
+
 
 ## Export data to a CSV file
 
@@ -259,6 +254,7 @@ The usual is to export the scraped data to a CSV file.
         csvwriter.writerow(['column1', 'column2', 'column3'])
 
 Then after saving data into variables. Use `writerow` to save the data to the CSV file.
+
 
 ## 5. Scrape one page
 
@@ -290,6 +286,7 @@ Let's create two scripts and save this code to each:
 * `one_page.py`
 * `many_pages.py`
 
+
 ## Scrape the page that has the list of speakers:
 
 * Name
@@ -298,9 +295,7 @@ Let's create two scripts and save this code to each:
 * Speaker conference url
 * No bio
 
-The URL is: `https://www.ces.tech/Conference/Speaker-Directory.aspx`.
-
-Adding to the template code above. Modify the name of the log file. From `output.log` to `one_page_output.log`.
+Modify the name of the log file. From `output.log` to `one_page_output.log`.
 
 Add the `url` and create a `BeautifulSoup` object.
 
@@ -315,6 +310,7 @@ Then create the `CSV` file:
         csvwriter.writerow(['name', 'title', 'company', 'url'])
 
 Instead of running the script multiple times to try to scrape the data. I like to work on the Python shell to see the results and then add the code to the script.
+
 
 ## Test scraping using the shell:
 
@@ -375,6 +371,7 @@ The child tags have this content:
 
 Which correspond to `name`, `title`, `company` and `url`.
 
+
 ## Scrape one name
 
     >>> soup.find('h3', attrs={'class': 'speaker-name'})
@@ -389,6 +386,7 @@ This is correct but we only want the text inside the tag.
     'Omar Abdelwahed '
 
 But this only finds one name.
+
 
 ## Scrape all the names
 
@@ -409,6 +407,7 @@ Then try this:
 
 The output is a list of `soup` objects with the `<h3 class="speaker-name">` tag and text.
 
+
 ## Scraping and matching rows
 
 I thought of this. We can scrape the list of names. But what about the other data that corresponds to each speaker.
@@ -424,6 +423,7 @@ Then titles:
 But how do we join these two lists? What if the data doesn't match?
 
 We need to find the correct data structure to put all the scraped data.
+
 
 ## Scraping the parent tag
 
@@ -525,12 +525,14 @@ This documentation is long. Here is an extract:
     |      Get all child strings, concatenated using the given separator.
     |  
 
+
 ## Scrape the URL
 
 Here is the code to capture the URL bio from `speakers[0]`:
 
     >>> speakers[0].find('a').get('href')
     '/conference/speaker-directory/Omar-Abdelwahed'
+
 
 ## Scrape the name
 
@@ -545,6 +547,7 @@ Use this code to scrape the name:
 
 I see it has whitespace at the end of the string. But not sure if this is just this one or all of them. Not a big deal for now.
 
+
 ## Scrape the title
 
 This HTML has the title:
@@ -556,6 +559,7 @@ Use this code:
     >>> speakers[0].find('h4', attrs={'class': 'speaker-title'}).text
     'Head of Studio'
 
+
 ## Scrape the company
 
 This HTML has the company:
@@ -566,6 +570,7 @@ Use the code:
 
     >>> speakers[0].find('h4', attrs={'class': 'speaker-company'}).text
     'SoftBank Robotics'
+
 
 ## Add this code to the script `one_page.py`
 
@@ -634,6 +639,7 @@ And we will add logging for each step.
         handler.close()
         logger.removeHandler(handler)
 
+
 ## Running the script `one_page.py`
 
 Run the script with:
@@ -657,6 +663,7 @@ We saved the log file with this name: `one_page_output.log`
 
 It looks like it scraped all the data.
 
+
 ## Review the CSV file
 
 We named the CSV file: `one_page_leads.csv`.
@@ -664,6 +671,7 @@ We named the CSV file: `one_page_leads.csv`.
 ![Scraped data into CSV]({{ site.baseurl }}/assets/images/scraping_one_page_data.gif)
 
 It looks good. But the dilemma continues. We don't have the `bios`.
+
 
 ## 6. Scrape multiple pages.
 
@@ -687,6 +695,7 @@ Go to the shell:
 
 Previously we saw that there were 2 bios.
 
+
 ## Short bio
 
 This metadata has a short bio:
@@ -698,6 +707,7 @@ Scrape it with:
     >>> soup.find('meta', attrs={'name': 'description'}).get('content')
 
     'Omar Abdelwahed is Head of Studio at SoftBank Robotics America where he is responsible for leading the development of robotics applications in America, and the overall user experience, globally'
+
 
 ## Long bio
 
@@ -720,6 +730,7 @@ Looks like the short bio is the first sentence up to the first period. For other
 Maybe we should scrape both just in case.
 
 I opened a few profiles and noticed some have additional data.
+
 
 ## Linkedin URL
 
@@ -788,6 +799,7 @@ A scraped `URL` has this form:
 To scrape this page we need the complete `URL`. Maybe add this variable:
 
     root_url = 'https://www.ces.tech'
+
 
 ## The final script is this
 
@@ -879,6 +891,7 @@ Ideally this could be broken into modules but for now this is the final script:
         handler.close()
         logger.removeHandler(handler)
 
+
 ## Reviewing results
 
 You can open the log file in Sublime to see progress. Or just monitor the file size and you will see the log file increasing size.
@@ -886,6 +899,7 @@ You can open the log file in Sublime to see progress. Or just monitor the file s
 Open the CSV file to see the output so far:
 
 ![CES Speakers]({{ site.baseurl }}/assets/images/scraping_many_pages.gif)
+
 
 ## To module or not to module
 

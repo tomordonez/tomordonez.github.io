@@ -1,0 +1,788 @@
+I"^Q<div class="container">
+    
+
+    
+    
+    
+<!-- Begin post excerpts, let's highlight the first 4 posts on top -->
+<div class="row remove-site-content-margin">
+    
+    <!-- latest post -->
+    
+    <div class="col-md-6">
+    <div class="card border-0 mb-4 box-shadow">   
+    <a href="/static-website-jekyll-github-pages/">
+    <div class="topfirstimage" style="background-image: url( /assets/images/5.jpg); height: 200px;    background-size: cover;    background-repeat: no-repeat;"></div>     
+    </a>
+    <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+    <h2 class="h4 font-weight-bold">
+    <a class="text-dark" href="/static-website-jekyll-github-pages/">Static Website with Jekyll and Github Pages</a>
+    </h2>
+    <p class="excerpt">
+        I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.
+    </p>
+    <div>
+        <small class="d-block text-muted">
+            In <span class="catlist">
+                
+                <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                
+                </span>                   
+        </small>
+        <small class="text-muted">
+            May 25, 2020
+        </small>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <div class="col-md-6">
+        
+        <!-- second latest post --><div class="mb-3 d-flex align-items-center">                
+                
+                <div class="col-md-4">
+                <a href="/python-files-os-module/">
+                 <img class="w-100" src="http://localhost:4000/assets/images/11.jpg" alt="Python, Files, and OS Module" />
+                </a>
+                </div>
+                                
+                <div>
+                    <h2 class="mb-2 h6 font-weight-bold">
+                    <a class="text-dark" href="/python-files-os-module/">Python, Files, and OS Module</a>
+                    </h2>
+                    <small class="d-block text-muted">
+                        In <span class="catlist">
+                        
+                        <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                        
+                        </span>                   
+                    </small>
+                    <small class="text-muted">
+                        May 24, 2020
+                    </small>
+                </div>
+            </div>
+        
+        <!-- third latest post --><div class="mb-3 d-flex align-items-center">                
+                
+                <div class="col-md-4">
+                <a href="/curly-braces-markdown-jekyll/">
+                 <img class="w-100" src="/assets/images/7.jpg" alt="Curly Braces in Markdown with Jekyll" />
+                </a>
+                </div>
+                                
+                <div>
+                    <h2 class="mb-2 h6 font-weight-bold">
+                    <a class="text-dark" href="/curly-braces-markdown-jekyll/">Curly Braces in Markdown with Jekyll</a>
+                    </h2>
+                    <small class="d-block text-muted">
+                        In <span class="catlist">
+                        
+                        <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                        
+                        </span>                   
+                    </small>
+                    <small class="text-muted">
+                        May 23, 2020
+                    </small>
+                </div>
+            </div>
+        
+        <!-- fourth latest post --><div class="mb-3 d-flex align-items-center">                
+                
+                <div class="col-md-4">
+                <a href="/d3-troubleshooting/">
+                <img class="w-100" src="/assets/images/1.jpg" alt="D3 Troubleshooting" />
+                </a>
+                </div>
+                                
+                <div>
+                    <h2 class="mb-2 h6 font-weight-bold">
+                    <a class="text-dark" href="/d3-troubleshooting/">D3 Troubleshooting</a>
+                    </h2>
+                    <small class="d-block text-muted">
+                        In <span class="catlist">
+                        
+                        <a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+                        
+                        </span>                   
+                    </small>
+                    <small class="text-muted">
+                        Feb 09, 2020
+                    </small>
+                </div>
+            </div>
+        
+    </div>
+    
+</div>
+    
+<!-- Sticky - add sticky tag to the post you want to highlight here - tags: [sticky] -->
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+<div class="jumbotron jumbotron-fluid jumbotron-home pt-0 pb-0 mt-3 mb-2rem bg-lightblue position-relative">
+    <div class="pl-4 pr-0 h-100 tofront">
+        <div class="row justify-content-between">
+            <div class="col-md-6 pt-6 pb-6 pr-lg-4 align-self-center">
+                <h1 class="mb-3">Web Scraping with Python</h1>
+                <p class="mb-3 lead">
+                    This is a tutorial on web scraping with Python. Learn to scrape websites with Python and BeautifulSoup.
+                </p>
+                <a href="/web-scraping-with-python/" class="btn btn-dark">Read More</a>
+            </div>
+            <div class="col-md-6 d-none d-md-block pr-0" style="background-size:cover;background-image:url(/assets/images/sticky.gif);">	
+            </div>
+        </div>
+    </div>
+</div> 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+    
+
+
+ <!--endif page url is / -->
+    
+
+
+<!-- Now the rest of the posts with the usual loop but with an offset:4 on the first page so we can skeep the first 4 posts displayed above -->
+    
+<div class="row mt-3">
+   
+    <div class="col-md-8 main-loop">
+        
+        <h4 class="font-weight-bold spanborder"><span>All Stories</span></h4>
+        
+
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/static-website-jekyll-github-pages/">Static Website with Jekyll and Github Pages</a>
+	</h2>
+	<p class="excerpt">
+	   I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		May 25, 2020
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/static-website-jekyll-github-pages/">
+	<img class="w-100" src="/assets/images/5.jpg" alt="Static Website with Jekyll and Github Pages" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/python-files-os-module/">Python, Files, and OS Module</a>
+	</h2>
+	<p class="excerpt">
+	   Migrating from one static website to another, I had to rename multiple files, extract some content, remove it, and do other operations.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		May 24, 2020
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/python-files-os-module/">
+	<img class="w-100" src="/assets/images/11.jpg" alt="Python, Files, and OS Module" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/curly-braces-markdown-jekyll/">Curly Braces in Markdown with Jekyll</a>
+	</h2>
+	<p class="excerpt">
+	   As seen here
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		May 23, 2020
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/curly-braces-markdown-jekyll/">
+	<img class="w-100" src="/assets/images/7.jpg" alt="Curly Braces in Markdown with Jekyll" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/d3-troubleshooting/">D3 Troubleshooting</a>
+	</h2>
+	<p class="excerpt">
+	   Here is a D3 Tutorial for Data Visualization.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Feb 09, 2020
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/d3-troubleshooting/">
+	<img class="w-100" src="/assets/images/1.jpg" alt="D3 Troubleshooting" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/d3-tutorial-data-visualization/">D3 Tutorial for Data Visualization</a>
+	</h2>
+	<p class="excerpt">
+	   This is a D3 tutorial for data visualization based on the book Interactive Data Visualization for the Web, 2nd Ed.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Feb 02, 2020
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/d3-tutorial-data-visualization/">
+	<img class="w-100" src="/assets/images/2.jpg" alt="D3 Tutorial for Data Visualization" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/data-wrangling-openrefine-linux/">Data Wrangling with OpenRefine on Linux</a>
+	</h2>
+	<p class="excerpt">
+	   OpenRefine is an open source desktop application for data wrangling.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Feb 01, 2020
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/data-wrangling-openrefine-linux/">
+	<img class="w-100" src="/assets/images/9.jpg" alt="Data Wrangling with OpenRefine on Linux" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/python-jupyter-notebook-linux/">Python Jupyter Notebook in Linux</a>
+	</h2>
+	<p class="excerpt">
+	   First, follow this to install Miniconda on Linux.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Jan 14, 2020
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/python-jupyter-notebook-linux/">
+	<img class="w-100" src="/assets/images/6.jpg" alt="Python Jupyter Notebook in Linux" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/increase-boot-size-linux/">Increase Boot Size in Linux Fedora</a>
+	</h2>
+	<p class="excerpt">
+	   I keep having this issue on a local Linux server. When I want to update the system, after it downloads the updates and it’s ready to install them, it says the boot size is too small.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Jan 11, 2020
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/increase-boot-size-linux/">
+	<img class="w-100" src="/assets/images/5.jpg" alt="Increase Boot Size in Linux Fedora" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/troubleshooting-building-android-app/">Troubleshooting Building an Android App</a>
+	</h2>
+	<p class="excerpt">
+	   Using Android Studio 3.5, I had to load a project that was built in another version.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#mobile">Mobile</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Dec 19, 2019
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/troubleshooting-building-android-app/">
+	<img class="w-100" src="/assets/images/10.jpg" alt="Troubleshooting Building an Android App" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/install-java-fedora-openjdk-android/">Install Java on Fedora with OpenJDK</a>
+	</h2>
+	<p class="excerpt">
+	   How to install Java on Fedora with OpenJDK. Also how to setup Android and a review of JShell.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Dec 14, 2019
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/install-java-fedora-openjdk-android/">
+	<img class="w-100" src="/assets/images/11.jpg" alt="Install Java on Fedora with OpenJDK" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+        <div class="mt-5">
+         <!-- Pagination links -->
+            
+            <ul class="pagination"> 
+              
+                <li class="page-item disabled"><span class="prev page-link">&laquo;</span></li>
+              
+
+              
+                
+                <li class="page-item disabled"><span class="webjeda page-link">1</span></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page2">2</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page3">3</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page4">4</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page5">5</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page6">6</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page7">7</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page8">8</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page9">9</a></li>
+                
+              
+
+              
+                <li class="page-item"><a class="page-link" href="/page2">Next &raquo;</a></li>
+              
+            </ul>
+                  
+        </div>
+        
+    </div>
+    
+    <div class="col-md-4">
+        <div class="sticky-top sticky-top-offset">
+    <h4 class="font-weight-bold spanborder"><span>Featured</span></h4>  
+    <ol class="list-featured">				
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/d3-tutorial-data-visualization/" class="text-dark">D3 Tutorial for Data Visualization</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/tableau-tutorial-visualization-co2-world-dataset/" class="text-dark">Tableau Tutorial Visualization - CO2 World Dataset</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/python-logging-tutorial/" class="text-dark">Python Logging Tutorial</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/python-lambda-beautifulsoup/" class="text-dark">Python Lambda and BeautifulSoup</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/blackbelt-sourcing-github/" class="text-dark">Blackbelt Sourcing on Github</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#recruiting">Recruiting</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/crontab-selenium-chrome-driver/" class="text-dark">Crontab with Selenium and Chrome Driver</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+           
+    </ol>
+</div>     
+    </div>
+    
+</div>
+
+
+
+</div>
+:ET

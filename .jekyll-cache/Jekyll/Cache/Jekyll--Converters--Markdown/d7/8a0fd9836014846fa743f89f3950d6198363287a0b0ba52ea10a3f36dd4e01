@@ -1,0 +1,23 @@
+I"M<style type="text/css" media="screen">
+  .container {
+    margin: 10px auto;
+    max-width: 600px;
+    text-align: center;
+  }
+  h1 {
+    margin: 30px 0;
+    font-size: 4em;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+</style>
+
+<div class="container">
+  <h1>Black Hole</h1>
+
+  <p><strong>Sorry. You fell into a black hole.</strong></p>
+  <p>The page you are looking for was divided by zero.</p>
+  <img src="../assets/images/black_hole.gif" alt="Black Hole Sun won't you come" width="500" height="300" />
+  <p>Please use the search box on top right to find something else.</p>
+</div>
+:ET

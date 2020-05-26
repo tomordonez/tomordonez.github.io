@@ -259,7 +259,3 @@ At the end of your program. You can close the handlers like this:
 ## Config files
 
 This <a href="https://stackoverflow.com/questions/23386290/logging-in-multiple-classes-with-module-name-in-log" target="_blank">answer</a> on StackOverflow says that it's recommended to use config files for logging.
-
-I haven't implemented this recommendation yet.ded to use config files for logging.
-
-I haven't implemented this recommendation yet.
