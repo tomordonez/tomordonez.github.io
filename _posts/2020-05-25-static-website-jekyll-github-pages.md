@@ -254,6 +254,80 @@ If you have `plugins` update them to this:
 Then run `bundle install`
 
 
+## Troubleshooting console log errors
+
+*Uncaught SyntaxError: Invalid hexadecimal escape sequence*
+
+This error pointed to `index.html:513`. I looked at the code and one of my blog posts talks about encoding/decoding hex. Also this error seemed to cause the search box to malfunction. I navigated to the blogpost and tried correcting the code block with the `raw/endraw` tag as shown on [curly braces with Markdown on Jekyll](../curly-braces-markdown-jekyll) but this didn't work. I removed the code block. The console didn't show the error anymore and the search box started working again.
+
+
+*Uncaught ReferenceError: lunr_search is not defined at HTMLFormElement.onsubmit*
+
+This error points to this file:
+
+	_includes/search_lunr.html
+
+
+To this code:
+
+	{% raw %}
+	function lunr_search(term) {
+	    $('#lunrsearchresults').show( 1000 );
+	    $( "body" ).addClass( "modal-open" );
+	    
+	    document.getElementById('lunrsearchresults').innerHTML = '<div id="resultsmodal" class="modal fade show d-block"  tabindex="-1" role="dialog" aria-labelledby="resultsmodal"> <div class="modal-dialog shadow-lg" role="document"> <div class="modal-content"> <div class="modal-header" id="modtit"> <button type="button" class="close" id="btnx" data-dismiss="modal" aria-label="Close"> &times; </button> </div> <div class="modal-body"> <ul class="mb-0"> </ul>    </div> <div class="modal-footer"><button id="btnx" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button></div></div> </div></div>';
+	    if(term) {
+	        document.getElementById('modtit').innerHTML = "<h5 class='modal-title'>Search results for '" + term + "'</h5>" + document.getElementById('modtit').innerHTML;
+	        //put results on the screen.
+	        var results = idx.search(term);
+	        if(results.length>0){
+	            //console.log(idx.search(term));
+	            //if results
+	            for (var i = 0; i < results.length; i++) {
+	                // more statements
+	                var ref = results[i]['ref'];
+	                var url = documents[ref]['url'];
+	                var title = documents[ref]['title'];
+	                var body = documents[ref]['body'].substring(0,160)+'...';
+	                document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "<li class='lunrsearchresult'><a href='" + url + "'><span class='title'>" + title + "</span><br /><small><span class='body'>"+ body +"</span><br /><span class='url'>"+ url +"</span></small></a></li>";
+	            }
+	        } else {
+	            document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = "<li class='lunrsearchresult'>Sorry, no results found. Close & try a different search!</li>";
+	        }
+	    }
+	    return false;
+	}
+	</script>
+	<style>
+	    .lunrsearchresult .title {color: #d9230f;}
+	    .lunrsearchresult .url {color: silver;}
+	    .lunrsearchresult a {display: block; color: #777;}
+	    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+	    .lunrsearchresult a:hover .title {text-decoration: underline;}
+	</style>
+
+	<form class="bd-search hidden-sm-down" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+	<input type="text" class="form-control text-small"  id="lunrsearch" name="q" value="" placeholder="Type keyword and enter..."> 
+	</form>
+	{% endraw %}
+
+
+Couldn't fix as shown [here](https://stackoverflow.com/questions/30803497/onsubmit-function-is-not-defined). However, the error went away when I corrected the previous error `Invalid hexadecimal escape sequence`.
+
+
+Other issues not resolved yet:
+
+	A cookie associated with a cross-site resource at http://disqus.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.
+
+	[Violation] 'requestAnimationFrame' handler took 112ms
+
+	[Violation] Forced reflow while executing JavaScript took 111ms
+
+	[Violation] Avoid using document.write(). https://developers.google.com/web/updates/2016/08/removing-document-write
+
+	GET https://c.disquscdn.com/get?url=&h=200 404
+	
+
 ## Setup Jekyll with a theme
 
 I liked this theme that looked like [Medium](https://wowthemesnet.github.io/mundana-theme-jekyll/index.html)

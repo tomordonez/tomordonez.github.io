@@ -1,4 +1,4 @@
-I"∆<p>Are you a sourcer or recruiter looking for talent on Github?</p>
+I"ù<p>Are you a sourcer or recruiter looking for talent on Github?</p>
 
 <p><img src="/assets/images/blackbelt-sourcing-github.jpg" alt="Blackbelt Sourcing on Github" /></p>
 
@@ -130,15 +130,12 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo -e "\x79\x61\x73" | cat
 </code></pre></div></div>
 
-<p>You will be able to transform from hex to ASCII.</p>
+<p>You will be able to transform from hex to ASCII. <code class="language-plaintext highlighter-rouge">echo -e</code> supports the following escape sequence:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo -e supports the following escape sequence:
-
-\xHH   the eight-bit character whose value is the hexadecimal value HH (one or two hex digits)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\√óHH
 </code></pre></div></div>
 
+<p>The eight-bit character whose value is the hexadecimal value HH (one or two hex digits)</p>
+
 <p>If you add this to a script you will be able to batch convert all the emails into human readable text.</p>
-
-<p>d this to a script you will be able to batch convert all the emails into human readable text.</p>
-
 :ET

@@ -131,13 +131,10 @@ If you do this transformation:
 
     $ echo -e "\x79\x61\x73" | cat
 
-You will be able to transform from hex to ASCII.
+You will be able to transform from hex to ASCII. `echo -e` supports the following escape sequence:
 
-    $ echo -e supports the following escape sequence:
+    \×HH
 
-    \xHH   the eight-bit character whose value is the hexadecimal value HH (one or two hex digits)
+The eight-bit character whose value is the hexadecimal value HH (one or two hex digits)
 
 If you add this to a script you will be able to batch convert all the emails into human readable text.
-
-d this to a script you will be able to batch convert all the emails into human readable text.
-

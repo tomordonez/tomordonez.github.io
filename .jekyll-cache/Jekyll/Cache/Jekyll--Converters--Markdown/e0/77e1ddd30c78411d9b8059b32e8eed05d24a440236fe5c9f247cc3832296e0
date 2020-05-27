@@ -1,0 +1,350 @@
+I"l:<p>I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.</p>
+
+<p>Sources:</p>
+<ul>
+  <li><a href="https://jekyllrb.com/">Jekyll’s blog</a></li>
+  <li><a href="https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll">Create a Github pages site with Jekyll</a></li>
+  <li><a href="https://help.github.com/en/github/working-with-github-pages/adding-content-to-your-github-pages-site-using-jekyll">Adding content</a></li>
+  <li><a href="https://help.github.com/en/github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll">Adding a theme</a></li>
+  <li><a href="https://jamstackthemes.dev/">Jekyll themes</a></li>
+  <li><a href="http://www.stephaniehicks.com/githubPages_tutorial/pages/githubpages-jekyll.html">Jekyll tutorial</a></li>
+  <li><a href="https://bootstrapstarter.com/bootstrap-templates/mundana-theme-jekyll/">Medium-looking theme</a></li>
+  <li><a href="https://wowthemesnet.github.io/mundana-theme-jekyll/index.html">Medium-looking theme demo</a></li>
+</ul>
+
+<h2 id="install-ruby">Install Ruby</h2>
+
+<p>Install RVM as seen <a href="http://rvm.io/">here</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+$ \curl -sSL https://get.rvm.io | bash -s stable
+</code></pre></div></div>
+
+<p>Close the terminal and open it again.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source ~/.rvm/scripts/rvm
+$ type rvm | head -n 1
+</code></pre></div></div>
+
+<p>This should say <code class="language-plaintext highlighter-rouge">rvm is a function</code></p>
+
+<p>Restart the shell and Install Ruby. Stable version on 5/24/20 is <code class="language-plaintext highlighter-rouge">2.7.1</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rvm install 2.7.1
+$ rvm use 2.7.1 --default
+</code></pre></div></div>
+
+<p>Create a gemset for the blog</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rvm use 2.7.1@blog --create
+</code></pre></div></div>
+
+<p>List gemsets with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rvm gemset list
+</code></pre></div></div>
+
+<p>Switch gemsets with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rvm gemset use name-of-gemset
+</code></pre></div></div>
+
+<h2 id="install-jekyll">Install Jekyll</h2>
+
+<p>Setup Jekyll:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install bundler jekyll
+</code></pre></div></div>
+
+<p>Go to the root directory where you want to install. Then create a new jekyll blog.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll new blog
+$ cd blog
+</code></pre></div></div>
+
+<p>This creates the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>404.html
+about.markdown
+_config.yml
+Gemfile
+Gemfile.lock
+index.markdown
+_posts/
+</code></pre></div></div>
+
+<p>Open the Gemfile to see what it has:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source "https://rubygems.org"
+# Hello! This is where you manage which Jekyll version is used to run.
+# When you want to use a different version, change it below, save the
+# file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
+#
+#     bundle exec jekyll serve
+#
+# This will help ensure the proper Jekyll version is running.
+# Happy Jekylling!
+gem "jekyll", "~&gt; 4.0.1"
+# This is the default theme for new Jekyll sites. You may change this to anything you like.
+gem "minima", "~&gt; 2.5"
+# If you want to use GitHub Pages, remove the "gem "jekyll"" above and
+# uncomment the line below. To upgrade, run `bundle update github-pages`.
+# gem "github-pages", group: :jekyll_plugins
+# If you have any plugins, put them here!
+group :jekyll_plugins do
+  gem "jekyll-feed", "~&gt; 0.12"
+end
+
+# Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
+# and associated library.
+install_if -&gt; { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
+  gem "tzinfo", "~&gt; 1.2"
+  gem "tzinfo-data"
+end
+
+# Performance-booster for watching directories on Windows
+gem "wdm", "~&gt; 0.1.1", :install_if =&gt; Gem.win_platform?
+</code></pre></div></div>
+
+<p>Run the blog:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec jekyll serve
+</code></pre></div></div>
+
+<p>Open <code class="language-plaintext highlighter-rouge">http://localhost:4000</code> and Ctrl+C to stop</p>
+
+<h2 id="setup-github-pages">Setup Github Pages</h2>
+
+<p>Look at Github pages dependency <a href="https://pages.github.com/versions/">versions</a></p>
+
+<p>As of 5/24/20:</p>
+
+<ul>
+  <li>jekyll: 3.8.5 (even though latest stable was 4.0.1)</li>
+  <li>github pages: 204</li>
+</ul>
+
+<p>Modify the Gemfile to use Github pages as shown.</p>
+
+<ul>
+  <li>Comment this line: <code class="language-plaintext highlighter-rouge">gem "jekyll", "~&gt; 4.0.1"</code></li>
+  <li>Uncomment this line: <code class="language-plaintext highlighter-rouge">gem "github-pages", group: :jekyll_plugins</code></li>
+</ul>
+
+<p>Upgrade:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle update jekyll
+</code></pre></div></div>
+
+<p>Output was:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Note: jekyll version regressed from 4.0.1 to 3.8.5
+</code></pre></div></div>
+
+<p>Run bundle:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bundle complete! 6 Gemfile dependencies, 85 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+</code></pre></div></div>
+
+<p>Test again:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec jekyll serve
+</code></pre></div></div>
+
+<p>Go to Github:</p>
+
+<ul>
+  <li>Create a new repo with the format <code class="language-plaintext highlighter-rouge">username.github.io</code></li>
+</ul>
+
+<p>Setup the repo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git init
+$ git remote add origin link-to-repo
+</code></pre></div></div>
+
+<h2 id="cname-robotstxt-and-faviconico">CNAME, robots.txt and favicon.ico</h2>
+
+<p>If you have a custom domain, create a <code class="language-plaintext highlighter-rouge">CNAME</code> file, add a line with your website, and save it to your local blog root directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www.yoursite.com
+</code></pre></div></div>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">robots.txt</code> and add this line to the file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+</code></pre></div></div>
+
+<p>Go to <code class="language-plaintext highlighter-rouge">assets/images/</code> and add a <code class="language-plaintext highlighter-rouge">favicon.ico</code> image.</p>
+
+<h2 id="deploy-to-github">Deploy to Github</h2>
+
+<p>If you want to cache your credentials</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global credential.helper 'cache --timeout=3600'
+</code></pre></div></div>
+
+<p>Then deploy:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git status
+$ git add .
+$ git commit -m "Awesome commit message here"
+$ git push -u origin master
+</code></pre></div></div>
+
+<h2 id="change-your-dns-name-server">Change your DNS name server</h2>
+
+<p>Setup an account with Cloudflare if you don’t have one. Find the DNS name server</p>
+
+<p>In your DNS provider point it to Cloudflare.</p>
+
+<h2 id="cloudflare-settings">Cloudflare settings</h2>
+
+<p>Create these records in Cloudflare:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Type    Name               Content
+ALIAS   yoursite.com       youruser.github.io
+CNAME   www.yoursite.com   youruser.github.io
+TXT     yoursite.com       youruser.github.io
+</code></pre></div></div>
+
+<p>Add <code class="language-plaintext highlighter-rouge">A</code> records as seen here:</p>
+
+<p>https://help.github.com/articles/setting-up-an-apex-domain/</p>
+
+<p>Add <code class="language-plaintext highlighter-rouge">TXT</code> record to verify Google webmaster tools:</p>
+
+<ul>
+  <li>Add property</li>
+  <li>Add TXT google verification code</li>
+</ul>
+
+<p>Setup these Page rules. As seen <a href="https://www.jonathan-petitcolas.com/2017/01/13/using-https-with-custom-domain-name-on-github-pages.html">here</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.yoursite.com/*
+Cache Level: Cache Everything
+
+https://yoursite.com/*
+Forwarding URL: (Status Code: 301 - Permanent Redirect, URl: https://www.yoursite.com$1)
+
+http://www.yoursite.com/*
+Always Use HTTPS
+</code></pre></div></div>
+
+<p>In your Overview dashboard set these (if you are on the free plan)</p>
+
+<ul>
+  <li>Security level: medium</li>
+  <li>SSL: Full</li>
+  <li>Caching level: Standard</li>
+</ul>
+
+<h2 id="troubleshooting-dependency-errors">Troubleshooting dependency errors</h2>
+
+<p>When testing the site. For <code class="language-plaintext highlighter-rouge">jekyll-3.8.5</code> it says <code class="language-plaintext highlighter-rouge">warning: Using the last argument as keyword parameters is deprecated</code>.</p>
+
+<ul>
+  <li>Also for <code class="language-plaintext highlighter-rouge">pathutil-0.16.2</code> it says the same.</li>
+  <li>More <a href="https://github.com/jekyll/jekyll/issues/7947">here</a></li>
+  <li>And <a href="https://github.com/jekyll/jekyll/pull/7948">here</a></li>
+</ul>
+
+<p>Edit the <code class="language-plaintext highlighter-rouge">Gemfile</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll', github: 'jekyll/jekyll'
+</code></pre></div></div>
+
+<p>If you have <code class="language-plaintext highlighter-rouge">plugins</code> update them to this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>group :jekyll_plugins do
+    gem 'jekyll-feed', github: 'jekyll/jekyll-feed'
+    gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'
+    gem 'jekyll-paginate', github: 'jekyll/jekyll-paginate'
+    gem 'jekyll-seo-tag', github: 'jekyll/jekyll-seo-tag'
+end
+</code></pre></div></div>
+
+<p>Then run <code class="language-plaintext highlighter-rouge">bundle install</code></p>
+
+<h2 id="troubleshooting-console-log-errors">Troubleshooting console log errors</h2>
+
+<p><em>Uncaught SyntaxError: Invalid hexadecimal escape sequence</em></p>
+
+<p>This error pointed to <code class="language-plaintext highlighter-rouge">index.html:513</code>. I looked at the code and one of my blog posts talks about encoding/decoding hex. Also this error seemed to cause the search box to malfunction. I navigated to the blogpost and tried correcting the code block with the <code class="language-plaintext highlighter-rouge">raw/endraw</code> tag as shown on <a href="../">curly braces with Markdown on Jekyll</a></p>
+
+<h2 id="setup-jekyll-with-a-theme">Setup Jekyll with a theme</h2>
+
+<p>I liked this theme that looked like <a href="https://wowthemesnet.github.io/mundana-theme-jekyll/index.html">Medium</a></p>
+
+<p>Instead of installing Jekyll as shown above, do the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/wowthemesnet/mundana-theme-jekyll.git blog
+$ cd blog
+$ bundle
+$ bundle exec jekyll serve
+</code></pre></div></div>
+
+<p>Make any changes to the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>404.html
+assets/
+_config.yml
+Gemfile
+_includes/
+index.html
+_layouts/
+_pages/
+_posts/
+</code></pre></div></div>
+
+<h2 id="migrating-content">Migrating content</h2>
+
+<p>Here is where I was challenged.</p>
+
+<p>With the Pelican Python static website generator the files were named as <code class="language-plaintext highlighter-rouge">title.md</code>. With Jekyll they need to be in the format <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-title.md</code>.</p>
+
+<p>For Pelican the header looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Title: Powerful things you can do with the Markdown editor"
+Date: 2020-02-09 20:00
+Category: Jekyll, tutorial
+Tags: featured
+Slug: powerful-things
+Author: Tom Ordonez
+Status: published
+Summary: A blog post about Markdown editor.
+</code></pre></div></div>
+
+<p>For Jekyll it needs to look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: post
+title:  "Powerful things you can do with the Markdown editor"
+author: tom
+categories: [ Jekyll, tutorial ]
+image: assets/images/11.jpg
+tags: [featured]
+---
+</code></pre></div></div>
+
+<p>How to make this change to about 100 blog posts?</p>
+
+<p>I needed to extract the <code class="language-plaintext highlighter-rouge">Date</code> from the header and use it to rename the file. Then extract other content like the <code class="language-plaintext highlighter-rouge">Title</code>, <code class="language-plaintext highlighter-rouge">Category</code>, and <code class="language-plaintext highlighter-rouge">Tags</code>. Then replace this header with the new header.</p>
+
+<p>Also the blog posts used this syntax to insert images in the content <code class="language-plaintext highlighter-rouge">{static}/images/</code> while Jekyll uses:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% raw %}
+{ {site.baseurl} }/assets/images/
+{% endraw %}
+</code></pre></div></div>
+
+<p>Can you imagine doing this manually? That would take a really long time.</p>
+
+<p>Read more in <a href="../python-files-os-module">Python, Files, and OS Module</a></p>
+:ET
