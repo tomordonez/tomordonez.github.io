@@ -326,7 +326,11 @@ Other issues not resolved yet:
 	[Violation] Avoid using document.write(). https://developers.google.com/web/updates/2016/08/removing-document-write
 
 	GET https://c.disquscdn.com/get?url=&h=200 404
-	
+
+More issues:
+
+* On mobile home or all stories, the images appear smaller, depending on the first paragraph of the blog post, this first paragraph is used as a preview of the content.
+* On iPhone read view mode, the content is not displayed. Instead it shows some default Jekyll code.
 
 ## Setup Jekyll with a theme
 

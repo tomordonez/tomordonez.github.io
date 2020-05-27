@@ -1,4 +1,4 @@
-I"ˆ8<p>I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.</p>
+I"ÄM<p>I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.</p>
 
 <p>Sources:</p>
 <ul>
@@ -275,6 +275,79 @@ end
 <h2 id="troubleshooting-console-log-errors">Troubleshooting console log errors</h2>
 
 <p><em>Uncaught SyntaxError: Invalid hexadecimal escape sequence</em></p>
+
+<p>This error pointed to <code class="language-plaintext highlighter-rouge">index.html:513</code>. I looked at the code and one of my blog posts talks about encoding/decoding hex. Also this error seemed to cause the search box to malfunction. I navigated to the blogpost and tried correcting the code block with the <code class="language-plaintext highlighter-rouge">raw/endraw</code> tag as shown on <a href="../curly-braces-markdown-jekyll">curly braces with Markdown on Jekyll</a> but this didnâ€™t work. I removed the code block. The console didnâ€™t show the error anymore and the search box started working again.</p>
+
+<p><em>Uncaught ReferenceError: lunr_search is not defined at HTMLFormElement.onsubmit</em></p>
+
+<p>This error points to this file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_includes/search_lunr.html
+</code></pre></div></div>
+
+<p>To this code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function lunr_search(term) {
+    $('#lunrsearchresults').show( 1000 );
+    $( "body" ).addClass( "modal-open" );
+    
+    document.getElementById('lunrsearchresults').innerHTML = '&lt;div id="resultsmodal" class="modal fade show d-block"  tabindex="-1" role="dialog" aria-labelledby="resultsmodal"&gt; &lt;div class="modal-dialog shadow-lg" role="document"&gt; &lt;div class="modal-content"&gt; &lt;div class="modal-header" id="modtit"&gt; &lt;button type="button" class="close" id="btnx" data-dismiss="modal" aria-label="Close"&gt; &amp;times; &lt;/button&gt; &lt;/div&gt; &lt;div class="modal-body"&gt; &lt;ul class="mb-0"&gt; &lt;/ul&gt;    &lt;/div&gt; &lt;div class="modal-footer"&gt;&lt;button id="btnx" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"&gt;Close&lt;/button&gt;&lt;/div&gt;&lt;/div&gt; &lt;/div&gt;&lt;/div&gt;';
+    if(term) {
+        document.getElementById('modtit').innerHTML = "&lt;h5 class='modal-title'&gt;Search results for '" + term + "'&lt;/h5&gt;" + document.getElementById('modtit').innerHTML;
+        //put results on the screen.
+        var results = idx.search(term);
+        if(results.length&gt;0){
+            //console.log(idx.search(term));
+            //if results
+            for (var i = 0; i &lt; results.length; i++) {
+                // more statements
+                var ref = results[i]['ref'];
+                var url = documents[ref]['url'];
+                var title = documents[ref]['title'];
+                var body = documents[ref]['body'].substring(0,160)+'...';
+                document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "&lt;li class='lunrsearchresult'&gt;&lt;a href='" + url + "'&gt;&lt;span class='title'&gt;" + title + "&lt;/span&gt;&lt;br /&gt;&lt;small&gt;&lt;span class='body'&gt;"+ body +"&lt;/span&gt;&lt;br /&gt;&lt;span class='url'&gt;"+ url +"&lt;/span&gt;&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;";
+            }
+        } else {
+            document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = "&lt;li class='lunrsearchresult'&gt;Sorry, no results found. Close &amp; try a different search!&lt;/li&gt;";
+        }
+    }
+    return false;
+}
+&lt;/script&gt;
+&lt;style&gt;
+    .lunrsearchresult .title {color: #d9230f;}
+    .lunrsearchresult .url {color: silver;}
+    .lunrsearchresult a {display: block; color: #777;}
+    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+    .lunrsearchresult a:hover .title {text-decoration: underline;}
+&lt;/style&gt;
+
+&lt;form class="bd-search hidden-sm-down" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);"&gt;
+&lt;input type="text" class="form-control text-small"  id="lunrsearch" name="q" value="" placeholder="Type keyword and enter..."&gt; 
+&lt;/form&gt;
+</code></pre></div></div>
+
+<p>Couldnâ€™t fix as shown <a href="https://stackoverflow.com/questions/30803497/onsubmit-function-is-not-defined">here</a>. However, the error went away when I corrected the previous error <code class="language-plaintext highlighter-rouge">Invalid hexadecimal escape sequence</code>.</p>
+
+<p>Other issues not resolved yet:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A cookie associated with a cross-site resource at http://disqus.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application&gt;Storage&gt;Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.
+
+[Violation] 'requestAnimationFrame' handler took 112ms
+
+[Violation] Forced reflow while executing JavaScript took 111ms
+
+[Violation] Avoid using document.write(). https://developers.google.com/web/updates/2016/08/removing-document-write
+
+GET https://c.disquscdn.com/get?url=&amp;h=200 404
+</code></pre></div></div>
+
+<p>More issues:</p>
+
+<ul>
+  <li>On mobile home or all stories, the images appear smaller, depending on the first paragraph of the blog post, this first paragraph is used as a preview of the content.</li>
+  <li>On iPhone read view mode, the content is not displayed. Instead it shows some default Jekyll code.</li>
+</ul>
 
 <h2 id="setup-jekyll-with-a-theme">Setup Jekyll with a theme</h2>
 
