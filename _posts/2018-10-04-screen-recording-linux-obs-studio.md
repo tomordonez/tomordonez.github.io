@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Screen Recording in Linux with OBS Studio"
-author: tom
+redirect_from:
+  - /screen-recording-linux-obs-studio.html
 categories: [Linux]
 image: assets/images/6.jpg
 tags: [linux, screencast, obs-studio]
@@ -9,9 +10,6 @@ tags: [linux, screencast, obs-studio]
 
 OBS Studio is an open source software for screen recording. Applicable to Windows, MAC and Linux.
 
-![Screen Recording in Linux with OBS Studio]({{ site.baseurl }}/assets/images/screen-recording-linux-obs-studio.jpg)
-
-<a href="https://obsproject.com/" target="_blank">This</a> is the official documentation for OBS Studio.
 
 ## Installing OBS Studio on Linux
 
@@ -109,13 +107,6 @@ Apply and OK
 
 Test screen capture:
 
-* Bottom right menu
-* Start recording
-* Test what you want to capture
-* Test the mic
-* Stop recording
-* Review video
-* Modify Mic settings.
 * Bottom right menu
 * Start recording
 * Test what you want to capture

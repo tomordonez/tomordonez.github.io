@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "How to Install Sphinx and ReadTheDocs"
-author: tom
+redirect_from:
+  - /install-sphinx-and-readthedocs.html
 categories: [Code]
 image: assets/images/8.jpg
 tags: [writing, sphinx, readthedocs]
@@ -328,11 +329,6 @@ I initially had this:
     * Bullet points
 
 I added a text before the bullet points then `make html`. Then it displayed the correct captions for the URL
-
-### `make html`
-
-When you run this command, it might show errors. Just read the output to correct those errors and then run again.
-layed the correct captions for the URL
 
 ### `make html`
 

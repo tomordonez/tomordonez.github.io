@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Curly Braces in Markdown with Jekyll"
-author: tom
 categories: [Code]
 image: assets/images/7.jpg
 tags: [jekyll, markdown]

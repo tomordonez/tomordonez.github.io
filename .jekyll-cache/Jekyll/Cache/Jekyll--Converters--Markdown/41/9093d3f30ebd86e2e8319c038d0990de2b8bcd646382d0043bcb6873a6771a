@@ -1,0 +1,116 @@
+I" <h2 id="setup">Setup</h2>
+
+<ul>
+  <li>Python3</li>
+  <li>Linux Fedora 27</li>
+</ul>
+
+<p>This exercise is based on a lesson on sockets from Coursera.</p>
+
+<p>This can be tested using 3 methods:</p>
+
+<ul>
+  <li>telnet</li>
+  <li>Chrome developer tools</li>
+  <li>sockets</li>
+</ul>
+
+<h2 id="using-telnet">Using Telnet</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ telnet data.pr4e.org 80
+</code></pre></div></div>
+
+<p>The output should be something like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Trying 192.241.136.170...
+Connected to data.pr4e.org.
+Escape character is '^]'
+</code></pre></div></div>
+
+<p>Then enter the command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET / HTTP/1.0
+</code></pre></div></div>
+
+<p>The output should be a response:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
+</code></pre></div></div>
+
+<p>And then the header of that page:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Date: Fri, 06 Apr 2018 23:07:21 GMT
+Server: Apache/2.4.7 (Ubuntu)
+Last-Modified: Thu, 12 Nov 2015 19:12:19 GMT
+ETag: "2cf6-5245cb8c635cb"
+Accept-Ranges: bytes
+Content-Length: 11510
+Vary: Accept-Encoding
+Connection: close
+Content-Type: text/html
+</code></pre></div></div>
+
+<p>Then the output is the HTML page.</p>
+
+<h2 id="using-chrome-developer-tools">Using Chrome developer tools</h2>
+
+<p>Open the page <code class="language-plaintext highlighter-rouge">data.pr4e.org</code>. Go to Developer tools. Network. Reload the page.</p>
+
+<p>Under <code class="language-plaintext highlighter-rouge">Name</code>. Click on <code class="language-plaintext highlighter-rouge">data.pr4e.org</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">Headers</code> tab shows similar info:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Request URL: http://data.pr4e.org/
+Request Method: GET
+Status Code: 200 OK
+Remote Address: 192.241.136.170:80
+Content-Length: 625
+Content-Type: text/html;charset=UTF-8
+Date: Fri, 06 Apr 2018 23:18:23 GMT
+Connection: keep-alive
+</code></pre></div></div>
+
+<h2 id="using-python-socket">Using Python socket</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import socket
+import re
+
+host = input('Enter the host: ')
+port = int(input('Enter the port number: '))
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+cmd = 'GET / HTTP/1.0\r\n\r\n'.encode()
+
+try:
+    mysock.connect((host, port))
+except:
+    print('Could not connect')
+
+print('Connected')
+
+try:
+    mysock.send(cmd)
+except:
+    print('Could not send data')
+
+print('Data sent')
+
+with open('data_stream.txt', 'w') as fhandle:
+    while True:
+        data = mysock.recv(512)
+        if (len(data) &lt; 1):
+            break
+        fhandle.write(data.decode())
+
+mysock.close()
+
+with open('data_stream.txt', 'r') as fhandle:
+    for line in fhandle:
+        match = re.match(r'Last-Modified: ([\w,: ]+)', line)
+        if match:
+            last_modified = match.group()
+            print(last_modified)
+        match2 = re.match(r'ETag: (["\w-]+)', line)
+            etag = match.group()
+            print(etag)
+</code></pre></div></div>
+:ET

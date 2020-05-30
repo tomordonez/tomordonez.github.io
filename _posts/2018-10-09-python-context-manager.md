@@ -1,15 +1,14 @@
 ---
 layout: post
 title: "Python Context Manager"
-author: tom
+redirect_from:
+  - /python-context-manager.html
 categories: [Code]
 image: assets/images/1.jpg
 tags: [coding, linux, python]
 ---
 
 A short tutorial about Python context manager: "with" statement.
-
-![Python Context Manager]({{ site.baseurl }}/assets/images/python-context-manager.jpg)
 
 Sources:
 
@@ -84,5 +83,3 @@ For `contextmanager.__exit__()`:
 
 * Exits the runtime context.
 * Returns a boolean flag indicating if an exception should be supressed.
-
-Get more details <a href="https://docs.python.org/3/library/stdtypes.html#typecontextmanager" target="_blank">here</a>.ref="https://docs.python.org/3/library/stdtypes.html#typecontextmanager" target="_blank">here</a>.

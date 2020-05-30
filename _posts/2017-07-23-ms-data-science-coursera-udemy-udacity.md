@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "MS in Data Science with Coursera, Udemy, Udacity"
-author: tom
+redirect_from:
+  - /ms-data-science-coursera-udemy-udacity.html
 categories: [Data Analytics]
 image: assets/images/3.jpg
 tags: [data science, coursera, udemy, udacity]
@@ -147,13 +148,3 @@ Udemy:
 * MEAN stack
 * D3.js
 
-In 6 months I might sign up for:
-
-* Udacity Data Analyst Nanodegree
-
-## If you have questions or comments please add them below
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)
-t Nanodegree
-
-## If you have questions or comments please add them below
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)

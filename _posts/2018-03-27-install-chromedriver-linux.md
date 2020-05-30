@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Install Chromedriver in Linux"
-author: tom
+redirect_from:
+  - /install-chromedriver-linux.html
 categories: [Code]
 image: assets/images/3.jpg
 tags: [coding, linux, chromedriver, python]
@@ -23,8 +24,3 @@ This is the directory where to **<a href="https://sites.google.com/a/chromium.or
 Then setup Chromedriver using the right location.
 
     driver = webdriver.Chrome('/usr/bin/chromedriver')
-
-romedriver using the right location.
-
-    driver = webdriver.Chrome('/usr/bin/chromedriver')
-

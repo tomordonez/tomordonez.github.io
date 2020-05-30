@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Static Website with Jekyll and Github Pages"
-author: tom
 categories: [Code]
 image: assets/images/5.jpg
 tags: [jekyll, github pages]

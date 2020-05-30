@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "TaskWarrior Task Management"
-author: tom
+redirect_from:
+  - /taskwarrior-task-management.html
 categories: [Code]
 image: assets/images/2.jpg
 tags: [coding, linux, taskwarrior, task management]
@@ -15,9 +16,7 @@ I am a big fan of CLI tools and found TaskWarrior. Which I have been using for t
 
 Taskwarrior looks like this:
 
-<p>&nbsp;</p>
 ![Taskwarrior to conquer Data Science with Python]({{ site.baseurl }}/assets/images/taskwarrior-tomordonez.jpg)
-<p>&nbsp;</p>
 
 You can install Taskwarrior on Windows, Mac or Linux.
 
@@ -90,5 +89,3 @@ Inside the file I just added this:
 
     #!/usr/bin/bash
     clear && task list
-
-It's kind of silly but now I just have to type `work` to get the TaskWarrior task list.ind of silly but now I just have to type `work` to get the TaskWarrior task list.

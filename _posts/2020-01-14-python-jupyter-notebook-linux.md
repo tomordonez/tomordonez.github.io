@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Python Jupyter Notebook in Linux"
-author: tom
+redirect_from:
+  - /python-jupyter-notebook-linux.html
 categories: [Code]
 image: assets/images/6.jpg
 tags: [python, jupyter, linux]
 ---
 
-First, follow this to [install Miniconda on Linux](https://www.tomordonez.com/install-miniconda-linux.html).
 
 Update conda
 
@@ -49,5 +49,4 @@ As seen [here](https://stackoverflow.com/questions/32565829/simple-way-to-measur
 
     $ pip install jupyter_contrib_nbextensions
     $ jupyter contrib nbextension install --user
-    $ jupyter nbextension enable execute_time/ExecuteTimenbextension install --user
     $ jupyter nbextension enable execute_time/ExecuteTime

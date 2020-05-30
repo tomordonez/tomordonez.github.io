@@ -1,0 +1,315 @@
+I"h-<p>Linkedin XRay search with Googler. Or Google search anything in a programmatic way.</p>
+
+<h2 id="installation-for-mac">Installation for Mac</h2>
+
+<p>Requires Python 3.3 or later</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/jarun/googler/
+$ sudo make install
+</code></pre></div></div>
+
+<h2 id="installation-for-linux">Installation for Linux</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/jarun/googler/
+$ cd googler
+</code></pre></div></div>
+
+<h2 id="video-tutorial">Video Tutorial</h2>
+
+<div class="videoWrapper">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/KVMYBM2-DOs?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<h2 id="running-googler">Running googler</h2>
+
+<p>It runs as a standalone program:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./googler
+</code></pre></div></div>
+
+<p>If you run it with no options you will get this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Please initiate a query.
+googler (? for help)
+</code></pre></div></div>
+
+<p>To exit hit <code class="language-plaintext highlighter-rouge">Enter</code> twice.</p>
+
+<h2 id="options">Options</h2>
+
+<p>To show the help documentation:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./googler -h
+</code></pre></div></div>
+
+<p><img src="/assets/images/xray-linkedin-search-googler.gif" alt="Xray Linkedin search with Googler" /></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>This will show an output with all the options. Some are explained here…</p>
+
+<h2 id="show-n-results">Show N results</h2>
+
+<p>Use the option <code class="language-plaintext highlighter-rouge">-n</code> to get a number of results like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ -n 50
+</code></pre></div></div>
+
+<h2 id="show-results-from-the-news-section">Show results from the News section</h2>
+
+<p>Many options are case sensitive. If you want to get results from the news section use this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ -N
+</code></pre></div></div>
+
+<h2 id="show-country-specific-search">Show country specific search</h2>
+
+<p>Use this option to get the results that are country specific using the top level domain (TLD).</p>
+
+<p>For example if you want results from Canada:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ -c ca
+</code></pre></div></div>
+
+<p>Or results from Brazil:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ -c br
+</code></pre></div></div>
+
+<p>These are a few popular TLDs:</p>
+
+<ul>
+  <li>Worldwide,com,google.com</li>
+  <li>Brazil,br,google.com.br</li>
+  <li>Canada,ca,google.ca</li>
+  <li>Chile,cl,google.cl</li>
+  <li>Colombia,co,google.com.co</li>
+  <li>France,fr,google.fr</li>
+  <li>Mexico,mx,google.com.mx</li>
+  <li>Netherlands,nl,google.nl</li>
+  <li>United Kingdom,uk,google.co.uk</li>
+  <li>United States,us,google.us</li>
+</ul>
+
+<h2 id="show-results-in-a-specific-language">Show results in a specific language:</h2>
+
+<p>Use this option to show results in a language.</p>
+
+<p>For example, Spanish:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ -l es
+</code></pre></div></div>
+
+<p>To get the correct syntax search “List of ISO 639-1 codes”</p>
+
+<ul>
+  <li>English: en</li>
+  <li>Spanish: es</li>
+  <li>Portugues: pt</li>
+</ul>
+
+<h2 id="disable-automatic-spelling-correction">Disable automatic spelling correction</h2>
+
+<p>Use this option:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ -x
+</code></pre></div></div>
+
+<h2 id="disable-color-output">Disable color output</h2>
+
+<p>This will be helpful to save the results to a file. You don’t have to understand what this is but just be aware that it’s important.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ -C
+</code></pre></div></div>
+
+<h2 id="search-with-a-time-limit">Search with a time limit</h2>
+
+<p>Use this option:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ -t
+</code></pre></div></div>
+
+<p>Using this syntax:</p>
+
+<ul>
+  <li>h5 = 5 hours</li>
+  <li>d5 = 5 days</li>
+  <li>w5 = 5 weeks</li>
+  <li>m5 = 5 months</li>
+  <li>y5 = 5 years</li>
+</ul>
+
+<h2 id="search-a-specific-site">Search a specific site</h2>
+
+<p>Use the option:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ -w
+</code></pre></div></div>
+
+<p>Or also this one:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ --site
+</code></pre></div></div>
+
+<p>For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./googler --site linkedin.com/in 'data scientist'
+</code></pre></div></div>
+
+<p><img src="/assets/images/xray-linkedin-search-data-scientist.gif" alt="Xray Linkedin search data scientist" /></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>The default number of results is 10. Let’s change that to 20:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./googler --site linkedin.com/in -n 20 'data scientist'
+</code></pre></div></div>
+
+<h2 id="disable-user-agent">Disable user agent</h2>
+
+<p>This is important. The program uses the user agent to simulate Firefox on Ubuntu:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>USER_AGENT = ('Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0')
+</code></pre></div></div>
+
+<p>If you want to disable it for any reason use this option:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--noua
+</code></pre></div></div>
+
+<h2 id="to-get-output-in-json-format">To get output in JSON format</h2>
+
+<p>Use this option for JSON format</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--json
+</code></pre></div></div>
+
+<h2 id="search-and-exit">Search and Exit</h2>
+
+<p>This is important when saving the output to a file. It will search and exit. It will not show the prompt.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-np
+</code></pre></div></div>
+
+<h2 id="to-search-with-filetype">To search with filetype</h2>
+
+<p>This is the same as searching using Google:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$./googler 'data science' filetype:pdf
+</code></pre></div></div>
+
+<h2 id="saving-the-results-to-a-file">Saving the results to a file</h2>
+
+<p>To understand how saving works, you need to know some basic Linux commands.</p>
+
+<p>Read my tutorial <a href="https://www.tomordonez.com/from-zero-to-hero-linux.html" target="_blank">from zero to hero in Linux</a>.</p>
+
+<p>Save the results to a text file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$./googler -C 'data science' filetype:pdf &gt; dm.txt
+</code></pre></div></div>
+
+<p>When it’s done, the prompt will move down twice. Hit <code class="language-plaintext highlighter-rouge">Enter</code> twice to exit.</p>
+
+<p>The option <code class="language-plaintext highlighter-rouge">-C</code> disables color output. Otherwise you will get a mess of data. You don’t have to understand what this means. Just use it :)</p>
+
+<h2 id="linkedin-xray-search">Linkedin Xray Search</h2>
+
+<p>Ok Padawan. Now let’s do a few more examples:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./googler -C -w linkedin.com/in -n 50 'machine learning' &gt; ml_li.csv
+</code></pre></div></div>
+
+<p>Open the file with <code class="language-plaintext highlighter-rouge">Sublime Text</code>.</p>
+
+<p>You can download Sublime from <a href="https://www.sublimetext.com/2" target="_blank">here</a>.</p>
+
+<p>You could convert this “raw file” into a CSV file using a Regex macro.</p>
+
+<p>Read my tutorial to <a href="https://www.tomordonez.com/create-a-regex-macro-in-sublime.html" target="_blank">create a regex macro in Sublime</a>.</p>
+
+<p>You can use this macro to convert the Linkedin Xray search result to a CSV file.</p>
+
+<p><img src="/assets/images/xray-linkedin-search-sublime-macro.gif" alt="Xray Linkedin search sublime macro" /></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>For the <code class="language-plaintext highlighter-rouge">Rules-User</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "format": "3.0",
+    "replacements": {
+        // replace comma with semicolon
+        "linkedin_url_replace_comma": {
+            "find": ",",
+            "replace": ";",
+            "greedy": true
+        },
+        // add 3 empty lines between profiles
+        "linkedin_url_3_lines": {
+            "find": "^\\n",
+            "replace": "\\n\\n\\n",
+            "greedy": true
+        },
+        // join url, city and description
+        "linkedin_url_join_url_city": {
+            "find": "^(http.*)\\n(.*)\\n(.*)",
+            "replace": "\\1,\\2,\\3",
+            "greedy": true
+        },
+        // join name with url
+        "linkedin_url_join_name_url": {
+            "find": " \\| Professional.*\\n",
+            "replace": ",",
+            "greedy": true
+        },
+        // remove leading number
+        "linkedin_url_leading_number": {
+            "find": "^ [0-9]{1,3} ",
+            "replace": "",
+            "greedy": true
+        },
+        // remove empty lines
+        "linkedin_url_remove_empty_lines": {
+            "find": "^\\n",
+            "replace": "",
+            "greedy": true
+        },
+        // remove last googler line
+        "linkedin_url_remove_googler_line": {
+            "find": "^googler.*",
+            "replace": "",
+            "greedy": true
+        }
+    }
+}
+</code></pre></div></div>
+
+<p>For the <code class="language-plaintext highlighter-rouge">Commands-User</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    {
+        "caption": "Reg Replace: Googler Linkedin CSV",
+        "command": "reg_replace",
+        "args": {"replacements": ["linkedin_url_replace_comma",
+        "linkedin_url_3_lines","linkedin_url_join_url_city",
+        "linkedin_url_join_name_url","linkedin_url_leading_number",
+        "linkedin_url_remove_empty_lines",
+        "linkedin_url_remove_googler_line"]}
+    }
+]
+</code></pre></div></div>
+
+<p><img src="/assets/images/linkedin-xray-search-csv-file.gif" alt="Xray Linkedin search sublime macro" /></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>Activate the macro with the shortcut <code class="language-plaintext highlighter-rouge">Ctrl+Shift+P</code> and typing <code class="language-plaintext highlighter-rouge">Reg Replace: Googler Linkedin CSV</code>.</p>
+
+<p>Then open the CSV file in Excel.</p>
+
+:ET

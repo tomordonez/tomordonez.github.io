@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Installing Dropbox on Linux"
-author: tom
+redirect_from:
+  - /install-dropbox-linux.html
 categories: [Linux]
 image: assets/images/1.jpg
 tags: [dropbox, linux]

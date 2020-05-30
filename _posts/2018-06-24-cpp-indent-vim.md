@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Cpp Indent Vim"
-author: tom
+redirect_from:
+  - /cpp-indent-vim.html
 categories: [Code]
 image: assets/images/9.jpg
 tags: [coding, linux, fedora, c++]
@@ -38,9 +39,6 @@ It will indent to 2 spaces:
 
     int main()
     {
-      cout << "2 spaces" << endl;
-      return 0;
-    }
       cout << "2 spaces" << endl;
       return 0;
     }

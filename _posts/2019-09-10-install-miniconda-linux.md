@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Install Miniconda on Linux"
-author: tom
+redirect_from:
+  - /install-miniconda-linux.html
 categories: [Code]
 image: assets/images/7.jpg
 tags: [coding, python, miniconda]
@@ -354,7 +355,4 @@ If you see this error try this:
 * Remove your miniconda folder such as: `rm -rf miniconda3`
 * Remove what the install added to your `bashrc`
 * Create the `.conda` directory.
-* Reinstall.such as: `rm -rf miniconda3`
-* Remove what the install added to your `bashrc`
-* Create the `.conda` directory.
-* Reinstall.
+* Reinstall

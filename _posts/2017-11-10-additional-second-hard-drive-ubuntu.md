@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Additional Second Hard Drive in Ubuntu"
-author: tom
+redirect_from:
+  - /additional-second-hard-drive-ubuntu.html
 categories: [Linux]
 image: assets/images/8.jpg
 tags: [linux, ubuntu, hard drive]
@@ -134,12 +135,3 @@ Inside the `fstab` I noticed the following on my main SSD:
     errors=remount-ro
 
 Not sure what that is.
-
-on
-
-Inside the `fstab` I noticed the following on my main SSD:
-
-    errors=remount-ro
-
-Not sure what that is.
-

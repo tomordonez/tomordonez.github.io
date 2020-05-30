@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "How to Reload Tmuxinator"
-author: tom
+redirect_from:
+  - /reload-tmuxinator.html
 categories: [Code]
 image: assets/images/1.jpg
 tags: [coding, linux, tmux, tmuxinator]
@@ -23,4 +24,4 @@ Then start the project again:
 
     $ tmuxinator your-project
 
-Now the session is reloaded with the new config changes. the session is reloaded with the new config changes.
+Now the session is reloaded with the new config changes.

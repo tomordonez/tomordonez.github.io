@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Install a Plugin in Vim"
-author: tom
+redirect_from:
+  - /install-plugin-vim.html
 categories: [Code]
 image: assets/images/3.jpg
 tags: [coding, linux, vim]
@@ -48,8 +49,3 @@ For `auto-save`. You need to add these lines to the `.vimrc` file:
 Here is a list of `Vim` plugins:
 
     http://vim-scripts.org/vim/scripts.html
-
-Vim` plugins:
-
-    http://vim-scripts.org/vim/scripts.html
-

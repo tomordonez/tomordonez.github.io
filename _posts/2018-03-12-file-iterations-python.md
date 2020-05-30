@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "File Iterations in Python"
-author: tom
+redirect_from:
+  - /file-iterations-python.html
 categories: [Code]
 image: assets/images/1.jpg
 tags: [python, shell, coding]
@@ -75,7 +76,3 @@ This syntax opens and closes the file for you:
             if 'SPAM' in line:
                 print(line)
 
-## Please share your thoughts or comments          if 'SPAM' in line:
-                print(line)
-
-## Please share your thoughts or comments

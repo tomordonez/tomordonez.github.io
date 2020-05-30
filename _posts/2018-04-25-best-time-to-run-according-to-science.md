@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "The Best Time To Run According To Science"
-author: tom
+redirect_from:
+  - /best-time-to-run-according-to-science.html
 categories: [Data Analytics]
 image: assets/images/12.jpg
 tags: [r, data science, data mining, data analysis]
@@ -660,8 +661,3 @@ Ozone levels in Los Angeles:
 
 * I wanted to plot a comparison of the ozone levels at multiple counties for a specific time. I wasn't sure how to do this.
 * I wonder if there is a positive correlation between corruption and air quality level.
-
-## Please send your questions or commentsto do this.
-* I wonder if there is a positive correlation between corruption and air quality level.
-
-## Please send your questions or comments

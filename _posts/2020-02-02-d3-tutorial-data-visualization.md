@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "D3 Tutorial for Data Visualization"
-author: tom
+redirect_from:
+  - /d3-tutorial-data-visualization.html
 categories: [Data Analytics]
 image: assets/images/2.jpg
 tags: [featured, data analytics, data visualization, D3, javascript]
@@ -700,7 +701,5 @@ Use `.tickFormat` to format the axis labels.
 	   .attr("x", w/2)
 	   .attr("y", padding)
 	   .attr("text-anchor", "middle")
-	   .style("font-size", "16px")
-	   .text("Awesome Title Here");anchor", "middle")
 	   .style("font-size", "16px")
 	   .text("Awesome Title Here");

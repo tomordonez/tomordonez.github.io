@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Python Lambda and BeautifulSoup"
-author: tom
+redirect_from:
+  - /python-lambda-beautifulsoup.html
 categories: [Code]
 image: assets/images/9.jpg
 tags: [featured, coding, linux, python, lambda, beautifulsoup]
@@ -440,6 +441,3 @@ To get a `list` of comments then use `find_all`:
     [' Python is awesome ', ' Lambda is confusing ', ' name="Homer Simpson"']
 
 But keep in mind in this case the `HTML` comments have leading and trailing whitespace. You can just use the `strip()` method.
-
-g and trailing whitespace. You can just use the `strip()` method.
-

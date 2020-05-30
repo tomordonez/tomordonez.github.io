@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Build an Android App in Linux with Flutter"
-author: tom
+redirect_from:
+  - /build-android-app-linux-flutter.html
 categories: [Mobile]
 image: assets/images/3.jpg
 tags: [mobile, app, android, linux, flutter]
@@ -454,10 +455,3 @@ Click on the `play` run button.
 On the phone an app says `Flutter Demo Home Page`.
 
 Click on the `Stop` button when done.
-
-Next step is get a quick review of the Dart language...
-ter Demo Home Page`.
-
-Click on the `Stop` button when done.
-
-Next step is get a quick review of the Dart language...

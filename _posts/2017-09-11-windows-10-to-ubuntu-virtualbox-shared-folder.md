@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Windows 10 to Ubuntu VirtualBox Shared Folder"
-author: tom
+redirect_from:
+  - /windows-10-to-ubuntu-virtualbox-shared-folder.html
 categories: [Linux]
 image: assets/images/2.jpg
 tags: [windows 10, virtualbox, ubuntu, linux]
@@ -9,7 +10,6 @@ tags: [windows 10, virtualbox, ubuntu, linux]
 
 Follow this process to transfer files from **Windows 10 to Ubuntu in VirtualBox**.
 
-![Windows 10 to Ubuntu VirtualBox Shared Folder]({{ site.baseurl }}/assets/images/windows-10-ubuntu-virtualbox-shared-folder.jpg)
 
 This applies when you have Ubuntu installed inside Windows 10. Where Windows is the host and Ubuntu is the guest.
 
@@ -69,12 +69,3 @@ For example my user is `tom` and my group is `tom`.
 I would run the previous command like this:
 
     $ sudo chown -R tom:tom /media/sf-win10-ubuntu/
-
-
- `tom` and my group is `tom`.
-
-I would run the previous command like this:
-
-    $ sudo chown -R tom:tom /media/sf-win10-ubuntu/
-
-

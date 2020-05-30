@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Sublime Text Typewriter Autoscroll"
-author: tom
+redirect_from:
+  - /sublime-text-typewriter-auto-scroll.html
 categories: [Linux]
 image: assets/images/6.jpg
 tags: [sublimetext, coding]
@@ -60,4 +61,4 @@ Where a positive number moves the cursor up, and a negative moves the cursor dow
 
 You can try playing with this number to see how it works.
 
-For more details about this plugin. Go <a href="https://github.com/alehandrof/Typewriter" target="_blank">here</a>.details about this plugin. Go <a href="https://github.com/alehandrof/Typewriter" target="_blank">here</a>.
+For more details about this plugin. Go <a href="https://github.com/alehandrof/Typewriter" target="_blank">here</a>

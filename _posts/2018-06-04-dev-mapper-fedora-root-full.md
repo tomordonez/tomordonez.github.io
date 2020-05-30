@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Dev Mapper Fedora Root is Full"
-author: tom
+redirect_from:
+  - /dev-mapper-fedora-root-full.html
 categories: [Code]
 image: assets/images/1.jpg
 tags: [coding, linux, fedora]
@@ -47,11 +48,6 @@ About `pkcon`:
     Loading cache
     Downloading repository information
     Finished
-
-Check again:
-
-    $ df -h
-    /dev/mapper/fedora-root   50G   25G   23G  53% /nished
 
 Check again:
 

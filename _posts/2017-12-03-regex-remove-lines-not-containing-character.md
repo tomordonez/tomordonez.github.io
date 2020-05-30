@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Regex Remove Lines Not Containing a Character"
-author: tom
+redirect_from:
+  - /regex-remove-lines-not-containing-character.html
 categories: [Code]
 image: assets/images/10.jpg
 tags: [regex, remove lines, linux]
@@ -29,10 +30,3 @@ Or remove lines that don't contain an email
     
     ^(?!.*@.*).+$
 
-## Got a Regex question? Please comment below).+$
-
-Or remove lines that don't contain an email
-    
-    ^(?!.*@.*).+$
-
-## Got a Regex question? Please comment below

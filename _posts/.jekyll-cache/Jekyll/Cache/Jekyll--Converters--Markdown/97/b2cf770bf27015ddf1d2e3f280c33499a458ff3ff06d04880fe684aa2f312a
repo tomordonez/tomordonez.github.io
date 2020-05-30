@@ -1,0 +1,19 @@
+I"�<p>This is how you use <strong>wget to download</strong> files from the shell.</p>
+
+<p>For example. Download <code class="language-plaintext highlighter-rouge">pdf</code> files from a site:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -r -l1 -A pdf --random-wait -e robots=off -U mozilla -nd -np -nc URL
+</code></pre></div></div>
+
+<p>This is what this means:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-r</code>: recursive</li>
+  <li><code class="language-plaintext highlighter-rouge">-l1</code>: level 1. Only the current directory</li>
+  <li><code class="language-plaintext highlighter-rouge">-A pdf</code>: Only pdf files</li>
+  <li><code class="language-plaintext highlighter-rouge">--random-wait -e robots=off -U mozilla</code>: A good practice to appear human.</li>
+  <li><code class="language-plaintext highlighter-rouge">-nd</code>: No directories</li>
+  <li><code class="language-plaintext highlighter-rouge">-np</code>: No parent directories</li>
+  <li><code class="language-plaintext highlighter-rouge">-nc</code>: “no clobber”. This means only download files if they are newer or you didn’t download them yet.</li>
+</ul>
+:ET

@@ -1,22 +1,15 @@
 ---
 layout: post
 title: "Linkedin X-Ray Search with Googler"
-author: tom
+redirect_from:
+  - /linkedin-xray-search-googler.html
 categories: [Recruiting]
 image: assets/images/3.jpg
 tags: [linkedin, xray, googler, linux]
 ---
 
-## Linkedin XRay search with Googler. Or Google search anything in a programmatic way.
+Linkedin XRay search with Googler. Or Google search anything in a programmatic way.
 
-<p>&nbsp;</p>
-
-![Linkedin X-Ray Search with Googler]({{ site.baseurl }}/assets/images/linkedin-xray-search-googler.jpg)
-
-
-## Source
-
-https://github.com/jarun/googler
 
 ## Installation for Mac
 
@@ -297,10 +290,6 @@ For the `Commands-User`
 <p>&nbsp;</p>
 
 Activate the macro with the shortcut `Ctrl+Shift+P` and typing `Reg Replace: Googler Linkedin CSV`.
-
-Then open the CSV file in Excel.
-
-cro with the shortcut `Ctrl+Shift+P` and typing `Reg Replace: Googler Linkedin CSV`.
 
 Then open the CSV file in Excel.
 

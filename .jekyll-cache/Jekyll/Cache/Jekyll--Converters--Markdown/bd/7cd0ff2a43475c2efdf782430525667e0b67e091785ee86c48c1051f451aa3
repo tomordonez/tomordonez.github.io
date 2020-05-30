@@ -1,0 +1,58 @@
+I"Å<p>How to set <strong>Sublime text typewriter mode</strong> and autoscroll in Sublime Text 3</p>
+
+<p><img src="/assets/images/sublime-text-typewriter-auto-scroll.gif" alt="Sublime Text Typewriter Autoscroll" /></p>
+
+<p>Do you get that feeling that you are continually looking at the bottom of your screen?</p>
+
+<p>I use Sublime Text to type almost everything. Keep notes, documents, and code.</p>
+
+<p>Since I started studying human-computer interaction, I started noticing that I spend a lot of time focusing my attention towards the bottom of the screen, and spend a few seconds moving the mouse or the arrows to scroll up.</p>
+
+<p>A few seconds is not much time from the keyboard to the mouse. However, doing this action over and over again throughout the day becomes very noticeable.</p>
+
+<p>As seen <a href="https://github.com/alehandrof/Typewriter" target="_blank">here</a>. This is a <strong>Sublime text typewriter mode</strong> plugin. What it does is autoscroll in Sublime text to the middle of the screen.</p>
+
+<p>Instead of keeping your attention to the bottom of the screen, it autoscrolls to the middle of the screen.</p>
+
+<h2 id="installing-sublime-text-typewriter-mode">Installing Sublime Text Typewriter mode</h2>
+
+<p>Go to Install Packages and search for <strong>Typewriter</strong>.</p>
+
+<p>As easy as that.</p>
+
+<p>There are two modes.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Typewriter scrolling</code>, to auto scroll to the middle of the screen.</li>
+  <li><code class="language-plaintext highlighter-rouge">Typewriter typing</code>, to remain at the end of the file.</li>
+</ul>
+
+<p>Keep in mind that in <code class="language-plaintext highlighter-rouge">typewriter typing</code>, it disables mouse clicks, including selecting text.</p>
+
+<p>Toggle between two modes by <code class="language-plaintext highlighter-rouge">Ctrl+Shift+P</code> and search <code class="language-plaintext highlighter-rouge">Typewriter</code>. Then toggle scrolling or typing.</p>
+
+<p>The interface is not switching but toggling.</p>
+
+<p>If you toggle scrolling and want to try typing, you have to untoggle scrolling. Then toggle typing.</p>
+
+<h2 id="changing-scrolling-offset">Changing scrolling offset</h2>
+
+<p>The middle of the screen is ambiguous depending on the size of your screen.</p>
+
+<p>For my cheap improvised stand-up desk, the default setting is ideal.</p>
+
+<p>However, for my two-monitor setup. The middle is more 2/3 towards the bottom.</p>
+
+<p>To change the scrolling offset. Edit the file: <code class="language-plaintext highlighter-rouge">Typewriter Settings - User</code>. Under the menu: <code class="language-plaintext highlighter-rouge">Preferences &gt; Package Settings &gt; Typewriter</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+	"typewriter_mode_scrolling_offset": 10
+}
+</code></pre></div></div>
+
+<p>Where a positive number moves the cursor up, and a negative moves the cursor down.</p>
+
+<p>You can try playing with this number to see how it works.</p>
+
+<p>For more details about this plugin. Go <a href="https://github.com/alehandrof/Typewriter" target="_blank">here</a></p>
+:ET

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Wget to download files"
-author: tom
+redirect_from:
+  - /wget-download-files.html
 categories: [Code]
 image: assets/images/2.jpg
 tags: [coding, linux, wget]
@@ -21,4 +22,4 @@ This is what this means:
 * `--random-wait -e robots=off -U mozilla`: A good practice to appear human.
 * `-nd`: No directories
 * `-np`: No parent directories
-* `-nc`: "no clobber". This means only download files if they are newer or you didn't download them yet.no clobber". This means only download files if they are newer or you didn't download them yet.
+* `-nc`: "no clobber". This means only download files if they are newer or you didn't download them yet.

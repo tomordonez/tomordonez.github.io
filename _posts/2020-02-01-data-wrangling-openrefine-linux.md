@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Data Wrangling with OpenRefine on Linux"
-author: tom
+redirect_from:
+  - /data-wrangling-openrefine-linux.html
 categories: [Data Analytics]
 image: assets/images/9.jpg
 tags: [data wrangling, openrefine, analytics, linux]
@@ -442,5 +443,4 @@ Fetch more data from Freebase
 Please follow these resources:
 
 * [OpenRefine wiki](https://github.com/OpenRefine/OpenRefine/wiki)
-* [Screencasts](https://github.com/OpenRefine/OpenRefine/wiki/Screencasts))
 * [Screencasts](https://github.com/OpenRefine/OpenRefine/wiki/Screencasts)

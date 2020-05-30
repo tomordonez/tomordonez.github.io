@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Python Socket Syntax"
-author: tom
+redirect_from:
+  - /python-socket-syntax.html
 categories: [Code]
 image: assets/images/8.jpg
 tags: [coding, linux, python]
@@ -95,9 +96,6 @@ Using `with...as`:
     import socket
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sux:
         sux.connect( (host, port) )
-        ...
-        something_awesome_here
-        ...nnect( (host, port) )
         ...
         something_awesome_here
         ...

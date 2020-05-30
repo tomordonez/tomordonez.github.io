@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "How To Setup a VPN in Linux Fedora"
-author: tom
+redirect_from:
+  - /how-to-setup-vpn-linux-fedora.html
 categories: [Linux]
 image: assets/images/10.jpg
 tags: [vpn, linux, fedora, openvpn]
@@ -9,7 +10,6 @@ tags: [vpn, linux, fedora, openvpn]
 
 This is a short tutorial to **setup a VPN in Linux** Fedora. Although the same process applies to Ubuntu.
 
-![How To Setup a VPN in Linux Fedora]({{ site.baseurl }}/assets/images/how-to-setup-vpn-linux-fedora.jpg)
 
 ## Open an account with Hide.me VPN
 
@@ -153,8 +153,3 @@ Go to `https://hide.me/en/check`.
 It should show the IP number of the Location you downloaded.
 
 Then google "what is my IP". It should also show the VPN IP number.
-
-cation you downloaded.
-
-Then google "what is my IP". It should also show the VPN IP number.
-

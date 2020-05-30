@@ -1,15 +1,14 @@
 ---
 layout: post
 title: "R Tutorial with Rstudio and Data Analysis"
-author: tom
+redirect_from:
+  - /r-tutorial-rstudio-data-analysis.html
 categories: [Data Analytics]
 image: assets/images/1.jpg
 tags: [r, data science, data mining, data analysis]
 ---
 
-Last year I did some research about ozone levels and wrote a blog post about the <a href="https://www.tomordonez.com/best-time-to-run-according-to-science.html" target="_blank">best time to run</a> outside.
-
-This post is based on that research. This is an R tutorial with Rstudio and the data analysis from an ozone dataset.
+This is an R tutorial with Rstudio and the data analysis from an ozone dataset.
 
 ## R tutorial with Rstudio
 
@@ -532,7 +531,3 @@ Ozone levels in San Francisco:
 
 * The lowest ozone levels in San Francisco are between 5am and 7am.
 * The highest ozone levels are between 12pm and 3pm.
-
-est ozone levels in San Francisco are between 5am and 7am.
-* The highest ozone levels are between 12pm and 3pm.
-

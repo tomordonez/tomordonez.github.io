@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Make a Static Website with Python and Github Pages"
-author: tom
+redirect_from:
+  - /make-static-website-python-github-pages.html
 categories: [Linux]
 image: assets/images/11.jpg
 tags: [coding, static website, python, github pages]
@@ -702,12 +703,6 @@ I had these:
     Untracked files:
       (use "git add <file>..." to include in what will be committed)
             .gitmodules_bk
-            new_post_template.md
-
-I added these files and committed the changes from the `git fetch upstream`
-
-    $ git add .
-    $ git commit "merged upstream/master"les_bk
             new_post_template.md
 
 I added these files and committed the changes from the `git fetch upstream`

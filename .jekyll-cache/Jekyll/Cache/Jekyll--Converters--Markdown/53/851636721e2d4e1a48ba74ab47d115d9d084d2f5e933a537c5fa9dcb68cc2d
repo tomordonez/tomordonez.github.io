@@ -1,0 +1,189 @@
+I"�(<p>Follow this simple tutorial to install React Native on Mac.</p>
+
+<h2 id="install-node">Install Node</h2>
+
+<p>Download the Node installer from <a href="https://nodejs.org/en/" target="_blank">here</a>.</p>
+
+<p>When I published this tutorial 12/17/17. The current Node version was <code class="language-plaintext highlighter-rouge">8.9.3 LTS</code>.</p>
+
+<h2 id="this-package-will-install">This package will install:</h2>
+
+<ul>
+  <li>Node.js v8.9.3 to /usr/local/bin/node</li>
+  <li>npm v5.5.1 to /usr/local/bin/npm</li>
+</ul>
+
+<h2 id="make-sure-that-usrlocalbin-is-in-your-path">Make sure that /usr/local/bin is in your $PATH</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo $PATH
+
+/usr/local/bin
+</code></pre></div></div>
+
+<h2 id="check-node-version">Check node version</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ node -v
+v8.9.3
+
+$ npm -v
+5.5.1
+</code></pre></div></div>
+
+<h2 id="fixing-npm-permissions">Fixing npm permissions</h2>
+
+<p>Fixing npm permissions as seen <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions" target="_blank">here</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm config get prefix
+/usr/local
+
+$ sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+</code></pre></div></div>
+
+<p>&lt;blockquote class=”instagram-media” data-instgrm-captioned data-instgrm-permalink=https://www.instagram.com/p/Bcz_HZRFs_F/ data-instgrm-version=”8” style=” background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);”&gt;&lt;div style="padding:8px;"&gt; &lt;div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;"&gt; &lt;div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"&gt;&lt;/div&gt;&lt;/div&gt; &lt;p style=" margin:8px 0 0 0; padding:0 4px;"&gt; <a href="https://www.instagram.com/p/Bcz_HZRFs_F/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">😍Testing and writing my experience with React Native #coding #reactjs #reactnative #softwaredeveloper #sundayvibes</a>&lt;/p&gt; &lt;p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"&gt;A post shared by <a href="&lt;Macro &#39;profile_link&#39;&gt;" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> Tom Ordonez</a> (@tomordonez) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-12-17T17:48:04+00:00">Dec 17, 2017 at 9:48am PST</time>&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt; <script async="" defer="" src="//platform.instagram.com/en_US/embeds.js"></script></p>
+
+<h2 id="install-create-react-native-app">Install <code class="language-plaintext highlighter-rouge">create-react-native-app</code></h2>
+
+<p>Go to the official react native docs <a href="https://facebook.github.io/react-native/docs/getting-started.html" target="_blank">here</a>.</p>
+
+<p>“Create React Native App does not currently work with npm v5. We strongly recommend using npm v3, v4, or a recent version of Yarn”.</p>
+
+<h2 id="install-yarn">Install Yarn:</h2>
+
+<p>Follow the official Yarn doc <a href="https://yarnpkg.com/lang/en/docs/install/" target="_blank">here</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install yarn --without-node
+
+==&gt; Downloading https://yarnpkg.com/downloads/1.3.2/yarn-v1.3.2.tar.gz
+==&gt; Downloading from https://github.com/yarnpkg/yarn/releases/download/v1.3.2/yarn-v1.3.2.tar.gz
+/usr/local/Cellar/yarn/1.3.2: 14 files, 3.9MB, built in 8 seconds
+</code></pre></div></div>
+
+<h2 id="install-create-react-native-app-using-yarn">Install <code class="language-plaintext highlighter-rouge">create-react-native-app</code> using Yarn</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yarn global add create-react-native-app
+
+yarn global v1.3.2
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 📃  Building fresh packages...
+success Installed "create-react-native-app@1.0.0" with binaries:
+  - create-react-native-app
+</code></pre></div></div>
+
+<h2 id="create-a-react-native-app">Create a react native app</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ create-react-native-app AwesomeProject
+
+Creating a new React Native app in /Users/../AwesomeProject.
+</code></pre></div></div>
+
+<h2 id="start-the-app">Start the app</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd AwesomeProject
+
+$ yarn start
+yarn run v1.3.2
+</code></pre></div></div>
+
+<h2 id="output-error-unable-to-start-server">Output Error Unable to start server</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ react-native-scripts start
+
+23:15:49: Unable to start server
+See https://git.io/v5vcn for more information, either install watchman or run the following snippet:
+sudo sysctl -w kern.maxfiles=5242880
+sudo sysctl -w kern.maxfilesperproc=524288
+
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+</code></pre></div></div>
+
+<p><a href="https://github.com/react-community/create-react-native-app/issues/382" target="_blank">This</a> page had 2 solutions:</p>
+
+<ol>
+  <li>Run the <code class="language-plaintext highlighter-rouge">sudo sysctl</code> commands or</li>
+  <li>Install Watchman.</li>
+</ol>
+
+<p>Here is more info about <code class="language-plaintext highlighter-rouge">Watchman</code>:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Watchman</code> is a file watching service open sourced by Facebook.</p>
+
+<p>“<a href="https://facebook.github.io/watchman/" target="_blank">Watchman</a> exists to watch files and record when they change. It can also trigger actions (such as rebuilding assets) when matching files change.”</p>
+
+<p>The solution with the most thumbs up is this one:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo sysctl -w kern.maxfiles=5242880
+kern.maxfiles: 12288 -&gt; 5242880
+
+$ sudo sysctl -w kern.maxfilesperproc=524288
+kern.maxfilesperproc: 10240 -&gt; 524288
+</code></pre></div></div>
+
+<p>Here is more info about this command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">sysctl</code> is used to get or set kernel state.</p>
+
+<p><a href="https://www.freebsd.org/doc/handbook/configtuning-kernel-limits.html" target="_blank">Here</a> is more info about “tuning kernel limits”:</p>
+
+<p>It says that “The kern.maxfiles sysctl(8) variable can be raised or lowered based upon system requirements. This variable indicates the maximum number of file descriptors on the system”</p>
+
+<p><a href="http://krypted.com/mac-os-x/maximum-files-in-mac-os-x/" target="_blank">Here</a> is some more info about this:</p>
+
+<p>“By default, the maximum number of files that Mac OS X can open is set to 12,288 and the maximum number of files a given process can open is 10,240.”</p>
+
+<p>It also says that if you reboot, that it will go back to the original values. Although there is a workaround as seen on that post.</p>
+
+<h2 id="start-development-server">Start development server</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yarn start
+</code></pre></div></div>
+
+<p>It will show this output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn run v1.3.2
+$ react-native-scripts start
+12:11:00: Starting packager...
+Packager started!
+
+To view your app with live reloading, point the Expo app to this QR code.
+You'll find the QR scanner on the Projects tab of the app.
+
+GIANT QR CODE HERE
+...
+
+Or enter this address in the Expo app's search bar:
+
+exp://10.0.0.10:19000
+
+Your phone will need to be on the same local network as this computer.
+For links to install the Expo app, please visit https://expo.io.
+
+Logs from serving your app will appear here. Press Ctrl+C at any time to stop.
+
+› Press a to open Android device or emulator, or i to open iOS emulator.
+› Press q to display QR code.
+› Press r to restart packager, or R to restart packager and clear cache.
+› Press d to toggle development mode. (current mode: development)
+</code></pre></div></div>
+
+<h2 id="install-the-expo-client-app">Install the Expo client app</h2>
+
+<p>As seen in the Expo doc <a href="https://expo.io/learn" target="_blank">here</a>:</p>
+
+<p>Download the app on your phone. Then scan the QR code on your terminal.</p>
+
+<p>Back in the Terminal now says:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>12:17:51: Finished building JavaScript bundle in 69956ms
+12:17:58: Running app on Tom O in development mode
+</code></pre></div></div>
+
+<p>To stop use <code class="language-plaintext highlighter-rouge">Ctrl+C</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>12:36:05: Stopping packager...
+12:36:06: Packager stopped.
+</code></pre></div></div>
+
+:ET

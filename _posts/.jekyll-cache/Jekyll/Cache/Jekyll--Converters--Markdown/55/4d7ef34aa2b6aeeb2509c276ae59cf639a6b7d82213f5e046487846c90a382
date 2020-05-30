@@ -1,0 +1,18 @@
+I"3<p>Execute many commands in one line in Linux</p>
+
+<p>Run A then B, even if A fails</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A; B
+</code></pre></div></div>
+
+<p>Run B only if A works</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A &amp;&amp; B
+</code></pre></div></div>
+
+<p>Run B only if A fails</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A || B
+</code></pre></div></div>
+
+:ET

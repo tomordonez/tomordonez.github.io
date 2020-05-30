@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Learning Github"
-author: tom
+redirect_from:
+  - /learning-github.html
 categories: [Code]
 image: assets/images/8.jpg
 tags: [coding, git, github]
@@ -143,11 +144,6 @@ Then push the source.
 ## Exit server
 
 When the website is published into Github pages. Detach from tmux `Ctrl+a Ctrl+a + D`.
-
-Then exit:
-
-    (server)$ exit
-    $o Github pages. Detach from tmux `Ctrl+a Ctrl+a + D`.
 
 Then exit:
 

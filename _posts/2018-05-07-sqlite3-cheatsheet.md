@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "SQLite3 CheatSheet for Python"
-author: tom
+redirect_from:
+  - /sqlite3-cheatsheet.html
 categories: [Code]
 image: assets/images/4.jpg
 tags: [coding, linux, python, sqlite3]
@@ -328,10 +329,3 @@ Launches my text editor `Sublime Text`:
     homer,homer@simpson.com
     bart,bart@simpson.com
 
-## To be continued
-
-This is a work in progress. I will add more soon.
-
-If you feel I should add something more. Please comment. more soon.
-
-If you feel I should add something more. Please comment.

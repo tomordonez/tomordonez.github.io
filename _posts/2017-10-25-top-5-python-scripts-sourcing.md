@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "The Top 5 Python Scripts for Sourcing"
-author: tom
+redirect_from:
+  - /top-5-python-scripts-sourcing.html
 categories: [Recruiting]
 image: assets/images/1.jpg
 tags: [python, scripts, sourcing]
@@ -9,9 +10,6 @@ tags: [python, scripts, sourcing]
 
 These are my top 5 Python scripts I use for researching and sourcing data.
 
-![The Top 5 Python Scripts for Sourcing]({{ site.baseurl }}/assets/images/top-5-python-scripts-sourcing.jpg)
-
-**Note: Use at your own risk**
 
 ## 0. Virtualenv
 
@@ -439,10 +437,3 @@ If you open the file `example1` in your browser, it looks like this:
 When you are done using the script. You can deactivate the virtual environment like this:
 
     (env) $ deactivate
-
-
-n you are done using the script. You can deactivate the virtual environment like this:
-
-    (env) $ deactivate
-
-

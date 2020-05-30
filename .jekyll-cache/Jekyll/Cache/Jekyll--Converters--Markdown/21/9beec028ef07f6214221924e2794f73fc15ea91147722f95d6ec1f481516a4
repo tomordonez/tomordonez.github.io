@@ -1,0 +1,733 @@
+I"ա<p>This is a D3 tutorial for data visualization based on the book <a href="https://alignedleft.com/work/d3-book-2e">Interactive Data Visualization for the Web, 2nd Ed</a>.</p>
+
+<p><strong>Warning</strong></p>
+<ul>
+  <li>The examples on the book run only with <a href="https://d3js.org/d3.v4.min.js">D3 version 4</a></li>
+  <li>The syntax for <a href="https://d3js.org/d3.v5.min.js">D3 version 5</a> is a bit different. I modified the code for this tutorial.</li>
+</ul>
+
+<h2 id="setting-up-d3">Setting up D3</h2>
+
+<p>From Chapter 4.</p>
+
+<p>Download the <code class="language-plaintext highlighter-rouge">D3.js</code> library into your project folder or use the external reference.</p>
+
+<p>If you downloaded the file into a <code class="language-plaintext highlighter-rouge">lib</code> folder, then source it like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type="text/javascript" src="lib/d3.min.js"&gt;&lt;/script&gt;
+</code></pre></div></div>
+
+<p>If you want to use an external reference use one of these, depending on the version:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type="text/javascript" src="https://d3js.org/d3.v4.min.js"&gt;&lt;/script&gt;
+
+&lt;script type="text/javascript" src="https://d3js.org/d3.v5.min.js"&gt;&lt;/script&gt;
+</code></pre></div></div>
+
+<p>Then, create an <code class="language-plaintext highlighter-rouge">HTML</code> template and run a web server using Python.</p>
+
+<h3 id="create-an-html-template">Create an HTML template</h3>
+
+<p>Following the example on the book here is an <code class="language-plaintext highlighter-rouge">HTML</code> template.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;D3 Template&lt;/title&gt;
+		&lt;script type="text/javascript" src="https://d3js.org/d3.v4.min.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;script type="text/javascript"&gt;
+			// code here
+		&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<h3 id="run-a-web-server-with-python">Run a web server with Python</h3>
+
+<p>In your project folder, run the web server with Python. Here is the official doc for <a href="https://docs.python.org/3/library/http.server.html">http.server</a>.</p>
+
+<p>Run it like this if you want the process to run on the background:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python -m http.server 8888 &amp;.
+</code></pre></div></div>
+
+<p>I don’t like this cause I can’t see the web server’s output.</p>
+
+<p>The official docs have something similar but explicitly saying to use localhost only:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python -m http.server 8888 --bind 127.0.0.1
+</code></pre></div></div>
+
+<p>Then open the browser on <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8888/</code> (For this test I used Firefox 72)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Serving HTTP on 127.0.0.1 port 8888 (http://127.0.0.1:8888/) ...
+127.0.0.1 - - [26/Jan/2020 12:24:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [26/Jan/2020 12:24:19] "GET /lib/d3/d3.min.js HTTP/1.1" 200 -
+127.0.0.1 - - [26/Jan/2020 12:24:19] code 404, message File not found
+127.0.0.1 - - [26/Jan/2020 12:24:19] "GET /favicon.ico HTTP/1.1" 404 -
+</code></pre></div></div>
+
+<p>Stop the server with <code class="language-plaintext highlighter-rouge">Ctrl C</code>.</p>
+
+<p>On the browser verify that you see the <code class="language-plaintext highlighter-rouge">&lt;title&gt;</code> tag from the template:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;title&gt;D3 Template&lt;/title&gt;
+</code></pre></div></div>
+
+<h2 id="the-dataset">The dataset</h2>
+
+<p>For this tutorial, I am using a <code class="language-plaintext highlighter-rouge">CSV</code> file called <code class="language-plaintext highlighter-rouge">file.csv</code> that has years and population as shown:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year 	population
+1950		5
+1951		10
+1955		15
+1959		20
+</code></pre></div></div>
+
+<h2 id="asynchronous">Asynchronous</h2>
+
+<p>JavaScript runs asynchronous. Here is a good explanation about it:</p>
+
+<p><a href="https://stackoverflow.com/questions/14220321/how-do-i-return-the-response-from-an-asynchronous-call">How do I return the response from an asynchronous call?
+</a></p>
+
+<p>The answer provides a great analogy for synchronous and asynchronous.</p>
+
+<p>Synchronous is like making a phone call to tech support to fix your Internet. While they figure out the problem, you wait on the call, until the problem is solved then you end the call.</p>
+
+<p>Asynchronous is making the same phone call. Instead of waiting on the call you ask them to call you back when they fix the problem. You end the call, go about your day, then wait for them to call back.</p>
+
+<p>I assume that asynchronous on an app means if you are loading a page, it will load the <code class="language-plaintext highlighter-rouge">html</code>, the <code class="language-plaintext highlighter-rouge">css</code>, the <code class="language-plaintext highlighter-rouge">js</code>. If there is a feature that is not working, only that feature won’t load. If you change the data on a feature, then you won’t have to reload the page, the feature changes as you interact with the features.</p>
+
+<h2 id="anonymous-functions">Anonymous functions</h2>
+
+<p>I see anonymous callback functions being used all over <code class="language-plaintext highlighter-rouge">D3</code>. If you know Python, this is like a <code class="language-plaintext highlighter-rouge">lambda</code> function.</p>
+
+<p>This is what loading a <code class="language-plaintext highlighter-rouge">CSV</code> in <code class="language-plaintext highlighter-rouge">D3 v4</code> looks like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type="text/javascript"&gt;
+
+	d3.csv("file.csv", function(data) {
+		somethingHappens(data);
+	});
+	console.log(data);
+
+&lt;/script&gt;
+</code></pre></div></div>
+
+<p>This is an anonymous callback function <code class="language-plaintext highlighter-rouge">function(data)</code>. It runs the code inside the curly braces and then is called back to this function.</p>
+
+<p>There is a problem here. The script will continue and execute <code class="language-plaintext highlighter-rouge">console.log(data)</code>, regardless if the data was not completely loaded. Then the console won’t display any data.</p>
+
+<p>You could hack this code and perhaps put some sort of a timer but then how much time are you supposed to pass to that function?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type="text/javascript"&gt;
+
+	d3.csv("file.csv", function(data) {
+		somethingHappens(data);
+	});
+	someSortOfTimer(60);
+	console.log(data);
+
+&lt;/script&gt;
+</code></pre></div></div>
+
+<p>Instead, within the callback function, write all the code that uses the <code class="language-plaintext highlighter-rouge">data</code> that is loaded:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type="text/javascript"&gt;
+
+	d3.csv("file.csv", function(data) {
+		somethingHappens(data);
+		console.log(data);
+	});
+
+&lt;/script&gt;
+</code></pre></div></div>
+
+<h2 id="converting-string-to-other-types">Converting String to other Types</h2>
+
+<p>When loading a <code class="language-plaintext highlighter-rouge">CSV</code> file, the data is parsed as strings.</p>
+
+<p>If this is the data contained in the CSV:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year 	population
+1950		5
+1951		10
+1955		15
+1959		20
+</code></pre></div></div>
+
+<p>It will parse the years as strings and the population as strings. If you are doing any transformation to the data, which you will, you would need to convert these strings to the correct type.</p>
+
+<ul>
+  <li>From <code class="language-plaintext highlighter-rouge">string</code> year to <code class="language-plaintext highlighter-rouge">date</code> year.</li>
+  <li>From <code class="language-plaintext highlighter-rouge">string</code> population to <code class="language-plaintext highlighter-rouge">integer</code> population.</li>
+</ul>
+
+<h2 id="parsing-and-formatting-the-year">Parsing and formatting the year</h2>
+
+<p>Create two variables near the opening of the javascript tag:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var parseTime = d3.timeParse("%Y");
+var formatTime = d3.timeFormat("%Y");
+</code></pre></div></div>
+
+<p>More details here:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">%Y</code>: Parse year in decimal number such as <code class="language-plaintext highlighter-rouge">2020</code>.</li>
+  <li><a href="https://github.com/d3/d3-time-format/blob/v2.2.3/README.md#timeParse">d3.timeParse</a></li>
+  <li><a href="https://github.com/d3/d3-time-format/blob/v2.2.3/README.md#timeFormat">d3.timeFormat</a></li>
+</ul>
+
+<h2 id="a-function-to-parse-every-row-of-the-csv-file">A function to parse every row of the CSV file</h2>
+
+<p>After some modification using the code sample from Chapter 5 of the book <a href="https://alignedleft.com/work/d3-book-2e">Interactive Data Visualization for the Web, 2nd Ed</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var rowConverter = function(d) {
+	return {
+		year: parseTime(d.year),
+		population: +d.population
+	};
+}
+</code></pre></div></div>
+
+<p>This function is then passed as a parameter of the <code class="language-plaintext highlighter-rouge">d3.csv</code> or the <code class="language-plaintext highlighter-rouge">d3.dsv</code> function. It takes every row as <code class="language-plaintext highlighter-rouge">d</code>. It parses the <code class="language-plaintext highlighter-rouge">year</code> from <code class="language-plaintext highlighter-rouge">parseTime(d.year)</code> and for <code class="language-plaintext highlighter-rouge">population</code>, it uses the <code class="language-plaintext highlighter-rouge">+</code> operator to force the string to numbers on <code class="language-plaintext highlighter-rouge">+d.population</code></p>
+
+<h2 id="loading-a-csv-file">Loading a CSV file</h2>
+
+<p>You can use the <code class="language-plaintext highlighter-rouge">d3.dsv</code> delimiter separated values to load the <code class="language-plaintext highlighter-rouge">CSV</code>. More info about <a href="https://github.com/d3/d3-dsv">dsv</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.dsv(",", "file.csv", rowConverter).then(function(dataset) {
+	doSomethingFunHere(dataset);
+});
+</code></pre></div></div>
+
+<h2 id="bind-the-dataset-values-to-elements-in-the-dom">Bind the dataset values to elements in the DOM</h2>
+
+<p>Now we need to use the data and bind it to elements in the DOM.</p>
+
+<p>First, let’s follow this example. Given our initial <code class="language-plaintext highlighter-rouge">HTML</code> template:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;body&gt;
+	&lt;script type="text/javascript"&gt;
+		// code here
+	&lt;/script&gt;
+&lt;/body&gt;
+</code></pre></div></div>
+
+<p>Then add this to the script:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataset1 = ["homer", "simpson"];
+d3.select("body").selectAll("p")
+	.data(dataset1)
+	.enter()
+	.append("p");
+</code></pre></div></div>
+
+<p>The way this works:</p>
+
+<ul>
+  <li>It selects the element <code class="language-plaintext highlighter-rouge">body</code>.</li>
+  <li>Then it selects all <code class="language-plaintext highlighter-rouge">p</code> elements. However, no <code class="language-plaintext highlighter-rouge">p</code> elements exist yet.</li>
+  <li>Use the attribute <code class="language-plaintext highlighter-rouge">.data</code> to read <code class="language-plaintext highlighter-rouge">dataset1</code>.</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">.enter()</code> to bind the <code class="language-plaintext highlighter-rouge">dataset1</code> values with <code class="language-plaintext highlighter-rouge">p</code> elements</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">.append("p")</code> to append the <code class="language-plaintext highlighter-rouge">p</code> elements to the DOM.</li>
+</ul>
+
+<p>The values of <code class="language-plaintext highlighter-rouge">homer</code> and <code class="language-plaintext highlighter-rouge">simpson</code> won’t display on the page.</p>
+
+<p>Go to the console and type <code class="language-plaintext highlighter-rouge">d3.selectAll("p");</code>.</p>
+
+<p>Expand the output <code class="language-plaintext highlighter-rouge">Object { _groups: (1) […], _parents: (1) […] }</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_groups: Array [ NodeList(2) ]
+_parents: Array [ html ]
+</code></pre></div></div>
+
+<p>Expand <code class="language-plaintext highlighter-rouge">groups</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_groups: (1) […]
+	​​0: NodeList [ p, p ]
+	​​length: 1
+​​    &lt;prototype&gt;: Array []
+</code></pre></div></div>
+
+<p>Expand <code class="language-plaintext highlighter-rouge">0: NodeList [ p, p ]</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_groups: (1) […]
+​​​    0: NodeList(2)
+​​​      0: p
+​​​​		__data__: "homer"​
+</code></pre></div></div>
+
+<h2 id="drawing-svg">Drawing SVG</h2>
+
+<p><code class="language-plaintext highlighter-rouge">SVG</code> stands for <code class="language-plaintext highlighter-rouge">Scalable Vector Graphics</code>. More info <a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">here</a>.</p>
+
+<p>Following Chapter 6 of the book <a href="https://alignedleft.com/work/d3-book-2e">Interactive Data Visualization for the Web, 2nd Ed</a>. Create the <code class="language-plaintext highlighter-rouge">SVG</code> element with width <code class="language-plaintext highlighter-rouge">w</code> and height <code class="language-plaintext highlighter-rouge">h</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var w = 500;
+var h = 300;
+var barPadding = 3;
+var padding = 40;
+var svg = d3.select("body")
+			.append("svg");
+			.attr("width", w)
+			.attr("height", h);
+</code></pre></div></div>
+
+<h2 id="creating-a-bar-chart">Creating a Bar Chart</h2>
+
+<p>Using the <code class="language-plaintext highlighter-rouge">CSV</code> dataset:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year 	population
+1950		5
+1951		10
+1955		15
+1959		20
+</code></pre></div></div>
+
+<p>Load it as seen here:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.dsv(",", "file.csv", rowConverter).then(function(dataset) {
+	// add code here
+});
+</code></pre></div></div>
+
+<p>Add the code inside the callback function.</p>
+
+<p>Create rectangle shapes by adding attributes for <code class="language-plaintext highlighter-rouge">(x,y)</code>, where <code class="language-plaintext highlighter-rouge">x</code> is measured from left to right of the <code class="language-plaintext highlighter-rouge">SVG</code> and <code class="language-plaintext highlighter-rouge">y</code> is measured from top to bottom of the <code class="language-plaintext highlighter-rouge">SVG</code>. The coordinate <code class="language-plaintext highlighter-rouge">(0,0)</code> is the top left corner. The coordinates increase to the right for <code class="language-plaintext highlighter-rouge">x</code> and down for <code class="language-plaintext highlighter-rouge">y</code>.</p>
+
+<p>Also, <code class="language-plaintext highlighter-rouge">x</code> points to the bottom left of the rectangle, <code class="language-plaintext highlighter-rouge">y</code> points to the top left of the rectangle. In this example, <code class="language-plaintext highlighter-rouge">width</code> draws <code class="language-plaintext highlighter-rouge">20px</code> to the right, and <code class="language-plaintext highlighter-rouge">height</code> draws <code class="language-plaintext highlighter-rouge">100px</code> downwards from the <code class="language-plaintext highlighter-rouge">y</code> coordinate. In other words, all rectangles of the bar chart are drawn downwards, following the characteristics of the <code class="language-plaintext highlighter-rouge">SVG</code> having its <code class="language-plaintext highlighter-rouge">(0,0)</code> on the top left corner.</p>
+
+<h3 id="drawing-each-rectangle-for-the-bar-chart">Drawing each rectangle for the bar chart</h3>
+
+<p>Not sure why it’s upside down, but that’s how <code class="language-plaintext highlighter-rouge">SVG</code> works.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svg.selectAll("rect")
+	.data(dataset)
+	.enter()
+	.append("rect")
+	.attr("x", 0)
+	.attr("y", 0)
+	.attr("width", 20)
+	.attr("height", 100);
+</code></pre></div></div>
+
+<p>However by setting <code class="language-plaintext highlighter-rouge">.attr("x", 0)</code>, it makes the bar chart rectangles to overlap on top of each other, as they are all drawn at the same <code class="language-plaintext highlighter-rouge">(x, y)</code> position.</p>
+
+<h3 id="scaling-the-coordinates-of-the-rectangles">Scaling the coordinates of the rectangles</h3>
+
+<p>The coordinates of the rectangles need to scale dynamically. For example for <code class="language-plaintext highlighter-rouge">x values</code>, use an anonymous function to pass each value <code class="language-plaintext highlighter-rouge">d</code> of the dataset, and the index <code class="language-plaintext highlighter-rouge">i</code> for each value. Then compute <code class="language-plaintext highlighter-rouge">i</code> times the width <code class="language-plaintext highlighter-rouge">w</code> over the length of the dataset.</p>
+
+<p>Do the calculation by hand and you will understand how it works.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svg.selectAll("rect")
+	.data(dataset)
+	.enter()
+	.append("rect")
+	.attr("x", function(d, i) {
+		return i * (w/dataset.length);
+		})
+	.attr("y", function(d) {
+		return h - d.population;
+		})
+	.attr("width", w/dataset.length - barPadding)
+	.attr("height", function(d) {
+		return d.population;
+		})
+	.attr("fill", "teal");
+</code></pre></div></div>
+
+<h3 id="how-this-works-attrx-functiond-i">How this works: <code class="language-plaintext highlighter-rouge">attr("x", function(d, i)</code></h3>
+
+<p>We need to set the <code class="language-plaintext highlighter-rouge">x</code> position of each rectangle. This points to the bottom left of each rectangle.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>attr("x", function(d, i) {
+	return i * (w/dataset.length);
+})
+</code></pre></div></div>
+
+<p>For each value of the dataset:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year 	population
+1950		5
+1951		10
+1955		15
+1959		20
+</code></pre></div></div>
+
+<p>The corresponding <code class="language-plaintext highlighter-rouge">x</code> values are as follows. Keep in mind the <code class="language-plaintext highlighter-rouge">d</code> values are not used for the calculation, only the <code class="language-plaintext highlighter-rouge">index</code> (i) of each value. First, let’s look at the indices:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   d   	    i (index)
+[1950, 5]   	0
+[1951, 10]  	1
+[1955, 15]  	2
+[1950, 20]  	3
+</code></pre></div></div>
+
+<p>The calculation <code class="language-plaintext highlighter-rouge">(w/dataset.length)</code> is done to evenly position each rectangle across the width <code class="language-plaintext highlighter-rouge">w</code> of the <code class="language-plaintext highlighter-rouge">SVG</code>.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">w</code> was set before as <code class="language-plaintext highlighter-rouge">var w = 500</code></li>
+  <li><code class="language-plaintext highlighter-rouge">length</code> of the dataset is <code class="language-plaintext highlighter-rouge">4</code></li>
+  <li><code class="language-plaintext highlighter-rouge">i</code> is used to find a starting position for each rectangle.</li>
+</ul>
+
+<p>The calculations of <code class="language-plaintext highlighter-rouge">i * (w/dataset.length)</code> are.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 * (500/4)
+1 * (500/4)
+2 * (500/4)
+3 * (500/4)
+</code></pre></div></div>
+
+<p>Then they are returned to the call back function as a parameter of each <code class="language-plaintext highlighter-rouge">x</code> attribute.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("x", 0)
+.attr("x", 125)
+.attr("x", 250)
+.attr("x", 375)
+</code></pre></div></div>
+
+<p>This means the first rectangle is positioned at <code class="language-plaintext highlighter-rouge">x = 0</code>, then second rectangle at <code class="language-plaintext highlighter-rouge">x = 125</code> and so on.</p>
+
+<h3 id="how-this-works-attry-functiond">How this works: <code class="language-plaintext highlighter-rouge">.attr("y", function(d)</code></h3>
+
+<p>We need to set the <code class="language-plaintext highlighter-rouge">y</code> position of each rectangle. This points to the top left of each rectangle.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("y", function(d) {
+	return h - d.population;
+})
+</code></pre></div></div>
+
+<p>In this code <code class="language-plaintext highlighter-rouge">h</code> was previously set as <code class="language-plaintext highlighter-rouge">var h = 300;</code>.</p>
+
+<p>The call back function is passing every row of the dataset as <code class="language-plaintext highlighter-rouge">d</code> and we need the second value <code class="language-plaintext highlighter-rouge">population</code> of each row to calculate the <code class="language-plaintext highlighter-rouge">y</code> coordinate of each rectangle.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>return h - d.population;
+</code></pre></div></div>
+
+<p>Given these values, where a value of <code class="language-plaintext highlighter-rouge">d</code> corresponds to <code class="language-plaintext highlighter-rouge">[d.year, d.population]</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   d
+[1950, 5]
+[1951, 10]
+[1955, 15]
+[1950, 20]
+</code></pre></div></div>
+
+<p>The subtractions are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>300 - 5 = 295
+300 - 10 = 290
+300 - 15 = 285
+300 - 20 = 280
+</code></pre></div></div>
+
+<p>Remember that for the <code class="language-plaintext highlighter-rouge">SVG</code> the <code class="language-plaintext highlighter-rouge">(0,0)</code> is at the top left. Then <code class="language-plaintext highlighter-rouge">y</code> value of <code class="language-plaintext highlighter-rouge">295</code> means measure <code class="language-plaintext highlighter-rouge">295px</code> from top moving downwards.</p>
+
+<p>These are returned to the call back function to form these:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("y", 295)
+.attr("y", 290)
+.attr("y", 285)
+.attr("y", 280)
+</code></pre></div></div>
+
+<p>Putting these two attributes together, we can get the coordinates for each rectangle</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("x", 0)		.attr("y", 295)
+.attr("x", 125)		.attr("y", 290)
+.attr("x", 250)		.attr("y", 285)
+.attr("x", 375)		.attr("y", 280)
+</code></pre></div></div>
+
+<p>The rectangles are at these coordinates:</p>
+
+<ul>
+  <li>Rectangle 1: <code class="language-plaintext highlighter-rouge">(0, 295)</code></li>
+  <li>Rectangle 2: <code class="language-plaintext highlighter-rouge">(125, 290)</code></li>
+  <li>Rectangle 3: <code class="language-plaintext highlighter-rouge">(250, 285)</code></li>
+  <li>Rectangle 4: <code class="language-plaintext highlighter-rouge">(375, 280)</code></li>
+</ul>
+
+<h3 id="how-this-works-attrwidth-wdatasetlength---barpadding">How this works: <code class="language-plaintext highlighter-rouge">.attr("width", w/dataset.length - barPadding)</code></h3>
+
+<p>Now that we got the coordinates for each rectangle, then we need to draw them.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">.attr</code> width, draws each rectangle from left to right.</p>
+
+<p>We know that <code class="language-plaintext highlighter-rouge">(w/dataset.length) = 500 / 4</code>.</p>
+
+<p>We are using a variable <code class="language-plaintext highlighter-rouge">barPadding</code> that we should have defined previously to make some separation between the rectangles.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var barPadding = 3;
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">width</code> is the same for all rectangles:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>w/dataset.length - barPadding = 500/4 - 3 = 122
+</code></pre></div></div>
+
+<p>This value is then used as a parameter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("width", w/dataset.length - barPadding)
+.attr("width", 122)
+</code></pre></div></div>
+
+<h3 id="how-this-works-attrheight-functiond">How this works: <code class="language-plaintext highlighter-rouge">.attr("height", function(d)</code></h3>
+
+<p>As seen here:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("height", function(d) {
+	return d.population;
+})
+</code></pre></div></div>
+
+<p>Set the height starting from the position <code class="language-plaintext highlighter-rouge">y</code> by returning the value <code class="language-plaintext highlighter-rouge">d.population</code> on the dataset. In other words, build the rectangle downwards from top to bottom starting at position <code class="language-plaintext highlighter-rouge">y</code>.</p>
+
+<p>Putting it all together using this format <code class="language-plaintext highlighter-rouge">(x, width, y, height)</code>:</p>
+
+<ul>
+  <li>Rectangle 1: <code class="language-plaintext highlighter-rouge">(0,   122, 295, 5)</code></li>
+  <li>Rectangle 2: <code class="language-plaintext highlighter-rouge">(125, 122, 290, 10)</code></li>
+  <li>Rectangle 3: <code class="language-plaintext highlighter-rouge">(250, 122, 285, 15)</code></li>
+  <li>Rectangle 4: <code class="language-plaintext highlighter-rouge">(375, 122, 280, 20)</code></li>
+</ul>
+
+<p>Here is a description of the first two rectangles:</p>
+
+<ul>
+  <li>Rect1 starts at <code class="language-plaintext highlighter-rouge">x=0</code>, draw <code class="language-plaintext highlighter-rouge">width=122</code> towards the right, at position <code class="language-plaintext highlighter-rouge">y=295</code>, draw <code class="language-plaintext highlighter-rouge">height=5</code> towards the bottom.</li>
+  <li>There is a <code class="language-plaintext highlighter-rouge">barPadding = 3</code> towards the right, separating Rect1 from Rect2.</li>
+  <li>Rect2 starts <code class="language-plaintext highlighter-rouge">x=125</code>, draw <code class="language-plaintext highlighter-rouge">width=122</code> towards the right, at position <code class="language-plaintext highlighter-rouge">y=290</code>, draw <code class="language-plaintext highlighter-rouge">height=10</code> towards the bottom.</li>
+</ul>
+
+<p>Keep in mind again the weird <code class="language-plaintext highlighter-rouge">SVG</code> way of positioning/drawing elements left to right, top to bottom.</p>
+
+<h2 id="using-scales">Using Scales</h2>
+
+<p>Following Chapter 7 of the book <a href="https://alignedleft.com/work/d3-book-2e">Interactive Data Visualization for the Web, 2nd Ed</a>. This is where things get interesting and you can spend countless hours trying to fix the drawing in the <code class="language-plaintext highlighter-rouge">SVG</code> way.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Input domain</code> is the range of input data values</li>
+  <li><code class="language-plaintext highlighter-rouge">Output range</code> is the range of output values</li>
+</ul>
+
+<p>With the example having an <code class="language-plaintext highlighter-rouge">input domain</code> of <code class="language-plaintext highlighter-rouge">[100, 500]</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataset = [100, 200, 300, 400, 500]
+</code></pre></div></div>
+
+<p>And the <code class="language-plaintext highlighter-rouge">output range</code> of <code class="language-plaintext highlighter-rouge">[10, 350]</code> in pixels. Where the minimum input value of <code class="language-plaintext highlighter-rouge">100</code> is represented as <code class="language-plaintext highlighter-rouge">10px</code>, and the maximum value of <code class="language-plaintext highlighter-rouge">500</code> is represented as <code class="language-plaintext highlighter-rouge">350px</code>.</p>
+
+<p>The input value can be normalized and this result can be scaled to the output. For example normalizing input values to a range of <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">1</code>. Then maybe the <code class="language-plaintext highlighter-rouge">0</code> can be represented as <code class="language-plaintext highlighter-rouge">0px</code> and the maximum of <code class="language-plaintext highlighter-rouge">1</code> can be <code class="language-plaintext highlighter-rouge">100px</code>.</p>
+
+<h2 id="create-a-linear-scale-with-scalelinear">Create a linear scale with <code class="language-plaintext highlighter-rouge">scaleLinear()</code></h2>
+
+<p>Following the same <code class="language-plaintext highlighter-rouge">CSV</code> with this data:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year 	population
+1950		5
+1951		10
+1955		15
+1959		20
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">yScale</code> is used to scale the <code class="language-plaintext highlighter-rouge">population</code></p>
+
+<ul>
+  <li>The input domain could start at <code class="language-plaintext highlighter-rouge">0</code>, up to the <code class="language-plaintext highlighter-rouge">max</code> value of the <code class="language-plaintext highlighter-rouge">population</code> column</li>
+  <li>The output range is to limit the drawing to the padded limits of the <code class="language-plaintext highlighter-rouge">SVG</code> height.</li>
+</ul>
+
+<p>As seen here:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yScale = d3.scaleLinear()
+		   .domain([0, d3.max(dataset, function(d) { return d.population; })])
+		   .range([h - padding, padding]);
+</code></pre></div></div>
+
+<p>Remember that the <code class="language-plaintext highlighter-rouge">SVG</code> way is that the coordinates increase left to right, top to bottom. For this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.range([h - padding, padding]
+</code></pre></div></div>
+
+<ul>
+  <li>The height <code class="language-plaintext highlighter-rouge">h</code> is the height of the <code class="language-plaintext highlighter-rouge">SVG</code> previously defined as <code class="language-plaintext highlighter-rouge">var h = 300;</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">padding</code> was defined previously as <code class="language-plaintext highlighter-rouge">var padding = 40;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">h - padding</code> is <code class="language-plaintext highlighter-rouge">300 - 40</code> which is <code class="language-plaintext highlighter-rouge">260</code></li>
+</ul>
+
+<p>Then the range is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.range([260, 40])
+</code></pre></div></div>
+
+<p>No, the range is not backwards. For <code class="language-plaintext highlighter-rouge">SVG</code> means the range is between the <code class="language-plaintext highlighter-rouge">y</code> coordinate <code class="language-plaintext highlighter-rouge">260</code> and the <code class="language-plaintext highlighter-rouge">y</code> coordinate <code class="language-plaintext highlighter-rouge">40</code>. Which is the padded region of the height of the SVG.</p>
+
+<h2 id="create-a-time-scale-with-scaletime">Create a Time scale with <code class="language-plaintext highlighter-rouge">scaleTime()</code></h2>
+
+<p>Following the same <code class="language-plaintext highlighter-rouge">CSV</code> with this data:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year 	population
+1950		5
+1951		10
+1955		15
+1959		20
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">xScale</code> is used to scale the <code class="language-plaintext highlighter-rouge">year</code> column:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleTime()
+		   .domain([
+				d3.min(dataset, function(d) { return d.year; }),
+				d3.max(dataset, function(d) { return d.year; })
+			])
+		   .range([padding, w - padding]);
+</code></pre></div></div>
+
+<ul>
+  <li>The domain can be between the <code class="language-plaintext highlighter-rouge">min</code> and <code class="language-plaintext highlighter-rouge">max</code> values of the column <code class="language-plaintext highlighter-rouge">year</code></li>
+  <li>The range is to limit the drawing to the padded limits of the <code class="language-plaintext highlighter-rouge">SVG</code> width.</li>
+</ul>
+
+<h2 id="applying-scales-scaletime-and-scalelinear">Applying scales <code class="language-plaintext highlighter-rouge">scaleTime()</code> and <code class="language-plaintext highlighter-rouge">scaleLinear()</code></h2>
+
+<p>Previously, this is how we drew the rectangles:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svg.selectAll("rect")
+	.data(dataset)
+	.enter()
+	.append("rect")
+	.attr("x", function(d, i) {
+		return i * (w/dataset.length);
+		})
+	.attr("y", function(d) {
+		return h - d.population;
+		})
+	.attr("width", w/dataset.length - barPadding)
+	.attr("height", function(d) {
+		return d.population;
+		})
+	.attr("fill", "teal");
+</code></pre></div></div>
+
+<p>We need to update this code and add the <code class="language-plaintext highlighter-rouge">scale</code> functions:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svg.selectAll("rect")
+	.data(dataset)
+	.enter()
+	.append("rect")
+	.attr("x", function(d) {
+		return xScale(d.year);
+	})
+	.attr("y", function(d) {
+		return yScale(d.population);
+	})
+	.attr("width", w/dataset.length - barPadding)
+	.attr("height", function(d) {
+		return h - padding - yScale(d.population);
+	})
+	.attr("fill", "teal");
+</code></pre></div></div>
+
+<h3 id="using-arrow-functions">Using Arrow Functions</h3>
+
+<p>More about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow functions on Mozilla</a>.</p>
+
+<p>Given this example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>elements.map(function(element) {
+	return element.length;
+});
+</code></pre></div></div>
+
+<p>This can be simplified to:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>elements.map((element) =&gt; {
+	return element.length;
+});
+</code></pre></div></div>
+
+<p>If there is only one parameter then this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>elements.map(element =&gt; {
+	return element.length;
+});
+</code></pre></div></div>
+
+<p>When the only statement is <code class="language-plaintext highlighter-rouge">return</code> then:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>elements.map(element =&gt; element.length);
+</code></pre></div></div>
+
+<p>Refactoring <code class="language-plaintext highlighter-rouge">svg.selectAll("rect")</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svg.selectAll("rect")
+	.data(dataset)
+	.enter()
+	.append("rect")
+	.attr("x", d =&gt; xScale(d.year))
+	.attr("y", d =&gt; yScale(d.population))
+	.attr("width", w/dataset.length - barPadding)
+	.attr("height", d =&gt; h - padding - yScale(d.population))
+	.attr("fill", "teal");
+</code></pre></div></div>
+
+<h2 id="adding-axes-to-our-bar-chart">Adding Axes to our Bar Chart</h2>
+
+<p>Use any of these: <code class="language-plaintext highlighter-rouge">d3.axisTop</code>, <code class="language-plaintext highlighter-rouge">d3.axisBottom</code>, <code class="language-plaintext highlighter-rouge">d3.axisLeft</code>, <code class="language-plaintext highlighter-rouge">d3.axisRight</code>. Then append a <code class="language-plaintext highlighter-rouge">g</code> (group) element to the end of the SVG. As seen on the book on Chapter 8, it says that <code class="language-plaintext highlighter-rouge">g</code> (group) elements are invisible, unlike <code class="language-plaintext highlighter-rouge">rect</code> or <code class="language-plaintext highlighter-rouge">circle</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var xAxis = d3.axisBottom(xScale);
+var yAxis = d3.axisLeft(yScale);
+</code></pre></div></div>
+
+<p>Put this at the end of the script, since the graphics lay on top of each other, making the axes the last visible graph at the top of the SVG.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svg.append("g")
+   .attr("class", "axis")
+   .attr("transform", "translate(0," + (h - padding) + ")")
+   .call(xAxis);
+
+svg.append("g")
+   .attr("class", "axis")
+   .attr("transform", "translate(" + padding + ",0)")
+   .call(yAxis);
+</code></pre></div></div>
+
+<p>This line is a string concatenation</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("transform", "translate(0," + (h - padding) + ")")
+.attr("transform", "translate(0", + (300 -  40  ) + ")")
+.attr("transform", "translate(0,260)");
+</code></pre></div></div>
+
+<h3 id="adding-ticks-on-the-axes">Adding ticks on the Axes</h3>
+
+<p>Use <code class="language-plaintext highlighter-rouge">.ticks()</code>. However, D3 will override this if it wants to divide the input domain evenly.</p>
+
+<p>Use <code class="language-plaintext highlighter-rouge">.tickValues([an array of values])</code> to set them manually.</p>
+
+<p>Use <code class="language-plaintext highlighter-rouge">.tickFormat</code> to format the axis labels.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var xAxis = d3.axisBottom(xScale)
+			  .ticks(someParameterHere);
+</code></pre></div></div>
+
+<h2 id="adding-a-title-to-the-graph">Adding a Title to the Graph</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svg.append("text")
+   .attr("x", w/2)
+   .attr("y", padding)
+   .attr("text-anchor", "middle")
+   .style("font-size", "16px")
+   .text("Awesome Title Here");
+</code></pre></div></div>
+:ET

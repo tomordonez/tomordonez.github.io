@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Blackbelt Sourcing on Github"
-author: tom
+redirect_from:
+  - /blackbelt-sourcing-github.html
 categories: [Recruiting]
 image: assets/images/5.jpg
 tags: [featured, recruiting, sourcing, Github]
@@ -9,9 +10,6 @@ tags: [featured, recruiting, sourcing, Github]
 
 Are you a sourcer or recruiter looking for talent on Github?
 
-![Blackbelt Sourcing on Github]({{ site.baseurl }}/assets/images/blackbelt-sourcing-github.jpg)
-
-(This article is a work in progress...)
 
 ## What is Github?
 

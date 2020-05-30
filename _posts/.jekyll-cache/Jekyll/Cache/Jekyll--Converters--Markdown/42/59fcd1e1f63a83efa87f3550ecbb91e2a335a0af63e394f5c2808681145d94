@@ -1,0 +1,351 @@
+I"�:<p>Automating tasks with crontab can save you hours of work. This is a short tutorial about cron jobs.</p>
+
+<h2 id="automating-tasks">Automating tasks</h2>
+
+<p>These are a few tasks that need automating:</p>
+
+<ul>
+  <li>Every day I have to launch Chrome and open the exact same 20 URLs.</li>
+  <li>Every other day I have to empty my Recycle bin.</li>
+  <li>Every Monday morning I have to send a tweet that says “Happy Monday”.</li>
+  <li>Some days I have to open a file. Filter the contents and send the result to another file.</li>
+  <li>I also would like to tweet a random quote from a list of quotes every day at noon.</li>
+  <li>I have my left Ctrl key remapped to my Caps Lock key. When I reboot, it goes back to the default setting. I need to change this every time.</li>
+</ul>
+
+<p>These are repetitive tasks that have a formula:</p>
+
+<ul>
+  <li>Start</li>
+  <li>Step 1</li>
+  <li>Step 2</li>
+  <li>Step 3</li>
+  <li>Finish</li>
+</ul>
+
+<p>These tasks can be automated.</p>
+
+<h2 id="automating-tasks-with-crontab">Automating tasks with Crontab</h2>
+
+<p>As seen <a href="https://help.ubuntu.com/community/CronHowto" target="_blank">here</a>. Cron is a system daemon. Not a demon. A daemon is used to execute tasks in the background at specific times. Not in an evil way.</p>
+
+<h2 id="cron-is-like-wall-e">Cron is like Wall-E</h2>
+
+<p>Cron is like having a robot do your routine tasks.</p>
+
+<h2 id="crontab-is-a-text-file">Crontab is a text file</h2>
+
+<p>Cron is a daemon. A process that runs tasks. Which tasks?</p>
+
+<p>Any task that you add to a text file call the <code class="language-plaintext highlighter-rouge">crontab</code>.</p>
+
+<p>Each user has a crontab. You don’t have to login as root to run this text file.</p>
+
+<h2 id="edit-the-crontab">Edit the Crontab</h2>
+
+<p>In a terminal run this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crontab -e
+</code></pre></div></div>
+
+<p>This will open the crontab. The file has a few comments to help you get started:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 # Edit this file to introduce tasks to be run by cron.
+2 # 
+3 # Each task to run has to be defined through a single line
+4 # indicating with different fields when the task will be run
+5 # and what command to run for the task
+6 # 
+7 # To define the time you can provide concrete values for
+8 # minute (m), hour (h), day of month (dom), month (mon),
+9 # and day of week (dow) or use '*' in these fields (for 'any').# 
+10 # Notice that tasks will be started based on the cron's system
+11 # daemon's notion of time and timezones.
+12 # 
+13 # Output of the crontab jobs (including errors) is sent through
+14 # email to the user the crontab file belongs to (unless redirected).
+15 # 
+16 # For example, you can run a backup of all your user accounts
+17 # at 5 a.m every week with:
+18 # 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+19 # 
+20 # For more information see the manual pages of crontab(5) and cron(8)
+21 # 
+22 # m h  dom mon dow   command
+23 
+</code></pre></div></div>
+
+<h2 id="crontab-syntax">Crontab syntax</h2>
+
+<p>Follow this syntax:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>m h  dom mon dow   command
+</code></pre></div></div>
+
+<p>Where:</p>
+
+<ul>
+  <li>m = minute (0-59)</li>
+  <li>h = hour (0-23, 0=midnight)</li>
+  <li>dom = day of month (1-31)</li>
+  <li>mon = month (1-12)</li>
+  <li>dow = day of week (0-6, 0=Sunday)</li>
+</ul>
+
+<p>You can use a <code class="language-plaintext highlighter-rouge">*</code> for any minute or any hour or any day of month or any month or any day of week such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * Run at 7:45 am. any day of month, any month, any day of week:
+
+45 7 * * * Run at 7:45 am. The 1st day of month, any month, on Monday:
+
+45 7 1 * 1
+</code></pre></div></div>
+
+<ul>
+  <li>45 = minutes</li>
+  <li>7 = hour</li>
+  <li>1 = day of month</li>
+  <li>* = any month</li>
+  <li>1 = day of week (Monday)</li>
+</ul>
+
+<p>It becomes more interesting…</p>
+
+<p>Run at 7:45 am. Any day of the month, any month, on Monday, Wednesday and Friday:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>45 7 * * 1,3,5
+</code></pre></div></div>
+
+<p>Run at 7:45 am. From the 1st to the 15 of November and December:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>45 7 1-15 11,12 *
+</code></pre></div></div>
+
+<p>Run every 30 days at 8:30am:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>30 8 */30 * *
+</code></pre></div></div>
+
+<p>Fun right?</p>
+
+<h2 id="crontab-command">Crontab command</h2>
+
+<p>I know what you are thinking…automate everything right?</p>
+
+<p>Here are some guidelines:</p>
+
+<ul>
+  <li>Use full paths to files</li>
+  <li>Environment variables are not loaded</li>
+  <li>Crontab doesn’t behave like bash</li>
+  <li>Leave a new (empty) line at the end of crontab</li>
+  <li>Follow troubleshooting guidelines below</li>
+  <li>Automate <code class="language-plaintext highlighter-rouge">E.V.E.R.Y.T.H.I.N.G</code></li>
+</ul>
+
+<h2 id="remap-ctl-key-to-capslock-at-reboot">Remap Ctl key to Capslock at reboot</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@reboot setxkbmap -option caps:ctrl_modifier
+</code></pre></div></div>
+
+<p>OK so cron is not so greedy…got the joke?</p>
+
+<p>…Cron has some special strings:</p>
+
+<ul>
+  <li>@reboot: Run once at startup</li>
+  <li>@daily: Run once a day aka 0 0 * * *</li>
+  <li>@hourly: Ronceour…I made up that word. Run once an hour aka 0 * * * *</li>
+  <li>@weekly: Run once a week aka 0 0 * * 0</li>
+</ul>
+
+<p>You also have <code class="language-plaintext highlighter-rouge">@yearly</code> and <code class="language-plaintext highlighter-rouge">@monthly</code></p>
+
+<h2 id="launch-python-script-with-selenium-and-chromedriver">Launch Python Script with Selenium and Chromedriver</h2>
+
+<p>Follow this tutorial: <a href="https://www.tomordonez.com/crontab-selenium-chrome-driver.html">crontab with selenium and Chrome Driver</a> for all the geek details.</p>
+
+<p>It runs a python script at 7:45am every day and send stdout and stderr to a log file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>45 7 * * * export DISPLAY=:0 &amp;&amp; cd /home/your-username/Documents/scripts/ &amp;&amp; /usr/bin/python awesome.py &gt; awesome.log 2&gt;&amp;1
+</code></pre></div></div>
+
+<p>See Troubleshooting guide below to read more about “stdout and stderr to a log file”.</p>
+
+<h2 id="empty-the-trash-every-day-at-6pm">Empty the Trash every day at 6pm</h2>
+
+<p>In Linux you can empty the trash using the command line.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install trash-cli
+</code></pre></div></div>
+
+<p>To read the manual page use:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>man trash-cli
+</code></pre></div></div>
+
+<p>To empty trash use:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>trash-empty
+</code></pre></div></div>
+
+<p>In the crontab use:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 18 * * * trash-empty
+</code></pre></div></div>
+
+<h2 id="every-monday-morning-i-have-to-send-a-tweet-that-says-happy-monday">Every Monday morning I have to send a tweet that says “Happy Monday”.</h2>
+
+<p>I use a Ruby gem to connect to the Twitter API from the command line.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>15 8 * * 1 /usr/local/bin/t update "Happy Monday"
+</code></pre></div></div>
+
+<h2 id="troubleshooting-cron">Troubleshooting Cron</h2>
+
+<p>I use 2 steps to troubleshoot the cron jobs:</p>
+
+<ol>
+  <li>Review <code class="language-plaintext highlighter-rouge">/var/log/syslog</code></li>
+  <li>Redirect stdout and stderr</li>
+</ol>
+
+<h2 id="review-varlogsyslog">Review <code class="language-plaintext highlighter-rouge">/var/log/syslog</code></h2>
+
+<p>Every time you edit your crontab you will see something like this in the <code class="language-plaintext highlighter-rouge">syslog</code> file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Dec  5 16:32:43 your-computer crontab[6475]: (your-user) BEGIN EDIT (your-user)
+
+Dec  5 16:33:59 your-computer crontab[6475]: (your-user) END EDIT (your-user)
+</code></pre></div></div>
+
+<p>For my <code class="language-plaintext highlighter-rouge">trash-empty</code> I will get something like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Dec  5 18:00:01 my-computer CRON[28030]: (my-user) CMD (trash-empty)
+</code></pre></div></div>
+
+<p>Inside <code class="language-plaintext highlighter-rouge">syslog</code> you can at least see if the cron job is running.</p>
+
+<h2 id="redirect-stdout-and-stderr">Redirect stdout and stderr</h2>
+
+<p>It might happen that you schedule the cron job but it doesn’t do anything. If you go to <code class="language-plaintext highlighter-rouge">syslog</code> you might see that the task ran but yet it didn’t do anything.</p>
+
+<p>Get more details of input/output redirection <a href="http://tldp.org/LDP/abs/html/io-redirection.html" target="_blank">here</a>.</p>
+
+<p>You should know the basics:</p>
+
+<p>One greater than sign <code class="language-plaintext highlighter-rouge">&gt;</code>:</p>
+
+<ul>
+  <li>Redirect stdout to a file</li>
+  <li>If the file doesn’t exist then create it. Otherwise overwrite current file</li>
+</ul>
+
+<p>Two greater than signs <code class="language-plaintext highlighter-rouge">&gt;&gt;</code></p>
+
+<ul>
+  <li>Redirect stdout to a file</li>
+  <li>If the file doesn’t exist then create it. Otherwise append to current file</li>
+</ul>
+
+<h2 id="redirect-stdout-to-a-file">Redirect stdout to a file</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1&gt;file.txt
+</code></pre></div></div>
+
+<h2 id="redirect-stderr-to-a-file">Redirect stderr to a file</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2&gt;file.txt
+</code></pre></div></div>
+
+<h2 id="redirect-stdout-and-stderr-to-a-file">Redirect stdout and stderr to a file</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&amp;&gt;file.txt
+</code></pre></div></div>
+
+<h2 id="redirect-stderr-to-stdout-and-add-to-a-file">Redirect stderr to stdout and add to a file</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2&gt;&amp;1
+</code></pre></div></div>
+
+<h2 id="every-monday-send-a-tweet-v2">Every Monday send a Tweet v2</h2>
+
+<p>If I want to troubleshoot this cron job. I need to add redirection of stdout and stderr to a file. Then I can open the file to see if the command generated an error.</p>
+
+<p>Every Monday morning send a tweet that says “Happy Monday”.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>15 8 * * 1 /usr/local/bin/t update "Happy Monday" &gt;&gt; /home/tom/Documents/crontom.log 2&gt;&amp;1
+</code></pre></div></div>
+
+<ul>
+  <li>15 = minutes</li>
+  <li>8 = hour</li>
+  <li>* = any day of month</li>
+  <li>* = any month</li>
+  <li>1 = day of week (Monday)</li>
+</ul>
+
+<p>I could open the file <code class="language-plaintext highlighter-rouge">crontom.log</code> and see if it redirected a correct stdout or if it generated a stderr.</p>
+
+<h2 id="backup-your-crontab">Backup your crontab</h2>
+
+<ul>
+  <li>Your crontab is located at <code class="language-plaintext highlighter-rouge">/var/spool/cron/crontabs/your-username</code></li>
+  <li>You can create a cron job to backup your crontab. Say that 3 times fast.</li>
+  <li>You cannot just add this job to your crontab because this directory requires root access.</li>
+</ul>
+
+<p>You need to add this job to your root crontab:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo crontab -e
+</code></pre></div></div>
+
+<p>And then add a line such as backing up the file at 2:05am.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5 2 * * * cat /var/spool/cron/crontabs/your-username &gt; /home/your-username/Documents/crontab_backup.txt 2&gt;&amp;1
+</code></pre></div></div>
+
+<p>If you open the file <code class="language-plaintext highlighter-rouge">crontab_backup.txt</code>.</p>
+
+<p>You will see that a new line is added at the top that says:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># DO NOT EDIT THIS FILE - edit the master and reinstall.
+</code></pre></div></div>
+
+<p>If you look at the permissions of this file it will show:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-rw-r--r-- 1 root root
+</code></pre></div></div>
+
+<p>Which means that the file is owned by root and it’s set to read only to <code class="language-plaintext highlighter-rouge">your-username</code></p>
+
+<h2 id="how-to-kill-a-cron-job">How to kill a cron job</h2>
+
+<p>Find the PID with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux
+</code></pre></div></div>
+
+<p>In this example I scheduled a cron job for 7:45 am to run Python</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tom      20979  0.0  0.0  43092 15168 ?        S    07:45   0:00 /usr/bin/python awesome.py
+</code></pre></div></div>
+
+<p>If you already knew the PID you could also do</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps -p PID -f
+</code></pre></div></div>
+
+<p>Which would give something like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UID        PID  PPID  C STIME TTY          TIME CMD
+tom      20979 20978  0 07:45 ?        00:00:00 /usr/bin/python awesome.py
+</code></pre></div></div>
+
+<p>Then you can kill the cron job with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kill PID
+</code></pre></div></div>
+
+<p>In my case I would do: <code class="language-plaintext highlighter-rouge">kill 20979</code></p>
+:ET

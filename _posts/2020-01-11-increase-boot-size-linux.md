@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Increase Boot Size in Linux Fedora"
-author: tom
+redirect_from:
+  - /increase-boot-size-linux.html
 categories: [Linux]
 image: assets/images/5.jpg
 tags: [linux, boot size]
@@ -57,5 +58,4 @@ Now it shows:
 
     $ df -h
     Filesystem   Size  Used  Avail Use%  Mounted on
-    /dev/sdb1    190M  114M  63M   65%   /bootvail Use%  Mounted on
     /dev/sdb1    190M  114M  63M   65%   /boot

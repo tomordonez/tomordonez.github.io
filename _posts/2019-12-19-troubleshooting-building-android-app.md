@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Troubleshooting Building an Android App"
-author: tom
+redirect_from:
+  - /troubleshooting-building-android-app.html
 categories: [Mobile]
 image: assets/images/10.jpg
 tags: [android, linux, mobile dev]
@@ -348,9 +349,6 @@ In `MainActivity.java`:
 In `build.gradle(Module:app)`:
 
 	implementation 'androidx.appcompat:appcompat:1.0.0'
-    implementation 'com.google.android.material:material:1.0.0'
-
-No more errors.androidx.appcompat:appcompat:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
 
 No more errors.

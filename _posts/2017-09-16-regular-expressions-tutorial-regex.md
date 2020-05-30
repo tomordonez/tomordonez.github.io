@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Regular Expressions Tutorial Regex Heaven"
-author: tom
+redirect_from:
+  - /regular-expressions-tutorial-regex.html
 categories: [Code]
 image: assets/images/6.jpg
 tags: [coding, regular expressions, regex]
@@ -9,7 +10,6 @@ tags: [coding, regular expressions, regex]
 
 This is a regular expressions tutorial...regex heaven.
 
-![Regular Expressions Tutorial Regex Heaven]({{ site.baseurl }}/assets/images/regular-expressions-tutorial-regex.jpg)
 
 Learning regular expressions will save you hours and hundreds of dollars.
 
@@ -258,9 +258,3 @@ Now you can do something like:
 
     $ pcregrep -M 'a href=".*\n.*img'
 
-## If you have questions or comments please add them below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)
-ase add them below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)

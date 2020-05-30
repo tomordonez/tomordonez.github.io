@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "How To Install Tmux on Linux"
-author: tom
+redirect_from:
+  - /install-tmux-linux.html
 categories: [Linux]
 image: assets/images/6.jpg
 tags: [tmux, linux]
@@ -120,6 +121,3 @@ To get a list of all tmuxinator sessions do:
     $ tmuxinator list
 
 Get the book "Tmux Productive Mouse Free Development" to understand in more detail how Tmux works.
-
-ve Mouse Free Development" to understand in more detail how Tmux works.
-

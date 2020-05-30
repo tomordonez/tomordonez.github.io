@@ -1,0 +1,1168 @@
+I"!�<p>OpenRefine is an open source desktop application for data wrangling.</p>
+
+<p>Source:</p>
+
+<ul>
+  <li><a href="https://openrefine.org/download.html">Download</a></li>
+  <li><a href="https://github.com/OpenRefine/OpenRefine/wiki/Installation-Instructions">Install</a></li>
+</ul>
+
+<h2 id="openrefine-on-windows">OpenRefine on Windows</h2>
+
+<ul>
+  <li>Download the file</li>
+  <li>Unzip and run the executable</li>
+  <li>To stop the web server, on the command line do <code class="language-plaintext highlighter-rouge">Ctrl C</code>.</li>
+</ul>
+
+<h2 id="openrefine-on-linux">OpenRefine on Linux</h2>
+
+<ul>
+  <li>Download the tar file. Size is about <code class="language-plaintext highlighter-rouge">100 MB</code></li>
+  <li>Tar the file. For example: <code class="language-plaintext highlighter-rouge">tar xzf openrefine-linux-3.2.tar.gz</code></li>
+  <li>Open the directory: <code class="language-plaintext highlighter-rouge">cd openrefine-3.2</code></li>
+  <li>Start: <code class="language-plaintext highlighter-rouge">./refine</code></li>
+</ul>
+
+<p>(Shut down the webserver with <code class="language-plaintext highlighter-rouge">Ctrl C</code>)</p>
+
+<p>Upon start the terminal shows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING: OpenRefine is not tested and not recommended for use with Java versions greater than 12.
+You have 7653M of free memory.
+Your current configuration is set to use 1400M of memory.
+OpenRefine can run better when given more memory. Read our FAQ on how to allocate more memory here:
+https://github.com/OpenRefine/OpenRefine/wiki/FAQ:-Allocate-More-Memory
+Starting OpenRefine at 'http://127.0.0.1:3333/'
+
+10:40:59.487 [refine_server] Starting Server bound to '127.0.0.1:3333' (0ms)
+10:40:59.488 [refine_server] refine.memory size: 1400M JVM Max heap: 1468006400 (1ms)
+10:40:59.499 [refine_server] Initializing context: '/' from '/home/tom/Documents/projects/openrefine-3.2/webapp' (11ms)
+10:41:01.007 [refine_server] Creating new workspace directory /home/tom/.local/share/openrefine (1508ms)
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/tom/Documents/projects/openrefine-3.2/server/target/lib/slf4j-log4j12-1.7.18.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/tom/Documents/projects/openrefine-3.2/webapp/WEB-INF/lib/slf4j-log4j12-1.7.18.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+10:41:01.390 [refine] Starting OpenRefine 3.2 [55c921b]... (383ms)
+10:41:01.390 [refine] initializing FileProjectManager with dir (0ms)
+10:41:01.390 [refine] /home/tom/.local/share/openrefine (0ms)
+10:41:01.417 [FileProjectManager] Failed to load workspace from any attempted alternatives. (27ms)
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.python.core.PySystemState (file:/home/tom/Documents/projects/openrefine-3.2/webapp/extensions/jython/module/MOD-INF/lib/jython-standalone-2.7.1.jar) to method java.io.Console.encoding()
+WARNING: Please consider reporting this to the maintainers of org.python.core.PySystemState
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+Fontconfig warning: "/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf", line 6: unknown element "reset-dirs"
+Opening in existing browser session.
+10:41:19.486 [refine] POST /command/core/load-language (18069ms)
+10:41:19.578 [refine] GET /command/core/get-preference (92ms)
+10:41:19.624 [refine] POST /command/core/load-language (46ms)
+10:41:19.641 [refine] POST /command/core/load-language (17ms)
+10:41:19.833 [refine] POST /command/core/get-importing-configuration (192ms)
+10:41:19.885 [refine] GET /command/core/get-all-project-tags (52ms)
+10:41:19.975 [refine] GET /command/core/get-all-project-metadata (90ms)
+10:41:20.077 [refine] GET /command/core/get-languages (102ms)
+10:41:20.342 [refine] GET /command/core/get-version (265ms)
+10:41:20.566 [refine] GET /command/database/saved-connection (224ms)
+10:41:20.632 [refine] POST /command/core/set-preference (66ms)
+10:41:20.664 [refine] POST /command/core/set-preference (32ms)
+</code></pre></div></div>
+
+<p>On the browser OpenRefine opens on:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://127.0.0.1:3333/
+</code></pre></div></div>
+
+<h2 id="uploading-data-to-openrefine">Uploading data to OpenRefine</h2>
+
+<p>Get data from:</p>
+
+<ul>
+  <li>This computer</li>
+  <li>Web Addresses</li>
+  <li>Clipboard</li>
+  <li>Database</li>
+  <li>Google data</li>
+</ul>
+
+<p>Getting data from your computer:</p>
+
+<ul>
+  <li>Use <code class="language-plaintext highlighter-rouge">upload</code></li>
+  <li>This creates a preview with some options.</li>
+  <li>On the top right corner <code class="language-plaintext highlighter-rouge">Create Project</code></li>
+</ul>
+
+<h2 id="text-facet-to-group-data">Text Facet to Group data</h2>
+
+<p>Go to a column drop down.</p>
+
+<ul>
+  <li>Go to <code class="language-plaintext highlighter-rouge">Facet</code></li>
+  <li>Then <code class="language-plaintext highlighter-rouge">Text Facet</code></li>
+</ul>
+
+<p>On the left side, it groups together identical cells for that column, including the number of cells for each group.</p>
+
+<p>As seen on <a href="https://www.youtube.com/watch?time_continue=13&amp;v=B70J_H_zAWM&amp;feature=emb_title">this</a> Youtube video. Selecting <code class="language-plaintext highlighter-rouge">Text Facet</code> for one of the columns to review all the data related <code class="language-plaintext highlighter-rouge">FFP</code>.</p>
+
+<p>For example, selecting one of the groups that has <code class="language-plaintext highlighter-rouge">FFP</code> and a count of <code class="language-plaintext highlighter-rouge">512</code>, filters the data on the right view.</p>
+
+<p>The next group is also called <code class="language-plaintext highlighter-rouge">FFP</code> with a count of <code class="language-plaintext highlighter-rouge">1</code>. Click on <code class="language-plaintext highlighter-rouge">edit</code> for that group to see why. It has an empty trailing whitespace at the end of the word <code class="language-plaintext highlighter-rouge">FFP_</code>. Remove the blank space and click <code class="language-plaintext highlighter-rouge">apply</code>. The groups then will merge. Now the <code class="language-plaintext highlighter-rouge">FFP</code> group has <code class="language-plaintext highlighter-rouge">513</code> rows and a total of <code class="language-plaintext highlighter-rouge">814</code> groups.</p>
+
+<h2 id="remove-leading-and-trailing-whitespace">Remove leading and trailing whitespace</h2>
+
+<p>Go to a column drop down.</p>
+
+<ul>
+  <li>Go to <code class="language-plaintext highlighter-rouge">Edit cells</code></li>
+  <li>Then <code class="language-plaintext highlighter-rouge">Common transforms</code></li>
+  <li>Then <code class="language-plaintext highlighter-rouge">Trim leading and trailing whitespace</code></li>
+</ul>
+
+<p>Following the same video. After removing leading and trailing whitespace. The group count changed from <code class="language-plaintext highlighter-rouge">814</code> to <code class="language-plaintext highlighter-rouge">785</code>.</p>
+
+<p>The column is renamed from <code class="language-plaintext highlighter-rouge">FFP</code> to <code class="language-plaintext highlighter-rouge">Firm Fixed Price</code> and then <code class="language-plaintext highlighter-rouge">apply</code>.</p>
+
+<h2 id="sort-the-facets">Sort the Facets</h2>
+
+<p>On the left view, sort the facets by <code class="language-plaintext highlighter-rouge">name</code> or by <code class="language-plaintext highlighter-rouge">count</code> to see the largest groups.</p>
+
+<p>The video shows that there are all sorts of combinations of the word <code class="language-plaintext highlighter-rouge">Firm Fixed Price</code> which can be changed to group all the data better.</p>
+
+<h2 id="cluster-facets">Cluster Facets</h2>
+
+<p>After sorting by <code class="language-plaintext highlighter-rouge">count</code>, next to it there is a <code class="language-plaintext highlighter-rouge">Cluster</code> button. This feature tries to group the groups based on <code class="language-plaintext highlighter-rouge">Keying Functions</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">Keying Functions</code> show a drop down with:</p>
+
+<ul>
+  <li>fingerprint</li>
+  <li>ngram-fingerprint</li>
+  <li>double-metaphone</li>
+</ul>
+
+<p>Select the groups that you want to merge. There is a <code class="language-plaintext highlighter-rouge">checkbox </code>for each group. Next to the checkbox there is a field <code class="language-plaintext highlighter-rouge">New Cell Value</code> if you want to change the name of the cell.</p>
+
+<p>If you feel wild, you can <code class="language-plaintext highlighter-rouge">Select All</code> on the bottom left and click on <code class="language-plaintext highlighter-rouge">Merge Selected &amp; Close</code> on the bottom right.</p>
+
+<h2 id="correcting-mistakes">Correcting Mistakes</h2>
+
+<p>On the left view, there is a tab <code class="language-plaintext highlighter-rouge">Undo/Redo</code>.</p>
+
+<p>Then select one of the rows that made a previous change. Then click <code class="language-plaintext highlighter-rouge">Apply</code>.</p>
+
+<h2 id="create-a-numeric-facet">Create a Numeric Facet</h2>
+
+<p>On the video, one of the columns says <code class="language-plaintext highlighter-rouge">Total value</code>.</p>
+
+<ul>
+  <li>Drop down</li>
+  <li>Facet</li>
+  <li>Numeric Facet</li>
+</ul>
+
+<p>On the left view, it shows a range of the values, going from <code class="language-plaintext highlighter-rouge">0.0</code> to <code class="language-plaintext highlighter-rouge">20,000,000.00</code>.</p>
+
+<p>It also shows a mini visualization of the distribution. In this case the distribution only shows a rectangle on the leftmost side.</p>
+
+<p>On the top right of this visualization, click on <code class="language-plaintext highlighter-rouge">change</code>.</p>
+
+<p>A popup window says <code class="language-plaintext highlighter-rouge">Edit Facet's Expression based on Column Total value</code>.</p>
+
+<p>There is a field called <code class="language-plaintext highlighter-rouge">Expression</code></p>
+
+<p>Type <code class="language-plaintext highlighter-rouge">value.log()</code>.</p>
+
+<p>It shows a preview of the change…then click <code class="language-plaintext highlighter-rouge">OK</code>.</p>
+
+<p>It now shows a normal distribution. It has some options below:</p>
+
+<ul>
+  <li>Numeric <code class="language-plaintext highlighter-rouge">5173</code> (checked)</li>
+  <li>Non-numeric <code class="language-plaintext highlighter-rouge">0</code> (not checked)</li>
+  <li>Blank <code class="language-plaintext highlighter-rouge">0</code> (not checked)</li>
+  <li>Error <code class="language-plaintext highlighter-rouge">27</code> (checked)</li>
+</ul>
+
+<p>Select only the <code class="language-plaintext highlighter-rouge">Error</code> rows. Which shows all the values as zero.</p>
+
+<p>When calculating <code class="language-plaintext highlighter-rouge">value.log()</code> of <code class="language-plaintext highlighter-rouge">0</code>, the result is negative infinity. In the video she asks, why is there a zero value for total value?</p>
+
+<p>You can drag the margins of the distribution visualization to preview data on the right view.</p>
+
+<h2 id="getting-data-from-a-wikipedia-list">Getting data from a Wikipedia list</h2>
+
+<p>This <a href="https://www.youtube.com/watch?v=cO8NVCs_Ba0&amp;feature=emb_title">video</a> blew my mind. I didn’t know you could do this:</p>
+
+<p>Go to <a href="https://en.wikipedia.org/wiki/Filmfare_Award_for_Best_Actress">this</a> page that shows awards about movies.</p>
+
+<p>Scroll down to the section that says <code class="language-plaintext highlighter-rouge">Winners and nominees</code>.</p>
+
+<p>Click on the <code class="language-plaintext highlighter-rouge">edit</code> to the right of this title.</p>
+
+<p>It now shows some code as seen here:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>==Winners and nominees==
+
+{| class="wikitable"
+|+ Table key
+|-
+!scope="row" style="text-align:center;" style="background:#FAEB86; height:20px; width:20px"
+| Indicates the winner
+|}
+===1950s===
+
+{| class="wikitable sortable" rowspan=2 style="text-align: left;" border="2" cellpadding="5"
+|-
+!scope="col" style="width:3%; text-align:center;"| Year
+!scope="col" style="width:3%;text-align:center;"| Photos of winners
+!scope="col" style="width:15%;text-align:center;"| Actor
+!scope="col" style="width:15%;text-align:center;"| Role(s)
+!scope="col" style="width:15%;text-align:center;"| Film
+|-
+! scope="row" rowspan=2 style="text-align:center" | 1954 &lt;br /&gt;&lt;small&gt;[[1st Filmfare Awards|(1st)]] &lt;/small&gt;
+|rowspan=2 style="text-align:center"|
+| style="background:#FAEB86;" |
+| style="background:#FAEB86;" |
+| style="background:#FAEB86;" | '''''[[Baiju Bawra (film)|Baiju Bawra]]'''''
+</code></pre></div></div>
+
+<p>Copy all the code that appears on that window and save it into a <code class="language-plaintext highlighter-rouge">txt</code> file.</p>
+
+<p>Import this file into OpenRefine.</p>
+
+<p>For the option <code class="language-plaintext highlighter-rouge">When parsing text files</code> uncheck <code class="language-plaintext highlighter-rouge">Split into columns</code>.</p>
+
+<p>For <code class="language-plaintext highlighter-rouge">Header lines</code> change to <code class="language-plaintext highlighter-rouge">0</code>.</p>
+
+<p>Then <code class="language-plaintext highlighter-rouge">Create Project</code>.</p>
+
+<h2 id="cleaning-wikipedia-data-code">Cleaning Wikipedia data code</h2>
+
+<p>Remove the rows that show years such as this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>===1950s===
+</code></pre></div></div>
+
+<p>On the column drop down, select <code class="language-plaintext highlighter-rouge">Text filter</code>.</p>
+
+<p>On the left view that has a field titled <code class="language-plaintext highlighter-rouge">Column</code>. Type <code class="language-plaintext highlighter-rouge">===</code>, which filters the table on the right to all rows that contain these characters.</p>
+
+<p>On this filtered view go to drop down:</p>
+
+<ul>
+  <li>Edit rows</li>
+  <li>Remove all matching rows</li>
+  <li>Then clear the text filter on the left view (close the <code class="language-plaintext highlighter-rouge">Column</code> window)</li>
+</ul>
+
+<p>On the video, she explains the strategy for using OpenRefine as:</p>
+
+<ul>
+  <li>Isolating all the rows you want to change using filters and facets</li>
+  <li>Change them all at the same time.</li>
+</ul>
+
+<p>Remove all the characters that describe a bolded text. In the code, bold text is enclosed within three single quotes such as this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'''content
+</code></pre></div></div>
+<div class="container">
+<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+		<div class="h-100 tofront">
+			<div class="row  justify-content-between ">
+				<div class=" col-md-6  pr-0 pr-md-4 pt-4 pb-4 align-self-center">
+					<p class="text-uppercase font-weight-bold">
+                        <span class="catlist">
+						
+                          <a class="sscroll text-danger" href="/categories.html#code">code</a><span class="sep">, </span>
+                        
+                        </span>
+					</p>
+					<h1 class="display-4 mb-4 article-headline">Python Jupyter Notebook in Linux</h1>
+					<div class="d-flex align-items-center">
+                        
+                        <img class="rounded-circle" src="/assets/images/tom.jpg" alt="Tom" width="70" />
+                        
+						<small class="ml-3"> Tom <span><a target="_blank" href="https://twitter.com/tomordonez" class="btn btn-outline-success btn-sm btn-round ml-1">Follow</a></span>
+                            <span class="text-muted d-block mt-1">Jan 14, 2020 · <span class="reading-time">
+  
+  
+    1 min read
+  
+</span>
+    </span>
+						</small>
+					</div>
+				</div>
+                
+				<div class="col-md-6 pr-0 align-self-center">
+					<img class="rounded" src="/assets/images/6.jpg" alt="Python Jupyter Notebook in Linux" />
+				</div>
+                
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-lg pt-4 pb-4">
+	<div class="row justify-content-center">
+        
+        
+        <!-- Share -->
+		<div class="col-lg-2 pr-4 mb-4 col-md-12">
+			<div class="sticky-top sticky-top-offset text-center">
+				<div class="text-muted">
+					Share this
+				</div>
+				<div class="share d-inline-block">
+					<!-- AddToAny BEGIN -->
+					<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+						<a class="a2a_button_twitter"></a>
+					</div>
+					<script async="" src="https://static.addtoany.com/menu/page.js"></script>
+					<!-- AddToAny END -->
+				</div>
+			</div>
+		</div>
+        
+        
+		<div class="col-md-12 col-lg-8">
+            
+            <!-- Article -->
+			<article class="article-post">                
+			<p>Update conda</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda update conda
+</code></pre></div></div>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">yml</code> file, use a name and dependencies. Example:</p>
+
+<p>File: <code class="language-plaintext highlighter-rouge">env_py_3.7.6.yml</code></p>
+
+<p>Contents of this file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name: awesome_name
+dependencies:
+- python=3.7.6
+- jupyter
+</code></pre></div></div>
+
+<p>Create the environment using this file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda env create --file env_py_3.7.6.yml
+$ conda activate awesome_name
+</code></pre></div></div>
+
+<p>Check Python version</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ which python
+$ python -V
+</code></pre></div></div>
+
+<p>Run Jupyter Notebook:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jupyter notebook
+</code></pre></div></div>
+
+<p>If this doesn’t work. Try it like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jupyter notebook --ip=127.0.0.1
+</code></pre></div></div>
+
+<h2 id="cell-timer-for-jupyter-notebook">Cell timer for Jupyter notebook</h2>
+
+<p>As seen <a href="https://stackoverflow.com/questions/32565829/simple-way-to-measure-cell-execution-time-in-ipython-notebook/50384459#50384459">here</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip install jupyter_contrib_nbextensions
+$ jupyter contrib nbextension install --user
+$ jupyter nbextension enable execute_time/ExecuteTime
+</code></pre></div></div>
+                
+			</article>
+			
+			<!-- Tags -->
+			<div class="mb-4">
+				<span class="taglist">
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/tags.html#python">python</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/tags.html#jupyter">jupyter</a>
+				
+				  <a class="sscroll btn btn-light btn-sm font-weight-bold" href="/tags.html#linux">linux</a>
+				
+				</span>
+			</div>
+ 
+            <!-- Mailchimp Subscribe Form -->
+            
+            
+            
+             <!-- Author Box -->
+                				
+				<div class="row mt-5">
+					<div class="col-md-2 align-self-center">
+                         
+                        <img class="rounded-circle" src="/assets/images/tom.jpg" alt="Tom" width="90" />
+                         
+					</div>
+					<div class="col-md-10">		
+                        <h5 class="font-weight-bold">Written by Tom <span><a target="_blank" href="https://twitter.com/tomordonez" class="btn btn-outline-success btn-sm btn-round ml-2">Follow</a></span></h5>
+						Hi, I am Tom					
+					</div>
+				</div>				
+                
+            
+            <!-- Comments -->
+            
+                <!--  Don't edit anything here. Set your disqus id in _config.yml -->
+
+<div id="comments" class="mt-5">
+    <div id="disqus_thread">
+    </div>
+    <script type="text/javascript">
+        var disqus_shortname = 'tomordonez-com'; 
+        var disqus_developer = 0;
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = window.location.protocol + '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+</div>
+            
+            
+		</div>
+        
+        
+	</div>
+</div>
+
+<!-- Aletbar Prev/Next -->
+<div class="alertbar">
+    <div class="container">
+        <div class="row prevnextlinks small font-weight-bold">
+          
+            <div class="col-md-6 rightborder pl-0">
+                <a class="text-dark" href="/increase-boot-size-linux/"> <img height="30px" class="mr-1" src="/assets/images/5.jpg" />  Increase Boot Size in Linux Fedora</a>
+            </div>
+          
+          
+            <div class="col-md-6 text-right pr-0">
+                <a class="text-dark" href="/data-wrangling-openrefine-linux/"> Data Wrangling with OpenRefine on Linux  <img height="30px" class="ml-1" src="/assets/images/9.jpg" /> </a>
+            </div>
+          
+        </div>
+    </div>
+</div>
+<p>highlighter_prefix
+highlighter_suffix
+jekyllJekyll::Drops::JekyllDroplayout{“layout”=&gt;”default”}pageOpenRefine is an open source desktop application for data wrangling.</p>
+
+<p>Source:</p>
+
+<ul>
+  <li><a href="https://openrefine.org/download.html">Download</a></li>
+  <li><a href="https://github.com/OpenRefine/OpenRefine/wiki/Installation-Instructions">Install</a></li>
+</ul>
+
+<h2 id="openrefine-on-windows-1">OpenRefine on Windows</h2>
+
+<ul>
+  <li>Download the file</li>
+  <li>Unzip and run the executable</li>
+  <li>To stop the web server, on the command line do <code class="language-plaintext highlighter-rouge">Ctrl C</code>.</li>
+</ul>
+
+<h2 id="openrefine-on-linux-1">OpenRefine on Linux</h2>
+
+<ul>
+  <li>Download the tar file. Size is about <code class="language-plaintext highlighter-rouge">100 MB</code></li>
+  <li>Tar the file. For example: <code class="language-plaintext highlighter-rouge">tar xzf openrefine-linux-3.2.tar.gz</code></li>
+  <li>Open the directory: <code class="language-plaintext highlighter-rouge">cd openrefine-3.2</code></li>
+  <li>Start: <code class="language-plaintext highlighter-rouge">./refine</code></li>
+</ul>
+
+<p>(Shut down the webserver with <code class="language-plaintext highlighter-rouge">Ctrl C</code>)</p>
+
+<p>Upon start the terminal shows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING: OpenRefine is not tested and not recommended for use with Java versions greater than 12.
+You have 7653M of free memory.
+Your current configuration is set to use 1400M of memory.
+OpenRefine can run better when given more memory. Read our FAQ on how to allocate more memory here:
+https://github.com/OpenRefine/OpenRefine/wiki/FAQ:-Allocate-More-Memory
+Starting OpenRefine at 'http://127.0.0.1:3333/'
+
+10:40:59.487 [refine_server] Starting Server bound to '127.0.0.1:3333' (0ms)
+10:40:59.488 [refine_server] refine.memory size: 1400M JVM Max heap: 1468006400 (1ms)
+10:40:59.499 [refine_server] Initializing context: '/' from '/home/tom/Documents/projects/openrefine-3.2/webapp' (11ms)
+10:41:01.007 [refine_server] Creating new workspace directory /home/tom/.local/share/openrefine (1508ms)
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/tom/Documents/projects/openrefine-3.2/server/target/lib/slf4j-log4j12-1.7.18.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/tom/Documents/projects/openrefine-3.2/webapp/WEB-INF/lib/slf4j-log4j12-1.7.18.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+10:41:01.390 [refine] Starting OpenRefine 3.2 [55c921b]... (383ms)
+10:41:01.390 [refine] initializing FileProjectManager with dir (0ms)
+10:41:01.390 [refine] /home/tom/.local/share/openrefine (0ms)
+10:41:01.417 [FileProjectManager] Failed to load workspace from any attempted alternatives. (27ms)
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.python.core.PySystemState (file:/home/tom/Documents/projects/openrefine-3.2/webapp/extensions/jython/module/MOD-INF/lib/jython-standalone-2.7.1.jar) to method java.io.Console.encoding()
+WARNING: Please consider reporting this to the maintainers of org.python.core.PySystemState
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+Fontconfig warning: "/usr/share/fontconfig/conf.avail/05-reset-dirs-sample.conf", line 6: unknown element "reset-dirs"
+Opening in existing browser session.
+10:41:19.486 [refine] POST /command/core/load-language (18069ms)
+10:41:19.578 [refine] GET /command/core/get-preference (92ms)
+10:41:19.624 [refine] POST /command/core/load-language (46ms)
+10:41:19.641 [refine] POST /command/core/load-language (17ms)
+10:41:19.833 [refine] POST /command/core/get-importing-configuration (192ms)
+10:41:19.885 [refine] GET /command/core/get-all-project-tags (52ms)
+10:41:19.975 [refine] GET /command/core/get-all-project-metadata (90ms)
+10:41:20.077 [refine] GET /command/core/get-languages (102ms)
+10:41:20.342 [refine] GET /command/core/get-version (265ms)
+10:41:20.566 [refine] GET /command/database/saved-connection (224ms)
+10:41:20.632 [refine] POST /command/core/set-preference (66ms)
+10:41:20.664 [refine] POST /command/core/set-preference (32ms)
+</code></pre></div></div>
+
+<p>On the browser OpenRefine opens on:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://127.0.0.1:3333/
+</code></pre></div></div>
+
+<h2 id="uploading-data-to-openrefine-1">Uploading data to OpenRefine</h2>
+
+<p>Get data from:</p>
+
+<ul>
+  <li>This computer</li>
+  <li>Web Addresses</li>
+  <li>Clipboard</li>
+  <li>Database</li>
+  <li>Google data</li>
+</ul>
+
+<p>Getting data from your computer:</p>
+
+<ul>
+  <li>Use <code class="language-plaintext highlighter-rouge">upload</code></li>
+  <li>This creates a preview with some options.</li>
+  <li>On the top right corner <code class="language-plaintext highlighter-rouge">Create Project</code></li>
+</ul>
+
+<h2 id="text-facet-to-group-data-1">Text Facet to Group data</h2>
+
+<p>Go to a column drop down.</p>
+
+<ul>
+  <li>Go to <code class="language-plaintext highlighter-rouge">Facet</code></li>
+  <li>Then <code class="language-plaintext highlighter-rouge">Text Facet</code></li>
+</ul>
+
+<p>On the left side, it groups together identical cells for that column, including the number of cells for each group.</p>
+
+<p>As seen on <a href="https://www.youtube.com/watch?time_continue=13&amp;v=B70J_H_zAWM&amp;feature=emb_title">this</a> Youtube video. Selecting <code class="language-plaintext highlighter-rouge">Text Facet</code> for one of the columns to review all the data related <code class="language-plaintext highlighter-rouge">FFP</code>.</p>
+
+<p>For example, selecting one of the groups that has <code class="language-plaintext highlighter-rouge">FFP</code> and a count of <code class="language-plaintext highlighter-rouge">512</code>, filters the data on the right view.</p>
+
+<p>The next group is also called <code class="language-plaintext highlighter-rouge">FFP</code> with a count of <code class="language-plaintext highlighter-rouge">1</code>. Click on <code class="language-plaintext highlighter-rouge">edit</code> for that group to see why. It has an empty trailing whitespace at the end of the word <code class="language-plaintext highlighter-rouge">FFP_</code>. Remove the blank space and click <code class="language-plaintext highlighter-rouge">apply</code>. The groups then will merge. Now the <code class="language-plaintext highlighter-rouge">FFP</code> group has <code class="language-plaintext highlighter-rouge">513</code> rows and a total of <code class="language-plaintext highlighter-rouge">814</code> groups.</p>
+
+<h2 id="remove-leading-and-trailing-whitespace-1">Remove leading and trailing whitespace</h2>
+
+<p>Go to a column drop down.</p>
+
+<ul>
+  <li>Go to <code class="language-plaintext highlighter-rouge">Edit cells</code></li>
+  <li>Then <code class="language-plaintext highlighter-rouge">Common transforms</code></li>
+  <li>Then <code class="language-plaintext highlighter-rouge">Trim leading and trailing whitespace</code></li>
+</ul>
+
+<p>Following the same video. After removing leading and trailing whitespace. The group count changed from <code class="language-plaintext highlighter-rouge">814</code> to <code class="language-plaintext highlighter-rouge">785</code>.</p>
+
+<p>The column is renamed from <code class="language-plaintext highlighter-rouge">FFP</code> to <code class="language-plaintext highlighter-rouge">Firm Fixed Price</code> and then <code class="language-plaintext highlighter-rouge">apply</code>.</p>
+
+<h2 id="sort-the-facets-1">Sort the Facets</h2>
+
+<p>On the left view, sort the facets by <code class="language-plaintext highlighter-rouge">name</code> or by <code class="language-plaintext highlighter-rouge">count</code> to see the largest groups.</p>
+
+<p>The video shows that there are all sorts of combinations of the word <code class="language-plaintext highlighter-rouge">Firm Fixed Price</code> which can be changed to group all the data better.</p>
+
+<h2 id="cluster-facets-1">Cluster Facets</h2>
+
+<p>After sorting by <code class="language-plaintext highlighter-rouge">count</code>, next to it there is a <code class="language-plaintext highlighter-rouge">Cluster</code> button. This feature tries to group the groups based on <code class="language-plaintext highlighter-rouge">Keying Functions</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">Keying Functions</code> show a drop down with:</p>
+
+<ul>
+  <li>fingerprint</li>
+  <li>ngram-fingerprint</li>
+  <li>double-metaphone</li>
+</ul>
+
+<p>Select the groups that you want to merge. There is a <code class="language-plaintext highlighter-rouge">checkbox </code>for each group. Next to the checkbox there is a field <code class="language-plaintext highlighter-rouge">New Cell Value</code> if you want to change the name of the cell.</p>
+
+<p>If you feel wild, you can <code class="language-plaintext highlighter-rouge">Select All</code> on the bottom left and click on <code class="language-plaintext highlighter-rouge">Merge Selected &amp; Close</code> on the bottom right.</p>
+
+<h2 id="correcting-mistakes-1">Correcting Mistakes</h2>
+
+<p>On the left view, there is a tab <code class="language-plaintext highlighter-rouge">Undo/Redo</code>.</p>
+
+<p>Then select one of the rows that made a previous change. Then click <code class="language-plaintext highlighter-rouge">Apply</code>.</p>
+
+<h2 id="create-a-numeric-facet-1">Create a Numeric Facet</h2>
+
+<p>On the video, one of the columns says <code class="language-plaintext highlighter-rouge">Total value</code>.</p>
+
+<ul>
+  <li>Drop down</li>
+  <li>Facet</li>
+  <li>Numeric Facet</li>
+</ul>
+
+<p>On the left view, it shows a range of the values, going from <code class="language-plaintext highlighter-rouge">0.0</code> to <code class="language-plaintext highlighter-rouge">20,000,000.00</code>.</p>
+
+<p>It also shows a mini visualization of the distribution. In this case the distribution only shows a rectangle on the leftmost side.</p>
+
+<p>On the top right of this visualization, click on <code class="language-plaintext highlighter-rouge">change</code>.</p>
+
+<p>A popup window says <code class="language-plaintext highlighter-rouge">Edit Facet's Expression based on Column Total value</code>.</p>
+
+<p>There is a field called <code class="language-plaintext highlighter-rouge">Expression</code></p>
+
+<p>Type <code class="language-plaintext highlighter-rouge">value.log()</code>.</p>
+
+<p>It shows a preview of the change…then click <code class="language-plaintext highlighter-rouge">OK</code>.</p>
+
+<p>It now shows a normal distribution. It has some options below:</p>
+
+<ul>
+  <li>Numeric <code class="language-plaintext highlighter-rouge">5173</code> (checked)</li>
+  <li>Non-numeric <code class="language-plaintext highlighter-rouge">0</code> (not checked)</li>
+  <li>Blank <code class="language-plaintext highlighter-rouge">0</code> (not checked)</li>
+  <li>Error <code class="language-plaintext highlighter-rouge">27</code> (checked)</li>
+</ul>
+
+<p>Select only the <code class="language-plaintext highlighter-rouge">Error</code> rows. Which shows all the values as zero.</p>
+
+<p>When calculating <code class="language-plaintext highlighter-rouge">value.log()</code> of <code class="language-plaintext highlighter-rouge">0</code>, the result is negative infinity. In the video she asks, why is there a zero value for total value?</p>
+
+<p>You can drag the margins of the distribution visualization to preview data on the right view.</p>
+
+<h2 id="getting-data-from-a-wikipedia-list-1">Getting data from a Wikipedia list</h2>
+
+<p>This <a href="https://www.youtube.com/watch?v=cO8NVCs_Ba0&amp;feature=emb_title">video</a> blew my mind. I didn’t know you could do this:</p>
+
+<p>Go to <a href="https://en.wikipedia.org/wiki/Filmfare_Award_for_Best_Actress">this</a> page that shows awards about movies.</p>
+
+<p>Scroll down to the section that says <code class="language-plaintext highlighter-rouge">Winners and nominees</code>.</p>
+
+<p>Click on the <code class="language-plaintext highlighter-rouge">edit</code> to the right of this title.</p>
+
+<p>It now shows some code as seen here:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>==Winners and nominees==
+
+{| class="wikitable"
+|+ Table key
+|-
+!scope="row" style="text-align:center;" style="background:#FAEB86; height:20px; width:20px"
+| Indicates the winner
+|}
+===1950s===
+
+{| class="wikitable sortable" rowspan=2 style="text-align: left;" border="2" cellpadding="5"
+|-
+!scope="col" style="width:3%; text-align:center;"| Year
+!scope="col" style="width:3%;text-align:center;"| Photos of winners
+!scope="col" style="width:15%;text-align:center;"| Actor
+!scope="col" style="width:15%;text-align:center;"| Role(s)
+!scope="col" style="width:15%;text-align:center;"| Film
+|-
+! scope="row" rowspan=2 style="text-align:center" | 1954 &lt;br /&gt;&lt;small&gt;[[1st Filmfare Awards|(1st)]] &lt;/small&gt;
+|rowspan=2 style="text-align:center"|
+| style="background:#FAEB86;" |
+| style="background:#FAEB86;" |
+| style="background:#FAEB86;" | '''''[[Baiju Bawra (film)|Baiju Bawra]]'''''
+</code></pre></div></div>
+
+<p>Copy all the code that appears on that window and save it into a <code class="language-plaintext highlighter-rouge">txt</code> file.</p>
+
+<p>Import this file into OpenRefine.</p>
+
+<p>For the option <code class="language-plaintext highlighter-rouge">When parsing text files</code> uncheck <code class="language-plaintext highlighter-rouge">Split into columns</code>.</p>
+
+<p>For <code class="language-plaintext highlighter-rouge">Header lines</code> change to <code class="language-plaintext highlighter-rouge">0</code>.</p>
+
+<p>Then <code class="language-plaintext highlighter-rouge">Create Project</code>.</p>
+
+<h2 id="cleaning-wikipedia-data-code-1">Cleaning Wikipedia data code</h2>
+
+<p>Remove the rows that show years such as this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>===1950s===
+</code></pre></div></div>
+
+<p>On the column drop down, select <code class="language-plaintext highlighter-rouge">Text filter</code>.</p>
+
+<p>On the left view that has a field titled <code class="language-plaintext highlighter-rouge">Column</code>. Type <code class="language-plaintext highlighter-rouge">===</code>, which filters the table on the right to all rows that contain these characters.</p>
+
+<p>On this filtered view go to drop down:</p>
+
+<ul>
+  <li>Edit rows</li>
+  <li>Remove all matching rows</li>
+  <li>Then clear the text filter on the left view (close the <code class="language-plaintext highlighter-rouge">Column</code> window)</li>
+</ul>
+
+<p>On the video, she explains the strategy for using OpenRefine as:</p>
+
+<ul>
+  <li>Isolating all the rows you want to change using filters and facets</li>
+  <li>Change them all at the same time.</li>
+</ul>
+
+<p>Remove all the characters that describe a bolded text. In the code, bold text is enclosed within three single quotes such as this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'''{{sort|Gauri|Gauri}}'''
+</code></pre></div></div>
+
+<p>Go to:</p>
+
+<ul>
+  <li>Drop down</li>
+  <li>Edit cells</li>
+  <li>Transform</li>
+</ul>
+
+<p>It opens a popup window <code class="language-plaintext highlighter-rouge">Custom text transform on column Column</code>.</p>
+
+<p>Inside <code class="language-plaintext highlighter-rouge">Expression</code> field, type <code class="language-plaintext highlighter-rouge">value.replace("'''", "")</code>, which means to replace three single quotes <code class="language-plaintext highlighter-rouge">"'''"</code> with empty <code class="language-plaintext highlighter-rouge">""</code>. Click <code class="language-plaintext highlighter-rouge">OK</code> to apply.</p>
+
+<h2 id="create-another-column-from-existing-column">Create another column from existing column</h2>
+
+<p>The current code is a bit different than the one shown on the video.</p>
+
+<p>On the video, it shows that each winner is on a bullet point, and the nominees on an indented sub bullet point.</p>
+
+<p>On the code, the idented rows start with two stars <code class="language-plaintext highlighter-rouge">**</code>.</p>
+
+<p>Create a column that describes if the row corresponds to a winner or a nominee.</p>
+
+<ul>
+  <li>Drop down</li>
+  <li>Edit column</li>
+  <li>Add column based on this column</li>
+  <li>New column name: <code class="language-plaintext highlighter-rouge">Is Winner</code></li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">not(value.startsWith("**"))</code></li>
+  <li>Click <code class="language-plaintext highlighter-rouge">OK</code></li>
+</ul>
+
+<p>On the new column <code class="language-plaintext highlighter-rouge">Is Winner</code></p>
+
+<ul>
+  <li>Drop down</li>
+  <li>Facet</li>
+  <li>Text facet</li>
+  <li>On the left view, select <code class="language-plaintext highlighter-rouge">True</code> to view the winner rows.</li>
+</ul>
+
+<p>Extract the years</p>
+
+<ul>
+  <li>Column drop down</li>
+  <li>Edit column</li>
+  <li>Add column based on this column</li>
+  <li>New column name: <code class="language-plaintext highlighter-rouge">Year</code></li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">value[1,5]</code></li>
+</ul>
+
+<p>Remove the years from the original column</p>
+
+<ul>
+  <li>Column drop down</li>
+  <li>Edit cells</li>
+  <li>Transform</li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">value.substring(6)</code></li>
+  <li>This means send to <code class="language-plaintext highlighter-rouge">value</code> the substring starting from character <code class="language-plaintext highlighter-rouge">6</code>.</li>
+</ul>
+
+<p>Remove the <code class="language-plaintext highlighter-rouge">Is Winner</code> facet to view the new columns created with respective rows.</p>
+
+<p>The nominees are missing the year, however they appear right after a winner of the same year.</p>
+
+<ul>
+  <li>Year (column) drop down</li>
+  <li>Edit cells</li>
+  <li>Fill down</li>
+  <li>This copies each year into the blank cells below</li>
+</ul>
+
+<p>Separate the first column into the columns <code class="language-plaintext highlighter-rouge">Actress</code>, <code class="language-plaintext highlighter-rouge">Film</code>, <code class="language-plaintext highlighter-rouge">Character</code>.</p>
+
+<ul>
+  <li>Column drop down</li>
+  <li>Edit column</li>
+  <li>Split into several columns</li>
+  <li>By separator: ` - ` (space dash space)</li>
+  <li>Split into <code class="language-plaintext highlighter-rouge">2</code> columns at most</li>
+  <li>A <code class="language-plaintext highlighter-rouge">Column 2</code> is created.</li>
+</ul>
+
+<p>Separate the data from <code class="language-plaintext highlighter-rouge">Column 2</code></p>
+
+<ul>
+  <li>Column2 drop down</li>
+  <li>Edit column</li>
+  <li>Split into several columns</li>
+  <li>Separator ` as ` (space as space)</li>
+  <li>Split into <code class="language-plaintext highlighter-rouge">2</code> columns at most</li>
+</ul>
+
+<p>Then rename the columns. Drop down, edit column, <code class="language-plaintext highlighter-rouge">Rename this column</code></p>
+
+<ul>
+  <li>Column 1: Actress</li>
+  <li>Column 2: Film</li>
+  <li>Column 3: Character</li>
+</ul>
+
+<p>Export the data into Wiki syntax</p>
+
+<ul>
+  <li>Top right</li>
+  <li>Export</li>
+  <li>The default is <code class="language-plaintext highlighter-rouge">JSON</code></li>
+  <li>Follow the video to see how to setup the Wiki syntax</li>
+</ul>
+
+<h2 id="extract-operations">Extract operations</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">Undo/Redo</code> allows the extract the operations done to a dataset.</p>
+
+<ul>
+  <li>Click on <code class="language-plaintext highlighter-rouge">Extract</code></li>
+  <li>Popup window <code class="language-plaintext highlighter-rouge">Extract Operation History</code></li>
+  <li>Operations selected on the left are encoded as <code class="language-plaintext highlighter-rouge">JSON</code> (preview on the right)</li>
+  <li>Copy the <code class="language-plaintext highlighter-rouge">JSON</code> code</li>
+  <li>Switch back to another project you want to clean</li>
+  <li>Go to <code class="language-plaintext highlighter-rouge">Undo/Redo</code></li>
+  <li>Click <code class="language-plaintext highlighter-rouge">Apply</code></li>
+  <li>Paste the <code class="language-plaintext highlighter-rouge">JSON</code> code on that window</li>
+  <li>Click on <code class="language-plaintext highlighter-rouge">Perform Operations</code></li>
+</ul>
+
+<h2 id="get-latitude-and-longitude-for-address-rows-from-an-external-source">Get latitude and longitude for address rows from an external source</h2>
+
+<p>This <a href="https://www.youtube.com/watch?v=5tsyz3ibYzk&amp;feature=emb_title">video</a> shows a dataset with a column <code class="language-plaintext highlighter-rouge">Headquarter</code> that has the addresses for each <code class="language-plaintext highlighter-rouge">Company</code> column.</p>
+
+<p>She wants to get the latitude and longitude for each address using the API from <code class="language-plaintext highlighter-rouge">nominatim.openstreetmap.org</code></p>
+
+<ul>
+  <li>Headquarters column</li>
+  <li>Drop down</li>
+  <li>Edit column</li>
+  <li>Add column by fetching URLs</li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">'http://nominatim.openstreetmap.org/search?format=json&amp;email=somemail@gmail.com%app=google-refine&amp;q=' + escape(value, 'url')</code></li>
+  <li>Throttle delay: <code class="language-plaintext highlighter-rouge">1500</code></li>
+  <li>New column name: <code class="language-plaintext highlighter-rouge">json</code></li>
+  <li>Then it takes some time to load the data.</li>
+</ul>
+
+<p>A new column <code class="language-plaintext highlighter-rouge">json</code> appears on the right view with values for each row.</p>
+
+<ul>
+  <li>json column</li>
+  <li>Drop down</li>
+  <li>Edit column</li>
+  <li>Add column based on this column</li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">with(value.parseJson()[0], pair, pair.lat + ',' + pair.lon)</code></li>
+  <li>New column name: <code class="language-plaintext highlighter-rouge">lat/lon</code></li>
+</ul>
+
+<h2 id="translate-rows-from-an-external-source">Translate rows from an external source</h2>
+
+<p>If the dataset has rows in different languages in a column called <code class="language-plaintext highlighter-rouge">text</code>. Follow the API requirements to construct the URL.</p>
+
+<ul>
+  <li>Drop down</li>
+  <li>Edit column</li>
+  <li>Add column by fetching URLs</li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">"http://ajax.googleapis.com/ajax/services/language/detect?..." + escape(value.substring(0, 128), "url")</code></li>
+  <li>New column name: <code class="language-plaintext highlighter-rouge">json</code></li>
+  <li>Throttle delay: <code class="language-plaintext highlighter-rouge">100</code></li>
+</ul>
+
+<p>A new column <code class="language-plaintext highlighter-rouge">json</code> is loaded</p>
+
+<ul>
+  <li>json column</li>
+  <li>Drop down</li>
+  <li>Edit column</li>
+  <li>Add column based on this column</li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">value.parseJson().responseData.language</code></li>
+  <li>New column name: <code class="language-plaintext highlighter-rouge">language</code></li>
+</ul>
+
+<h2 id="reconcile-data-with-external-sources">Reconcile data with external sources</h2>
+
+<p>The video also shows a way to reconcile your data with external sources.</p>
+
+<p>This dataset has two columns <code class="language-plaintext highlighter-rouge">film</code> and <code class="language-plaintext highlighter-rouge">rating</code></p>
+
+<ul>
+  <li>film column</li>
+  <li>Drop down</li>
+  <li>Reconcile</li>
+  <li>Start reconciling</li>
+  <li><code class="language-plaintext highlighter-rouge">Freebase</code> reconciliation service</li>
+  <li>It loads a list of types</li>
+  <li>Select the type that matches this <code class="language-plaintext highlighter-rouge">film</code> column</li>
+  <li>Select the type <code class="language-plaintext highlighter-rouge">Film</code></li>
+  <li>Click on <code class="language-plaintext highlighter-rouge">Start Reconciling</code></li>
+</ul>
+
+<p>Fetch more data from Freebase</p>
+
+<ul>
+  <li>film column</li>
+  <li>drop down</li>
+  <li>edit column</li>
+  <li>Add columns from Freebase</li>
+  <li>Options appear for <code class="language-plaintext highlighter-rouge">Suggested Properties</code></li>
+  <li>Select <code class="language-plaintext highlighter-rouge">Directed by</code> and <code class="language-plaintext highlighter-rouge">Netflix ID</code></li>
+  <li>Click <code class="language-plaintext highlighter-rouge">OK</code></li>
+</ul>
+
+<h2 id="openrefine-docs">OpenRefine Docs</h2>
+
+<p>Please follow these resources:</p>
+
+<ul>
+  <li><a href="https://github.com/OpenRefine/OpenRefine/wiki">OpenRefine wiki</a></li>
+  <li><a href="https://github.com/OpenRefine/OpenRefine/wiki/Screencasts">Screencasts</a>paginatorsiteJekyll::Drops::SiteDrop’’’</li>
+</ul>
+
+<p>Go to:</p>
+
+<ul>
+  <li>Drop down</li>
+  <li>Edit cells</li>
+  <li>Transform</li>
+</ul>
+
+<p>It opens a popup window <code class="language-plaintext highlighter-rouge">Custom text transform on column Column</code>.</p>
+
+<p>Inside <code class="language-plaintext highlighter-rouge">Expression</code> field, type <code class="language-plaintext highlighter-rouge">value.replace("'''", "")</code>, which means to replace three single quotes <code class="language-plaintext highlighter-rouge">"'''"</code> with empty <code class="language-plaintext highlighter-rouge">""</code>. Click <code class="language-plaintext highlighter-rouge">OK</code> to apply.</p>
+
+<h2 id="create-another-column-from-existing-column-1">Create another column from existing column</h2>
+
+<p>The current code is a bit different than the one shown on the video.</p>
+
+<p>On the video, it shows that each winner is on a bullet point, and the nominees on an indented sub bullet point.</p>
+
+<p>On the code, the idented rows start with two stars <code class="language-plaintext highlighter-rouge">**</code>.</p>
+
+<p>Create a column that describes if the row corresponds to a winner or a nominee.</p>
+
+<ul>
+  <li>Drop down</li>
+  <li>Edit column</li>
+  <li>Add column based on this column</li>
+  <li>New column name: <code class="language-plaintext highlighter-rouge">Is Winner</code></li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">not(value.startsWith("**"))</code></li>
+  <li>Click <code class="language-plaintext highlighter-rouge">OK</code></li>
+</ul>
+
+<p>On the new column <code class="language-plaintext highlighter-rouge">Is Winner</code></p>
+
+<ul>
+  <li>Drop down</li>
+  <li>Facet</li>
+  <li>Text facet</li>
+  <li>On the left view, select <code class="language-plaintext highlighter-rouge">True</code> to view the winner rows.</li>
+</ul>
+
+<p>Extract the years</p>
+
+<ul>
+  <li>Column drop down</li>
+  <li>Edit column</li>
+  <li>Add column based on this column</li>
+  <li>New column name: <code class="language-plaintext highlighter-rouge">Year</code></li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">value[1,5]</code></li>
+</ul>
+
+<p>Remove the years from the original column</p>
+
+<ul>
+  <li>Column drop down</li>
+  <li>Edit cells</li>
+  <li>Transform</li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">value.substring(6)</code></li>
+  <li>This means send to <code class="language-plaintext highlighter-rouge">value</code> the substring starting from character <code class="language-plaintext highlighter-rouge">6</code>.</li>
+</ul>
+
+<p>Remove the <code class="language-plaintext highlighter-rouge">Is Winner</code> facet to view the new columns created with respective rows.</p>
+
+<p>The nominees are missing the year, however they appear right after a winner of the same year.</p>
+
+<ul>
+  <li>Year (column) drop down</li>
+  <li>Edit cells</li>
+  <li>Fill down</li>
+  <li>This copies each year into the blank cells below</li>
+</ul>
+
+<p>Separate the first column into the columns <code class="language-plaintext highlighter-rouge">Actress</code>, <code class="language-plaintext highlighter-rouge">Film</code>, <code class="language-plaintext highlighter-rouge">Character</code>.</p>
+
+<ul>
+  <li>Column drop down</li>
+  <li>Edit column</li>
+  <li>Split into several columns</li>
+  <li>By separator: ` - ` (space dash space)</li>
+  <li>Split into <code class="language-plaintext highlighter-rouge">2</code> columns at most</li>
+  <li>A <code class="language-plaintext highlighter-rouge">Column 2</code> is created.</li>
+</ul>
+
+<p>Separate the data from <code class="language-plaintext highlighter-rouge">Column 2</code></p>
+
+<ul>
+  <li>Column2 drop down</li>
+  <li>Edit column</li>
+  <li>Split into several columns</li>
+  <li>Separator ` as ` (space as space)</li>
+  <li>Split into <code class="language-plaintext highlighter-rouge">2</code> columns at most</li>
+</ul>
+
+<p>Then rename the columns. Drop down, edit column, <code class="language-plaintext highlighter-rouge">Rename this column</code></p>
+
+<ul>
+  <li>Column 1: Actress</li>
+  <li>Column 2: Film</li>
+  <li>Column 3: Character</li>
+</ul>
+
+<p>Export the data into Wiki syntax</p>
+
+<ul>
+  <li>Top right</li>
+  <li>Export</li>
+  <li>The default is <code class="language-plaintext highlighter-rouge">JSON</code></li>
+  <li>Follow the video to see how to setup the Wiki syntax</li>
+</ul>
+
+<h2 id="extract-operations-1">Extract operations</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">Undo/Redo</code> allows the extract the operations done to a dataset.</p>
+
+<ul>
+  <li>Click on <code class="language-plaintext highlighter-rouge">Extract</code></li>
+  <li>Popup window <code class="language-plaintext highlighter-rouge">Extract Operation History</code></li>
+  <li>Operations selected on the left are encoded as <code class="language-plaintext highlighter-rouge">JSON</code> (preview on the right)</li>
+  <li>Copy the <code class="language-plaintext highlighter-rouge">JSON</code> code</li>
+  <li>Switch back to another project you want to clean</li>
+  <li>Go to <code class="language-plaintext highlighter-rouge">Undo/Redo</code></li>
+  <li>Click <code class="language-plaintext highlighter-rouge">Apply</code></li>
+  <li>Paste the <code class="language-plaintext highlighter-rouge">JSON</code> code on that window</li>
+  <li>Click on <code class="language-plaintext highlighter-rouge">Perform Operations</code></li>
+</ul>
+
+<h2 id="get-latitude-and-longitude-for-address-rows-from-an-external-source-1">Get latitude and longitude for address rows from an external source</h2>
+
+<p>This <a href="https://www.youtube.com/watch?v=5tsyz3ibYzk&amp;feature=emb_title">video</a> shows a dataset with a column <code class="language-plaintext highlighter-rouge">Headquarter</code> that has the addresses for each <code class="language-plaintext highlighter-rouge">Company</code> column.</p>
+
+<p>She wants to get the latitude and longitude for each address using the API from <code class="language-plaintext highlighter-rouge">nominatim.openstreetmap.org</code></p>
+
+<ul>
+  <li>Headquarters column</li>
+  <li>Drop down</li>
+  <li>Edit column</li>
+  <li>Add column by fetching URLs</li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">'http://nominatim.openstreetmap.org/search?format=json&amp;email=somemail@gmail.com%app=google-refine&amp;q=' + escape(value, 'url')</code></li>
+  <li>Throttle delay: <code class="language-plaintext highlighter-rouge">1500</code></li>
+  <li>New column name: <code class="language-plaintext highlighter-rouge">json</code></li>
+  <li>Then it takes some time to load the data.</li>
+</ul>
+
+<p>A new column <code class="language-plaintext highlighter-rouge">json</code> appears on the right view with values for each row.</p>
+
+<ul>
+  <li>json column</li>
+  <li>Drop down</li>
+  <li>Edit column</li>
+  <li>Add column based on this column</li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">with(value.parseJson()[0], pair, pair.lat + ',' + pair.lon)</code></li>
+  <li>New column name: <code class="language-plaintext highlighter-rouge">lat/lon</code></li>
+</ul>
+
+<h2 id="translate-rows-from-an-external-source-1">Translate rows from an external source</h2>
+
+<p>If the dataset has rows in different languages in a column called <code class="language-plaintext highlighter-rouge">text</code>. Follow the API requirements to construct the URL.</p>
+
+<ul>
+  <li>Drop down</li>
+  <li>Edit column</li>
+  <li>Add column by fetching URLs</li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">"http://ajax.googleapis.com/ajax/services/language/detect?..." + escape(value.substring(0, 128), "url")</code></li>
+  <li>New column name: <code class="language-plaintext highlighter-rouge">json</code></li>
+  <li>Throttle delay: <code class="language-plaintext highlighter-rouge">100</code></li>
+</ul>
+
+<p>A new column <code class="language-plaintext highlighter-rouge">json</code> is loaded</p>
+
+<ul>
+  <li>json column</li>
+  <li>Drop down</li>
+  <li>Edit column</li>
+  <li>Add column based on this column</li>
+  <li>Expression: <code class="language-plaintext highlighter-rouge">value.parseJson().responseData.language</code></li>
+  <li>New column name: <code class="language-plaintext highlighter-rouge">language</code></li>
+</ul>
+
+<h2 id="reconcile-data-with-external-sources-1">Reconcile data with external sources</h2>
+
+<p>The video also shows a way to reconcile your data with external sources.</p>
+
+<p>This dataset has two columns <code class="language-plaintext highlighter-rouge">film</code> and <code class="language-plaintext highlighter-rouge">rating</code></p>
+
+<ul>
+  <li>film column</li>
+  <li>Drop down</li>
+  <li>Reconcile</li>
+  <li>Start reconciling</li>
+  <li><code class="language-plaintext highlighter-rouge">Freebase</code> reconciliation service</li>
+  <li>It loads a list of types</li>
+  <li>Select the type that matches this <code class="language-plaintext highlighter-rouge">film</code> column</li>
+  <li>Select the type <code class="language-plaintext highlighter-rouge">Film</code></li>
+  <li>Click on <code class="language-plaintext highlighter-rouge">Start Reconciling</code></li>
+</ul>
+
+<p>Fetch more data from Freebase</p>
+
+<ul>
+  <li>film column</li>
+  <li>drop down</li>
+  <li>edit column</li>
+  <li>Add columns from Freebase</li>
+  <li>Options appear for <code class="language-plaintext highlighter-rouge">Suggested Properties</code></li>
+  <li>Select <code class="language-plaintext highlighter-rouge">Directed by</code> and <code class="language-plaintext highlighter-rouge">Netflix ID</code></li>
+  <li>Click <code class="language-plaintext highlighter-rouge">OK</code></li>
+</ul>
+
+<h2 id="openrefine-docs-1">OpenRefine Docs</h2>
+
+<p>Please follow these resources:</p>
+
+<ul>
+  <li><a href="https://github.com/OpenRefine/OpenRefine/wiki">OpenRefine wiki</a></li>
+  <li><a href="https://github.com/OpenRefine/OpenRefine/wiki/Screencasts">Screencasts</a></li>
+</ul>
+:ET

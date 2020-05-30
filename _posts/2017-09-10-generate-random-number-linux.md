@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Generate a Random Number with Linux and Bash"
-author: tom
+redirect_from:
+  - /generate-random-number-linux.html
 categories: [Linux]
 image: assets/images/3.jpg
 tags: [linux, coding, random number]
@@ -9,7 +10,6 @@ tags: [linux, coding, random number]
 
 Follow this tutorial to generate a random number with Linux and Bash.
 
-![Generate a Random Number in Linux]({{ site.baseurl }}/assets/images/generate-random-number-linux.jpg)
 
 This is what I was doing to give you some context.
 
@@ -323,12 +323,3 @@ This is the 2nd parenthesis:
 The 3rd parenthesis is used for the `arithmetic expansion`
 
     (((50 % 10) + 1))
-
-
-
-    ((50 % 10) + 1)
-
-The 3rd parenthesis is used for the `arithmetic expansion`
-
-    (((50 % 10) + 1))
-

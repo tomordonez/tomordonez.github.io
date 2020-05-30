@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Create a Regex Macro in Sublime"
-author: tom
+redirect_from:
+  - /create-a-regex-macro-in-sublime.html
 categories: [Code]
 image: assets/images/5.jpg
 tags: [regex, macro, sublime]
@@ -9,7 +10,6 @@ tags: [regex, macro, sublime]
 
 Follow this tutorial to create a regex macro in Sublime.
 
-![Create a Regex Macro in Sublime]({{ site.baseurl }}/assets/images/create-a-regex-macro-in-sublime.jpg)
 
 ## Install Sublime
 
@@ -242,10 +242,3 @@ Add this to JSON file
     ]
 
 Run Macro by doing `Ctrl+Shift+P` and type "Github Get Contributor URL".
-
-st_line"]}
-     }
-    ]
-
-Run Macro by doing `Ctrl+Shift+P` and type "Github Get Contributor URL".
-

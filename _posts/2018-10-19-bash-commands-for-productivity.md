@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Bash Commands for Productivity"
-author: tom
+redirect_from:
+  - /bash-commands-for-productivity.html
 categories: [Code]
 image: assets/images/1.jpg
 tags: [linux, bash, productivity]
@@ -9,7 +10,6 @@ tags: [linux, bash, productivity]
 
 Here are some interesting bash commands to run from the shell for productivity.
 
-![Bash Commands for Productivity]({{ site.baseurl }}/assets/images/bash-commands-for-productivity.jpg)
 
 ## Make changes to many directories
 
@@ -99,8 +99,3 @@ Let's go to the correct directory:
 
     $ cd languages/
     $ for in in */; do echo "Title" >> "$i"/index.rst; doneone.
-
-Let's go to the correct directory:
-
-    $ cd languages/
-    $ for in in */; do echo "Title" >> "$i"/index.rst; done

@@ -1,19 +1,16 @@
 ---
 layout: post
 title: "VirtualBox Resize Linux Guest Storage VDI"
-author: tom
+redirect_from:
+  - /virtualbox-resize-linux-guest-storage-vdi.html
 categories: [Linux]
 image: assets/images/10.jpg
 tags: [virtualbox, linux]
 ---
 
-## In Virtualbox with Windows host. Resize Linux guest storage VDI.
 
 This tutorial applies to Virtualbox when Windows is the host and Linux is the VM guest.
 
-<p>&nbsp;</p>
-
-![VirtualBox Resize Linux Guest Storage VDI]({{ site.baseurl }}/assets/images/virtualbox-resize-linux-guest-storage-vdi.jpg)
 
 ## Setup
 
@@ -214,9 +211,3 @@ We should be good now.
 
 Start the VM and it should start as usual. Verify that all files remain there.
 
-## If you have questions or comments please add them below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)
-r comments please add them below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)

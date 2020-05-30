@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "URL Encoding and Python"
-author: tom
+redirect_from:
+  - /url-encoding-python.html
 categories: [Code]
 image: assets/images/3.jpg
 tags: [coding, linux, http, url]
@@ -68,9 +69,3 @@ These are the conversions:
     '0x26'
     >>> hex(ord(' '))
     '0x20'
-
- >>> hex(ord('&'))
-    '0x26'
-    >>> hex(ord(' '))
-    '0x20'
-

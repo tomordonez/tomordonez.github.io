@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "AWS CLI Help Pages"
-author: tom
+redirect_from:
+  - /aws-cli-help-page.html
 categories: [Code]
 image: assets/images/6.jpg
 tags: [aws, CLI, man page, Cloud]
@@ -23,8 +24,3 @@ As seen <a href="https://stackoverflow.com/questions/47623054/does-aws-have-man-
     aws ec2 run-instances help
 
 ![AWS CLI Man Pages]({{ site.baseurl }}/assets/images/aws-cli-help-page.gif)
-
-## Questions about AWS help pages? Please comment below
-ages/aws-cli-help-page.gif)
-
-## Questions about AWS help pages? Please comment below

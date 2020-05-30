@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Installing Ruby on Ubuntu"
-author: tom
+redirect_from:
+  - /installing-ruby-on-ubuntu.html
 categories: [Code]
 image: assets/images/1.jpg
 tags: [ruby, ubuntu]
@@ -9,7 +10,6 @@ tags: [ruby, ubuntu]
 
 Follow this process to install Ruby on Ubuntu Linux
 
-![Installing Ruby on Ubuntu]({{ site.baseurl }}/assets/images/installing-ruby-on-ubuntu.png)
 
 ## Installing Ruby on Ubuntu
 
@@ -92,10 +92,3 @@ Switch gemsets with:
 
     $ rvm gemset use name-of-gemset
 
-
-## If you have questions or comments please add them below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)
- below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)

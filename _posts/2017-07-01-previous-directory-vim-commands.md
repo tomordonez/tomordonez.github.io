@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Go to the Previous Directory in Vim"
-author: tom
+redirect_from:
+  - /previous-directory-vim-commands.html
 categories: [Linux]
 image: assets/images/8.jpg
 tags: [linux, vim]
@@ -14,10 +15,3 @@ When I open a file and I am done with it. I often want to go back to the previou
 If you want to go to the previous directory do
 
     :Ex
-
-## If you have questions or comments please add them below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)
-hem below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)

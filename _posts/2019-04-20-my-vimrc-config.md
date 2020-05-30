@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "My vimrc config file"
-author: tom
+redirect_from:
+  - /my-vimrc-config.html
 categories: [Linux]
 image: assets/images/10.jpg
 tags: [linux, vim, vimrc]
@@ -94,7 +95,3 @@ More details:
     filetype plugin indent on
     " To ignore plugin indent changes, instead use:
     " filetype plugin on
-    
-e plugin indent changes, instead use:
-    " filetype plugin on
-    

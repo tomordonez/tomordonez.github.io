@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Remote Tmux Inside a Local Tmux"
-author: tom
+redirect_from:
+  - /remote-tmux-inside-local-tmux.html
 categories: [Linux]
 image: assets/images/3.jpg
 tags: [tmux, ssh, linux, fedora]
@@ -40,12 +41,3 @@ For the remote tmux SSH session I do this:
     Ctrl+a Ctrl+a n
     Ctrl+a Ctrl+a l
     Ctrl+a Ctrl+a h
-
-
-ote tmux SSH session I do this:
-
-    Ctrl+a Ctrl+a n
-    Ctrl+a Ctrl+a l
-    Ctrl+a Ctrl+a h
-
-

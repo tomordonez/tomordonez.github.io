@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "From Markdown to Sphinx reStructuredText"
-author: tom
+redirect_from:
+  - /from-markdown-to-sphinx-restructuredtext.html
 categories: [Code]
 image: assets/images/11.jpg
 tags: [coding, linux, markdown, sphinx, reStructuredText]
@@ -90,6 +91,3 @@ I am in the process of doing this:
 
 With reference code I mean code that is from a libary official doc or public code and that is not related to a project or a specific solution for the class.
 
-More details about this later.that is not related to a project or a specific solution for the class.
-
-More details about this later.

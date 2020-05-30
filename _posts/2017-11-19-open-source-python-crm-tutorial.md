@@ -1,16 +1,14 @@
 ---
 layout: post
 title: "Open Source Python CRM Tutorial"
-author: tom
+redirect_from:
+  - /open-source-python-crm-tutorial.html
 categories: [Code]
 image: assets/images/12.jpg
 tags: [open source, python, crm]
 ---
 
-## In this tutorial I will show you how to install an open source CRM that uses Python.
-
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+In this tutorial I will show you how to install an open source CRM that uses Python.
 
 ![Open Source CRM in Python]({{ site.baseurl }}/assets/images/open-source-crm-python.gif)
 
@@ -342,8 +340,3 @@ You will now have a clean install of the CRM.
 Follow the official documentation for this open source Python CRM <a href="https://www.odoo.com/documentation/user/11.0/" target="_blank">here</a>.
 
 This tutorial is applicable to Linux Fedora but you can also install this open source Python CRM using Linux Ubuntu, Windows and Mac. For more info about those systems, go <a href="https://www.odoo.com/documentation/10.0/setup/install.html#packaged-installers" target="_blank">here</a>.
-
-
-ac. For more info about those systems, go <a href="https://www.odoo.com/documentation/10.0/setup/install.html#packaged-installers" target="_blank">here</a>.
-
-

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Web Scraping with Python"
-author: tom
+redirect_from:
+  - /web-scraping-with-python.html
 categories: [Code]
 image: assets/images/sticky.gif
 tags: [sticky, coding, python, scraping, beautifulsoup]
@@ -911,6 +912,3 @@ You could use the same setup for `logging` and `CSV` but there is room for growt
 * Use a `main` function for the setup.
 * Use modules for scraping.
 * Use a random function to ease on the scraping.of hardcoding the URLs.
-* Use a `main` function for the setup.
-* Use modules for scraping.
-* Use a random function to ease on the scraping.

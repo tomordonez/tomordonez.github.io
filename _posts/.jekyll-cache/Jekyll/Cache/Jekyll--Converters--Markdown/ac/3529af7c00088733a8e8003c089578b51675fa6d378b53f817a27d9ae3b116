@@ -1,0 +1,159 @@
+I"<p>This is a short tutorial to <strong>setup a VPN in Linux</strong> Fedora. Although the same process applies to Ubuntu.</p>
+
+<h2 id="open-an-account-with-hideme-vpn">Open an account with Hide.me VPN</h2>
+
+<p>Get the Plus plan</p>
+
+<h2 id="download-the-openvpn-configuration">Download the OpenVPN Configuration</h2>
+
+<p>Once logged in to the members dashboard. Go to the left menu and click on Servers.</p>
+
+<p>&nbsp;</p>
+
+<p><img src="/assets/images/how-to-setup-vpn-linux.gif" alt="Setup a VPN in Linux" /></p>
+
+<p>&nbsp;</p>
+
+<p>It will show a Location and Internet Address.</p>
+
+<p>Chose the Location you want and click on More Details.</p>
+
+<p>Go to OpenVPN Configuration. Click on Linux. This will download a zip file.</p>
+
+<p>&nbsp;</p>
+
+<p><img src="/assets/images/openvpn-configuration.gif" alt="OpenVPN Configuration" /></p>
+
+<p>&nbsp;</p>
+
+<h2 id="install-openvpn-in-the-terminal">Install OpenVPN in the Terminal</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf -y install openvpn
+</code></pre></div></div>
+
+<h2 id="unzip-the-openvpn-configuration-file">Unzip the OpenVPN Configuration file</h2>
+
+<p>Let’s say the file is called <code class="language-plaintext highlighter-rouge">Location.zip</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo unzip ~/Downloads/Location.zip -d /etc/openvpn/
+</code></pre></div></div>
+
+<h2 id="save-your-login-credentials">Save your login credentials</h2>
+
+<p>If you want to auto login with your user and password.</p>
+
+<p>Create this file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo touch /etc/openvpn/credentials
+</code></pre></div></div>
+
+<p>Open this file with your favorite editor using <code class="language-plaintext highlighter-rouge">sudo</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo vim /etc/openvpn/credentials
+</code></pre></div></div>
+
+<p>Enter your hideme login and password in 2 separate lines:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>your-user
+your-password
+</code></pre></div></div>
+
+<p>Setup openvpn to use this credentials file. Previously unzipping the file <code class="language-plaintext highlighter-rouge">Location.zip</code> into <code class="language-plaintext highlighter-rouge">/etc/openvp/</code>, created a file called <code class="language-plaintext highlighter-rouge">Location.ovpn</code>. Change the <code class="language-plaintext highlighter-rouge">Location</code> name with the specific file you downloaded.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/auth-user-pass/auth-user-pass \/etc\/openvpn\/credentials/g' /etc/openvpn/Location.ovpn
+</code></pre></div></div>
+
+<h2 id="start-the-vpn">Start the VPN</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo openvpn --config /etc/openvpn/Location.ovpn
+</code></pre></div></div>
+
+<p><img src="/assets/images/start-openvpn.gif" alt="OpenVPN Start" /></p>
+
+<h2 id="test-if-vpn-is-working">Test if VPN is working</h2>
+
+<p>Go to <code class="language-plaintext highlighter-rouge">https://hide.me/en/check</code>.</p>
+
+<p>It should show the IP number of the Location you downloaded.</p>
+
+<p>But then google this “what is my IP”.</p>
+
+<p>If the IP shows your current location and not the one from the VPN then you have an IPv6 issue. Read below.</p>
+
+<h2 id="close-the-vpn">Close the VPN</h2>
+
+<p>Use <code class="language-plaintext highlighter-rouge">Ctrl+C</code>.</p>
+
+<p>If there is a prompt then type:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo killall openvpn
+</code></pre></div></div>
+
+<p><img src="/assets/images/stop-openvpn.gif" alt="OpenVPN Stop" /></p>
+
+<h2 id="alternative-way-of-adding-the-vpn">Alternative Way of Adding the VPN</h2>
+
+<p>Both Linux Ubuntu and Fedora have a user interface to add the VPN. That way you don’t need to have the VPN running from the shell. And you can select easier from a list of VPNs if you want to configure many of them.</p>
+
+<p>If you go to Settings &gt; Network.</p>
+
+<p>There should be an option for VPN.</p>
+
+<ul>
+  <li>Add VPN</li>
+  <li>Import from file</li>
+  <li>Find the <code class="language-plaintext highlighter-rouge">.ovpn</code> file.</li>
+  <li>Enter your account user and pwd</li>
+  <li>Disable IPv6</li>
+  <li>Enable the VPN</li>
+  <li>Test your IP</li>
+</ul>
+
+<h2 id="ipv6-issues">IPv6 Issues</h2>
+
+<p>In the US. Comcast has IPv6 enabled and this can be an issue.</p>
+
+<p>The best solution is to login to your router. Disable IPv6 and enable IPv4.</p>
+
+<p>If this is not possible. You can try to disable IPv6 from the command line. But if your router doesn’t have IPv4 enabled this will not work:</p>
+
+<p>To disable IPv6 from terminal:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+</code></pre></div></div>
+
+<p>To re-enable IPv6:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0
+</code></pre></div></div>
+
+<p>Or edit the file directly with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo vim /etc/sysctl.conf
+</code></pre></div></div>
+
+<p>You can also disable IPv6 from your laptop Wifi Settings.</p>
+
+<p>If you disable IPv6 and you lose internet. Try restarting your laptop Wifi or Wifi card.</p>
+
+<h2 id="verify-your-ip">Verify your IP</h2>
+
+<p>Always check your IP with <code class="language-plaintext highlighter-rouge">https://hide.me/en/check</code> to review if IPv6 has been disabled. And check the new IP number.</p>
+
+<h2 id="ipv6-alternative-solution">IPv6 alternative solution</h2>
+
+<p>Use your phone hotspot connecting via USB.</p>
+
+<p>Disable the phone Wifi.</p>
+
+<p>Connect to the VPN</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo openvpn --config /etc/openvpn/Location.ovpn
+</code></pre></div></div>
+
+<p>Go to <code class="language-plaintext highlighter-rouge">https://hide.me/en/check</code>.</p>
+
+<p>It should show the IP number of the Location you downloaded.</p>
+
+<p>Then google “what is my IP”. It should also show the VPN IP number.</p>
+:ET

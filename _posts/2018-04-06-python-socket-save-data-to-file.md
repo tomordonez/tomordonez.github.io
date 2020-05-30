@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Python Socket Save Data To File"
-author: tom
+redirect_from:
+  - /python-socket-save-data-to-file.html
 categories: [Code]
 image: assets/images/9.jpg
 tags: [coding, linux, python, regex]
@@ -111,8 +112,3 @@ The `Headers` tab shows similar info:
             match2 = re.match(r'ETag: (["\w-]+)', line)
                 etag = match.group()
                 print(etag)
-
-      match2 = re.match(r'ETag: (["\w-]+)', line)
-                etag = match.group()
-                print(etag)
-

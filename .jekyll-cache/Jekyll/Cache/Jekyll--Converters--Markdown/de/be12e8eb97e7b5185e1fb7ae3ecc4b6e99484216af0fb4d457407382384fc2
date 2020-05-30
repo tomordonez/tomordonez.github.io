@@ -1,0 +1,477 @@
+I"d9<div class="container">
+    
+ <!--endif page url is / -->
+    
+
+
+<!-- Now the rest of the posts with the usual loop but with an offset:4 on the first page so we can skeep the first 4 posts displayed above -->
+    
+<div class="row mt-3">
+   
+    <div class="col-md-8 main-loop">
+        
+        <h4 class="font-weight-bold spanborder"><span>All Stories</span></h4>
+        
+
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/terminate-ssh-connection/">Terminate SSH Connection</a>
+	</h2>
+	<p class="excerpt">
+	   I keep forgetting how to terminate an SSH connection when it gets stuck.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Nov 01, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/terminate-ssh-connection/">
+	<img class="w-100" src="/assets/images/1.jpg" alt="Terminate SSH Connection" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/top-5-python-scripts-sourcing/">The Top 5 Python Scripts for Sourcing</a>
+	</h2>
+	<p class="excerpt">
+	   These are my top 5 Python scripts I use for researching and sourcing data.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#recruiting">Recruiting</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Oct 25, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/top-5-python-scripts-sourcing/">
+	<img class="w-100" src="/assets/images/1.jpg" alt="The Top 5 Python Scripts for Sourcing" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/how-to-setup-vpn-linux-fedora/">How To Setup a VPN in Linux Fedora</a>
+	</h2>
+	<p class="excerpt">
+	   This is a short tutorial to setup a VPN in Linux Fedora. Although the same process applies to Ubuntu.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Oct 21, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/how-to-setup-vpn-linux-fedora/">
+	<img class="w-100" src="/assets/images/10.jpg" alt="How To Setup a VPN in Linux Fedora" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/from-zero-to-hero-linux/">From Zero to Hero in Linux</a>
+	</h2>
+	<p class="excerpt">
+	   From zero to hero in Linux is a tutorial to learn the command line and basic Linux commands.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Oct 03, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/from-zero-to-hero-linux/">
+	<img class="w-100" src="/assets/images/8.jpg" alt="From Zero to Hero in Linux" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/touch-typing-z-type/">Learn Touch Typing with Z-Type Game</a>
+	</h2>
+	<p class="excerpt">
+	   Learn touch typing with the Z-type game and become ultra-focused. This is a great skill to have if you are learning Linux or a programming language.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Oct 01, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/touch-typing-z-type/">
+	<img class="w-100" src="/assets/images/9.jpg" alt="Learn Touch Typing with Z-Type Game" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/create-csv-from-linkedin-sent-invites/">Create a CSV file from Linkedin Sent Invites</a>
+	</h2>
+	<p class="excerpt">
+	   Follow this process to create a CSV file from Linkedin sent invites.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#recruiting">Recruiting</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 22, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/create-csv-from-linkedin-sent-invites/">
+	<img class="w-100" src="/assets/images/11.jpg" alt="Create a CSV file from Linkedin Sent Invites" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/blackbelt-sourcing-github/">Blackbelt Sourcing on Github</a>
+	</h2>
+	<p class="excerpt">
+	   Are you a sourcer or recruiter looking for talent on Github?
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#recruiting">Recruiting</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 17, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/blackbelt-sourcing-github/">
+	<img class="w-100" src="/assets/images/5.jpg" alt="Blackbelt Sourcing on Github" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/regular-expressions-tutorial-regex/">Regular Expressions Tutorial Regex Heaven</a>
+	</h2>
+	<p class="excerpt">
+	   This is a regular expressions tutorial…regex heaven.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 16, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/regular-expressions-tutorial-regex/">
+	<img class="w-100" src="/assets/images/6.jpg" alt="Regular Expressions Tutorial Regex Heaven" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/sourcing-twitter-api/">Sourcing with the Twitter API</a>
+	</h2>
+	<p class="excerpt">
+	   Follow this process for sourcing with the Twitter API. Getting data using Ruby and the Twitter API
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#recruiting">Recruiting</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 15, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/sourcing-twitter-api/">
+	<img class="w-100" src="/assets/images/7.jpg" alt="Sourcing with the Twitter API" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/redirect-stdout-stderr-bash/">Redirect stdout and stderr in bash</a>
+	</h2>
+	<p class="excerpt">
+	   This is how to redirect stdout and stderr in bash.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 14, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/redirect-stdout-stderr-bash/">
+	<img class="w-100" src="/assets/images/4.jpg" alt="Redirect stdout and stderr in bash" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+        <div class="mt-5">
+         <!-- Pagination links -->
+            
+            <ul class="pagination"> 
+              
+                <li class="page-item"><a class="page-link" href="/page6">&laquo; Prev</a></li>
+              
+
+              
+                
+                <li class="page-item"><a class="page-link" href="/">1</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page2">2</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page3">3</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page4">4</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page5">5</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page6">6</a></li>
+                
+              
+                
+                <li class="page-item disabled"><span class="webjeda page-link">7</span></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page8">8</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page9">9</a></li>
+                
+              
+
+              
+                <li class="page-item"><a class="page-link" href="/page8">Next &raquo;</a></li>
+              
+            </ul>
+                  
+        </div>
+        
+    </div>
+    
+    <div class="col-md-4">
+        <div class="sticky-top sticky-top-offset">
+    <h4 class="font-weight-bold spanborder"><span>Featured</span></h4>  
+    <ol class="list-featured">				
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/d3-tutorial-data-visualization/" class="text-dark">D3 Tutorial for Data Visualization</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/tableau-tutorial-visualization-co2-world-dataset/" class="text-dark">Tableau Tutorial Visualization - CO2 World Dataset</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/python-logging-tutorial/" class="text-dark">Python Logging Tutorial</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/python-lambda-beautifulsoup/" class="text-dark">Python Lambda and BeautifulSoup</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/blackbelt-sourcing-github/" class="text-dark">Blackbelt Sourcing on Github</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#recruiting">Recruiting</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/crontab-selenium-chrome-driver/" class="text-dark">Crontab with Selenium and Chrome Driver</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+           
+    </ol>
+</div>     
+    </div>
+    
+</div>
+
+
+
+</div>
+:ET

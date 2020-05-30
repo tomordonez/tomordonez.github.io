@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "pip install SSL Module in Python Is Not Available"
-author: tom
+redirect_from:
+  - /pip-install-ssl-module-python-is-not-available.html
 categories: [Code]
 image: assets/images/4.jpg
 tags: [coding, linux, python]
@@ -9,7 +10,6 @@ tags: [coding, linux, python]
 
 Troubleshooting SSL Module in Python Is Not Available
 
-![pip install SSL Module in Python Is Not Available]({{ site.baseurl }}/assets/images/pip-install-ssl-module-python-is-not-available.jpg)
 
 Setup:
 
@@ -55,13 +55,6 @@ This worked too.
 I removed the `virtualenv` and created a new one:
 
     $ virtualenv -p /usr/bin/python3 env
-    $ source env/bin/activate
-
-Installing `requests`:
-
-    env$ pip install requests
-
-This works now.thon3 env
     $ source env/bin/activate
 
 Installing `requests`:

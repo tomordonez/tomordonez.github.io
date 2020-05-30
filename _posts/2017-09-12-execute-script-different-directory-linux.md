@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Execute a Script in a Different Directory in Linux"
-author: tom
+redirect_from:
+  - /execute-script-different-directory-linux.html
 categories: [Linux]
 image: assets/images/1.jpg
 tags: [linux, shell]
@@ -9,7 +10,6 @@ tags: [linux, shell]
 
 Follow this to execute a script in a different directory in Linux.
 
-![Execute a Script in a Different Directory in Linux]({{ site.baseurl }}/assets/images/execute-script-different-directory-linux.jpg)
 
 I had a script in `~/Documents/scripts/awesome-script.sh` and wanted to run it inside a different directory `~/Documents/images/awesome-images/`.
 
@@ -26,10 +26,3 @@ This is how it works:
 * If this command is successful then
 * Execute the script located in `~/Documents/scripts/awesome-script.sh`
 * When this command is executed. Close the subshell
-
-## If you have questions or comments please add them below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)
- or comments please add them below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Python Self"
-author: tom
+redirect_from:
+  - /python-self.html
 categories: [Code]
 image: assets/images/11.jpg
 tags: [coding, linux, python]
@@ -82,7 +83,3 @@ Following the same example as the Simpsons
     >>> muse.append('bass')
     >>> myBand.append(muse, 'bass')
     >>> myBand.append(self, arg1)
-
->>> myBand.append(muse, 'bass')
-    >>> myBand.append(self, arg1)
-

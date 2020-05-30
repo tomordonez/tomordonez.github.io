@@ -1,0 +1,86 @@
+I"~<p>Understanding <strong>Python self</strong>.</p>
+
+<p>This answer from <a href="https://stackoverflow.com/a/21366809" target="_blank">StackOverflow</a> helped me understand this concept a bit better.</p>
+
+<h2 id="the-simpsons-self-and-python">The Simpsons, Self and Python</h2>
+
+<p>If you have a <code class="language-plaintext highlighter-rouge">class</code> called <code class="language-plaintext highlighter-rouge">list</code> with a method called <code class="language-plaintext highlighter-rouge">append</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; simpsons = list()
+&gt;&gt;&gt; simpsons.append('homer')
+&gt;&gt;&gt; simpsons
+['homer']
+</code></pre></div></div>
+
+<p>The method is defined as this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def append(self, arg1, arg2):
+    # do something
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">simpsons</code> object is an instance of the class <code class="language-plaintext highlighter-rouge">list</code>.</p>
+
+<p>As the solution says, but using my example:</p>
+
+<p>When <code class="language-plaintext highlighter-rouge">simpsons.append('homer')</code> is called, Python internally converts this to:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list.append(simpsons, 'homer')
+</code></pre></div></div>
+
+<p>If I run this again with another argument:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; list.append(simpsons, 'bart')
+&gt;&gt;&gt; simpsons
+['homer', 'bart']
+</code></pre></div></div>
+
+<p>Which means that these 2 do the same:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; simpsons.append('bart')
+&gt;&gt;&gt; list.append(simpsons, 'bart')
+</code></pre></div></div>
+
+<p>Looking at this again:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def append(self, arg1)
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">self</code> variable refers to the object.</p>
+
+<h2 id="rock-bands-self-and-python">Rock bands, Self and Python</h2>
+
+<p>This is another good answer about <code class="language-plaintext highlighter-rouge">self</code> and Python in <a href="https://www.quora.com/What-does-self-mean-in-python-class-Why-do-we-need-it" target="_blank">Quora</a>.</p>
+
+<p>The first few paragraphs create a good context for understanding <code class="language-plaintext highlighter-rouge">self</code>.</p>
+
+<ul>
+  <li>A class has methods</li>
+  <li>A class can have multiple objects</li>
+</ul>
+
+<p>Here is an interesting question.</p>
+
+<p>“When an object calls a method of the class, how would the method know which object has called it?”</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class myBand:
+    def __init__(self):
+        self.instruments = []
+        self.instruments.append('drums')
+
+    def append(self):
+        awesome append code
+
+muse = myBand()
+muse.append('bass')  # prints ['drums', 'bass']
+
+radiohead = myBand()
+radiohead.append('moog') # prints ['drums', 'moog']
+</code></pre></div></div>
+
+<p>Following the same example as the Simpsons</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; muse.append('bass')
+&gt;&gt;&gt; myBand.append(muse, 'bass')
+&gt;&gt;&gt; myBand.append(self, arg1)
+</code></pre></div></div>
+:ET

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Crontab with Selenium and Chrome Driver"
-author: tom
+redirect_from:
+  - /crontab-selenium-chrome-driver.html
 categories: [Code]
 image: assets/images/7.jpg
 tags: [featured, crontab, selenium, chrome driver]
@@ -9,7 +10,6 @@ tags: [featured, crontab, selenium, chrome driver]
 
 This is how to setup a crontab with Selenium and Chrome Driver
 
-![Crontab with Selenium and Chrome Driver]({{ site.baseurl }}/assets/images/crontab-selenium-chrome-driver.jpg)
 
 If you are here I assume you have some knowledge of `cron`. Otherwise read this <a href="https://www.tomordonez.com/automating-tasks-crontab.html">cronjob tutorial</a>.
 
@@ -101,8 +101,3 @@ You are setting the `DISPLAY` variable before executing any command.
 You are using the full path to where the files are.
 
 And you are sending stdout and stderr to a log file for troubleshooting.
-
-path to where the files are.
-
-And you are sending stdout and stderr to a log file for troubleshooting.
-

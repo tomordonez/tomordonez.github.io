@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Sourcing with the Twitter API"
-author: tom
+redirect_from:
+  - /sourcing-twitter-api.html
 categories: [Recruiting]
 image: assets/images/7.jpg
 tags: [sourcing, recruiting, getting data, twitter api]
@@ -9,7 +10,6 @@ tags: [sourcing, recruiting, getting data, twitter api]
 
 Follow this process for sourcing with the Twitter API. Getting data using Ruby and the Twitter API
 
-![Sourcing with the Twitter API]({{ site.baseurl }}/assets/images/sourcing-twitter-api.jpg)
 
 Twitter CLI is a command line interface program that allows you to interact with your Twitter account using the command line.
 
@@ -375,12 +375,3 @@ These are some of the columns from the CSV file:
 * Bio
 * Location
 * URL
-
-![Twitter Sourcing with Tom Ordonez]({{ site.baseurl }}/assets/images/twitter-sourcing-tomordonez-csv-details.gif)
-
-## If you have questions or comments please add them below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)
-ve questions or comments please add them below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)

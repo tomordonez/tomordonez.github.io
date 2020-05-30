@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Automating Tasks with Crontab"
-author: tom
+redirect_from:
+  - /automating-tasks-crontab.html
 categories: [Code]
 image: assets/images/2.jpg
 tags: [crontab, automation, linux]
@@ -9,7 +10,6 @@ tags: [crontab, automation, linux]
 
 Automating tasks with crontab can save you hours of work. This is a short tutorial about cron jobs.
 
-![Automating Tasks with Crontab]({{ site.baseurl }}/assets/images/automating-tasks-crontab.jpg)
 
 ## Automating tasks
 
@@ -309,12 +309,6 @@ Which would give something like:
 
     UID        PID  PPID  C STIME TTY          TIME CMD
     tom      20979 20978  0 07:45 ?        00:00:00 /usr/bin/python awesome.py
-
-Then you can kill the cron job with:
-
-    kill PID
-
-In my case I would do: `kill 20979`5 ?        00:00:00 /usr/bin/python awesome.py
 
 Then you can kill the cron job with:
 

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Tableau Tutorial Visualization - CO2 World Dataset"
-author: tom
+redirect_from:
+  - /tableau-tutorial-visualization-co2-world-dataset.html
 categories: [Data Analytics]
 image: assets/images/11.jpg
 tags: [featured, tableau, visualization, analytics]
@@ -160,8 +161,5 @@ Drag both sheets from the left window to the canvas.
 On the right margin on the filters, right click on each window and click on Remove from Dashboard.
 
 From the bottom left. Go to `Objects` and drag a Text to add a title.
-
-![Tableau Tutorial Visualization - Dashboard]({{ site.baseurl }}/assets/images/tableau-tutorial-visualization-dashboard.jpg)
-a Text to add a title.
 
 ![Tableau Tutorial Visualization - Dashboard]({{ site.baseurl }}/assets/images/tableau-tutorial-visualization-dashboard.jpg)

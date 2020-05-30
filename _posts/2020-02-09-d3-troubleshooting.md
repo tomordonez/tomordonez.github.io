@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "D3 Troubleshooting"
-author: tom
+redirect_from:
+  - /d3-troubleshooting.html
 categories: [Data Analytics]
 image: assets/images/1.jpg
 tags: [analytics, data visualization]
 ---
 
-Here is a [D3 Tutorial for Data Visualization](https://www.tomordonez.com/d3-tutorial-data-visualization.html).
 
 D3 is a great JavaScript library for data visualization. However, like every technology, it can be annoying when you don't know why things don't work as expected.
 

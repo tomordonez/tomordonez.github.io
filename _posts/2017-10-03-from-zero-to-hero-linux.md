@@ -1,15 +1,14 @@
 ---
 layout: post
 title: "From Zero to Hero in Linux"
-author: tom
+redirect_from:
+  - /from-zero-to-hero-linux.html
 categories: [Linux]
 image: assets/images/8.jpg
 tags: [linux, shell, command line]
 ---
 
 From zero to hero in Linux is a tutorial to learn the command line and basic Linux commands.
-
-![From Zero to Hero in Linux]({{ site.baseurl }}/assets/images/from-zero-to-hero-linux.jpg)
 
 This is a great tutorial if you are:
 
@@ -364,6 +363,3 @@ Let's use a combination of previous commands:
     4
 
 I used `cat emails.csv` to open the file. Used the `|` pipe to send the output of that to the input of `wc -l` which is used to count the lines. In this case four lines.
-
- the `|` pipe to send the output of that to the input of `wc -l` which is used to count the lines. In this case four lines.
-

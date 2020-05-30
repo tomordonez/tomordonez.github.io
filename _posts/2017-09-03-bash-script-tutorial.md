@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Bash Script Tutorial"
-author: tom
+redirect_from:
+  - /bash-script-tutorial.html
 categories: [Linux]
 image: assets/images/6.jpg
 tags: [linux, bash, scripts, vim]
@@ -9,7 +10,6 @@ tags: [linux, bash, scripts, vim]
 
 In this bash script tutorial you will learn the basics to create bash scripts.
 
-![Bash Script Tutorial]({{ site.baseurl }}/assets/images/bash-script-tutorial.jpg)
 
 ## Bash Script Environment
 
@@ -159,22 +159,3 @@ Random number from 1 to 100:
       filenumber="$(($filenumber + 1))"
       mv "$file" "$filenumber$filetype"
     done
-
-## Insert files at intervals in current directory
-
-Copy files in this sequence: 2, 8, 14...etc.
-The sequence requires the algorithm: `2 + (6 * n)
-The files are copied like this: 2a, 8a, 14a.
-
-    while [ $counter -lt $directory_size ]; do
-      sponsornumber="$(((6 * $counter) + 2))"
-      cp sponsor_directory/sponsor_file.jpg "$sponsornumber"a"$filetype"
-      counter="$(($counter + 1))"
-    done
-
-## If you have questions or comments please add them below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)
-ents please add them below
-
-![Ask Question or Comment]({{ site.baseurl }}/assets/images/tomordonez-ask-question-comment.gif)

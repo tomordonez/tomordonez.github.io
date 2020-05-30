@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Remote Access Linux Fedora Desktop in LAN"
-author: tom
+redirect_from:
+  - /remote-access-linux-fedora.html
 categories: [Linux]
 image: assets/images/3.jpg
 tags: [sysadmin, linux, fedora, remote]
@@ -44,10 +45,4 @@ I found that connecting to `something.local` for the first time it worked with n
 Using the remote IP address works every time. Find the remote IP and connect using SSH.
 
     ssh remote-IP-address
-
-
-ss works every time. Find the remote IP and connect using SSH.
-
-    ssh remote-IP-address
-
 

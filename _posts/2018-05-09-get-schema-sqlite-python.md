@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Get Schema in SQLite with Python"
-author: tom
+redirect_from:
+  - /get-schema-sqlite-python.html
 categories: [Code]
 image: assets/images/4.jpg
 tags: [coding, linux, python]
@@ -116,10 +117,4 @@ Let's add it here:
     (0, 'id', 'INTEGER', 0, None, 1)
     (1, 'name', 'TEXT', 0, None, 0)
     (2, 'email', 'TEXT', 0, None, 0)
-
-I bet you can do something creative pulling the column names into Python.
-
-None, 0)
-
-I bet you can do something creative pulling the column names into Python.
 

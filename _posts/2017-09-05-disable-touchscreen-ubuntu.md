@@ -3,6 +3,7 @@ layout: post
 title: "Disable Touchscreen on Ubuntu"
 redirect_from:
   - /disable-touchscreen-ubuntu.html
+  - /disable-touchscreen-ubuntu.html
 author: tom
 categories: [Linux]
 image: assets/images/7.jpg
@@ -10,8 +11,6 @@ tags: [ubuntu, linux, touchscreen]
 ---
 
 Follow this process to **disable touchscreen on Ubuntu**.
-
-![Disable Touchscreen on Ubuntu]({{ site.baseurl }}/assets/images/disable-touchscreen-ubuntu.jpg)
 
 Go to the terminal and type `man xinput`
 
@@ -55,10 +54,3 @@ If you feel like you made a mistake and cannot live without the touchscreen then
     xinput enable 15
 
 Using obviously the `id` that corresponds to your config.
-
-osite:
-
-    xinput enable 15
-
-Using obviously the `id` that corresponds to your config.
-

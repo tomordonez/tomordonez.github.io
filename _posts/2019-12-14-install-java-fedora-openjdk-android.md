@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Install Java on Fedora with OpenJDK"
-author: tom
+redirect_from:
+  - /install-java-fedora-openjdk-android.html
 categories: [Linux]
 image: assets/images/11.jpg
 tags: [linux, fedora, java, openjdk, jshell]
@@ -214,12 +215,6 @@ Use `vim` as an editor within `JShell`:
 	jshell> /edit
 
 It opens `vim`, which has everything I typed so far. I added a method, then saved, and closed the file:
-
-    |  created method cube(double)
-
-	jshell> cube(2);
-	$6 ==> 8.0
-	|  created scratch variable $6 : doublen saved, and closed the file:
 
     |  created method cube(double)
 

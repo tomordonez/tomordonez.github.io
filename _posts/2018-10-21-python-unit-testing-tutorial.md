@@ -1,15 +1,14 @@
 ---
 layout: post
 title: "Python Unit Testing Tutorial"
-author: tom
+redirect_from:
+  - /python-unit-testing-tutorial.html
 categories: [Code]
 image: assets/images/8.jpg
 tags: [coding, linux, python, unittest, mock]
 ---
 
 This is a tutorial about unit testing in Python.
-
-![Python Unit Testing Tutorial]({{ site.baseurl }}/assets/images/python-unit-testing-tutorial.jpg)
 
 Here are some great resources that helped me write this tutorial:
 
@@ -621,5 +620,3 @@ Review all the code for `test_user.py`:
 I don't fully understand `Mock` but here are more resources:
 
 * Get all the `Mock` details from the official docs <a href="https://docs.python.org/3/library/unittest.mock.html" target="_blank">here</a>.
-* To read the source code for `mock` go <a href="https://github.com/python/cpython/blob/3.7/Lib/unittest/mock.py" target="_blank">here</a>.
-* Get all the details about <a href="https://docs.python.org/3/library/unittest.html" target="_blank">unittest</a>. <a href="https://docs.python.org/3/library/unittest.html" target="_blank">unittest</a>.

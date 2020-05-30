@@ -1,15 +1,14 @@
 ---
 layout: post
 title: "Python Logging Tutorial"
-author: tom
+redirect_from:
+  - /python-logging-tutorial.html
 categories: [Code]
 image: assets/images/5.jpg
 tags: [featured, coding, linux, python]
 ---
 
 This is a short tutorial about logging in Python.
-
-![Python Logging Tutorial]({{ site.baseurl }}/assets/images/python-logging-tutorial.jpg)
 
 Follow the official documentation about logging <a href="https://docs.python.org/3/library/logging.html" target="_blank">here</a>.
 

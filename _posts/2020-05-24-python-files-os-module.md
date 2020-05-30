@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Python, Files, and OS Module"
-author: tom
 categories: [Code]
 image: assets/images/11.jpg
 tags: [python]

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Linkedin Recruiter Bookmarklet"
-author: tom
+redirect_from:
+  - /linkedin-recruiter-bookmarklet.html
 categories: [Recruiting]
 image: assets/images/11.jpg
 tags: [sourcing, linkedin recruiter]

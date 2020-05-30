@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Review of Programming for Everybody in Python from Coursera"
-author: tom
+redirect_from:
+  - /review-programming-for-everybody-coursera.html
 categories: [Data Analytics]
 image: assets/images/7.jpg
 tags: [data science, coursera, python]
@@ -90,13 +91,3 @@ The example uses all the lessons from the course with the exception of the for l
 * try and except
 * if conditional
 * input
-
-oursera.jpg)
-
-The example uses all the lessons from the course with the exception of the for loop:
-
-* while
-* try and except
-* if conditional
-* input
-
