@@ -12,6 +12,13 @@ GIT
     jekyll-paginate (1.1.0)
 
 GIT
+  remote: https://github.com/jekyll/jekyll-redirect-from.git
+  revision: d1ccfdf3d6a2d7d05cf019031a3743b03a5ffbe6
+  specs:
+    jekyll-redirect-from (0.16.0)
+      jekyll (>= 3.3, < 5.0)
+
+GIT
   remote: https://github.com/jekyll/jekyll-seo-tag.git
   revision: 6135021410981d2d76878568e9c21cf363882bfe
   specs:
@@ -101,6 +108,7 @@ DEPENDENCIES
   jekyll!
   jekyll-feed!
   jekyll-paginate!
+  jekyll-redirect-from!
   jekyll-seo-tag!
   jekyll-sitemap!
 

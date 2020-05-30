@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Disable Touchscreen on Ubuntu"
+redirect_from:
+  - /disable-touchscreen-ubuntu.html
 author: tom
 categories: [Linux]
 image: assets/images/7.jpg

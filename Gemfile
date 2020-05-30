@@ -17,4 +17,5 @@ group :jekyll_plugins do
     gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'
     gem 'jekyll-paginate', github: 'jekyll/jekyll-paginate'
     gem 'jekyll-seo-tag', github: 'jekyll/jekyll-seo-tag'
+    gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
 end

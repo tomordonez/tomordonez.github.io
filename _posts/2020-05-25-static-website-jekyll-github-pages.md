@@ -27,6 +27,8 @@ Install RVM as seen [here](http://rvm.io/)
 	$ gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 	$ \curl -sSL https://get.rvm.io | bash -s stable
 
+If you are on Linux/Gnome. As seen [here](https://rvm.io/integration/gnome-terminal). Go to the Terminal preferences and find a checkbox that says `Run command as a login shell`. This must be checked.
+
 Close the terminal and open it again.
 
     $ source ~/.rvm/scripts/rvm
@@ -157,7 +159,6 @@ Setup the repo:
 	$ git init
 	$ git remote add origin link-to-repo
 
-
 ## CNAME, robots.txt and favicon.ico
 
 If you have a custom domain, create a `CNAME` file, add a line with your website, and save it to your local blog root directory:
@@ -249,6 +250,7 @@ If you have `plugins` update them to this:
 	    gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'
 	    gem 'jekyll-paginate', github: 'jekyll/jekyll-paginate'
 	    gem 'jekyll-seo-tag', github: 'jekyll/jekyll-seo-tag'
+	    gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
 	end
 
 Then run `bundle install`
@@ -354,6 +356,35 @@ Make any changes to the following:
 	_layouts/
 	_pages/
 	_posts/
+
+## Creating redirects
+
+Add this to the `Gemfile` in the `plugins` block:
+
+	gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
+
+Then run `bundle install`.
+
+As seen in the docs [here](https://github.com/jekyll/jekyll-redirect-from)
+
+Add it to the `_config.yml` under `plugins`
+
+	- jekyll-redirect-from
+
+My problem was that for my previous website, the blog posts had this format:
+
+	blog_post_name.html
+
+This new website removes the `.html` and a lot of blog posts crawled by google are being sent to a `404 File not found page`.
+
+I want to redirect `blog_post_name.html` to `blog_post_name/`
+
+In the blog post the header should show something like this:
+
+	title: "Blog Post Name"
+	redirect_from:
+	  - /blog_post_name.html
+
 
 ## Migrating content
 

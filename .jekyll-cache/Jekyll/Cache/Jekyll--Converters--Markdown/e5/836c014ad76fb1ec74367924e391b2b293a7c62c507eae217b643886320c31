@@ -1,4 +1,4 @@
-I"ÚM<p>I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.</p>
+I"V<p>I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.</p>
 
 <p>Sources:</p>
 <ul>
@@ -19,6 +19,8 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 $ \curl -sSL https://get.rvm.io | bash -s stable
 </code></pre></div></div>
+
+<p>If you are on Linux/Gnome. As seen <a href="https://rvm.io/integration/gnome-terminal">here</a>. Go to the Terminal preferences and find a checkbox that says <code class="language-plaintext highlighter-rouge">Run command as a login shell</code>. This must be checked.</p>
 
 <p>Close the terminal and open it again.</p>
 
@@ -267,6 +269,7 @@ Always Use HTTPS
     gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'
     gem 'jekyll-paginate', github: 'jekyll/jekyll-paginate'
     gem 'jekyll-seo-tag', github: 'jekyll/jekyll-seo-tag'
+    gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
 end
 </code></pre></div></div>
 
@@ -374,6 +377,38 @@ index.html
 _layouts/
 _pages/
 _posts/
+</code></pre></div></div>
+
+<h2 id="creating-redirects">Creating redirects</h2>
+
+<p>Add this to the <code class="language-plaintext highlighter-rouge">Gemfile</code> in the <code class="language-plaintext highlighter-rouge">plugins</code> block:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
+</code></pre></div></div>
+
+<p>Then run <code class="language-plaintext highlighter-rouge">bundle install</code>.</p>
+
+<p>As seen in the docs <a href="https://github.com/jekyll/jekyll-redirect-from">here</a></p>
+
+<p>Add it to the <code class="language-plaintext highlighter-rouge">_config.yml</code> under <code class="language-plaintext highlighter-rouge">plugins</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- jekyll-redirect-from
+</code></pre></div></div>
+
+<p>My problem was that for my previous website, the blog posts had this format:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blog_post_name.html
+</code></pre></div></div>
+
+<p>This new website removes the <code class="language-plaintext highlighter-rouge">.html</code> and a lot of blog posts crawled by google are being sent to a <code class="language-plaintext highlighter-rouge">404 File not found page</code>.</p>
+
+<p>I want to redirect <code class="language-plaintext highlighter-rouge">blog_post_name.html</code> to <code class="language-plaintext highlighter-rouge">blog_post_name/</code></p>
+
+<p>In the blog post the header should show something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>title: "Blog Post Name"
+redirect_from:
+  - /blog_post_name.html
 </code></pre></div></div>
 
 <h2 id="migrating-content">Migrating content</h2>
