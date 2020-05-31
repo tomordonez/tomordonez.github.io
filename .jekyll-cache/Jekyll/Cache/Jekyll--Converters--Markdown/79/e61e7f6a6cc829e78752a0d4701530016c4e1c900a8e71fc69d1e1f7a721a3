@@ -1,4 +1,4 @@
-I"QV<p>I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.</p>
+I"ÞY<p>I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.</p>
 
 <p>Sources:</p>
 <ul>
@@ -181,6 +181,13 @@ $ git remote add origin link-to-repo
 <p>Create a <code class="language-plaintext highlighter-rouge">robots.txt</code> and add this line to the file:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+</code></pre></div></div>
+
+<p>You can also use <code class="language-plaintext highlighter-rouge">Disallow</code> for bad URLs.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+Disallow: /bad.html
+Allow: /
 </code></pre></div></div>
 
 <p>Go to <code class="language-plaintext highlighter-rouge">assets/images/</code> and add a <code class="language-plaintext highlighter-rouge">favicon.ico</code> image.</p>
@@ -408,6 +415,21 @@ _posts/
 redirect_from:
   - /blog_post_name.html
 </code></pre></div></div>
+
+<h2 id="404-page">404 page</h2>
+
+<p>More about 404 pages <a href="https://help.github.com/en/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site">here</a></p>
+
+<p>You can create a <code class="language-plaintext highlighter-rouge">404.md</code> file if you add this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+permalink: /404.html
+---
+</code></pre></div></div>
+
+<p>Or just create a <code class="language-plaintext highlighter-rouge">404.md</code></p>
+
+<p>You can also use redirects if search engines are crawling bad URLs.</p>
 
 <h2 id="migrating-content">Migrating content</h2>
 

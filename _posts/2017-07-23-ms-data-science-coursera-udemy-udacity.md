@@ -57,7 +57,6 @@ Over the years managing engineering projects I learned that copy/paste is your w
 
 I always go by "never copy paste what you don't understand".
 
-## I wrote a story about the <a href="https://www.datasciencegrows.com/best-time-to-run-according-to-science.html" target="_blank">best time to run according to science</a>.
 
 I used a data set about ozone levels in the US from 2016. I did some exploratory data analysis and created plots for a few cities. This was a great learning experience.
 

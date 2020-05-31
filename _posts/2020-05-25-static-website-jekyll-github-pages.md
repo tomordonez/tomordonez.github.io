@@ -168,6 +168,12 @@ Create a `robots.txt` and add this line to the file:
 
     User-agent: *
 
+You can also use `Disallow` for bad URLs.
+
+	User-agent: *
+	Disallow: /bad.html
+	Allow: /
+
 Go to `assets/images/` and add a `favicon.ico` image.
 
 
@@ -383,6 +389,20 @@ In the blog post the header should show something like this:
 	title: "Blog Post Name"
 	redirect_from:
 	  - /blog_post_name.html
+
+## 404 page
+
+More about 404 pages [here](https://help.github.com/en/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site)
+
+You can create a `404.md` file if you add this:
+
+	---
+	permalink: /404.html
+	---
+
+Or just create a `404.md`
+
+You can also use redirects if search engines are crawling bad URLs.
 
 
 ## Migrating content
