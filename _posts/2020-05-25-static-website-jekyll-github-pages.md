@@ -208,9 +208,7 @@ Create these records in Cloudflare:
     TXT     yoursite.com       youruser.github.io
 
 
-Add `A` records as seen here:
-
-https://help.github.com/articles/setting-up-an-apex-domain/
+Add `A` records as seen on [Setting up an Apex domain](https://help.github.com/articles/setting-up-an-apex-domain/)
 
 Add `TXT` record to verify Google webmaster tools:
 
@@ -272,13 +270,14 @@ This error pointed to `index.html:513`. I looked at the code and one of my blog 
 
 This error points to this file:
 
+	{% raw %}
 	_includes/search_lunr.html
+	{% endraw %}
 
 
 To this code:
 
-{% raw %}
-
+	{% raw %}
 	function lunr_search(term) {
 	    $('#lunrsearchresults').show( 1000 );
 	    $( "body" ).addClass( "modal-open" );
@@ -317,8 +316,7 @@ To this code:
 	<form class="bd-search hidden-sm-down" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
 	<input type="text" class="form-control text-small"  id="lunrsearch" name="q" value="" placeholder="Type keyword and enter..."> 
 	</form>
-
-{% endraw %}
+	{% endraw %}
 
 
 Couldn't fix as shown [here](https://stackoverflow.com/questions/30803497/onsubmit-function-is-not-defined). However, the error went away when I corrected the previous error `Invalid hexadecimal escape sequence`.
