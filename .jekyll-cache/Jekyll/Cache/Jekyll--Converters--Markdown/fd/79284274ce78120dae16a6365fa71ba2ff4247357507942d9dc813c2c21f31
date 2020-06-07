@@ -1,4 +1,4 @@
-I"ûY<p>I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.</p>
+I"¯N<p>I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.</p>
 
 <p>Sources:</p>
 <ul>
@@ -293,49 +293,9 @@ end
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_includes/search_lunr.html
 </code></pre></div></div>
 
-<p>To this code:</p>
+<p>To the <code class="language-plaintext highlighter-rouge">lunr_search</code> function.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function lunr_search(term) {
-    $('#lunrsearchresults').show( 1000 );
-    $( "body" ).addClass( "modal-open" );
-    
-    document.getElementById('lunrsearchresults').innerHTML = '&lt;div id="resultsmodal" class="modal fade show d-block"  tabindex="-1" role="dialog" aria-labelledby="resultsmodal"&gt; &lt;div class="modal-dialog shadow-lg" role="document"&gt; &lt;div class="modal-content"&gt; &lt;div class="modal-header" id="modtit"&gt; &lt;button type="button" class="close" id="btnx" data-dismiss="modal" aria-label="Close"&gt; &amp;times; &lt;/button&gt; &lt;/div&gt; &lt;div class="modal-body"&gt; &lt;ul class="mb-0"&gt; &lt;/ul&gt;    &lt;/div&gt; &lt;div class="modal-footer"&gt;&lt;button id="btnx" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"&gt;Close&lt;/button&gt;&lt;/div&gt;&lt;/div&gt; &lt;/div&gt;&lt;/div&gt;';
-    if(term) {
-        document.getElementById('modtit').innerHTML = "&lt;h5 class='modal-title'&gt;Search results for '" + term + "'&lt;/h5&gt;" + document.getElementById('modtit').innerHTML;
-        //put results on the screen.
-        var results = idx.search(term);
-        if(results.length&gt;0){
-            //console.log(idx.search(term));
-            //if results
-            for (var i = 0; i &lt; results.length; i++) {
-                // more statements
-                var ref = results[i]['ref'];
-                var url = documents[ref]['url'];
-                var title = documents[ref]['title'];
-                var body = documents[ref]['body'].substring(0,160)+'...';
-                document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML + "&lt;li class='lunrsearchresult'&gt;&lt;a href='" + url + "'&gt;&lt;span class='title'&gt;" + title + "&lt;/span&gt;&lt;br /&gt;&lt;small&gt;&lt;span class='body'&gt;"+ body +"&lt;/span&gt;&lt;br /&gt;&lt;span class='url'&gt;"+ url +"&lt;/span&gt;&lt;/small&gt;&lt;/a&gt;&lt;/li&gt;";
-            }
-        } else {
-            document.querySelectorAll('#lunrsearchresults ul')[0].innerHTML = "&lt;li class='lunrsearchresult'&gt;Sorry, no results found. Close &amp; try a different search!&lt;/li&gt;";
-        }
-    }
-    return false;
-}
-&lt;/script&gt;
-&lt;style&gt;
-    .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
-    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
-    .lunrsearchresult a:hover .title {text-decoration: underline;}
-&lt;/style&gt;
-
-&lt;form class="bd-search hidden-sm-down" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);"&gt;
-&lt;input type="text" class="form-control text-small"  id="lunrsearch" name="q" value="" placeholder="Type keyword and enter..."&gt; 
-&lt;/form&gt;
-</code></pre></div></div>
-
-<p>Couldnâ€™t fix as shown <a href="https://stackoverflow.com/questions/30803497/onsubmit-function-is-not-defined">here</a>. However, the error went away when I corrected the previous error <code class="language-plaintext highlighter-rouge">Invalid hexadecimal escape sequence</code>.</p>
+<p>Couldnâ€™t fix it as shown <a href="https://stackoverflow.com/questions/30803497/onsubmit-function-is-not-defined">here</a>. However, the error went away when I corrected the previous error <code class="language-plaintext highlighter-rouge">Invalid hexadecimal escape sequence</code>.</p>
 
 <p>Other issues not resolved yet:</p>
 

@@ -1,4 +1,4 @@
-I"äù<p>(This blog post being revised)</p>
+I"§ù<p>(This blog post being revised. It might not show correctly in Safari/Reader view)</p>
 
 <p>This is a tutorial to extract data from the Google Maps API using Python.</p>
 
@@ -273,9 +273,7 @@ Service Usage API
 
 <p>Example, using Google Maps Python client library:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% raw %}
-
-&gt;&gt;&gt; place = gmaps.places_nearby(location=(37.4222339,-122.0854804), radius=5000, keyword="startup", language="en")
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; place = gmaps.places_nearby(location=(37.4222339,-122.0854804), radius=5000, keyword="startup", language="en")
 
 &gt;&gt;&gt; place
 {'html_attributions': [], 'results': [], 'status': 'ZERO_RESULTS'}
@@ -299,8 +297,6 @@ est': {'lat': 37.45713972010728, 'lng': -122.1742241298927}}}, 'icon': 'https://
 
 &gt;&gt;&gt; [item['name'] for item in place['results']]
 ['BootUp Ventures: Startup Ecosystem Co-Working, Office Suites &amp; Event Space', 'Startup Capital Ventures', 'Startup Rabbit', 'Cab Startup', 'Startup Launchpad, Inc', 'BootUpWorld', 'Startup Realty', 'Plug and Play Tech Center', 'Mercury', 'Palo-Alto Startup House', 'Bay Area Startups Services, Inc', 'Nuro', 'The Hive', 'Starship Technologies', EquityBee', 'Fyde', 'HelloStartups', 'sFoundation Inc.', 'Y Combinator', 'Osaka Innovation Hub Silicon Valley Office']
-
-{% endraw %}
 </code></pre></div></div>
 
 <h2 id="text-search-requests">Text Search Requests</h2>

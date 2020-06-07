@@ -8,7 +8,7 @@ image: assets/images/2.jpg
 tags: [featured, data analytics, data visualization, D3, javascript]
 ---
 
-(This blog post being revised)
+(This blog post is being revised)
 
 ## Resources:
 

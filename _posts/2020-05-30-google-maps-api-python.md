@@ -7,7 +7,7 @@ image: assets/images/3.jpg
 tags: [analytics, API, Python, Google Maps]
 ---
 
-(This blog post being revised)
+(This blog post being revised. It might not show correctly in Safari/Reader view)
 
 This is a tutorial to extract data from the Google Maps API using Python.
 
@@ -263,7 +263,6 @@ The `URL` has this form:
 
 Example, using Google Maps Python client library:
 
-	{% raw %}
 	>>> place = gmaps.places_nearby(location=(37.4222339,-122.0854804), radius=5000, keyword="startup", language="en")
 
 	>>> place
@@ -288,7 +287,6 @@ Example, using Google Maps Python client library:
 
 	>>> [item['name'] for item in place['results']]
 	['BootUp Ventures: Startup Ecosystem Co-Working, Office Suites & Event Space', 'Startup Capital Ventures', 'Startup Rabbit', 'Cab Startup', 'Startup Launchpad, Inc', 'BootUpWorld', 'Startup Realty', 'Plug and Play Tech Center', 'Mercury', 'Palo-Alto Startup House', 'Bay Area Startups Services, Inc', 'Nuro', 'The Hive', 'Starship Technologies', EquityBee', 'Fyde', 'HelloStartups', 'sFoundation Inc.', 'Y Combinator', 'Osaka Innovation Hub Silicon Valley Office']
-	{% endraw %}
 
 ## Text Search Requests
 

@@ -1,4 +1,4 @@
-I"ª<p>Migrating from one static website to another, I had to rename multiple files, extract some content, remove it, and do other operations.</p>
+I"Ö<p>Migrating from one static website to another, I had to rename multiple files, extract some content, remove it, and do other operations.</p>
 
 <p>For about 100 blog posts I had to rename the files from <code class="language-plaintext highlighter-rouge">title.md</code> to the format <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-title.md</code>.</p>
 
@@ -16,7 +16,8 @@ Summary: A blog post about Markdown editor.
 
 <p>And I had to change it to this</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% raw %}
+---
 layout: post
 title:  "Powerful things you can do with the Markdown editor"
 author: tom
@@ -24,6 +25,7 @@ categories: [ Jekyll, tutorial ]
 image: assets/images/11.jpg
 tags: [featured]
 ---
+{% endraw %}
 </code></pre></div></div>
 
 <p>Some blog posts also contained images which used this syntax <code class="language-plaintext highlighter-rouge">{static}/images/</code>, and I had to change it to this:</p>
@@ -118,7 +120,7 @@ for blogpost in os.listdir():
 
 			# Correct image syntax in content
 			# From this syntax: ![Scraping]({static}/images/scraping.jpg)
-			# To this:![Scraping]({{ site.baseurl }}/assets/images/scraping.jpg)
+			{% raw %}# To this:![Scraping]({{ site.baseurl }}/assets/images/scraping.jpg){% endraw %}
 			with open(dest, 'r') as fh:
 				filedata = fh.read()
 

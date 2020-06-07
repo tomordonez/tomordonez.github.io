@@ -23,6 +23,7 @@ The header of each post looked like this:
 
 And I had to change it to this
 
+	{% raw %}
 	---
 	layout: post
 	title:  "Powerful things you can do with the Markdown editor"
@@ -31,6 +32,7 @@ And I had to change it to this
 	image: assets/images/11.jpg
 	tags: [featured]
 	---
+	{% endraw %}
 
 Some blog posts also contained images which used this syntax `{static}/images/`, and I had to change it to this:
 
@@ -123,7 +125,7 @@ This is what the Python script looks like, it's not the best but it worked. This
 
 				# Correct image syntax in content
 				# From this syntax: ![Scraping]({static}/images/scraping.jpg)
-				# To this:![Scraping]({{ site.baseurl }}/assets/images/scraping.jpg)
+				{% raw %}# To this:![Scraping]({{ site.baseurl }}/assets/images/scraping.jpg){% endraw %}
 				with open(dest, 'r') as fh:
 					filedata = fh.read()
 

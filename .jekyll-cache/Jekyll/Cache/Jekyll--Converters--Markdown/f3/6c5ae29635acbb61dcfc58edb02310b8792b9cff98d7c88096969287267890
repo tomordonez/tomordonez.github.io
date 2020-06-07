@@ -1,4 +1,4 @@
-I"l<p>Migrating from one static website to another, I had to rename multiple files, extract some content, remove it, and do other operations.</p>
+I"~<p>Migrating from one static website to another, I had to rename multiple files, extract some content, remove it, and do other operations.</p>
 
 <p>For about 100 blog posts I had to rename the files from <code class="language-plaintext highlighter-rouge">title.md</code> to the format <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-title.md</code>.</p>
 
@@ -116,7 +116,7 @@ for blogpost in os.listdir():
 
 			# Correct image syntax in content
 			# From this syntax: ![Scraping]({static}/images/scraping.jpg)
-			# To this:![Scraping](/assets/images/scraping.jpg)
+			# To this:![Scraping]({{ site.baseurl }}/assets/images/scraping.jpg)
 			with open(dest, 'r') as fh:
 				filedata = fh.read()
 
