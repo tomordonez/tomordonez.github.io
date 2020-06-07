@@ -16,47 +16,47 @@ Before installing Miniconda. Create the `.conda` directory in your home folder:
 
     $ mkdir ~/.conda
 
-Then use the script to install Miniconda. Find your install file from here:
-https://docs.conda.io/en/latest/miniconda.html
+Then use the script to install Miniconda. Find your install file from [here](
+https://docs.conda.io/en/latest/miniconda.html)
 
 For Linux:
 
     $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     $ bash Miniconda3-latest-Linux-x86_64.sh
 
-Welcome to Miniconda3 4.7.10
-In order to continue the installation process, please review the license agreement.
-Please, press ENTER to continue
+    Welcome to Miniconda3 4.7.10
+    In order to continue the installation process, please review the license agreement.
+    Please, press ENTER to continue
 
-===================================
-Miniconda End User License Agreement
+    ===================================
+    Miniconda End User License Agreement
 
-...
-Cryptography Notice
+    ...
+    Cryptography Notice
 
-This distribution includes cryptographic software. The country in which you currently reside may have restrictions on the import, possession, use, and/or re-export to anothe
-r country, of encryption software. BEFORE using any encryption software, please check your country's laws, regulations and policies concerning the import, possession, or use
-, and re-export of encryption software, to see if this is permitted. See the Wassenaar Arrangement http://www.wassenaar.org/ for more information.
-Anaconda, Inc. has self-classified this software as Export Commodity Control Number (ECCN) 5D992b, which includes mass market information security software using or performi
-ng cryptographic functions with asymmetric algorithms. No license is required for export of this software to non-embargoed countries. In addition, the Intel(TM) Math Kernel
-Library contained in Anaconda, Inc.'s software is classified by Intel(TM) as ECCN 5D992b with no license required for export to non-embargoed countries.
-The following packages are included in this distribution that relate to cryptography:
+    This distribution includes cryptographic software. The country in which you currently reside may have restrictions on the import, possession, use, and/or re-export to anothe
+    r country, of encryption software. BEFORE using any encryption software, please check your country's laws, regulations and policies concerning the import, possession, or use
+    , and re-export of encryption software, to see if this is permitted. See the Wassenaar Arrangement http://www.wassenaar.org/ for more information.
+    Anaconda, Inc. has self-classified this software as Export Commodity Control Number (ECCN) 5D992b, which includes mass market information security software using or performi
+    ng cryptographic functions with asymmetric algorithms. No license is required for export of this software to non-embargoed countries. In addition, the Intel(TM) Math Kernel
+    Library contained in Anaconda, Inc.'s software is classified by Intel(TM) as ECCN 5D992b with no license required for export to non-embargoed countries.
+    The following packages are included in this distribution that relate to cryptography:
 
-`openssl`
-    The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Transport Layer Security (TL
-S) and Secure Sockets Layer (SSL) protocols as well as a full-strength general purpose cryptography library.
+    `openssl`
+        The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Transport Layer Security (TL
+    S) and Secure Sockets Layer (SSL) protocols as well as a full-strength general purpose cryptography library.
 
-`pycrypto`
-    A collection of both secure hash functions (such as SHA256 and RIPEMD160), and various encryption algorithms (AES, DES, RSA, ElGamal, etc.).
+    `pycrypto`
+        A collection of both secure hash functions (such as SHA256 and RIPEMD160), and various encryption algorithms (AES, DES, RSA, ElGamal, etc.).
 
-`pyopenssl`
-    A thin Python wrapper around (a subset of) the OpenSSL library.
+    `pyopenssl`
+        A thin Python wrapper around (a subset of) the OpenSSL library.
 
-`kerberos` (krb5, non-Windows platforms)
-    A network authentication protocol designed to provide strong authentication for client/server applications by using secret-key cryptography.
+    `kerberos` (krb5, non-Windows platforms)
+        A network authentication protocol designed to provide strong authentication for client/server applications by using secret-key cryptography.
 
-`cryptography`
-    A Python library which exposes cryptographic recipes and primitives.
+    `cryptography`
+        A Python library which exposes cryptographic recipes and primitives.
 
 Do you accept the license terms? [yes|no]
     
@@ -179,18 +179,18 @@ by running conda init? [yes|no]
 
     [no] >>> yes
 
-no change     /home/tom/miniconda3/condabin/conda
-no change     /home/tom/miniconda3/bin/conda
-no change     /home/tom/miniconda3/bin/conda-env
-no change     /home/tom/miniconda3/bin/activate
-no change     /home/tom/miniconda3/bin/deactivate
-no change     /home/tom/miniconda3/etc/profile.d/conda.sh
-no change     /home/tom/miniconda3/etc/fish/conf.d/conda.fish
-no change     /home/tom/miniconda3/shell/condabin/Conda.psm1
-no change     /home/tom/miniconda3/shell/condabin/conda-hook.ps1
-no change     /home/tom/miniconda3/lib/python3.7/site-packages/xontrib/conda.xsh
-no change     /home/tom/miniconda3/etc/profile.d/conda.csh
-modified      /home/tom/.bashrc
+    no change     /home/tom/miniconda3/condabin/conda
+    no change     /home/tom/miniconda3/bin/conda
+    no change     /home/tom/miniconda3/bin/conda-env
+    no change     /home/tom/miniconda3/bin/activate
+    no change     /home/tom/miniconda3/bin/deactivate
+    no change     /home/tom/miniconda3/etc/profile.d/conda.sh
+    no change     /home/tom/miniconda3/etc/fish/conf.d/conda.fish
+    no change     /home/tom/miniconda3/shell/condabin/Conda.psm1
+    no change     /home/tom/miniconda3/shell/condabin/conda-hook.ps1
+    no change     /home/tom/miniconda3/lib/python3.7/site-packages/xontrib/conda.xsh
+    no change     /home/tom/miniconda3/etc/profile.d/conda.csh
+    modified      /home/tom/.bashrc
 
 	==> For changes to take effect, close and re-open your current shell. <==
 
@@ -258,8 +258,7 @@ The following packages will be UPDATED:
 
 ## Create a conda environment
 
-As seen on the official docs:
-https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html
+As seen on the official [docs](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html)
 
 You could try this:
 
@@ -335,8 +334,7 @@ To list your `conda` environments:
 
 ## Conda cheat sheet
 
-Get it here:
-https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html
+Get it [here](https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html)
 
 ## Troubleshooting installation
 
@@ -348,7 +346,7 @@ Executing transaction:
     environment location: /home/tom/miniconda3
     registry file: /home/tom/.conda/environments.txt
 
-As seen here: https://github.com/ContinuumIO/anaconda-issues/issues/11148
+As seen [here](https://github.com/ContinuumIO/anaconda-issues/issues/11148)
 
 If you see this error try this:
 

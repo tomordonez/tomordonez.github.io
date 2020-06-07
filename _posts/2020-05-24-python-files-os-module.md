@@ -34,9 +34,11 @@ And I had to change it to this
 
 Some blog posts also contained images which used this syntax `{static}/images/`, and I had to change it to this:
 
-	{% raw %}
+{% raw %}
+
 	{ {site.baseurl} }/assets/images/
-	{% endraw %}
+
+{% endraw %}
 
 This is what the Python script looks like, it's not the best but it worked. This can give you an idea on how to work with files and Python OS module.
 

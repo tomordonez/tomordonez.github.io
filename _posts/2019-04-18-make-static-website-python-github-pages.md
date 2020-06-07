@@ -114,14 +114,15 @@ Now do the same for the output repo.
 Answer the questions like this:
 
 * Where to create the new site: Click Enter
-* URL: https://youruser.github.io
+* URL: `https://youruser.github.io`
 * Generate Makefile: Yes
 * Autoreload & simpleHTTP: Yes
 * Upload mechanism: Select No for all except for Github, select Yes.
 * Is this your personal page: Yes
 
 According to this tutorial:
-https://fedoramagazine.org/make-github-pages-blog-with-pelican/
+
+    https://fedoramagazine.org/make-github-pages-blog-with-pelican/
 
 If you get an error saying that the output directory already exists, that this is fine.
 

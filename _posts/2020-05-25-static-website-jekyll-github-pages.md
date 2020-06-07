@@ -277,7 +277,8 @@ This error points to this file:
 
 To this code:
 
-	{% raw %}
+{% raw %}
+
 	function lunr_search(term) {
 	    $('#lunrsearchresults').show( 1000 );
 	    $( "body" ).addClass( "modal-open" );
@@ -316,7 +317,8 @@ To this code:
 	<form class="bd-search hidden-sm-down" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
 	<input type="text" class="form-control text-small"  id="lunrsearch" name="q" value="" placeholder="Type keyword and enter..."> 
 	</form>
-	{% endraw %}
+
+{% endraw %}
 
 
 Couldn't fix as shown [here](https://stackoverflow.com/questions/30803497/onsubmit-function-is-not-defined). However, the error went away when I corrected the previous error `Invalid hexadecimal escape sequence`.

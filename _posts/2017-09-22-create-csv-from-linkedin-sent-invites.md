@@ -23,7 +23,7 @@ Invite as Friend
 
 ## 2. Get a list of sent invitations
 
-Go here: https://www.linkedin.com/people/invites?trk=tab_inv
+Go to [Linkedin People Invites](https://www.linkedin.com/people/invites?trk=tab_inv)
 
 Scroll down the infinite scroll until the bottom.
 

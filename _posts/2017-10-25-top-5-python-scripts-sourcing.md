@@ -75,7 +75,7 @@ Go to <a href="https://www.anaconda.com/download/#linux" target="_blank">Anacond
 
 The file is about 500MB. It might take around 5 minutes to download.
 
-Let's say you downloaded the file to ~/Downloads.
+Let's say you downloaded the file to `~/Downloads`
 
 Open the terminal and verify data integrity. Use the name of the file you downloaded, in this case I am calling it `anaconda.sh`:
 

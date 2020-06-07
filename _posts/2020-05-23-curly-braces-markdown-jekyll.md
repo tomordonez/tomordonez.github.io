@@ -12,14 +12,15 @@ If you use double curly braces in code blocks in markdown with Jekyll. They just
 
 Enclosed the code block in `raw` and `endraw` tags.
 
+{% raw %}
+
 	{% raw %}
-	{{some code here}}
+		{{some code here}}
 	{% endraw %}
 
-The tags need to be enclosed with external curly braces `{` and internal percentage `%`. Such as `curly percentage raw percentage curly`. It's funny cause I cannot add the `raw tag` syntax on a code block.
+{% endraw %}
 
-	open-curly percentage raw percentage close-curly
-	{% raw %}
-	{{some code here}}
-	{% endraw %}
-	open-curly percentage endraw percentage close-curly
+Adding a `JavaScript` code block also causes Reader View (for example in Safari mobile) to misbehave.
+
+Other resources:
+

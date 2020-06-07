@@ -1,0 +1,461 @@
+I"p6<div class="container">
+    
+ <!--endif page url is / -->
+    
+
+
+<!-- Now the rest of the posts with the usual loop but with an offset:4 on the first page so we can skeep the first 4 posts displayed above -->
+    
+<div class="row mt-3">
+   
+    <div class="col-md-8 main-loop">
+        
+        <h4 class="font-weight-bold spanborder"><span>All Stories</span></h4>
+        
+
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/install-java-fedora-openjdk-android/">Install Java on Fedora with OpenJDK</a>
+	</h2>
+	<p class="excerpt">
+	   How to install Java on Fedora with OpenJDK. Also how to setup Android and a review of JShell.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Dec 14, 2019
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/install-java-fedora-openjdk-android/">
+	<img class="w-100" src="/assets/images/11.jpg" alt="Install Java on Fedora with OpenJDK" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/build-android-app-linux-flutter/">Build an Android App in Linux with Flutter</a>
+	</h2>
+	<p class="excerpt">
+	   I have been thinking of buildind an app:
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#mobile">Mobile</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 17, 2019
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/build-android-app-linux-flutter/">
+	<img class="w-100" src="/assets/images/3.jpg" alt="Build an Android App in Linux with Flutter" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/install-miniconda-linux/">Install Miniconda on Linux</a>
+	</h2>
+	<p class="excerpt">
+	   I loved virtualenv and then I found Miniconda. It’s pretty similar to RVM for Ruby.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 10, 2019
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/install-miniconda-linux/">
+	<img class="w-100" src="/assets/images/7.jpg" alt="Install Miniconda on Linux" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/remote-access-linux-fedora/">Remote Access Linux Fedora Desktop in LAN</a>
+	</h2>
+	<p class="excerpt">
+	   A mini tutorial about: remote access in Linux.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Apr 24, 2019
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/remote-access-linux-fedora/">
+	<img class="w-100" src="/assets/images/3.jpg" alt="Remote Access Linux Fedora Desktop in LAN" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/learning-github/">Learning Github</a>
+	</h2>
+	<p class="excerpt">
+	   Updated Jan 11, 2020
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Apr 21, 2019
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/learning-github/">
+	<img class="w-100" src="/assets/images/8.jpg" alt="Learning Github" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/my-vimrc-config/">My vimrc config file</a>
+	</h2>
+	<p class="excerpt">
+	   Relevant articles:
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Apr 20, 2019
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/my-vimrc-config/">
+	<img class="w-100" src="/assets/images/10.jpg" alt="My vimrc config file" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/remote-tmux-inside-local-tmux/">Remote Tmux Inside a Local Tmux</a>
+	</h2>
+	<p class="excerpt">
+	   How to work with an SSH remote Tmux inside a local Tmux.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Apr 19, 2019
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/remote-tmux-inside-local-tmux/">
+	<img class="w-100" src="/assets/images/3.jpg" alt="Remote Tmux Inside a Local Tmux" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/make-static-website-python-github-pages/">Make a Static Website with Python and Github Pages</a>
+	</h2>
+	<p class="excerpt">
+	   Updated Jan 11, 2020
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Apr 18, 2019
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/make-static-website-python-github-pages/">
+	<img class="w-100" src="/assets/images/11.jpg" alt="Make a Static Website with Python and Github Pages" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/sublime-text-typewriter-auto-scroll/">Sublime Text Typewriter Autoscroll</a>
+	</h2>
+	<p class="excerpt">
+	   How to set Sublime text typewriter mode and autoscroll in Sublime Text 3
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Feb 02, 2019
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/sublime-text-typewriter-auto-scroll/">
+	<img class="w-100" src="/assets/images/6.jpg" alt="Sublime Text Typewriter Autoscroll" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/tableau-tutorial-visualization-co2-world-dataset/">Tableau Tutorial Visualization - CO2 World Dataset</a>
+	</h2>
+	<p class="excerpt">
+	   A Tableau tutorial to build a visualization of emissions from a CO2 world dataset.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Jan 06, 2019
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/tableau-tutorial-visualization-co2-world-dataset/">
+	<img class="w-100" src="/assets/images/11.jpg" alt="Tableau Tutorial Visualization - CO2 World Dataset" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+        <div class="mt-5">
+         <!-- Pagination links -->
+            
+            <ul class="pagination"> 
+              
+                <li class="page-item"><a class="page-link" href="/">&laquo; Prev</a></li>
+              
+
+              
+                
+                <li class="page-item"><a class="page-link" href="/">1</a></li>
+                
+              
+                
+                <li class="page-item disabled"><span class="webjeda page-link">2</span></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page3">3</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page4">4</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page5">5</a></li>
+                
+              
+
+              
+                <li class="page-item"><a class="page-link" href="/page3">Next &raquo;</a></li>
+              
+            </ul>
+                  
+        </div>
+        
+    </div>
+    
+    <div class="col-md-4">
+        <div class="sticky-top sticky-top-offset">
+    <h4 class="font-weight-bold spanborder"><span>Featured</span></h4>  
+    <ol class="list-featured">				
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/d3-tutorial-data-visualization/" class="text-dark">D3 Tutorial for Data Visualization</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/tableau-tutorial-visualization-co2-world-dataset/" class="text-dark">Tableau Tutorial Visualization - CO2 World Dataset</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/python-logging-tutorial/" class="text-dark">Python Logging Tutorial</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/python-lambda-beautifulsoup/" class="text-dark">Python Lambda and BeautifulSoup</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/blackbelt-sourcing-github/" class="text-dark">Blackbelt Sourcing on Github</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#recruiting">Recruiting</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/crontab-selenium-chrome-driver/" class="text-dark">Crontab with Selenium and Chrome Driver</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+           
+    </ol>
+</div>     
+    </div>
+    
+</div>
+
+
+
+</div>
+:ET

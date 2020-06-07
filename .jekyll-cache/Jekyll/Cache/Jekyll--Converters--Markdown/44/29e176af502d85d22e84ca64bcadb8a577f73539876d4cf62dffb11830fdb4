@@ -1,0 +1,461 @@
+I">7<div class="container">
+    
+ <!--endif page url is / -->
+    
+
+
+<!-- Now the rest of the posts with the usual loop but with an offset:4 on the first page so we can skeep the first 4 posts displayed above -->
+    
+<div class="row mt-3">
+   
+    <div class="col-md-8 main-loop">
+        
+        <h4 class="font-weight-bold spanborder"><span>All Stories</span></h4>
+        
+
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/redirect-stdout-stderr-bash/">Redirect stdout and stderr in bash</a>
+	</h2>
+	<p class="excerpt">
+	   This is how to redirect stdout and stderr in bash.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 14, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/redirect-stdout-stderr-bash/">
+	<img class="w-100" src="/assets/images/4.jpg" alt="Redirect stdout and stderr in bash" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/linux-execute-many-commands-one-line/">Linux execute many commands in one line</a>
+	</h2>
+	<p class="excerpt">
+	   Execute many commands in one line in Linux
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 13, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/linux-execute-many-commands-one-line/">
+	<img class="w-100" src="/assets/images/11.jpg" alt="Linux execute many commands in one line" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/execute-script-different-directory-linux/">Execute a Script in a Different Directory in Linux</a>
+	</h2>
+	<p class="excerpt">
+	   Follow this to execute a script in a different directory in Linux.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 12, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/execute-script-different-directory-linux/">
+	<img class="w-100" src="/assets/images/1.jpg" alt="Execute a Script in a Different Directory in Linux" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/windows-10-to-ubuntu-virtualbox-shared-folder/">Windows 10 to Ubuntu VirtualBox Shared Folder</a>
+	</h2>
+	<p class="excerpt">
+	   Follow this process to transfer files from Windows 10 to Ubuntu in VirtualBox.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 11, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/windows-10-to-ubuntu-virtualbox-shared-folder/">
+	<img class="w-100" src="/assets/images/2.jpg" alt="Windows 10 to Ubuntu VirtualBox Shared Folder" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/installing-ruby-on-ubuntu/">Installing Ruby on Ubuntu</a>
+	</h2>
+	<p class="excerpt">
+	   Follow this process to install Ruby on Ubuntu Linux
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 11, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/installing-ruby-on-ubuntu/">
+	<img class="w-100" src="/assets/images/1.jpg" alt="Installing Ruby on Ubuntu" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/generate-random-number-linux/">Generate a Random Number with Linux and Bash</a>
+	</h2>
+	<p class="excerpt">
+	   Follow this tutorial to generate a random number with Linux and Bash.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 10, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/generate-random-number-linux/">
+	<img class="w-100" src="/assets/images/3.jpg" alt="Generate a Random Number with Linux and Bash" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/crontab-selenium-chrome-driver/">Crontab with Selenium and Chrome Driver</a>
+	</h2>
+	<p class="excerpt">
+	   This is how to setup a crontab with Selenium and Chrome Driver
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 09, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/crontab-selenium-chrome-driver/">
+	<img class="w-100" src="/assets/images/7.jpg" alt="Crontab with Selenium and Chrome Driver" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/automating-tasks-crontab/">Automating Tasks with Crontab</a>
+	</h2>
+	<p class="excerpt">
+	   Automating tasks with crontab can save you hours of work. This is a short tutorial about cron jobs.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 08, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/automating-tasks-crontab/">
+	<img class="w-100" src="/assets/images/2.jpg" alt="Automating Tasks with Crontab" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/ubuntu-wifi-network-disconnected-after-sleep/">Ubuntu Wifi Network Disconnected After Sleep</a>
+	</h2>
+	<p class="excerpt">
+	   Ubuntu Wifi disconnected after sleep. This is how I fixed this problem.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 07, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/ubuntu-wifi-network-disconnected-after-sleep/">
+	<img class="w-100" src="/assets/images/5.jpg" alt="Ubuntu Wifi Network Disconnected After Sleep" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+            <div class="mb-5 d-flex justify-content-between main-loop-card">
+<div class="pr-3">
+	<h2 class="mb-1 h4 font-weight-bold">
+	<a class="text-dark" href="/disable-touchscreen-ubuntu/">Disable Touchscreen on Ubuntu</a>
+	</h2>
+	<p class="excerpt">
+	   Follow this process to disable touchscreen on Ubuntu.
+	</p>
+	<small class="d-block text-muted">
+		In <span class="catlist">
+		
+		<a class="text-capitalize text-muted smoothscroll" href="/categories.html#linux">Linux</a><span class="sep">, </span>
+		
+		</span>
+	</small>
+	<small class="text-muted">
+		Sep 05, 2017
+	</small>
+</div>
+
+	<div class="col-md-3 pr-0 text-right">
+	<a href="/disable-touchscreen-ubuntu/">
+	<img class="w-100" src="/assets/images/7.jpg" alt="Disable Touchscreen on Ubuntu" />
+	</a>
+	</div>
+
+</div>
+        
+        
+        
+        <div class="mt-5">
+         <!-- Pagination links -->
+            
+            <ul class="pagination"> 
+              
+                <li class="page-item"><a class="page-link" href="/page7">&laquo; Prev</a></li>
+              
+
+              
+                
+                <li class="page-item"><a class="page-link" href="/">1</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page2">2</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page3">3</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page4">4</a></li>
+                
+              
+                
+                <li class="page-item"><a class="page-link" href="/page5">5</a></li>
+                
+              
+
+              
+                <li class="page-item"><a class="page-link" href="/page9">Next &raquo;</a></li>
+              
+            </ul>
+                  
+        </div>
+        
+    </div>
+    
+    <div class="col-md-4">
+        <div class="sticky-top sticky-top-offset">
+    <h4 class="font-weight-bold spanborder"><span>Featured</span></h4>  
+    <ol class="list-featured">				
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/d3-tutorial-data-visualization/" class="text-dark">D3 Tutorial for Data Visualization</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/tableau-tutorial-visualization-co2-world-dataset/" class="text-dark">Tableau Tutorial Visualization - CO2 World Dataset</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#data analytics">Data Analytics</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/python-logging-tutorial/" class="text-dark">Python Logging Tutorial</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/python-lambda-beautifulsoup/" class="text-dark">Python Lambda and BeautifulSoup</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/blackbelt-sourcing-github/" class="text-dark">Blackbelt Sourcing on Github</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#recruiting">Recruiting</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+                        
+            <li class="mb-4">
+            <span>
+                <h6 class="font-weight-bold">
+                    <a href="/crontab-selenium-chrome-driver/" class="text-dark">Crontab with Selenium and Chrome Driver</a>
+                </h6>
+                <span class="d-block text-muted">
+                    In <span class="catlist">
+                    
+                    <a class="text-capitalize text-muted smoothscroll" href="/categories.html#code">Code</a><span class="sep">, </span>
+                    
+                    </span>
+                </span>
+            </span>
+            </li>                
+           
+    </ol>
+</div>     
+    </div>
+    
+</div>
+
+
+
+</div>
+:ET

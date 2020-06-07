@@ -12,7 +12,7 @@ A Tableau tutorial to build a visualization of emissions from a CO2 world datase
 
 ![Tableau Tutorial Visualization - Dashboard]({{ site.baseurl }}/assets/images/tableau-tutorial-visualization-dashboard.jpg)
 
-This **Tableau tutorial** is based on Tableau Public Overview Video 1 as seen here: https://public.tableau.com/en-us/s/resources
+This **Tableau tutorial** is based on Tableau Public Overview Video 1 as seen [here](https://public.tableau.com/en-us/s/resources)
 
 Using Tableau 10.
 

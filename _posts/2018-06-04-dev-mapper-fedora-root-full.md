@@ -19,7 +19,7 @@ On Fedora Linux:
 
 As seen on <a href="https://unix.stackexchange.com/questions/328758/fedora-24-increase-disk-space-on-dev-mapper-fedora-var" target="_blank">StackExchange</a>.
 
-"Check disk usage on /var as described in http://forums.fedoraforum.org/showthread.php?t=301185"
+Check disk usage on /var as described in [Fedora Forum](http://forums.fedoraforum.org/showthread.php?t=301185)
 
     $ sudo du -hs /var
     36G     /var

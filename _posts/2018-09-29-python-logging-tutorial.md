@@ -10,9 +10,9 @@ tags: [featured, coding, linux, python]
 
 This is a short tutorial about logging in Python.
 
-Follow the official documentation about logging <a href="https://docs.python.org/3/library/logging.html" target="_blank">here</a>.
+Follow the official documentation about [logging](https://docs.python.org/3/library/logging.html)
 
-This tutorial by Fang-Pen Lin has been really helpful as well. More <a href="https://fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python/" target="_blank">here</a>.
+This tutorial by Fang-Pen Lin has been really helpful as well. More [here](https://fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python/)
 
 ## Add logging to Python:
 
