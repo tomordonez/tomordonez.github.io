@@ -1,57 +1,142 @@
-# Site
-name: 'Tom Ordonez'
-description: 'Analytics, Data Science, Recruiting'
-logo: 
-favicon: 'assets/images/favicon.ico'
-baseurl: ''
-disqus: 'tomordonez-com'
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you: 
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: Tom Ordonez | Analytics, Data Science, Recruiting
 email: 
-mailchimp-list: 
-
-include: ["_pages"]
+description: >- # this means to ignore newlines until "baseurl:"
+  A blog about analytics, data science, software engineering, and recruiting.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://www.tomordonez.com" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: tomordonez
+github_username:  tomordonez
 permalink: /:title/
+favicon: 'assets/images/favicon.ico'
 
-# Plugins
-plugins: 
+# Build settings
+theme: minima
+minima:
+  skin: solarized
+
+header_pages:
+  - about.md
+
+disqus:
+    shortname: tomordonez-com
+
+author:
+  name: Tom Ordonez
+
+show_excerpts: true
+
+minima:
+  social_links:
+    twitter: tomordonez
+    github: tomordonez
+    linkedin: tomordonez
+
+google_analytics: UA-56050409-28
+
+plugins:
+  - jekyll-feed
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-redirect-from
+
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  # - Gemfile.lock
+  # - node_modules/
+  # - vendor/bundle/
+  # - vendor/cache/
+  # - vendor/gems/
+  # - vendor/ruby/
+
+
+# # Site
+# name: 'Tom Ordonez'
+# description: 'Analytics, Data Science, Recruiting'
+# logo: 
+# favicon: 'assets/images/favicon.ico'
+# baseurl: ''
+# disqus: 'tomordonez-com'
+# email: 
+# mailchimp-list: 
+
+# include: ["_pages"]
+# permalink: /:title/
+
+# # Plugins
+# plugins: 
+#   - jekyll-feed
+#   - jekyll-sitemap
+#   - jekyll-paginate
+#   - jekyll-seo-tag
+#   - jekyll-redirect-from
   
-authors:
-    tom:
-      name: Tom
-      site: https://www.tomordonez.com
-      avatar: assets/images/tom.jpg
-      bio: "Hi, I am Tom"
-      twitter: https://twitter.com/tomordonez
+# authors:
+#     tom:
+#       name: Tom
+#       site: https://www.tomordonez.com
+#       avatar: assets/images/tom.jpg
+#       bio: "Hi, I am Tom"
+#       twitter: https://twitter.com/tomordonez
  
-# Defaults
-defaults:
+# # Defaults
+# defaults:
 
-  # all posts
-  - scope:
-      path: "_posts"
-    values:
-      layout: post
-      author: tom
-      avatar: assets/images/tom.jpg
+#   # all posts
+#   - scope:
+#       path: "_posts"
+#     values:
+#       layout: post
+#       author: tom
+#       avatar: assets/images/tom.jpg
       
-  # all pages
-  - scope:
-      path: "_pages"
-    values:
-      layout: page
+#   # all pages
+#   - scope:
+#       path: "_pages"
+#     values:
+#       layout: page
       
-# Syntax
-markdown: kramdown
-highlighter: rouge
+# # Syntax
+# markdown: kramdown
+# highlighter: rouge
 
-# Paginate
-paginate: 10
+# # Paginate
+# paginate: 10
 
 
 
-# Exclude metadata and development time dependencies (like Grunt plugins)
-exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
+# # Exclude metadata and development time dependencies (like Grunt plugins)
+# exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]

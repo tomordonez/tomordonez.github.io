@@ -1,9 +1,0 @@
-I"ž<p>Fixing vim stuck in insert mode.</p>
-
-<p>As seen <a href="https://superuser.com/questions/129900/vim-stuck-in-insert-mode" target="_blank">here</a>.</p>
-
-<p>I find out that when I copy/paste something in insert mode. I make the mistake of typing <code class="language-plaintext highlighter-rouge">ctrl + s</code>.</p>
-
-<p>To get out, use <code class="language-plaintext highlighter-rouge">ctrl + q</code>.</p>
-
-:ET
