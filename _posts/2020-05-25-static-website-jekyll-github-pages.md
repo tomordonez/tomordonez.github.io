@@ -74,37 +74,6 @@ This creates the following:
 	index.markdown
 	_posts/
 
-Open the Gemfile to see what it has:
-
-	source "https://rubygems.org"
-	# Hello! This is where you manage which Jekyll version is used to run.
-	# When you want to use a different version, change it below, save the
-	# file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
-	#
-	#     bundle exec jekyll serve
-	#
-	# This will help ensure the proper Jekyll version is running.
-	# Happy Jekylling!
-	gem "jekyll", "~> 4.0.1"
-	# This is the default theme for new Jekyll sites. You may change this to anything you like.
-	gem "minima", "~> 2.5"
-	# If you want to use GitHub Pages, remove the "gem "jekyll"" above and
-	# uncomment the line below. To upgrade, run `bundle update github-pages`.
-	# gem "github-pages", group: :jekyll_plugins
-	# If you have any plugins, put them here!
-	group :jekyll_plugins do
-	  gem "jekyll-feed", "~> 0.12"
-	end
-
-	# Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
-	# and associated library.
-	install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
-	  gem "tzinfo", "~> 1.2"
-	  gem "tzinfo-data"
-	end
-
-	# Performance-booster for watching directories on Windows
-	gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
 
 Run the blog:
 
@@ -113,7 +82,7 @@ Run the blog:
 Open `http://localhost:4000` and Ctrl+C to stop
 
 
-## Setup Github Pages
+## Jekyll and Github Pages
 
 Look at Github pages dependency [versions](https://pages.github.com/versions/)
 
@@ -130,7 +99,7 @@ Modify the Gemfile to use Github pages as shown.
 
 Upgrade:
 
-	$ bundle update jekyll
+	$ bundle update
 
 Output was:
 
@@ -149,6 +118,198 @@ Test again:
 
 	$ bundle exec jekyll serve
 
+
+## Troubleshooting dependency errors
+
+When testing the site. For `jekyll-3.8.5` it says `warning: Using the last argument as keyword parameters is deprecated`.
+
+* Also for `pathutil-0.16.2` it says the same.
+* More [here](https://github.com/jekyll/jekyll/issues/7947)
+* And [here](https://github.com/jekyll/jekyll/pull/7948)
+
+Edit the `Gemfile` and comment this line again `gem "github-pages", group: :jekyll_plugins`. Then add this one:
+
+	gem 'jekyll', github: 'jekyll/jekyll'
+
+If you have `plugins` update them to this:
+
+	group :jekyll_plugins do
+	    gem 'jekyll-feed', github: 'jekyll/jekyll-feed'
+	    gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'
+	    gem 'jekyll-paginate', github: 'jekyll/jekyll-paginate'
+	    gem 'jekyll-seo-tag', github: 'jekyll/jekyll-seo-tag'
+	    gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
+	end
+
+My `Gemfile` currently looks like this:
+
+	source "https://rubygems.org"
+
+	gem 'jekyll', github: 'jekyll/jekyll'
+
+	gem "minima", "~> 2.5"
+
+	group :jekyll_plugins do
+	    gem 'jekyll-feed', github: 'jekyll/jekyll-feed'
+	    gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'
+	    gem 'jekyll-paginate', github: 'jekyll/jekyll-paginate'
+	    gem 'jekyll-seo-tag', github: 'jekyll/jekyll-seo-tag'
+	    gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
+	end
+
+Then run `bundle install`
+
+
+## Using a theme and edit `_config.yml`
+
+The default theme is `minima`. The [docs](https://github.com/jekyll/minima) have good details on how to set it up.
+
+It has instructions on how to set your `_config.yml`
+
+Mine looks kinda like this:
+
+	title: Name and Title of My Blog
+	email: 
+	description: >-
+	  Some awesome description here
+	baseurl: ""
+	url: "https://www.mywebsite.com"
+	twitter_username: mytwitter
+	github_username:  mygithub
+	permalink: /:title/
+	favicon: 'assets/images/favicon.ico' #doesn't work yet
+
+	# Build settings
+	theme: minima
+	minima:
+	  skin: solarized #not seeing this skin yet
+
+	header_pages:
+	  - about.md
+
+	disqus:
+	    shortname: mydisqus_shortname
+
+	author:
+	  name: My Name
+
+	show_excerpts: true
+
+	minima:
+	  social_links:
+	    twitter: mytwitter
+	    github: mygithub
+	    linkedin: mylinkedin_shortname
+
+	google_analytics: myGAcode
+
+	plugins:
+	  - jekyll-feed
+	  - jekyll-feed
+	  - jekyll-sitemap
+	  - jekyll-paginate
+	  - jekyll-seo-tag
+	  - jekyll-redirect-from
+
+	exclude:
+	  - .sass-cache/
+	  - .jekyll-cache/
+	  - gemfiles/
+	  - Gemfile
+
+
+## Using a different theme
+
+I tried a theme that looked [Medium](https://wowthemesnet.github.io/mundana-theme-jekyll/index.html)
+
+Instead of installing Jekyll as shown above, do the following:
+
+	$ git clone https://github.com/wowthemesnet/mundana-theme-jekyll.git blog
+	$ cd blog
+	$ bundle
+	$ bundle exec jekyll serve
+
+I liked it for a while but it had some weird bugs. I spent many hours trying to fix them but then I gave up and switched back to the default `minima` theme.
+
+
+## Creating an `about` page
+
+In your root blog create edit the default `about` and modify it as `about.md`:
+
+	---
+	layout: page
+	title: "About"
+	permalink: "/about.html"
+	comments: false
+	---
+
+## Creating blog posts
+
+These go in the `_posts` folder. I got a template that I follow for each new blog post:
+
+	---
+	layout: post
+	title: "Title in Double Quotes"
+	author: tom
+	categories: [A category]
+	tags: [some tags here]
+	---
+
+	file: YYYY-MM-DD-title.md (or it won't show up)
+	title: Don't forget to update this
+	{%raw%}Add images with: ![Image Name]({{ site.baseurl }}/assets/images/add_image.jpg){%endraw%}
+	Add local URL with: [Local URL](../local-url)
+
+
+## Creating redirects
+
+Add this to the `Gemfile` in the `plugins` block:
+
+	gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
+
+Then run `bundle install`.
+
+As seen in the docs [here](https://github.com/jekyll/jekyll-redirect-from)
+
+Add it to the `_config.yml` under `plugins`
+
+	- jekyll-redirect-from
+
+My problem was that for my previous website, the blog posts had this format:
+
+	blog_post_name.html
+
+This new website removes the `.html` and a lot of blog posts crawled by google are being sent to a `404 File not found page`.
+
+I want to redirect `blog_post_name.html` to `blog_post_name/`
+
+In the blog post the header should show something like this:
+
+	title: "Blog Post Name"
+	redirect_from:
+	  - /blog_post_name.html
+
+
+## 404 page
+
+More about 404 pages [here](https://help.github.com/en/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site)
+
+You can create a `404.md` file if you add this:
+
+	---
+	layout: page
+	title: "Not Found"
+	permalink: "/404.html"
+	comments: false
+	redirect_from:
+	  - /index2.html
+	---
+
+Use the `redirect_from:` to redirect bad URLs from Google search results. Or use the same approach for blog posts. You can also try to fix them in your Google Search Console.
+
+
+## Setup Github
+
 Go to Github:
 
 * Create a new repo with the format `username.github.io`
@@ -157,6 +318,7 @@ Setup the repo:
 
 	$ git init
 	$ git remote add origin link-to-repo
+
 
 ## CNAME, robots.txt and favicon.ico
 
@@ -234,132 +396,6 @@ In your Overview dashboard set these (if you are on the free plan)
 * Caching level: Standard
 
 
-## Troubleshooting dependency errors
-
-When testing the site. For `jekyll-3.8.5` it says `warning: Using the last argument as keyword parameters is deprecated`.
-
-* Also for `pathutil-0.16.2` it says the same.
-* More [here](https://github.com/jekyll/jekyll/issues/7947)
-* And [here](https://github.com/jekyll/jekyll/pull/7948)
-
-Edit the `Gemfile`
-
-	gem 'jekyll', github: 'jekyll/jekyll'
-
-If you have `plugins` update them to this:
-
-	group :jekyll_plugins do
-	    gem 'jekyll-feed', github: 'jekyll/jekyll-feed'
-	    gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'
-	    gem 'jekyll-paginate', github: 'jekyll/jekyll-paginate'
-	    gem 'jekyll-seo-tag', github: 'jekyll/jekyll-seo-tag'
-	    gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
-	end
-
-Then run `bundle install`
-
-
-## Troubleshooting console log errors
-
-*Uncaught SyntaxError: Invalid hexadecimal escape sequence*
-
-This error pointed to `index.html:513`. I looked at the code and one of my blog posts talks about encoding/decoding hex. Also this error seemed to cause the search box to malfunction. I navigated to the blogpost and tried correcting the code block with the `raw/endraw` tag as shown on [curly braces with Markdown on Jekyll](../curly-braces-markdown-jekyll) but this didn't work. I removed the code block. The console didn't show the error anymore and the search box started working again.
-
-
-*Uncaught ReferenceError: lunr_search is not defined at HTMLFormElement.onsubmit*
-
-This error points to this file:
-
-	_includes/search_lunr.html
-
-To the `lunr_search` function.
-
-Couldn't fix it as shown [here](https://stackoverflow.com/questions/30803497/onsubmit-function-is-not-defined). However, the error went away when I corrected the previous error `Invalid hexadecimal escape sequence`.
-
-
-Other issues not resolved yet:
-
-	A cookie associated with a cross-site resource at http://disqus.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.
-
-	[Violation] 'requestAnimationFrame' handler took 112ms
-
-	[Violation] Forced reflow while executing JavaScript took 111ms
-
-	[Violation] Avoid using document.write(). https://developers.google.com/web/updates/2016/08/removing-document-write
-
-	GET https://c.disquscdn.com/get?url=&h=200 404
-
-More issues:
-
-* On mobile home or all stories, the images appear smaller, depending on the first paragraph of the blog post, this first paragraph is used as a preview of the content.
-* On iPhone read view mode, the content is not displayed. Instead it shows some default Jekyll code.
-
-## Setup Jekyll with a theme
-
-I liked this theme that looked like [Medium](https://wowthemesnet.github.io/mundana-theme-jekyll/index.html)
-
-Instead of installing Jekyll as shown above, do the following:
-
-	$ git clone https://github.com/wowthemesnet/mundana-theme-jekyll.git blog
-	$ cd blog
-	$ bundle
-	$ bundle exec jekyll serve
-
-Make any changes to the following:
-
-	404.html
-	assets/
-	_config.yml
-	Gemfile
-	_includes/
-	index.html
-	_layouts/
-	_pages/
-	_posts/
-
-## Creating redirects
-
-Add this to the `Gemfile` in the `plugins` block:
-
-	gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
-
-Then run `bundle install`.
-
-As seen in the docs [here](https://github.com/jekyll/jekyll-redirect-from)
-
-Add it to the `_config.yml` under `plugins`
-
-	- jekyll-redirect-from
-
-My problem was that for my previous website, the blog posts had this format:
-
-	blog_post_name.html
-
-This new website removes the `.html` and a lot of blog posts crawled by google are being sent to a `404 File not found page`.
-
-I want to redirect `blog_post_name.html` to `blog_post_name/`
-
-In the blog post the header should show something like this:
-
-	title: "Blog Post Name"
-	redirect_from:
-	  - /blog_post_name.html
-
-## 404 page
-
-More about 404 pages [here](https://help.github.com/en/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site)
-
-You can create a `404.md` file if you add this:
-
-	---
-	permalink: /404.html
-	---
-
-Or just create a `404.md`
-
-You can also use redirects if search engines are crawling bad URLs.
-
-
 ## Migrating content
 
 Here is where I was challenged.
@@ -397,7 +433,5 @@ Also the blog posts used this syntax to insert images in the content `{static}/i
 	{% raw %}
 	{ {site.baseurl} }/assets/images/
 	{% endraw %}
-
-Can you imagine doing this manually? That would take a really long time.
 
 Read more in [Python, Files, and OS Module](../python-files-os-module)
