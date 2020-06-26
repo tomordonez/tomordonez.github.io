@@ -8,7 +8,7 @@ image: assets/images/2.jpg
 tags: [featured, data analytics, data visualization, D3, javascript]
 ---
 
-(This blog post is being revised)
+This is a detailed D3 tutorial for data visualization. Setup D3, build a barchart, and responsive D3. Updated June 2020.
 
 ## Resources:
 
@@ -25,6 +25,10 @@ tags: [featured, data analytics, data visualization, D3, javascript]
 * [Managing colors in D3](https://www.d3-graph-gallery.com/graph/custom_color.html)
 * [Color Brewer for Maps](https://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3)
 * [Python HTTP Server](https://docs.python.org/3/library/http.server.html)
+* [D3.js on Jekyll](https://briancaffey.github.io/2016/05/13/d3js-on-jekyll.html)
+* [D3.js charts responsive](https://medium.com/@louisemoxy/a-simple-way-to-make-d3-js-charts-svgs-responsive-7afb04bc2e4b)
+* [Create a responsive bar chart with D3.js](https://www.dev-tips-and-tricks.com/create-responsive-bar-chart-d3-js)
+* [JavaScript Date Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 ## D3 Version and Compatibility
 
@@ -122,6 +126,7 @@ On the browser verify that you see the `<title>` tag from the template:
 
 	<title>D3 Canvas</title>
 
+
 Stop the server with `Ctrl C`.
 
 
@@ -170,6 +175,7 @@ This is what loading a `CSV` in `D3 v4` looks like:
 		somethingHappens(data);
 	});
 	console.log(data);
+
 
 This is an anonymous callback function `function(data)`. It runs the code inside the curly braces and then it is called back to this function.
 
@@ -225,6 +231,7 @@ Add this code to `project.js`:
 		console.log(data);
 	});
 
+
 Reload the browser and look at the console:
 
 	Navigated to http://127.0.0.1:8888/index.html
@@ -232,6 +239,7 @@ Reload the browser and look at the console:
 	project.js:2 {year: "1951", population: "10"}
 	project.js:2 {year: "1955", population: "15"}
 	project.js:2 {year: "1959", population: "20"}
+
 
 This works so far and we are using the source for `D3.v5` instead of `v4`.
 
@@ -245,6 +253,7 @@ This syntax from `v4` won't work on `v5` as shown on [D3 API docs](https://githu
 	  console.log(data);
 	});
 
+
 The data is not loaded and the console shows this:
 
 	Navigated to http://127.0.0.1:8888/index.html
@@ -257,14 +266,17 @@ The data is not loaded and the console shows this:
 	 	...
 	 	...
 
+
 This doesn't work either:
 
 	var mydata = d3.csv("file.csv", function(data) {
 	});
 
+
 First it returns `undefined`. Then calling the variable:
 
 	mydata
+
 
 Shows this:
 
@@ -286,6 +298,7 @@ D3 version 5 uses a feature called `Promises`. Use this syntax:
 	d3.csv("file.csv").then(function(dataset) {
 		console.log(dataset);
 	});
+
 
 The console shows this:
 
@@ -309,6 +322,7 @@ Or use this syntax, it shows the same console output:
 		console.log(dataset);
 	});
 
+
 Or you can load multiple datasets like this:
 
 	var data1 = d3.csv("file1.csv")
@@ -319,6 +333,7 @@ Or you can load multiple datasets like this:
 	function someFunction(values) {
 		somethingFunHere(values);
 	}
+
 
 More about `Promises` in the [Observable blog](https://observablehq.com/@observablehq/introduction-to-promises).
 
@@ -337,6 +352,7 @@ You can use `d3.dsv` like this and explicitly define the separator:
 	d3.dsv(",", "file.csv").then(function(dataset) {
 		console.log(dataset);
 	});
+
 
 Console shows:
 
@@ -379,6 +395,7 @@ Or use `d3.json` like this. Let's create a `data.json` and add this:
 	    "population": 20
 	  }
 	]
+
 
 Then load the data:
 
@@ -439,6 +456,7 @@ For now let's add this code to our `project.js`:
 
 	var parseTime = d3.timeParse("%Y");
 
+
 Now we need to pass a function as a parameter when loading the `CSV`. First we need to create the function.
 
 
@@ -457,6 +475,7 @@ Let's add this to our code so now it shows this:
 			population: +d.population
 		};
 	}
+
 
 Clear the console and reload the browser. See if there are any errors in the console or in the Python server.
 
@@ -478,6 +497,7 @@ Load the `csv` file and use `rowConverter`. Add this to `project.js` and reload 
 	d3.csv("file.csv", rowConverter).then(function(dataset) {
 		console.log(dataset);
 	});
+
 
 This is what the code does:
 
@@ -552,6 +572,7 @@ Go to the `Elements` tab to see the `HTML` code. The `body` section has this now
 		<p></p>
 	</body>
 
+
 It created four `p` tags. Let's go back to the console and type `d3.selectAll("p");`:
 
 	Pt {_groups: Array(1), _parents: Array(1)}
@@ -559,11 +580,13 @@ It created four `p` tags. Let's go back to the console and type `d3.selectAll("p
 	_parents: [html]
 	__proto__: Object
 
+
 Expand `groups`
 
 	_groups: Array(1)
 	0: NodeList(4) [p, p, p, p]
 	length: 1
+
 
 Expand `NodeList`
 
@@ -573,10 +596,12 @@ Expand `NodeList`
 		2: p
 		3: p
 
+
 Expand the first `0: p`. It's pretty long, scroll down to the bottom:
 
 	__data__: {year: Sun Jan 01 1950 00:00:00 GMT-0500 (Eastern Standard Time), population: 5}
 	__proto__: HTMLParagraphElement
+
 
 Expand `data`:
 
@@ -585,87 +610,185 @@ Expand `data`:
 	year: Sun Jan 01 1950 00:00:00 GMT-0500 (Eastern Standard Time) {}
 
 
-**TODO: Review from this point fwd**
 
 ## Drawing SVG
 
-`SVG` stands for `Scalable Vector Graphics`. More info [here](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics).
+`SVG` stands for `Scalable Vector Graphics`. More info on [Wikipedia](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics). This is used to draw a sort of canvas to add the elements of our visualization.
 
-Following Chapter 6 of the book [Interactive Data Visualization for the Web, 2nd Ed](https://alignedleft.com/work/d3-book-2e). Create the `SVG` element with width `w` and height `h`:
+Create the `SVG` element with width `w` and height `h`. Add this code to the top of the example as shown:
 
 	var w = 500;
 	var h = 300;
-	var barPadding = 3;
-	var padding = 40;
+	var barPadding = 3; # This will be used later for bar charts
+	var padding = 40; # This too
 	var svg = d3.select("body")
 				.append("svg");
 				.attr("width", w)
 				.attr("height", h);
+
+	var parseTime = d3.timeParse("%Y");
+
+	var rowConverter = function(d) {
+		return {
+			year: parseTime(d.year),
+			population: +d.population
+		};
+	}
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+		d3.select("body").selectAll("p")
+		.data(dataset)
+		.enter()
+		.append("p");
+	});
+
+
+Reload the page and look at the `HTML` code. An `svg` tag has been created:
+
+	<svg width="500" height="300"></svg>
+
+
+You can see the `svg` on the page shows a small rectangle:
+
+![D3 SVG Canvas]({{ site.baseurl }}/assets/images/d3-svg.jpg)
+
 
 
 ## Creating a Bar Chart
 
 Using the `CSV` dataset:
 
-	year 	population
-	1950		5
-	1951		10
-	1955		15
-	1959		20
+	year,population
+	1950,5
+	1951,10
+	1955,15
+	1959,20
 
-Load it as seen here:
 
-	d3.dsv(",", "file.csv", rowConverter).then(function(dataset) {
+We are loading it as `file.csv` and we will add the bar chart code inside the callback function.
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
 		// add code here
 	});
 
 
-Add the code inside the callback function.
-
 Create rectangle shapes by adding attributes for `(x,y)`, where `x` is measured from left to right of the `SVG` and `y` is measured from top to bottom of the `SVG`. The coordinate `(0,0)` is the top left corner. The coordinates increase to the right for `x` and down for `y`.
 
-Also, `x` points to the bottom left of the rectangle, `y` points to the top left of the rectangle. In this example, `width` draws `20px` to the right, and `height` draws `100px` downwards from the `y` coordinate. In other words, all rectangles of the bar chart are drawn downwards, following the characteristics of the `SVG` having its `(0,0)` on the top left corner.
+Also, `x` points to the bottom left of the rectangle, `y` points to the top left of the rectangle. You are drawing kind of upside down. That's how weird SVG is.
 
 
 ## Drawing each rectangle for the bar chart
 
-Not sure why it's upside down, but that's how `SVG` works.
+In this example, `width` draws `20px` to the right, and `height` draws `100px` downwards from the `y` coordinate. In other words, all rectangles of the bar chart are drawn downwards, following the characteristics of the `SVG` having its `(0,0)` on the top left corner.
 
-	svg.selectAll("rect")
-		.data(dataset)
-		.enter()
-		.append("rect")
-		.attr("x", 0)
-		.attr("y", 0)
-		.attr("width", 20)
-		.attr("height", 100);
+![D3 One Bar Rectangle]({{ site.baseurl }}/assets/images/d3-rect1.jpg)
+
+So far we have this:
+
+	var w = 500;
+	var h = 300;
+	var barPadding = 3;
+	var padding = 40;
+	var svg = d3.select("body")
+				.append("svg")
+				.attr("width", w)
+				.attr("height", h);
+
+	var parseTime = d3.timeParse("%Y");
+
+	var rowConverter = function(d) {
+		return {
+			year: parseTime(d.year),
+			population: +d.population
+		}
+	}
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+		svg.selectAll("rect")
+		   .data(dataset)
+		   .enter()
+		   .append("rect")
+		   .attr("x", 0)
+		   .attr("y", 0)
+		   .attr("width", 20)
+		   .attr("height", 100);
+	});
+
+Reload the browser to see the result and the HTML:
+
+	<svg width="500" height="300">
+		<rect x="0" y="0" width="20" height="100"></rect>
+		<rect x="0" y="0" width="20" height="100"></rect>
+		<rect x="0" y="0" width="20" height="100"></rect>
+		<rect x="0" y="0" width="20" height="100"></rect>
+	</svg>
+
 
 However by setting `.attr("x", 0)`, it makes the bar chart rectangles to overlap on top of each other, as they are all drawn at the same `(x, y)` position.
+
 
 
 ## Scaling the coordinates of the rectangles
 
 The coordinates of the rectangles need to scale dynamically. For example for `x values`, use an anonymous function to pass each value `d` of the dataset, and the index `i` for each value. Then compute `i` times the width `w` over the length of the dataset.
 
-Do the calculation by hand and you will understand how it works.
+Do the calculation by hand and you will understand how it works. Update the code to this and reload the browser:
+
+	var w = 500;
+	var h = 300;
+	var barPadding = 3;
+	var padding = 40;
+	var svg = d3.select("body")
+				.append("svg")
+				.attr("width", w)
+				.attr("height", h);
+
+	var parseTime = d3.timeParse("%Y");
+
+	var rowConverter = function(d) {
+		return {
+			year: parseTime(d.year),
+			population: +d.population
+		}
+	}
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+		svg.selectAll("rect")
+			.data(dataset)
+			.enter()
+			.append("rect")
+			.attr("x", function(d, i) {
+				return i * (w/dataset.length);
+				})
+			.attr("y", function(d) {
+				return h - d.population;
+				})
+			.attr("width", w/dataset.length - barPadding)
+			.attr("height", function(d) {
+				return d.population;
+				})
+			.attr("fill", "teal");
+
+	});
 
 
-	svg.selectAll("rect")
-		.data(dataset)
-		.enter()
-		.append("rect")
-		.attr("x", function(d, i) {
-			return i * (w/dataset.length);
-			})
-		.attr("y", function(d) {
-			return h - d.population;
-			})
-		.attr("width", w/dataset.length - barPadding)
-		.attr("height", function(d) {
-			return d.population;
-			})
-		.attr("fill", "teal");
+The result is this:
 
+![D3 BarChart Rectangles]({{ site.baseurl }}/assets/images/d3-rect2.jpg)
+
+
+The HTML shows this:
+
+	<svg width="500" height="300">
+		<rect x="0" y="295" width="122" height="5" fill="teal"></rect>
+		<rect x="125" y="290" width="122" height="10" fill="teal"></rect>
+		<rect x="250" y="285" width="122" height="15" fill="teal"></rect>
+		<rect x="375" y="280" width="122" height="20" fill="teal"></rect>
+	</svg>
+	
 
 ## How this works: `attr("x", function(d, i)`
 
@@ -722,11 +845,13 @@ We need to set the `y` position of each rectangle. This points to the top left o
 		return h - d.population;
 	})
 
+
 In this code `h` was previously set as `var h = 300;`.
 
 The call back function is passing every row of the dataset as `d` and we need the second value `population` of each row to calculate the `y` coordinate of each rectangle.
 
 	return h - d.population;
+
 
 Given these values, where a value of `d` corresponds to `[d.year, d.population]`.
 
@@ -743,7 +868,8 @@ The subtractions are:
 	300 - 15 = 285
 	300 - 20 = 280
 
-Remember that for the `SVG` the `(0,0)` is at the top left. Then `y` value of `295` means measure `295px` from top moving downwards.
+
+For the `SVG` the `(0,0)` is at the top left. Then `y` value of `295` means measure `295px` from top moving downwards.
 
 These are returned to the call back function to form these:
 
@@ -752,12 +878,14 @@ These are returned to the call back function to form these:
 	.attr("y", 285)
 	.attr("y", 280)
 
+
 Putting these two attributes together, we can get the coordinates for each rectangle
 
 	.attr("x", 0)		.attr("y", 295)
 	.attr("x", 125)		.attr("y", 290)
 	.attr("x", 250)		.attr("y", 285)
 	.attr("x", 375)		.attr("y", 280)
+
 
 The rectangles are at these coordinates:
 
@@ -779,9 +907,11 @@ We are using a variable `barPadding` that we should have defined previously to m
 
 	var barPadding = 3;
 
+
 The `width` is the same for all rectangles:
 
 	w/dataset.length - barPadding = 500/4 - 3 = 122
+
 
 This value is then used as a parameter:
 
@@ -797,8 +927,8 @@ As seen here:
 		return d.population;
 	})
 
-Set the height starting from the position `y` by returning the value `d.population` on the dataset. In other words, build the rectangle downwards from top to bottom starting at position `y`.
 
+Set the height starting from the position `y` by returning the value `d.population` on the dataset. In other words, build the rectangle downwards from top to bottom starting at position `y`.
 
 Putting it all together using this format `(x, width, y, height)`:
 
@@ -807,29 +937,38 @@ Putting it all together using this format `(x, width, y, height)`:
 * Rectangle 3: `(250, 122, 285, 15)`
 * Rectangle 4: `(375, 122, 280, 20)`
 
+
 Here is a description of the first two rectangles:
 
-* Rect1 starts at `x=0`, draw `width=122` towards the right, at position `y=295`, draw `height=5` towards the bottom.
+* `Rect1` starts at `x=0`, draw `width=122` towards the right, at position `y=295`, draw `height=5` towards the bottom.
 * There is a `barPadding = 3` towards the right, separating Rect1 from Rect2.
-* Rect2 starts `x=125`, draw `width=122` towards the right, at position `y=290`, draw `height=10` towards the bottom.
+* `Rect2` starts `x=125`, draw `width=122` towards the right, at position `y=290`, draw `height=10` towards the bottom.
 
 Keep in mind again the weird `SVG` way of positioning/drawing elements left to right, top to bottom.
 
 
 ## Using Scales
 
-Following Chapter 7 of the book [Interactive Data Visualization for the Web, 2nd Ed](https://alignedleft.com/work/d3-book-2e). This is where things get interesting and you can spend countless hours trying to fix the drawing in the `SVG` way.
+This is where things get interesting and you can spend countless hours trying to fix the drawing in the `SVG` way.
+
+Definitions:
 
 * `Input domain` is the range of input data values
 * `Output range` is the range of output values
 
-With the example having an `input domain` of `[100, 500]`:
+With the example having an `input domain` of `[5, 20]` (From `5` to `20`):
 
-	dataset = [100, 200, 300, 400, 500]
+	dataset = [5, 10, 15, 20]
 
-And the `output range` of `[10, 350]` in pixels. Where the minimum input value of `100` is represented as `10px`, and the maximum value of `500` is represented as `350px`.
+
+And the `output range` of `[10, 250]` in pixels. Where the minimum input value of `5` is represented as `10px`, and the maximum value of `20` is represented as `250px`.
 
 The input value can be normalized and this result can be scaled to the output. For example normalizing input values to a range of `0` to `1`. Then maybe the `0` can be represented as `0px` and the maximum of `1` can be `100px`.
+
+
+As shown below. The bar chart rectangles look too short compared to the SVG canvas. We can scale the rectangles to improve the visualization:
+
+![D3 BarChart Rectangles]({{ site.baseurl }}/assets/images/d3-rect2.jpg)
 
 
 ## Create a linear scale with `scaleLinear()`
@@ -854,6 +993,7 @@ As seen here:
 			   .domain([0, d3.max(dataset, function(d) { return d.population; })])
 			   .range([h - padding, padding]);
 
+
 Remember that the `SVG` way is that the coordinates increase left to right, top to bottom. For this:
 
 	.range([h - padding, padding]
@@ -870,7 +1010,27 @@ Then the range is:
 No, the range is not backwards. For `SVG` means the range is between the `y` coordinate `260` and the `y` coordinate `40`. Which is the padded region of the height of the SVG.
 
 
-## Create a Time scale with `scaleTime()`
+## Create a Band scale with `scaleBand()`
+
+More about `scaleBand()` in the [D3 Scale Docs](https://github.com/d3/d3-scale/blob/v2.2.2/README.md#band-scales).
+
+The D3 Docs have this great image to help visualize the different methods:
+
+![D3 scaleBand]({{ site.baseurl }}/assets/images/d3_scaleBand.png)
+
+These are the methods available:
+
+* .domain()
+* .range()
+* .rangeRound()
+* .round()
+* .paddingInner()
+* .paddingOuter()
+* .padding()
+* .align()
+* .bandwidth()
+* .step()
+
 
 Following the same `CSV` with this data:
 
@@ -881,56 +1041,323 @@ Following the same `CSV` with this data:
 	1959		20
 
 
-The `xScale` is used to scale the `year` column:
+### d3.scaleBand().domain()
 
-	xScale = d3.scaleTime()
-			   .domain([
-					d3.min(dataset, function(d) { return d.year; }),
-					d3.max(dataset, function(d) { return d.year; })
-				])
-			   .range([padding, w - padding]);
+The `xScale` is used to scale the `year` column. Instead of using it as a `Date`, it maps the range of the dataset length to a `width` range.:
 
-* The domain can be between the `min` and `max` values of the column `year`
-* The range is to limit the drawing to the padded limits of the `SVG` width.
+	xScale = d3.scaleBand()
+			   .domain(d3.range(dataset.length))
 
 
-## Applying scales `scaleTime()` and `scaleLinear()`
+The domain `.domain(d3.range(dataset.length))` is a `range` of `dataset.length`:
 
-Previously, this is how we drew the rectangles:
+	d3.range(dataset.length)
+
+
+You can use the `console.log()` inside the `CSV` function to test:
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+		console.log(dataset.length);
+		console.log(d3.range(dataset.length));
+		...
+
+The console should output this:
+
+	4
+	Array(4) [ 0, 1, 2, 3 ]
+
+
+The `domain` for `scaleBand()` is using this:
+
+	.domain([0, 1, 2, 3])
+
+
+### d3.scaleBand().range()
+
+Setting the `range` to fit within the width of the SVG:
+
+	xScale = d3.scaleBand()
+			   .domain(d3.range(dataset.length))
+			   .range([0, w]);
+
+
+The `range` calculates even bars using this formula `(w - 0) / .domain().length`. In our case that is `500/4 = 125`.
+
+
+### d3.scaleBand().paddingInner()
+
+As explained in the API docs. It says that if you don't specify a `paddingInner`, the default is zero `0`. If you specify one, the number must be `<= 1`. A value of `0` means there is no blank space between the bars. A value of `1` means a bandwidth of `0`.
+
+	xScale = d3.scaleBand()
+			   .domain(d3.range(dataset.length))
+			   .range([0, w])
+			   .paddingInner(0.1);
+
+
+### d3.scaleBand().paddingOuter()
+
+This is the padding to apply before the first bar and after the last bar. The number is in the range of `[0, 1]`. If not specified, the padding returns zero.
+
+	xScale = d3.scaleBand()
+			   .domain(d3.range(dataset.length))
+			   .range([0, w])
+			   .paddingInner(0.1)
+			   .paddingOuter(0.1);
+
+
+### d3.scaleBand().rangeRound()
+
+The `range` can calculate long decimal numbers such as this:
+
+	<svg width="500" height="300">
+		<rect x="12.195121951219477" y="205" width="122" height="55" fill="teal"></rect>
+		<rect x="134.14634146341461" y="150" width="122" height="110" fill="teal"></rect>
+		<rect x="256.0975609756098" y="95" width="122" height="165" fill="teal"></rect>
+		<rect x="378.04878048780483" y="40" width="122" height="220" fill="teal"></rect>
+	</svg>
+
+
+We can replace `range` with `rangeRound`.
+
+	xScale = d3.scaleBand()
+			   .domain(d3.range(dataset.length))
+			   .rangeRound([padding, w])
+			   .paddingInner(0.1)
+			   .paddingOuter(0.1);
+
+
+The `HTML` now shows something like this:
+
+	<svg width="500" height="300">
+		<rect x="14" y="205" width="122" height="55" fill="teal"></rect>
+		<rect x="135" y="150" width="122" height="110" fill="teal"></rect>
+		<rect x="256" y="95" width="122" height="165" fill="teal"></rect>
+		<rect x="377" y="40" width="122" height="220" fill="teal"></rect>
+	</svg>
+
+
+### d3.scaleBand().bandwidth()
+
+This is used later to return the width of each bar.
+
+
+## Applying scales `scaleBand()` and `scaleLinear()`
+
+We need to update the code and add the `scale` functions:
+
+	var w = 500;
+	var h = 300;
+	var barPadding = 3;
+	var padding = 40;
+	var svg = d3.select("body")
+				.append("svg")
+				.attr("width", w)
+				.attr("height", h);
+
+	var parseTime = d3.timeParse("%Y");
+
+	var rowConverter = function(d) {
+		return {
+			year: parseTime(d.year),
+			population: +d.population
+		}
+	}
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+		xScale = d3.scaleBand()
+				   .domain(d3.range(dataset.length))
+				   .rangeRound([padding, w])
+				   .paddingInner(0.1)
+				   .paddingOuter(0.1);
+
+		yScale = d3.scaleLinear()
+				   .domain([0, d3.max(dataset, function(d) { return d.population; })])
+				   .range([h - padding, padding]);
+
+		svg.selectAll("rect")
+		   .data(dataset)
+		   .enter()
+		   .append("rect")
+		   .attr("x", function(d, i) {
+		   	return xScale(i);
+		   })
+		   .attr("y", function(d) {
+		   	return yScale(d.population);
+		   })
+		   .attr("width", xScale.bandwidth())
+		   .attr("height", function(d) {
+		   	return h - padding - yScale(d.population);
+		   })
+		   .attr("fill", "teal");
+	});
+
+
+The result is this bar chart:
+
+![D3 scaleBand]({{ site.baseurl }}/assets/images/d3-rect3.jpg)
+
+
+The `HTML` is this:
+
+	<svg width="500" height="300">
+		<rect x="52" y="205" width="101" height="55" fill="teal"></rect>
+		<rect x="164" y="150" width="101" height="110" fill="teal"></rect>
+		<rect x="276" y="95" width="101" height="165" fill="teal"></rect>
+		<rect x="388" y="40" width="101" height="220" fill="teal"></rect>
+	</svg>
+
+
+Not exactly sure how the `width` was calculated to `101`. I know that the `rangeRound([padding, w])` calculates each bar width to `(w-40)/domain().length` equivalent to `(500 - 40) / 4 = 115`. Using the inner and outer padding, somehow this is reduced to `101`.
+
+You can use `console.log()` to test the output such as in here:
 
 	svg.selectAll("rect")
-		.data(dataset)
-		.enter()
-		.append("rect")
-		.attr("x", function(d, i) {
-			return i * (w/dataset.length);
-			})
-		.attr("y", function(d) {
-			return h - d.population;
-			})
-		.attr("width", w/dataset.length - barPadding)
-		.attr("height", function(d) {
-			return d.population;
-			})
-		.attr("fill", "teal");
+	   .data(dataset)
+	   .enter()
+	   .append("rect")
+	   .attr("x", function(d, i) {
 
-We need to update this code and add the `scale` functions:
+	   	console.log("x");
+	   	console.log(d);
+	   	console.log(xScale.domain());
+	   	console.log(xScale.range());
+	   	console.log(xScale.paddingInner());
+	   	console.log(xScale.paddingOuter());
+	   	console.log(xScale.bandwidth());
+	   	console.log(xScale(i));
 
-	svg.selectAll("rect")
-		.data(dataset)
-		.enter()
-		.append("rect")
-		.attr("x", function(d) {
-			return xScale(d.year);
-		})
-		.attr("y", function(d) {
-			return yScale(d.population);
-		})
-		.attr("width", w/dataset.length - barPadding)
-		.attr("height", function(d) {
-			return h - padding - yScale(d.population);
-		})
-		.attr("fill", "teal");
+	   	return xScale(i);
+	   })
+
+
+## Barchart Visualization
+
+This how the bar chart looks like:
+
+<div id="d3-barchart-vis"></div>
+<script type="text/javascript" src="../assets/js/d3.min.js"></script>
+<script type="text/javascript" src="../assets/js/d3-barchart-vis.js"></script>
+
+
+## D3 Responsive Visualization on index.html and project.js
+
+Continuing adding responsive to the `project.js`, we need to make two changes:
+
+The `index.html` now says this. I added `<div id="d3-barchart-vis"></div>`:
+
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8">
+			<title>D3 Canvas</title>
+			<link rel="icon" type="image/png" href="icon.png">
+			<script type="text/javascript" src="assets/js/d3.min.js"></script>
+			<link rel="stylesheet" type="text/css" href="main.css">
+		</head>
+		<body>
+			<div id="d3-barchart-vis"></div>
+			<script type="text/javascript" src="project.js"></script>
+		</body>
+	</html>
+
+
+The `project.js` needs to be modified when creating the `svg`. It selects `div id="d3-barchart-vis"`. It uses `preserveAspectRatio` and `viewBox` for responsive. The `viewBox` follows this syntax `"min-x min-y width height"`. I concatenated the numbers and the spaces:
+
+	var svg = d3.select("#d3-barchart-vis")
+				.append("svg")
+				.attr("preserveAspectRatio", "xMinYMin meet")
+				.attr("viewBox", "0 0 " + w + " " + h);
+
+
+The code for `project.js` looks like this:
+
+	var w = 500;
+	var h = 300;
+	var barPadding = 3;
+	var padding = 40;
+	var svg = d3.select("#d3-barchart-vis")
+				.append("svg")
+				.attr("preserveAspectRatio", "xMinYMin meet")
+				.attr("viewBox", "0 0 " + w + " " + h);
+
+	var parseTime = d3.timeParse("%Y");
+
+	var rowConverter = function(d) {
+		return {
+			year: parseTime(d.year),
+			population: +d.population
+		}
+	}
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+		xScale = d3.scaleBand()
+				   .domain(d3.range(dataset.length))
+				   .rangeRound([padding, w])
+				   .paddingInner(0.1)
+				   .paddingOuter(0.1);
+
+		yScale = d3.scaleLinear()
+				   .domain([0, d3.max(dataset, function(d) { return d.population; })])
+				   .range([h - padding, padding]);
+
+		svg.selectAll("rect")
+		   .data(dataset)
+		   .enter()
+		   .append("rect")
+		   .attr("x", function(d, i) {
+		   	return xScale(i);
+		   })
+		   .attr("y", function(d) {
+		   	return yScale(d.population);
+		   })
+		   .attr("width", xScale.bandwidth())
+		   .attr("height", function(d) {
+		   	return h - padding - yScale(d.population);
+		   })
+		   .attr("fill", "teal");
+	});
+
+
+## D3 Responsive Visualization on a blog post
+
+You can also add a D3 visualization to a blog post. For example, my website uses Jekyll static generator. I added this to the section of my blog post (which is written in markdown) to insert the D3 visualization:
+
+	<div id="d3-barchart-vis"></div>
+	<script type="text/javascript" src="../assets/js/d3.min.js"></script>
+	<script type="text/javascript" src="../assets/js/d3-barchart-vis.js"></script>
+
+
+For this example, I changed the file name from `project.js` to `d3-barchart-vis.js`.
+
+I created a `div` element and assigned a descriptive `id`.
+
+Then I referenced the `d3` library and the visualization code in `d3-barchart-vis.js`.
+
+My blog follows this directory structure:
+
+	assets/
+		csv/
+			file.csv
+		js/
+			d3.min.js
+			d3-barchart-vis.js
+	_posts/
+		this-blog-post.md
+
+
+The `d3-barchart-vis.js` has the modified responsive `svg`:
+
+	var svg = d3.select("#d3-barchart-vis")
+				.append("svg")
+				.attr("preserveAspectRatio", "xMinYMin meet")
+				.attr("viewBox", "0 0 " + w + " " + h);
+
+
+The `csv` file is called like this so it points at the correct directory:
+
+	d3.csv("../assets/csv/file.csv", rowConverter).then(function(dataset) {
 
 
 ## Using Arrow Functions
@@ -943,38 +1370,68 @@ Given this example:
 		return element.length;
 	});
 
+
 This can be simplified to:
 
 	elements.map((element) => {
 		return element.length;
 	});
 
-If there is only one parameter then this:
 
-	elements.map(element => {
-		return element.length;
-	});
-
-When the only statement is `return` then:
+If there is only one parameter and the only statement is `return` then it can be simplified to this:
 
 	elements.map(element => element.length);
 
-Refactoring `svg.selectAll("rect")`
 
-	svg.selectAll("rect")
-		.data(dataset)
-		.enter()
-		.append("rect")
-		.attr("x", d => xScale(d.year))
-		.attr("y", d => yScale(d.population))
-		.attr("width", w/dataset.length - barPadding)
-		.attr("height", d => h - padding - yScale(d.population))
-		.attr("fill", "teal");
+Refactoring `svg.selectAll("rect")` 
+
+	var w = 500;
+	var h = 300;
+	var barPadding = 3;
+	var padding = 40;
+	var svg = d3.select("#d3-barchart-vis")
+				.append("svg")
+				.attr("preserveAspectRatio", "xMinYMin meet")
+				.attr("viewBox", "0 0 " + w + " " + h);
+
+	var parseTime = d3.timeParse("%Y");
+
+	var rowConverter = function(d) {
+		return {
+			year: parseTime(d.year),
+			population: +d.population
+		}
+	}
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+		xScale = d3.scaleBand()
+				   .domain(d3.range(dataset.length))
+				   .rangeRound([padding, w])
+				   .paddingInner(0.1)
+				   .paddingOuter(0.1);
+
+		yScale = d3.scaleLinear()
+				   .domain([0, d3.max(dataset, function(d) { return d.population; })])
+				   .range([h - padding, padding]);
+
+		svg.selectAll("rect")
+		   .data(dataset)
+		   .enter()
+		   .append("rect")
+		   .attr("x", function(d, i) {
+		   	return xScale(i);
+		   })
+		   .attr("y", d => yScale(d.population))
+		   .attr("width", xScale.bandwidth())
+		   .attr("height", d => h - padding - yScale(d.population))
+		   .attr("fill", "teal");
+	});
 
 
 ## Adding Axes to our Bar Chart
 
-Use any of these: `d3.axisTop`, `d3.axisBottom`, `d3.axisLeft`, `d3.axisRight`. Then append a `g` (group) element to the end of the SVG. As seen on the book on Chapter 8, it says that `g` (group) elements are invisible, unlike `rect` or `circle`.
+Use any of these: `d3.axisTop`, `d3.axisBottom`, `d3.axisLeft`, `d3.axisRight`. Then append a `g` (group) element to the end of the SVG.
 
 	var xAxis = d3.axisBottom(xScale);
 	var yAxis = d3.axisLeft(yScale);
@@ -992,11 +1449,90 @@ Put this at the end of the script, since the graphics lay on top of each other, 
 	   .attr("transform", "translate(" + padding + ",0)")
 	   .call(yAxis);
 
-This line is a string concatenation
+
+This line is a string concatenation:
 
 	.attr("transform", "translate(0," + (h - padding) + ")")
+
+
+It computes to the following:
+
 	.attr("transform", "translate(0", + (300 -  40  ) + ")")
-	.attr("transform", "translate(0,260)");
+
+
+Then the result is:
+
+	svg.append("g")
+	   .attr("class", "axis")
+	   .attr("transform", "translate(0,260)")
+	   .call(xAxis);
+
+
+The `translate` function moves the object by `x` and `y`. More details in the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform).
+
+
+The bar chart should now look like this:
+
+![D3 barchart with Axes]({{ site.baseurl }}/assets/images/d3-rect4.jpg)
+
+
+The complete code with x and y axes:
+
+	var w = 500;
+	var h = 300;
+	var barPadding = 3;
+	var padding = 40;
+	var svg = d3.select("#d3-barchart-vis")
+				.append("svg")
+				.attr("preserveAspectRatio", "xMinYMin meet")
+				.attr("viewBox", "0 0 " + w + " " + h);
+
+	var parseTime = d3.timeParse("%Y");
+
+	var rowConverter = function(d) {
+		return {
+			year: parseTime(d.year),
+			population: +d.population
+		}
+	}
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+		xScale = d3.scaleBand()
+				   .domain(d3.range(dataset.length))
+				   .rangeRound([padding, w])
+				   .paddingInner(0.1)
+				   .paddingOuter(0.1);
+
+		yScale = d3.scaleLinear()
+				   .domain([0, d3.max(dataset, function(d) { return d.population; })])
+				   .range([h - padding, padding]);
+
+		var xAxis = d3.axisBottom(xScale);
+		var yAxis = d3.axisLeft(yScale);
+
+		svg.selectAll("rect")
+		   .data(dataset)
+		   .enter()
+		   .append("rect")
+		   .attr("x", function(d, i) {
+		   	return xScale(i);
+		   })
+		   .attr("y", d => yScale(d.population))
+		   .attr("width", xScale.bandwidth())
+		   .attr("height", d => h - padding - yScale(d.population))
+		   .attr("fill", "teal");
+
+		svg.append("g")
+		   .attr("class", "x axis")
+		   .attr("transform", "translate(0," + (h - padding) + ")")
+		   .call(xAxis);
+
+		svg.append("g")
+		   .attr("class", "y axis")
+		   .attr("transform", "translate(" + padding + ",0)")
+		   .call(yAxis);
+	});
 
 
 ## Adding ticks on the Axes
@@ -1010,12 +1546,534 @@ Use `.tickFormat` to format the axis labels.
 	var xAxis = d3.axisBottom(xScale)
 				  .ticks(someParameterHere);
 
+For now I will not use this.
+
 
 ## Adding a Title to the Graph
+
+Use `append("text")` to append a title to the graph:
 
 	svg.append("text")
 	   .attr("x", w/2)
 	   .attr("y", padding)
 	   .attr("text-anchor", "middle")
 	   .style("font-size", "16px")
-	   .text("Awesome Title Here");
+	   .text("Awesome Barchart");
+
+
+## Add a label for the x Axis
+
+A label can be added to the x Axis by appending a `text` and using the `transform` and `translate` to position the text.
+
+The function `translate` uses a string concatenation to get to `translate(w/2, h-10)` which is calculated to `translate(500/2, 300-10)` or `translate(250, 290)`. Where `x` is in the middle of the SVG and `y` is `10px` from the bottom (or `290px` from the top).
+
+	svg.append("text")
+	   .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
+	   .style("text-anchor", "middle")
+	   .text("Year");
+
+
+## Add a label for the y Axis
+
+The label for the y Axis is a bit different. First we need to rotate the label vertically with a negative `-90` degrees. Then the point of reference for `(0,0)` changes. If I am not mistaken it's now on the top right relative to the rotated text.
+
+To center the text vertically. Move it half way to the left at an `x` distance of `-(h/2)`. The `y` is set relative to the rotated position. If you move it down (to the right) it will be a positive number (towards the y Axis). If you move it up (to the left) it will be a negative number (away from the y Axis).
+
+	svg.append("text")
+	   .attr("transform", "rotate(-90)")
+	   .attr("x", -(h/2))
+	   .attr("y", 15)
+	   .style("text-anchor", "middle")
+	   .text("Population");
+
+
+The barchart looks like this:
+
+![D3 barchart with Axes and Labels]({{ site.baseurl }}/assets/images/d3-rect5.jpg)
+
+
+The code with the labels is now this:
+
+	var w = 500;
+	var h = 300;
+	var barPadding = 3;
+	var padding = 40;
+	var svg = d3.select("#d3-barchart-vis")
+				.append("svg")
+				.attr("preserveAspectRatio", "xMinYMin meet")
+				.attr("viewBox", "0 0 " + w + " " + h);
+
+	var parseTime = d3.timeParse("%Y");
+
+	var rowConverter = function(d) {
+		return {
+			year: parseTime(d.year),
+			population: +d.population
+		}
+	}
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+		xScale = d3.scaleBand()
+				   .domain(d3.range(dataset.length))
+				   .rangeRound([padding, w])
+				   .paddingInner(0.1)
+				   .paddingOuter(0.1);
+
+		yScale = d3.scaleLinear()
+				   .domain([0, d3.max(dataset, function(d) { return d.population; })])
+				   .range([h - padding, padding]);
+
+		var xAxis = d3.axisBottom(xScale);
+		var yAxis = d3.axisLeft(yScale);
+
+		svg.selectAll("rect")
+		   .data(dataset)
+		   .enter()
+		   .append("rect")
+		   .attr("x", function(d, i) {
+		   	return xScale(i);
+		   })
+		   .attr("y", d => yScale(d.population))
+		   .attr("width", xScale.bandwidth())
+		   .attr("height", d => h - padding - yScale(d.population))
+		   .attr("fill", "teal");
+
+		// Add the x Axis
+		svg.append("g")
+		   .attr("class", "x axis")
+		   .attr("transform", "translate(0," + (h - padding) + ")")
+		   .call(xAxis);
+
+		// Label for x Axis
+		svg.append("text")
+		   .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
+		   .style("text-anchor", "middle")
+		   .text("Year");
+
+		// Add the y Axis
+		svg.append("g")
+		   .attr("class", "y axis")
+		   .attr("transform", "translate(" + padding + ",0)")
+		   .call(yAxis);
+
+		// Label for y Axis
+		svg.append("text")
+		   .attr("transform", "rotate(-90)")
+		   .attr("x", -(h/2))
+		   .attr("y", 15)
+		   .style("text-anchor", "middle")
+		   .text("Population");
+
+		svg.append("text")
+		   .attr("x", w/2)
+		   .attr("y", padding)
+		   .attr("text-anchor", "middle")
+		   .style("font-size", "16px")
+		   .text("Awesome Barchart");
+	});
+
+
+## Adding Margins
+
+The label for the y Axis is too close to the left. I had to plug a few different numbers in `.attr("y", 15)` to make it fit.
+
+	// Label for y Axis
+	svg.append("text")
+	   .attr("transform", "rotate(-90)")
+	   .attr("x", -(h/2))
+	   .attr("y", 15)
+	   .style("text-anchor", "middle")
+	   .text("Population");
+
+
+We can add the margins like this:
+
+	var margin = {top: 20, right: 20, bottom: 20, left: 20},
+	    w = 500 - margin.left - margin.right,
+	    h = 300 - margin.top - margin.bottom;
+
+
+Perhaps the labels are too big. They are the same size as the title. I added a font size for the labels, changed the position of the y label, and added the margins.
+
+The barchart looks like this:
+
+![D3 barchart with Margins]({{ site.baseurl }}/assets/images/d3-rect6.jpg)
+
+
+The code with the margins is now this:
+
+	var margin = {top: 20, right: 20, bottom: 20, left: 20},
+		    w = 500 - margin.left - margin.right,
+		    h = 300 - margin.top - margin.bottom;
+
+	var barPadding = 3;
+	var padding = 40;
+	var svg = d3.select("#d3-barchart-vis")
+				.append("svg")
+				.attr("preserveAspectRatio", "xMinYMin meet")
+				.attr("viewBox", "0 0 " + w + " " + h);
+
+	var parseTime = d3.timeParse("%Y");
+
+	var rowConverter = function(d) {
+		return {
+			year: parseTime(d.year),
+			population: +d.population
+		}
+	}
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+		xScale = d3.scaleBand()
+				   .domain(d3.range(dataset.length))
+				   .rangeRound([padding, w])
+				   .paddingInner(0.1)
+				   .paddingOuter(0.1);
+
+		yScale = d3.scaleLinear()
+				   .domain([0, d3.max(dataset, function(d) { return d.population; })])
+				   .range([h - padding, padding]);
+
+		var xAxis = d3.axisBottom(xScale);
+		var yAxis = d3.axisLeft(yScale);
+
+		svg.selectAll("rect")
+		   .data(dataset)
+		   .enter()
+		   .append("rect")
+		   .attr("x", function(d, i) {
+		   	return xScale(i);
+		   })
+		   .attr("y", d => yScale(d.population))
+		   .attr("width", xScale.bandwidth())
+		   .attr("height", d => h - padding - yScale(d.population))
+		   .attr("fill", "teal");
+
+		// Add the x Axis
+		svg.append("g")
+		   .attr("class", "x axis")
+		   .attr("transform", "translate(0," + (h - padding) + ")")
+		   .call(xAxis);
+
+		// Label for x Axis
+		svg.append("text")
+		   .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
+		   .style("text-anchor", "middle")
+		   .style("font-size", "12px")
+		   .text("Year");
+
+		// Add the y Axis
+		svg.append("g")
+		   .attr("class", "y axis")
+		   .attr("transform", "translate(" + padding + ",0)")
+		   .call(yAxis);
+
+		// Label for y Axis
+		svg.append("text")
+		   .attr("transform", "rotate(-90)")
+		   .attr("x", -(h/2))
+		   .attr("y", 10)
+		   .style("text-anchor", "middle")
+		   .style("font-size", "12px")
+		   .text("Population");
+
+		svg.append("text")
+		   .attr("x", w/2)
+		   .attr("y", padding)
+		   .attr("text-anchor", "middle")
+		   .style("font-size", "16px")
+		   .text("Awesome Barchart");
+	});
+
+
+## Troubleshooting the Year on the x Axis
+
+The barchart still doesn't look correct. The ticks on the x Axis are supposed to be years and not integers starting at `1`.
+
+![D3 barchart with Margins]({{ site.baseurl }}/assets/images/d3-rect6.jpg)
+
+
+I need to modify the `scaleBand()` so the domain maps to the years on the converted `Date` objects from the CSV file.
+
+It currently looks like this:
+
+	xScale = d3.scaleBand()
+			   .domain(d3.range(dataset.length))
+			   .rangeRound([padding, w])
+			   .paddingInner(0.1)
+			   .paddingOuter(0.1);
+
+
+I changed it to this:
+
+	xScale = d3.scaleBand()
+			   .domain(dataset.map(d => d.year.getFullYear()))
+			   .rangeRound([padding, w])
+			   .paddingInner(0.1)
+			   .paddingOuter(0.1);
+
+
+You can test what this does on the console `dataset.map(d => d.year.getFullYear())` inside this section:
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+		console.log(dataset.map(d => d.year.getFullYear()))
+
+
+The output should be:
+
+	Array(4) [ 1950, 1951, 1955, 1959 ]
+
+
+Then modify implementing the `xScale` in this section. From this `return xScale(i)`:
+
+	svg.selectAll("rect")
+	   .data(dataset)
+	   .enter()
+	   .append("rect")
+	   .attr("x", function(d, i) {
+	   	return xScale(i);
+	   })
+	   .attr("y", d => yScale(d.population))
+	   .attr("width", xScale.bandwidth())
+	   .attr("height", d => h - padding - yScale(d.population))
+	   .attr("fill", "teal");
+
+
+Modified to this `return xScale(d.year.getFullYear())`:
+
+	svg.selectAll("rect")
+	   .data(dataset)
+	   .enter()
+	   .append("rect")
+	   .attr("x", function(d, i) {
+	   	return xScale(d.year.getFullYear());
+	   })
+	   .attr("y", d => yScale(d.population))
+	   .attr("width", xScale.bandwidth())
+	   .attr("height", d => h - padding - yScale(d.population))
+	   .attr("fill", "teal");
+
+
+The corrected barchart looks like this:
+
+![D3 barchart with corrected Year]({{ site.baseurl }}/assets/images/d3-rect7.jpg)
+
+
+The code with a bit more arrow functions:
+
+	var margin = {top: 20, right: 20, bottom: 20, left: 20},
+		    w = 500 - margin.left - margin.right,
+		    h = 300 - margin.top - margin.bottom;
+
+	var barPadding = 3;
+	var padding = 40;
+	var svg = d3.select("#d3-barchart-vis")
+				.append("svg")
+				.attr("preserveAspectRatio", "xMinYMin meet")
+				.attr("viewBox", "0 0 " + w + " " + h);
+
+	var parseTime = d3.timeParse("%Y");
+
+	var rowConverter = function(d) {
+		return {
+			year: parseTime(d.year),
+			population: +d.population
+		}
+	}
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+		xScale = d3.scaleBand()
+				   .domain(dataset.map(d => d.year.getFullYear()))
+				   .rangeRound([padding, w])
+				   .paddingInner(0.1)
+				   .paddingOuter(0.1);
+
+		yScale = d3.scaleLinear()
+				   .domain([0, d3.max(dataset, d => d.population)])
+				   .range([h - padding, padding]);
+
+		var xAxis = d3.axisBottom(xScale);
+		var yAxis = d3.axisLeft(yScale);
+
+		svg.selectAll("rect")
+		   .data(dataset)
+		   .enter()
+		   .append("rect")
+		   .attr("x", d => xScale(d.year.getFullYear()))
+		   .attr("y", d => yScale(d.population))
+		   .attr("width", xScale.bandwidth())
+		   .attr("height", d => h - padding - yScale(d.population))
+		   .attr("fill", "teal");
+
+		// Add the x Axis
+		svg.append("g")
+		   .attr("class", "x axis")
+		   .attr("transform", "translate(0," + (h - padding) + ")")
+		   .call(xAxis);
+
+		// Label for x Axis
+		svg.append("text")
+		   .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
+		   .style("text-anchor", "middle")
+		   .style("font-size", "12px")
+		   .text("Year");
+
+		// Add the y Axis
+		svg.append("g")
+		   .attr("class", "y axis")
+		   .attr("transform", "translate(" + padding + ",0)")
+		   .call(yAxis);
+
+		// Label for y Axis
+		svg.append("text")
+		   .attr("transform", "rotate(-90)")
+		   .attr("x", -(h/2))
+		   .attr("y", 10)
+		   .style("text-anchor", "middle")
+		   .style("font-size", "12px")
+		   .text("Population");
+
+		svg.append("text")
+		   .attr("x", w/2)
+		   .attr("y", padding)
+		   .attr("text-anchor", "middle")
+		   .style("font-size", "16px")
+		   .text("Awesome Barchart");
+	});
+
+
+## D3 Mouse Event Handler
+
+I want the barchart to change colors when you mouse over a bin to highlight what you are pointing at.
+
+Add two functions here:
+
+	svg.selectAll("rect")
+	   .data(dataset)
+	   .enter()
+	   .append("rect")
+	   .attr("x", d => xScale(d.year.getFullYear()))
+	   .attr("y", d => yScale(d.population))
+	   .attr("width", xScale.bandwidth())
+	   .attr("height", d => h - padding - yScale(d.population))
+	   .attr("fill", "teal")
+	   .on("mouseover", handleMouseOver)
+	   .on("mouseout", handleMouseOut);
+
+
+Then add the functions to process each interaction at the end, before the closing of `d3.csv`:
+
+	function handleMouseOver(d, i) {
+		d3.select(this)
+		  .attr("fill", "red");
+	}
+
+	function handleMouseOut(d, i) {
+		d3.select(this)
+		  .attr("fill", "teal");
+	}
+
+
+The barchart with mouse event handler looks like this:
+
+<div id="d3-barchart-vis-final"></div>
+<script type="text/javascript" src="../assets/js/d3.min.js"></script>
+<script type="text/javascript" src="../assets/js/d3-barchart-vis-final.js"></script>
+
+
+The final code is this:
+
+	var margin = {top: 20, right: 20, bottom: 20, left: 20},
+		    w = 500 - margin.left - margin.right,
+		    h = 300 - margin.top - margin.bottom;
+
+	var barPadding = 3;
+	var padding = 40;
+	var svg = d3.select("#d3-barchart-vis")
+				.append("svg")
+				.attr("preserveAspectRatio", "xMinYMin meet")
+				.attr("viewBox", "0 0 " + w + " " + h);
+
+	var parseTime = d3.timeParse("%Y");
+
+	var rowConverter = function(d) {
+		return {
+			year: parseTime(d.year),
+			population: +d.population
+		}
+	}
+
+	d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+		xScale = d3.scaleBand()
+				   .domain(dataset.map(d => d.year.getFullYear()))
+				   .rangeRound([padding, w])
+				   .paddingInner(0.1)
+				   .paddingOuter(0.1);
+
+		yScale = d3.scaleLinear()
+				   .domain([0, d3.max(dataset, d => d.population)])
+				   .range([h - padding, padding]);
+
+		var xAxis = d3.axisBottom(xScale);
+		var yAxis = d3.axisLeft(yScale);
+
+		svg.selectAll("rect")
+		   .data(dataset)
+		   .enter()
+		   .append("rect")
+		   .attr("x", d => xScale(d.year.getFullYear()))
+		   .attr("y", d => yScale(d.population))
+		   .attr("width", xScale.bandwidth())
+		   .attr("height", d => h - padding - yScale(d.population))
+		   .attr("fill", "teal")
+		   .on("mouseover", handleMouseOver)
+		   .on("mouseout", handleMouseOut);
+
+		// Add the x Axis
+		svg.append("g")
+		   .attr("class", "x axis")
+		   .attr("transform", "translate(0," + (h - padding) + ")")
+		   .call(xAxis);
+
+		// Label for x Axis
+		svg.append("text")
+		   .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
+		   .style("text-anchor", "middle")
+		   .style("font-size", "12px")
+		   .text("Year");
+
+		// Add the y Axis
+		svg.append("g")
+		   .attr("class", "y axis")
+		   .attr("transform", "translate(" + padding + ",0)")
+		   .call(yAxis);
+
+		// Label for y Axis
+		svg.append("text")
+		   .attr("transform", "rotate(-90)")
+		   .attr("x", -(h/2))
+		   .attr("y", 10)
+		   .style("text-anchor", "middle")
+		   .style("font-size", "12px")
+		   .text("Population");
+
+		svg.append("text")
+		   .attr("x", w/2)
+		   .attr("y", padding)
+		   .attr("text-anchor", "middle")
+		   .style("font-size", "16px")
+		   .text("Awesome Barchart");
+
+		function handleMouseOver(d, i) {
+			d3.select(this)
+			  .attr("fill", "red");
+		}
+
+		function handleMouseOut(d, i) {
+			d3.select(this)
+			  .attr("fill", "teal");
+		}
+	});

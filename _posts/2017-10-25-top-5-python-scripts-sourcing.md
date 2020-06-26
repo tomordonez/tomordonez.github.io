@@ -301,16 +301,16 @@ Run a search:
 
 It will produce these results:
 
-*1 Fender Guitars | Electric, Acoustic & Bass Guitars, Amps, Pro Audio*
-*https://www.fender.com/*
-*Since 1946, Fender's iconic Stratocasters, Telecasters and Precision & Jazz bass guitars have transformed nearly every music genre.*
+    *1 Fender Guitars | Electric, Acoustic & Bass Guitars, Amps, Pro Audio*
+    *https://www.fender.com/*
+    *Since 1946, Fender's iconic Stratocasters, Telecasters and Precision & Jazz bass guitars have transformed nearly every music genre.*
 
-*2 Fender (@Fender) · Twitter*
-*https://twitter.com/Fender?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor*
+    *2 Fender (@Fender) · Twitter*
+    *https://twitter.com/Fender?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor*
 
-*3 Fender Musical Instruments Corporation - Wikipedia*
-*https://en.wikipedia.org/wiki/Fender_Musical_Instruments_Corporation*
-*Coordinates: 33°38′46″N 111°53′57″W﻿ / ﻿33.6460322°N 111.899058°W﻿ / 33.6460322; -111.899058. Fender Musical Instruments Corporation (FMIC), ...*
+    *3 Fender Musical Instruments Corporation - Wikipedia*
+    *https://en.wikipedia.org/wiki/Fender_Musical_Instruments_Corporation*
+    *Coordinates: 33°38′46″N 111°53′57″W﻿ / ﻿33.6460322°N 111.899058°W﻿ / 33.6460322; -111.899058. Fender Musical Instruments Corporation (FMIC), ...*
 
 The bottom of the screen will show:
 
@@ -428,11 +428,8 @@ This will search for data on that website. Find 50 results using google and save
 
 If you open the file `example1` in your browser, it looks like this:
 
-<p>&nbsp;</p>
-
 ![Python Scripts for Sourcing]({{ site.baseurl }}/assets/images/python-script-example.jpg)
 
-<p>&nbsp;</p>
 
 When you are done using the script. You can deactivate the virtual environment like this:
 

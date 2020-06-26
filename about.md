@@ -16,3 +16,7 @@ These are some areas I am trying to master:
 * D3 with JavaScript
 * Python
 * Spark with Scala
+
+## Contact
+
+Connect with me on [Linkedin](https://www.linkedin.com/in/tomordonez/)

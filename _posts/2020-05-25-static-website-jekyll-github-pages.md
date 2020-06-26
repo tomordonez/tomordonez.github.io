@@ -177,7 +177,6 @@ Mine looks kinda like this:
 	twitter_username: mytwitter
 	github_username:  mygithub
 	permalink: /:title/
-	favicon: 'assets/images/favicon.ico' #doesn't work yet
 
 	# Build settings
 	theme: minima
@@ -308,6 +307,15 @@ You can create a `404.md` file if you add this:
 Use the `redirect_from:` to redirect bad URLs from Google search results. Or use the same approach for blog posts. You can also try to fix them in your Google Search Console.
 
 
+## Add a Favicon
+
+Based on your theme, it should allow you to add a Favicon on the `_config.yml`. Otherwise you would need to add it directly to the `head.html`.
+
+For the `minima` theme, the docs say that you can add an `_includes/custom-head.html` to your root folder and add your code for the favicon files. However, this didn't work for me as shown on [2.5.1 can't include custom-head.html](https://github.com/jekyll/minima/issues/472).
+
+I added the favicon code directly to `head.html`.
+
+
 ## Setup Github
 
 Go to Github:
@@ -320,7 +328,7 @@ Setup the repo:
 	$ git remote add origin link-to-repo
 
 
-## CNAME, robots.txt and favicon.ico
+## CNAME, robots.txt
 
 If you have a custom domain, create a `CNAME` file, add a line with your website, and save it to your local blog root directory:
 
@@ -335,8 +343,6 @@ You can also use `Disallow` for bad URLs.
 	User-agent: *
 	Disallow: /bad.html
 	Allow: /
-
-Go to `assets/images/` and add a `favicon.ico` image.
 
 
 ## Deploy to Github

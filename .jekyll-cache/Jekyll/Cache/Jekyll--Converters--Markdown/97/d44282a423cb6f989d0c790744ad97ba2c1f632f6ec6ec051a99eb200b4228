@@ -1,4 +1,4 @@
-I"�X<p>These are my top 5 Python scripts I use for researching and sourcing data.</p>
+I"�X<p>These are my top 5 Python scripts I use for researching and sourcing data.</p>
 
 <h2 id="0-virtualenv">0. Virtualenv</h2>
 
@@ -337,16 +337,17 @@ $ cd googler
 
 <p>It will produce these results:</p>
 
-<p><em>1 Fender Guitars | Electric, Acoustic &amp; Bass Guitars, Amps, Pro Audio</em>
-<em>https://www.fender.com/</em>
-<em>Since 1946, Fender’s iconic Stratocasters, Telecasters and Precision &amp; Jazz bass guitars have transformed nearly every music genre.</em></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*1 Fender Guitars | Electric, Acoustic &amp; Bass Guitars, Amps, Pro Audio*
+*https://www.fender.com/*
+*Since 1946, Fender's iconic Stratocasters, Telecasters and Precision &amp; Jazz bass guitars have transformed nearly every music genre.*
 
-<p><em>2 Fender (@Fender) · Twitter</em>
-<em>https://twitter.com/Fender?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor</em></p>
+*2 Fender (@Fender) · Twitter*
+*https://twitter.com/Fender?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor*
 
-<p><em>3 Fender Musical Instruments Corporation - Wikipedia</em>
-<em>https://en.wikipedia.org/wiki/Fender_Musical_Instruments_Corporation</em>
-<em>Coordinates: 33°38′46″N 111°53′57″W﻿ / ﻿33.6460322°N 111.899058°W﻿ / 33.6460322; -111.899058. Fender Musical Instruments Corporation (FMIC), …</em></p>
+*3 Fender Musical Instruments Corporation - Wikipedia*
+*https://en.wikipedia.org/wiki/Fender_Musical_Instruments_Corporation*
+*Coordinates: 33°38′46″N 111°53′57″W﻿ / ﻿33.6460322°N 111.899058°W﻿ / 33.6460322; -111.899058. Fender Musical Instruments Corporation (FMIC), ...*
+</code></pre></div></div>
 
 <p>The bottom of the screen will show:</p>
 
@@ -485,11 +486,7 @@ $ cd theHarvester
 
 <p>If you open the file <code class="language-plaintext highlighter-rouge">example1</code> in your browser, it looks like this:</p>
 
-<p>&nbsp;</p>
-
 <p><img src="/assets/images/python-script-example.jpg" alt="Python Scripts for Sourcing" /></p>
-
-<p>&nbsp;</p>
 
 <p>When you are done using the script. You can deactivate the virtual environment like this:</p>
 
