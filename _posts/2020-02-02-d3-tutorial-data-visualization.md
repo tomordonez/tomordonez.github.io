@@ -651,6 +651,8 @@ Reload the page and look at the `HTML` code. An `svg` tag has been created:
 
 You can see the `svg` on the page shows a small rectangle:
 
+(This is an image)
+
 ![D3 SVG Canvas]({{ site.baseurl }}/assets/images/d3-svg.jpg)
 
 
@@ -681,6 +683,8 @@ Also, `x` points to the bottom left of the rectangle, `y` points to the top left
 ## Drawing each rectangle for the bar chart
 
 In this example, `width` draws `20px` to the right, and `height` draws `100px` downwards from the `y` coordinate. In other words, all rectangles of the bar chart are drawn downwards, following the characteristics of the `SVG` having its `(0,0)` on the top left corner.
+
+(This is an image)
 
 ![D3 One Bar Rectangle]({{ site.baseurl }}/assets/images/d3-rect1.jpg)
 
@@ -776,6 +780,8 @@ Do the calculation by hand and you will understand how it works. Update the code
 
 
 The result is this:
+
+(This is an image)
 
 ![D3 BarChart Rectangles]({{ site.baseurl }}/assets/images/d3-rect2.jpg)
 
@@ -967,6 +973,8 @@ The input value can be normalized and this result can be scaled to the output. F
 
 
 As shown below. The bar chart rectangles look too short compared to the SVG canvas. We can scale the rectangles to improve the visualization:
+
+(This is an image)
 
 ![D3 BarChart Rectangles]({{ site.baseurl }}/assets/images/d3-rect2.jpg)
 
@@ -1195,6 +1203,8 @@ We need to update the code and add the `scale` functions:
 
 The result is this bar chart:
 
+(This is an image)
+
 ![D3 scaleBand]({{ site.baseurl }}/assets/images/d3-rect3.jpg)
 
 
@@ -1234,6 +1244,8 @@ You can use `console.log()` to test the output such as in here:
 ## Barchart Visualization
 
 This how the bar chart looks like:
+
+(This is a D3 vis)
 
 <div id="d3-barchart-vis"></div>
 <script type="text/javascript" src="../assets/js/d3.min.js"></script>
@@ -1473,6 +1485,8 @@ The `translate` function moves the object by `x` and `y`. More details in the [M
 
 The bar chart should now look like this:
 
+(This is an image)
+
 ![D3 barchart with Axes]({{ site.baseurl }}/assets/images/d3-rect4.jpg)
 
 
@@ -1589,6 +1603,8 @@ To center the text vertically. Move it half way to the left at an `x` distance o
 
 The barchart looks like this:
 
+(This is an image)
+
 ![D3 barchart with Axes and Labels]({{ site.baseurl }}/assets/images/d3-rect5.jpg)
 
 
@@ -1698,6 +1714,8 @@ Perhaps the labels are too big. They are the same size as the title. I added a f
 
 The barchart looks like this:
 
+(This is an image)
+
 ![D3 barchart with Margins]({{ site.baseurl }}/assets/images/d3-rect6.jpg)
 
 
@@ -1791,6 +1809,8 @@ The code with the margins is now this:
 
 The barchart still doesn't look correct. The ticks on the x Axis are supposed to be years and not integers starting at `1`.
 
+(This is an image)
+
 ![D3 barchart with Margins]({{ site.baseurl }}/assets/images/d3-rect6.jpg)
 
 
@@ -1856,6 +1876,8 @@ Modified to this `return xScale(d.year.getFullYear())`:
 
 
 The corrected barchart looks like this:
+
+(This is an image)
 
 ![D3 barchart with corrected Year]({{ site.baseurl }}/assets/images/d3-rect7.jpg)
 
@@ -1977,6 +1999,8 @@ Then add the functions to process each interaction at the end, before the closin
 
 
 The barchart with mouse event handler looks like this:
+
+(This is a D3 vis)
 
 <div id="d3-barchart-vis-final"></div>
 <script type="text/javascript" src="../assets/js/d3.min.js"></script>
