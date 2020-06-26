@@ -4,7 +4,7 @@ var margin = {top: 20, right: 20, bottom: 20, left: 20},
 
 var barPadding = 3;
 var padding = 40;
-var svg = d3.select("#d3-barchart-vis-final")
+var svg = d3.select("div#d3-barchart-vis-final")
 			.append("svg")
 			.attr("preserveAspectRatio", "xMinYMin meet")
 			.attr("viewBox", "0 0 " + w + " " + h);

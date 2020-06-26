@@ -2,7 +2,7 @@ var w = 500;
 var h = 300;
 var barPadding = 3;
 var padding = 40;
-var svg0 = d3.select("#d3-barchart-vis")
+var svg = d3.select("div#d3-barchart-vis")
 			.append("svg")
 			.attr("preserveAspectRatio", "xMinYMin meet")
 			.attr("viewBox", "0 0 " + w + " " + h);
@@ -28,7 +28,7 @@ d3.csv("../assets/csv/file.csv", rowConverter).then(function(dataset) {
 			   .domain([0, d3.max(dataset, function(d) { return d.population; })])
 			   .range([h - padding, padding]);
 
-	svg0.selectAll("rect")
+	svg.selectAll("rect")
 	   .data(dataset)
 	   .enter()
 	   .append("rect")
