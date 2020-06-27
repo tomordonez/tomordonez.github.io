@@ -1,4 +1,4 @@
-I"B�<p>This is a detailed D3 tutorial for data visualization. Setup D3, build a barchart, and responsive D3. Updated June 2020.</p>
+I"�~<p>This is a detailed D3 tutorial for data visualization. Setup D3, build a barchart, and responsive D3. Updated June 2020.</p>
 
 <h2 id="resources">Resources:</h2>
 
@@ -2049,13 +2049,9 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 });
 </code></pre></div></div>
 
-<h2 id="embedding-d3-visualization-on-a-blog-post-not-github-pages">Embedding D3 Visualization on a blog post (not Github Pages)</h2>
+<h2 id="embedding-d3-visualization-on-a-blog-post">Embedding D3 Visualization on a blog post</h2>
 
-<p>You can also add a D3 visualization to a blog post. This part is tricky and might depend on where your website is hosted. I did a lot of research and this seems to work on some websites but not on Github Pages.</p>
-
-<p>As seen on <a href="https://briancaffey.github.io/2016/05/13/d3js-on-jekyll.html">D3.js on Jekyll</a>, you can use liquid tags to include an HTML as shown below.</p>
-
-<p>My blog follows this directory structure:</p>
+<p>You can also add a D3 visualization to a blog post. My blog follows this directory structure:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>assets/
   csv/
@@ -2065,18 +2061,14 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
     d3-barchart-vis.js
 _posts/
   this-blog-post.md
-_includes/
-  d3-barchart-vis.html
 </code></pre></div></div>
 
-<p>The <code class="language-plaintext highlighter-rouge">d3-barchart-vis.html</code> has this content:</p>
+<p>Add a <code class="language-plaintext highlighter-rouge">div</code> with a descriptive <code class="language-plaintext highlighter-rouge">id</code> to the section of your blog post where you want to add your visualization:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div id="d3-barchart-vis"&gt;&lt;/div&gt;
-&lt;script type="text/javascript" src="../assets/js/d3.min.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="../assets/js/d3-barchart-vis.js"&gt;&lt;/script&gt;
 </code></pre></div></div>
 
-<p>In the <code class="language-plaintext highlighter-rouge">d3-barchart-vis.js</code>, the <code class="language-plaintext highlighter-rouge">svg</code> selects <code class="language-plaintext highlighter-rouge">#d3-barchart-vis</code>:</p>
+<p>In the <code class="language-plaintext highlighter-rouge">d3-barchart-vis.js</code>, the <code class="language-plaintext highlighter-rouge">svg</code> selects this <code class="language-plaintext highlighter-rouge">&lt;div id</code>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var svg = d3.select("#d3-barchart-vis")
             .append("svg")
@@ -2089,39 +2081,11 @@ _includes/
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("../assets/csv/file.csv", rowConverter).then(function(dataset) {
 </code></pre></div></div>
 
-<p>Then the blog post has this content:</p>
+<p>At the end of the blog post, after all content, add a reference to the JavaScript files:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% include d3-barchart-vis.html %}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type="text/javascript" src="../assets/js/d3.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="../assets/js/d3-barchart-vis.js"&gt;&lt;/script&gt;
 </code></pre></div></div>
-
-<p>This works well on local development. However, on Github Pages, it has a strange behavior. If you open the Console on Firefox you will get these errors:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Content Security Policy: Ignoring “'unsafe-inline'” within script-src: ‘strict-dynamic’ specified
-Content Security Policy: Ignoring “https:” within script-src: ‘strict-dynamic’ specified
-Content Security Policy: Ignoring “http:” within script-src: ‘strict-dynamic’ specified
-</code></pre></div></div>
-
-<p>More about these issue here:</p>
-
-<ul>
-  <li><a href="https://stackoverflow.com/questions/20311271/hotlink-resources-like-javascript-files-directly-from-github/20311329#20311329">JavaScript files directly from Github</a></li>
-  <li><a href="https://stackoverflow.com/questions/17341122/link-and-execute-external-javascript-file-hosted-on-github">Link and execute external JavaScript file hosted on GitHub</a></li>
-  <li><a href="https://github.blog/2013-04-24-heads-up-nosniff-header-support-coming-to-chrome-and-firefox/">nosniff header support coming to Chrome and Firefox</a></li>
-</ul>
-
-<p>This last resource if from 2013 and it says this:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>We added the X-Content-Type-Options: nosniff header to our raw URL
-responses way back in 2011 as a first step in combating hotlinking.
-This has the effect of forcing the browser to treat content in accordance
-with the Content-Type header. That means that when we set
-Content-Type: text/plain for raw views of files, the browser will refuse
-to treat that file as JavaScript or CSS.
-</code></pre></div></div>
-
-<h2 id="embedding-d3-visualization-on-a-blog-post-on-github-pages">Embedding D3 Visualization on a blog post (on Github Pages)</h2>
-
-<p>In progress…</p>
 
 <script type="text/javascript" src="../assets/js/d3.min.js"></script>
 

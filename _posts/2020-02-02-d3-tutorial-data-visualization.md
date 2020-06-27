@@ -2060,14 +2060,9 @@ The final code is this:
     });
 
 
-## Embedding D3 Visualization on a blog post (not Github Pages)
+## Embedding D3 Visualization on a blog post
 
-You can also add a D3 visualization to a blog post. This part is tricky and might depend on where your website is hosted. I did a lot of research and this seems to work on some websites but not on Github Pages.
-
-
-As seen on [D3.js on Jekyll](https://briancaffey.github.io/2016/05/13/d3js-on-jekyll.html), you can use liquid tags to include an HTML as shown below.
-
-My blog follows this directory structure:
+You can also add a D3 visualization to a blog post. My blog follows this directory structure:
 
     assets/
       csv/
@@ -2077,18 +2072,14 @@ My blog follows this directory structure:
         d3-barchart-vis.js
     _posts/
       this-blog-post.md
-    _includes/
-      d3-barchart-vis.html
 
 
-The `d3-barchart-vis.html` has this content:
+Add a `div` with a descriptive `id` to the section of your blog post where you want to add your visualization:
 
     <div id="d3-barchart-vis"></div>
-    <script type="text/javascript" src="../assets/js/d3.min.js"></script>
-    <script type="text/javascript" src="../assets/js/d3-barchart-vis.js"></script>
 
 
-In the `d3-barchart-vis.js`, the `svg` selects `#d3-barchart-vis`:
+In the `d3-barchart-vis.js`, the `svg` selects this `<div id`:
 
     var svg = d3.select("#d3-barchart-vis")
                 .append("svg")
@@ -2101,39 +2092,13 @@ The `csv` file is called like this so it points at the correct directory:
     d3.csv("../assets/csv/file.csv", rowConverter).then(function(dataset) {
 
 
-Then the blog post has this content:
+At the end of the blog post, after all content, add a reference to the JavaScript files:
 
     {% raw %}
-    {% include d3-barchart-vis.html %}
+    <script type="text/javascript" src="../assets/js/d3.min.js"></script>
+    <script type="text/javascript" src="../assets/js/d3-barchart-vis.js"></script>
     {% endraw %}
 
-
-This works well on local development. However, on Github Pages, it has a strange behavior. If you open the Console on Firefox you will get these errors:
-
-    Content Security Policy: Ignoring “'unsafe-inline'” within script-src: ‘strict-dynamic’ specified
-    Content Security Policy: Ignoring “https:” within script-src: ‘strict-dynamic’ specified
-    Content Security Policy: Ignoring “http:” within script-src: ‘strict-dynamic’ specified
-
-
-More about these issue here:
-
-* [JavaScript files directly from Github](https://stackoverflow.com/questions/20311271/hotlink-resources-like-javascript-files-directly-from-github/20311329#20311329)
-* [Link and execute external JavaScript file hosted on GitHub](https://stackoverflow.com/questions/17341122/link-and-execute-external-javascript-file-hosted-on-github)
-* [nosniff header support coming to Chrome and Firefox](https://github.blog/2013-04-24-heads-up-nosniff-header-support-coming-to-chrome-and-firefox/)
-
-This last resource if from 2013 and it says this:
-
-    We added the X-Content-Type-Options: nosniff header to our raw URL
-    responses way back in 2011 as a first step in combating hotlinking.
-    This has the effect of forcing the browser to treat content in accordance
-    with the Content-Type header. That means that when we set
-    Content-Type: text/plain for raw views of files, the browser will refuse
-    to treat that file as JavaScript or CSS.
-
-
-## Embedding D3 Visualization on a blog post (on Github Pages)
-
-In progress...
 
 <script type="text/javascript" src="../assets/js/d3.min.js"></script>
 <script type="text/javascript" src="../assets/js/d3-barchart-vis.js"></script>
