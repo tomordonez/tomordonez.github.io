@@ -1248,7 +1248,56 @@ This how the bar chart looks like:
 
 (This is a D3 vis)
 
-{% include d3-barchart-vis.html %}
+<div id="d3-barchart-vis"></div>
+<script type="text/javascript" src="../assets/js/d3.min.js"></script>
+<script>
+    var w = 500;
+var h = 300;
+var barPadding = 3;
+var padding = 40;
+var svg = d3.select("div#d3-barchart-vis")
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
+
+var parseTime = d3.timeParse("%Y");
+
+var rowConverter = function(d) {
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
+}
+
+d3.csv("../assets/csv/file.csv", rowConverter).then(function(dataset) {
+
+    xScale = d3.scaleBand()
+               .domain(d3.range(dataset.length))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
+
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, function(d) { return d.population; })])
+               .range([h - padding, padding]);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", function(d, i) {
+        return xScale(i);
+       })
+       .attr("y", function(d) {
+        return yScale(d.population);
+       })
+       .attr("width", xScale.bandwidth())
+       .attr("height", function(d) {
+        return h - padding - yScale(d.population);
+       })
+       .attr("fill", "teal");
+});
+</script>
 
 
 ## D3 Responsive Visualization on index.html and project.js
@@ -1961,7 +2010,102 @@ The barchart with mouse event handler looks like this:
 
 (This is a D3 vis)
 
-{% include d3-barchart-vis-final.html %}
+<div id="d3-barchart-vis-final"></div>
+<script type="text/javascript" src="../assets/js/d3.min.js"></script>
+<script>
+    var margin = {top: 20, right: 20, bottom: 20, left: 20},
+        w = 500 - margin.left - margin.right,
+        h = 300 - margin.top - margin.bottom;
+
+var barPadding = 3;
+var padding = 40;
+var svg = d3.select("div#d3-barchart-vis-final")
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
+
+var parseTime = d3.timeParse("%Y");
+
+var rowConverter = function(d) {
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
+}
+
+d3.csv("../assets/csv/file.csv", rowConverter).then(function(dataset) {
+
+    xScale = d3.scaleBand()
+               .domain(dataset.map(d => d.year.getFullYear()))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
+
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, d => d.population)])
+               .range([h - padding, padding]);
+
+    var xAxis = d3.axisBottom(xScale);
+    var yAxis = d3.axisLeft(yScale);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", d => xScale(d.year.getFullYear()))
+       .attr("y", d => yScale(d.population))
+       .attr("width", xScale.bandwidth())
+       .attr("height", d => h - padding - yScale(d.population))
+       .attr("fill", "teal")
+       .on("mouseover", handleMouseOver)
+       .on("mouseout", handleMouseOut);
+
+    // Add the x Axis
+    svg.append("g")
+       .attr("class", "x axis")
+       .attr("transform", "translate(0," + (h - padding) + ")")
+       .call(xAxis);
+
+    // Label for x Axis
+    svg.append("text")
+       .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
+       .style("text-anchor", "middle")
+       .style("font-size", "12px")
+       .text("Year");
+
+    // Add the y Axis
+    svg.append("g")
+       .attr("class", "y axis")
+       .attr("transform", "translate(" + padding + ",0)")
+       .call(yAxis);
+
+    // Label for y Axis
+    svg.append("text")
+       .attr("transform", "rotate(-90)")
+       .attr("x", -(h/2))
+       .attr("y", 10)
+       .style("text-anchor", "middle")
+       .style("font-size", "12px")
+       .text("Population");
+
+    svg.append("text")
+       .attr("x", w/2)
+       .attr("y", padding)
+       .attr("text-anchor", "middle")
+       .style("font-size", "16px")
+       .text("Awesome Barchart");
+
+    function handleMouseOver(d, i) {
+        d3.select(this)
+          .attr("fill", "red");
+    }
+
+    function handleMouseOut(d, i) {
+        d3.select(this)
+          .attr("fill", "teal");
+    }
+});
+</script>
 
 
 The final code is this:
@@ -2060,9 +2204,12 @@ The final code is this:
     });
 
 
-## Embedding D3 Visualization on a blog post
+## Embedding D3 Visualization on a blog post (not Github Pages)
 
-You can also add a D3 visualization to a blog post. For example, my website uses Jekyll static generator. As seen on [D3.js on Jekyll](https://briancaffey.github.io/2016/05/13/d3js-on-jekyll.html), you can use liquid tags to include an HTML as shown below.
+You can also add a D3 visualization to a blog post. This part is tricky and might depend on where your website is hosted. I did a lot of research and this seems to work on some websites but not on Github Pages.
+
+
+As seen on [D3.js on Jekyll](https://briancaffey.github.io/2016/05/13/d3js-on-jekyll.html), you can use liquid tags to include an HTML as shown below.
 
 My blog follows this directory structure:
 
@@ -2103,3 +2250,31 @@ Then the blog post has this content:
     {% raw %}
     {% include d3-barchart-vis.html %}
     {% endraw %}
+
+
+This works well on local development. However, on Github Pages, it has a strange behavior. If you open the Console on Firefox you will get these errors:
+
+    Content Security Policy: Ignoring “'unsafe-inline'” within script-src: ‘strict-dynamic’ specified
+    Content Security Policy: Ignoring “https:” within script-src: ‘strict-dynamic’ specified
+    Content Security Policy: Ignoring “http:” within script-src: ‘strict-dynamic’ specified
+
+
+More about these issue here:
+
+* [JavaScript files directly from Github](https://stackoverflow.com/questions/20311271/hotlink-resources-like-javascript-files-directly-from-github/20311329#20311329)
+* [Link and execute external JavaScript file hosted on GitHub](https://stackoverflow.com/questions/17341122/link-and-execute-external-javascript-file-hosted-on-github)
+* [nosniff header support coming to Chrome and Firefox](https://github.blog/2013-04-24-heads-up-nosniff-header-support-coming-to-chrome-and-firefox/)
+
+This last resource if from 2013 and it says this:
+
+    We added the X-Content-Type-Options: nosniff header to our raw URL
+    responses way back in 2011 as a first step in combating hotlinking.
+    This has the effect of forcing the browser to treat content in accordance
+    with the Content-Type header. That means that when we set
+    Content-Type: text/plain for raw views of files, the browser will refuse
+    to treat that file as JavaScript or CSS.
+
+
+## Embedding D3 Visualization on a blog post (on Github Pages)
+
+In progress...

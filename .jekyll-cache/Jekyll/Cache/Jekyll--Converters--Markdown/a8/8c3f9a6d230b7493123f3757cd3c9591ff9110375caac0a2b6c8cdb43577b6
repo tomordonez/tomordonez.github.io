@@ -1,4 +1,4 @@
-I"~u<p>This is a detailed D3 tutorial for data visualization. Setup D3, build a barchart, and responsive D3. Updated June 2020.</p>
+I"&�<p>This is a detailed D3 tutorial for data visualization. Setup D3, build a barchart, and responsive D3. Updated June 2020.</p>
 
 <h2 id="resources">Resources:</h2>
 
@@ -56,16 +56,16 @@
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
-	&lt;head&gt;
-		&lt;meta charset="utf-8"&gt;
-		&lt;title&gt;D3 Canvas&lt;/title&gt;
-		&lt;link rel="icon" type="image/png" href="icon.png"&gt;
-		&lt;script type="text/javascript" src="https://d3js.org/d3.v5.min.js"&gt;&lt;/script&gt;
-		&lt;link rel="stylesheet" type="text/css" href="main.css"&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;script type="text/javascript" src="project.js"&gt;&lt;/script&gt;
-	&lt;/body&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;title&gt;D3 Canvas&lt;/title&gt;
+        &lt;link rel="icon" type="image/png" href="icon.png"&gt;
+        &lt;script type="text/javascript" src="https://d3js.org/d3.v5.min.js"&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" type="text/css" href="main.css"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script type="text/javascript" src="project.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
 &lt;/html&gt;
 </code></pre></div></div>
 
@@ -81,15 +81,15 @@ var parseTime = d3.timeParse("%Y");
 var formatTime = d3.timeFormat("%Y");
 
 var svg = d3.select("body")
-			.append("svg")
-			.attr("width", w)
-			.attr("height", h);
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		total: +d.running_total
-	};
+    return {
+        year: parseTime(d.year),
+        total: +d.running_total
+    };
 }
 </code></pre></div></div>
 
@@ -161,7 +161,7 @@ var rowConverter = function(d) {
 <p>This is what loading a <code class="language-plaintext highlighter-rouge">CSV</code> in <code class="language-plaintext highlighter-rouge">D3 v4</code> looks like:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", function(data) {
-	somethingHappens(data);
+    somethingHappens(data);
 });
 console.log(data);
 </code></pre></div></div>
@@ -173,7 +173,7 @@ console.log(data);
 <p>You could hack this code and perhaps put some sort of a timer but then how much time are you supposed to pass to that function?</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", function(data) {
-	somethingHappens(data);
+    somethingHappens(data);
 });
 
 someSortOfTimer(60);
@@ -183,8 +183,8 @@ console.log(data);
 <p>Instead, within the callback function, write all the code that uses the <code class="language-plaintext highlighter-rouge">data</code> that is loaded:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", function(data) {
-	somethingHappens(data);
-	console.log(data);
+    somethingHappens(data);
+    console.log(data);
 });
 </code></pre></div></div>
 
@@ -197,8 +197,8 @@ console.log(data);
 <p>For <code class="language-plaintext highlighter-rouge">D3.v4</code> you can use this syntax:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", function(data) {
-	somethingHappens(data);
-	console.log(data);
+    somethingHappens(data);
+    console.log(data);
 });
 </code></pre></div></div>
 
@@ -216,7 +216,7 @@ console.log(data);
 <p>Add this code to <code class="language-plaintext highlighter-rouge">project.js</code>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", function(data) {
-	console.log(data);
+    console.log(data);
 });
 </code></pre></div></div>
 
@@ -247,12 +247,12 @@ project.js:2 {year: "1959", population: "20"}
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Navigated to http://127.0.0.1:8888/index.html
 [columns: Array(2)]
  columns: Array(2)
- 	0: "year"
- 	1: "population"
- 	length: 2
- 	__proto__: Array(0)
- 	...
- 	...
+     0: "year"
+     1: "population"
+     length: 2
+     __proto__: Array(0)
+     ...
+     ...
 </code></pre></div></div>
 
 <p>This doesn’t work either:</p>
@@ -284,7 +284,7 @@ __proto__: Array(0)
 <p>D3 version 5 uses a feature called <code class="language-plaintext highlighter-rouge">Promises</code>. Use this syntax:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv").then(function(dataset) {
-	console.log(dataset);
+    console.log(dataset);
 });
 </code></pre></div></div>
 
@@ -293,13 +293,13 @@ __proto__: Array(0)
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Promise {&lt;pending&gt;}
 
 (4) [{…}, {…}, {…}, {…}, columns: Array(2)]
-	0: {year: "1950", population: "5"}
-	1: {year: "1951", population: "10"}
-	2: {year: "1955", population: "15"}
-	3: {year: "1959", population: "20"}
-	columns: (2) ["year", "population"]
-	length: 4
-	__proto__: Array(0)
+    0: {year: "1950", population: "5"}
+    1: {year: "1951", population: "10"}
+    2: {year: "1955", population: "15"}
+    3: {year: "1959", population: "20"}
+    columns: (2) ["year", "population"]
+    length: 4
+    __proto__: Array(0)
 </code></pre></div></div>
 
 <p>Or use this syntax, it shows the same console output:</p>
@@ -307,7 +307,7 @@ __proto__: Array(0)
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var mydata = d3.csv("file.csv")
 
 mydata.then(function(dataset) {
-	console.log(dataset);
+    console.log(dataset);
 });
 </code></pre></div></div>
 
@@ -319,7 +319,7 @@ var data2 = d3.csv("file2.csv")
 Promise.all([data1, data2]).then(someFunction)
 
 function someFunction(values) {
-	somethingFunHere(values);
+    somethingFunHere(values);
 }
 </code></pre></div></div>
 
@@ -339,7 +339,7 @@ function someFunction(values) {
 <p>You can use <code class="language-plaintext highlighter-rouge">d3.dsv</code> like this and explicitly define the separator:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.dsv(",", "file.csv").then(function(dataset) {
-	console.log(dataset);
+    console.log(dataset);
 });
 </code></pre></div></div>
 
@@ -348,19 +348,19 @@ function someFunction(values) {
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Promise {&lt;pending&gt;}
 
 (4) [{…}, {…}, {…}, {…}, columns: Array(2)]
-	0: {year: "1950", population: "5"}
-	1: {year: "1951", population: "10"}
-	2: {year: "1955", population: "15"}
-	3: {year: "1959", population: "20"}
-	columns: (2) ["year", "population"]
-	length: 4
-	__proto__: Array(0)
+    0: {year: "1950", population: "5"}
+    1: {year: "1951", population: "10"}
+    2: {year: "1955", population: "15"}
+    3: {year: "1959", population: "20"}
+    columns: (2) ["year", "population"]
+    length: 4
+    __proto__: Array(0)
 </code></pre></div></div>
 
 <p>Or use <code class="language-plaintext highlighter-rouge">d3.csv</code> as I have shown before:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv").then(function(dataset) {
-	console.log(dataset);
+    console.log(dataset);
 });
 </code></pre></div></div>
 
@@ -389,7 +389,7 @@ function someFunction(values) {
 <p>Then load the data:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.json("data.json").then(function(dataset) {
-	console.log(dataset);
+    console.log(dataset);
 });
 </code></pre></div></div>
 
@@ -398,12 +398,12 @@ function someFunction(values) {
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Promise {&lt;pending&gt;}
 
 (4) [{…}, {…}, {…}, {…}]
-	0: {year: 1950, population: 5}
-	1: {year: 1951, population: 10}
-	2: {year: 1955, population: 15}
-	3: {year: 1959, population: 20}
-	length: 4
-	__proto__: Array(0)
+    0: {year: 1950, population: 5}
+    1: {year: 1951, population: 10}
+    2: {year: 1955, population: 15}
+    3: {year: 1959, population: 20}
+    length: 4
+    __proto__: Array(0)
 </code></pre></div></div>
 
 <h2 id="converting-string-to-other-types">Converting String to other Types</h2>
@@ -459,10 +459,10 @@ var formatTime = d3.timeFormat(specifier);
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	};
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    };
 }
 </code></pre></div></div>
 
@@ -475,14 +475,14 @@ var rowConverter = function(d) {
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	};
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    };
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
-	console.log(dataset);
+    console.log(dataset);
 });
 </code></pre></div></div>
 
@@ -499,13 +499,13 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>The console shows:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(4) [{…}, {…}, {…}, {…}, columns: Array(2)]
-	0: {year: Sun Jan 01 1950 00:00:00 GMT-0500 (Eastern Standard Time), population: 5}
-	1: {year: Mon Jan 01 1951 00:00:00 GMT-0500 (Eastern Standard Time), population: 10}
-	2: {year: Sat Jan 01 1955 00:00:00 GMT-0500 (Eastern Standard Time), population: 15}
-	3: {year: Thu Jan 01 1959 00:00:00 GMT-0500 (Eastern Standard Time), population: 20}
-	columns: (2) ["year", "population"]
-	length: 4
-	__proto__: Array(0)
+    0: {year: Sun Jan 01 1950 00:00:00 GMT-0500 (Eastern Standard Time), population: 5}
+    1: {year: Mon Jan 01 1951 00:00:00 GMT-0500 (Eastern Standard Time), population: 10}
+    2: {year: Sat Jan 01 1955 00:00:00 GMT-0500 (Eastern Standard Time), population: 15}
+    3: {year: Thu Jan 01 1959 00:00:00 GMT-0500 (Eastern Standard Time), population: 20}
+    columns: (2) ["year", "population"]
+    length: 4
+    __proto__: Array(0)
 </code></pre></div></div>
 
 <h2 id="bind-the-dataset-values-to-elements-in-the-dom">Bind the dataset values to elements in the DOM</h2>
@@ -526,18 +526,18 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	};
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    };
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
 
-	d3.select("body").selectAll("p")
-	.data(dataset)
-	.enter()
-	.append("p");
+    d3.select("body").selectAll("p")
+    .data(dataset)
+    .enter()
+    .append("p");
 });
 </code></pre></div></div>
 
@@ -556,11 +556,11 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>Go to the <code class="language-plaintext highlighter-rouge">Elements</code> tab to see the <code class="language-plaintext highlighter-rouge">HTML</code> code. The <code class="language-plaintext highlighter-rouge">body</code> section has this now:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;body&gt;
-	&lt;script type="text/javascript" src="project.js"&gt;&lt;/script&gt;
-	&lt;p&gt;&lt;/p&gt;
-	&lt;p&gt;&lt;/p&gt;
-	&lt;p&gt;&lt;/p&gt;
-	&lt;p&gt;&lt;/p&gt;
+    &lt;script type="text/javascript" src="project.js"&gt;&lt;/script&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
 &lt;/body&gt;
 </code></pre></div></div>
 
@@ -582,10 +582,10 @@ length: 1
 <p>Expand <code class="language-plaintext highlighter-rouge">NodeList</code></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0: NodeList(4)
-	0: p
-	1: p
-	2: p
-	3: p
+    0: p
+    1: p
+    2: p
+    3: p
 </code></pre></div></div>
 
 <p>Expand the first <code class="language-plaintext highlighter-rouge">0: p</code>. It’s pretty long, scroll down to the bottom:</p>
@@ -612,25 +612,25 @@ var h = 300;
 var barPadding = 3; # This will be used later for bar charts
 var padding = 40; # This too
 var svg = d3.select("body")
-			.append("svg");
-			.attr("width", w)
-			.attr("height", h);
+            .append("svg");
+            .attr("width", w)
+            .attr("height", h);
 
 var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	};
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    };
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
 
-	d3.select("body").selectAll("p")
-	.data(dataset)
-	.enter()
-	.append("p");
+    d3.select("body").selectAll("p")
+    .data(dataset)
+    .enter()
+    .append("p");
 });
 </code></pre></div></div>
 
@@ -659,7 +659,7 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>We are loading it as <code class="language-plaintext highlighter-rouge">file.csv</code> and we will add the bar chart code inside the callback function.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", rowConverter).then(function(dataset) {
-	// add code here
+    // add code here
 });
 </code></pre></div></div>
 
@@ -682,39 +682,39 @@ var h = 300;
 var barPadding = 3;
 var padding = 40;
 var svg = d3.select("body")
-			.append("svg")
-			.attr("width", w)
-			.attr("height", h);
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
 
 var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	}
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
 
-	svg.selectAll("rect")
-	   .data(dataset)
-	   .enter()
-	   .append("rect")
-	   .attr("x", 0)
-	   .attr("y", 0)
-	   .attr("width", 20)
-	   .attr("height", 100);
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", 0)
+       .attr("y", 0)
+       .attr("width", 20)
+       .attr("height", 100);
 });
 </code></pre></div></div>
 
 <p>Reload the browser to see the result and the HTML:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;svg width="500" height="300"&gt;
-	&lt;rect x="0" y="0" width="20" height="100"&gt;&lt;/rect&gt;
-	&lt;rect x="0" y="0" width="20" height="100"&gt;&lt;/rect&gt;
-	&lt;rect x="0" y="0" width="20" height="100"&gt;&lt;/rect&gt;
-	&lt;rect x="0" y="0" width="20" height="100"&gt;&lt;/rect&gt;
+    &lt;rect x="0" y="0" width="20" height="100"&gt;&lt;/rect&gt;
+    &lt;rect x="0" y="0" width="20" height="100"&gt;&lt;/rect&gt;
+    &lt;rect x="0" y="0" width="20" height="100"&gt;&lt;/rect&gt;
+    &lt;rect x="0" y="0" width="20" height="100"&gt;&lt;/rect&gt;
 &lt;/svg&gt;
 </code></pre></div></div>
 
@@ -731,36 +731,36 @@ var h = 300;
 var barPadding = 3;
 var padding = 40;
 var svg = d3.select("body")
-			.append("svg")
-			.attr("width", w)
-			.attr("height", h);
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
 
 var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	}
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
 
-	svg.selectAll("rect")
-		.data(dataset)
-		.enter()
-		.append("rect")
-		.attr("x", function(d, i) {
-			return i * (w/dataset.length);
-			})
-		.attr("y", function(d) {
-			return h - d.population;
-			})
-		.attr("width", w/dataset.length - barPadding)
-		.attr("height", function(d) {
-			return d.population;
-			})
-		.attr("fill", "teal");
+    svg.selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr("x", function(d, i) {
+            return i * (w/dataset.length);
+            })
+        .attr("y", function(d) {
+            return h - d.population;
+            })
+        .attr("width", w/dataset.length - barPadding)
+        .attr("height", function(d) {
+            return d.population;
+            })
+        .attr("fill", "teal");
 
 });
 </code></pre></div></div>
@@ -774,10 +774,10 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>The HTML shows this:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;svg width="500" height="300"&gt;
-	&lt;rect x="0" y="295" width="122" height="5" fill="teal"&gt;&lt;/rect&gt;
-	&lt;rect x="125" y="290" width="122" height="10" fill="teal"&gt;&lt;/rect&gt;
-	&lt;rect x="250" y="285" width="122" height="15" fill="teal"&gt;&lt;/rect&gt;
-	&lt;rect x="375" y="280" width="122" height="20" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="0" y="295" width="122" height="5" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="125" y="290" width="122" height="10" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="250" y="285" width="122" height="15" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="375" y="280" width="122" height="20" fill="teal"&gt;&lt;/rect&gt;
 &lt;/svg&gt;
 </code></pre></div></div>
 
@@ -786,26 +786,26 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>We need to set the <code class="language-plaintext highlighter-rouge">x</code> position of each rectangle. This points to the bottom left of each rectangle.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>attr("x", function(d, i) {
-	return i * (w/dataset.length);
+    return i * (w/dataset.length);
 })
 </code></pre></div></div>
 
 <p>For each value of the dataset:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year 	population
-1950		5
-1951		10
-1955		15
-1959		20
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year     population
+1950        5
+1951        10
+1955        15
+1959        20
 </code></pre></div></div>
 
 <p>The corresponding <code class="language-plaintext highlighter-rouge">x</code> values are as follows. Keep in mind the <code class="language-plaintext highlighter-rouge">d</code> values are not used for the calculation, only the <code class="language-plaintext highlighter-rouge">index</code> (i) of each value. First, let’s look at the indices:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   d   	    i (index)
-[1950, 5]   	0
-[1951, 10]  	1
-[1955, 15]  	2
-[1950, 20]  	3
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   d           i (index)
+[1950, 5]       0
+[1951, 10]      1
+[1955, 15]      2
+[1950, 20]      3
 </code></pre></div></div>
 
 <p>The calculation <code class="language-plaintext highlighter-rouge">(w/dataset.length)</code> is done to evenly position each rectangle across the width <code class="language-plaintext highlighter-rouge">w</code> of the <code class="language-plaintext highlighter-rouge">SVG</code>.</p>
@@ -839,7 +839,7 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>We need to set the <code class="language-plaintext highlighter-rouge">y</code> position of each rectangle. This points to the top left of each rectangle.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("y", function(d) {
-	return h - d.population;
+    return h - d.population;
 })
 </code></pre></div></div>
 
@@ -879,10 +879,10 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 
 <p>Putting these two attributes together, we can get the coordinates for each rectangle</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("x", 0)		.attr("y", 295)
-.attr("x", 125)		.attr("y", 290)
-.attr("x", 250)		.attr("y", 285)
-.attr("x", 375)		.attr("y", 280)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("x", 0)        .attr("y", 295)
+.attr("x", 125)        .attr("y", 290)
+.attr("x", 250)        .attr("y", 285)
+.attr("x", 375)        .attr("y", 280)
 </code></pre></div></div>
 
 <p>The rectangles are at these coordinates:</p>
@@ -923,7 +923,7 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>As seen here:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("height", function(d) {
-	return d.population;
+    return d.population;
 })
 </code></pre></div></div>
 
@@ -978,11 +978,11 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 
 <p>Following the same <code class="language-plaintext highlighter-rouge">CSV</code> with this data:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year 	population
-1950		5
-1951		10
-1955		15
-1959		20
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year     population
+1950        5
+1951        10
+1955        15
+1959        20
 </code></pre></div></div>
 
 <p>The <code class="language-plaintext highlighter-rouge">yScale</code> is used to scale the <code class="language-plaintext highlighter-rouge">population</code></p>
@@ -995,8 +995,8 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>As seen here:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yScale = d3.scaleLinear()
-		   .domain([0, d3.max(dataset, function(d) { return d.population; })])
-		   .range([h - padding, padding]);
+           .domain([0, d3.max(dataset, function(d) { return d.population; })])
+           .range([h - padding, padding]);
 </code></pre></div></div>
 
 <p>Remember that the <code class="language-plaintext highlighter-rouge">SVG</code> way is that the coordinates increase left to right, top to bottom. For this:</p>
@@ -1042,11 +1042,11 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 
 <p>Following the same <code class="language-plaintext highlighter-rouge">CSV</code> with this data:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year 	population
-1950		5
-1951		10
-1955		15
-1959		20
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year     population
+1950        5
+1951        10
+1955        15
+1959        20
 </code></pre></div></div>
 
 <h3 id="d3scalebanddomain">d3.scaleBand().domain()</h3>
@@ -1054,7 +1054,7 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>The <code class="language-plaintext highlighter-rouge">xScale</code> is used to scale the <code class="language-plaintext highlighter-rouge">year</code> column. Instead of using it as a <code class="language-plaintext highlighter-rouge">Date</code>, it maps the range of the dataset length to a <code class="language-plaintext highlighter-rouge">width</code> range.:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
-		   .domain(d3.range(dataset.length))
+           .domain(d3.range(dataset.length))
 </code></pre></div></div>
 
 <p>The domain <code class="language-plaintext highlighter-rouge">.domain(d3.range(dataset.length))</code> is a <code class="language-plaintext highlighter-rouge">range</code> of <code class="language-plaintext highlighter-rouge">dataset.length</code>:</p>
@@ -1065,9 +1065,9 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>You can use the <code class="language-plaintext highlighter-rouge">console.log()</code> inside the <code class="language-plaintext highlighter-rouge">CSV</code> function to test:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", rowConverter).then(function(dataset) {
-	console.log(dataset.length);
-	console.log(d3.range(dataset.length));
-	...
+    console.log(dataset.length);
+    console.log(d3.range(dataset.length));
+    ...
 </code></pre></div></div>
 
 <p>The console should output this:</p>
@@ -1086,8 +1086,8 @@ Array(4) [ 0, 1, 2, 3 ]
 <p>Setting the <code class="language-plaintext highlighter-rouge">range</code> to fit within the width of the SVG:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
-		   .domain(d3.range(dataset.length))
-		   .range([0, w]);
+           .domain(d3.range(dataset.length))
+           .range([0, w]);
 </code></pre></div></div>
 
 <p>The <code class="language-plaintext highlighter-rouge">range</code> calculates even bars using this formula <code class="language-plaintext highlighter-rouge">(w - 0) / .domain().length</code>. In our case that is <code class="language-plaintext highlighter-rouge">500/4 = 125</code>.</p>
@@ -1097,9 +1097,9 @@ Array(4) [ 0, 1, 2, 3 ]
 <p>As explained in the API docs. It says that if you don’t specify a <code class="language-plaintext highlighter-rouge">paddingInner</code>, the default is zero <code class="language-plaintext highlighter-rouge">0</code>. If you specify one, the number must be <code class="language-plaintext highlighter-rouge">&lt;= 1</code>. A value of <code class="language-plaintext highlighter-rouge">0</code> means there is no blank space between the bars. A value of <code class="language-plaintext highlighter-rouge">1</code> means a bandwidth of <code class="language-plaintext highlighter-rouge">0</code>.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
-		   .domain(d3.range(dataset.length))
-		   .range([0, w])
-		   .paddingInner(0.1);
+           .domain(d3.range(dataset.length))
+           .range([0, w])
+           .paddingInner(0.1);
 </code></pre></div></div>
 
 <h3 id="d3scalebandpaddingouter">d3.scaleBand().paddingOuter()</h3>
@@ -1107,10 +1107,10 @@ Array(4) [ 0, 1, 2, 3 ]
 <p>This is the padding to apply before the first bar and after the last bar. The number is in the range of <code class="language-plaintext highlighter-rouge">[0, 1]</code>. If not specified, the padding returns zero.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
-		   .domain(d3.range(dataset.length))
-		   .range([0, w])
-		   .paddingInner(0.1)
-		   .paddingOuter(0.1);
+           .domain(d3.range(dataset.length))
+           .range([0, w])
+           .paddingInner(0.1)
+           .paddingOuter(0.1);
 </code></pre></div></div>
 
 <h3 id="d3scalebandrangeround">d3.scaleBand().rangeRound()</h3>
@@ -1118,29 +1118,29 @@ Array(4) [ 0, 1, 2, 3 ]
 <p>The <code class="language-plaintext highlighter-rouge">range</code> can calculate long decimal numbers such as this:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;svg width="500" height="300"&gt;
-	&lt;rect x="12.195121951219477" y="205" width="122" height="55" fill="teal"&gt;&lt;/rect&gt;
-	&lt;rect x="134.14634146341461" y="150" width="122" height="110" fill="teal"&gt;&lt;/rect&gt;
-	&lt;rect x="256.0975609756098" y="95" width="122" height="165" fill="teal"&gt;&lt;/rect&gt;
-	&lt;rect x="378.04878048780483" y="40" width="122" height="220" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="12.195121951219477" y="205" width="122" height="55" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="134.14634146341461" y="150" width="122" height="110" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="256.0975609756098" y="95" width="122" height="165" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="378.04878048780483" y="40" width="122" height="220" fill="teal"&gt;&lt;/rect&gt;
 &lt;/svg&gt;
 </code></pre></div></div>
 
 <p>We can replace <code class="language-plaintext highlighter-rouge">range</code> with <code class="language-plaintext highlighter-rouge">rangeRound</code>.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
-		   .domain(d3.range(dataset.length))
-		   .rangeRound([padding, w])
-		   .paddingInner(0.1)
-		   .paddingOuter(0.1);
+           .domain(d3.range(dataset.length))
+           .rangeRound([padding, w])
+           .paddingInner(0.1)
+           .paddingOuter(0.1);
 </code></pre></div></div>
 
 <p>The <code class="language-plaintext highlighter-rouge">HTML</code> now shows something like this:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;svg width="500" height="300"&gt;
-	&lt;rect x="14" y="205" width="122" height="55" fill="teal"&gt;&lt;/rect&gt;
-	&lt;rect x="135" y="150" width="122" height="110" fill="teal"&gt;&lt;/rect&gt;
-	&lt;rect x="256" y="95" width="122" height="165" fill="teal"&gt;&lt;/rect&gt;
-	&lt;rect x="377" y="40" width="122" height="220" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="14" y="205" width="122" height="55" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="135" y="150" width="122" height="110" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="256" y="95" width="122" height="165" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="377" y="40" width="122" height="220" fill="teal"&gt;&lt;/rect&gt;
 &lt;/svg&gt;
 </code></pre></div></div>
 
@@ -1157,46 +1157,46 @@ var h = 300;
 var barPadding = 3;
 var padding = 40;
 var svg = d3.select("body")
-			.append("svg")
-			.attr("width", w)
-			.attr("height", h);
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
 
 var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	}
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
 
-	xScale = d3.scaleBand()
-			   .domain(d3.range(dataset.length))
-			   .rangeRound([padding, w])
-			   .paddingInner(0.1)
-			   .paddingOuter(0.1);
+    xScale = d3.scaleBand()
+               .domain(d3.range(dataset.length))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
 
-	yScale = d3.scaleLinear()
-			   .domain([0, d3.max(dataset, function(d) { return d.population; })])
-			   .range([h - padding, padding]);
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, function(d) { return d.population; })])
+               .range([h - padding, padding]);
 
-	svg.selectAll("rect")
-	   .data(dataset)
-	   .enter()
-	   .append("rect")
-	   .attr("x", function(d, i) {
-	   	return xScale(i);
-	   })
-	   .attr("y", function(d) {
-	   	return yScale(d.population);
-	   })
-	   .attr("width", xScale.bandwidth())
-	   .attr("height", function(d) {
-	   	return h - padding - yScale(d.population);
-	   })
-	   .attr("fill", "teal");
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", function(d, i) {
+           return xScale(i);
+       })
+       .attr("y", function(d) {
+           return yScale(d.population);
+       })
+       .attr("width", xScale.bandwidth())
+       .attr("height", function(d) {
+           return h - padding - yScale(d.population);
+       })
+       .attr("fill", "teal");
 });
 </code></pre></div></div>
 
@@ -1209,10 +1209,10 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>The <code class="language-plaintext highlighter-rouge">HTML</code> is this:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;svg width="500" height="300"&gt;
-	&lt;rect x="52" y="205" width="101" height="55" fill="teal"&gt;&lt;/rect&gt;
-	&lt;rect x="164" y="150" width="101" height="110" fill="teal"&gt;&lt;/rect&gt;
-	&lt;rect x="276" y="95" width="101" height="165" fill="teal"&gt;&lt;/rect&gt;
-	&lt;rect x="388" y="40" width="101" height="220" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="52" y="205" width="101" height="55" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="164" y="150" width="101" height="110" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="276" y="95" width="101" height="165" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="388" y="40" width="101" height="220" fill="teal"&gt;&lt;/rect&gt;
 &lt;/svg&gt;
 </code></pre></div></div>
 
@@ -1226,16 +1226,16 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
    .append("rect")
    .attr("x", function(d, i) {
 
-   	console.log("x");
-   	console.log(d);
-   	console.log(xScale.domain());
-   	console.log(xScale.range());
-   	console.log(xScale.paddingInner());
-   	console.log(xScale.paddingOuter());
-   	console.log(xScale.bandwidth());
-   	console.log(xScale(i));
+       console.log("x");
+       console.log(d);
+       console.log(xScale.domain());
+       console.log(xScale.range());
+       console.log(xScale.paddingInner());
+       console.log(xScale.paddingOuter());
+       console.log(xScale.bandwidth());
+       console.log(xScale(i));
 
-   	return xScale(i);
+       return xScale(i);
    })
 </code></pre></div></div>
 
@@ -1248,7 +1248,9 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <div id="d3-barchart-vis"></div>
 <script type="text/javascript" src="../assets/js/d3.min.js"></script>
 
-<script type="text/javascript" src="../assets/js/d3-barchart-vis.js"></script>
+<script>
+    
+</script>
 
 <h2 id="d3-responsive-visualization-on-indexhtml-and-projectjs">D3 Responsive Visualization on index.html and project.js</h2>
 
@@ -1258,26 +1260,26 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
-	&lt;head&gt;
-		&lt;meta charset="utf-8"&gt;
-		&lt;title&gt;D3 Canvas&lt;/title&gt;
-		&lt;link rel="icon" type="image/png" href="icon.png"&gt;
-		&lt;script type="text/javascript" src="assets/js/d3.min.js"&gt;&lt;/script&gt;
-		&lt;link rel="stylesheet" type="text/css" href="main.css"&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-		&lt;div id="d3-barchart-vis"&gt;&lt;/div&gt;
-		&lt;script type="text/javascript" src="project.js"&gt;&lt;/script&gt;
-	&lt;/body&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;title&gt;D3 Canvas&lt;/title&gt;
+        &lt;link rel="icon" type="image/png" href="icon.png"&gt;
+        &lt;script type="text/javascript" src="assets/js/d3.min.js"&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" type="text/css" href="main.css"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="d3-barchart-vis"&gt;&lt;/div&gt;
+        &lt;script type="text/javascript" src="project.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
 &lt;/html&gt;
 </code></pre></div></div>
 
 <p>The <code class="language-plaintext highlighter-rouge">project.js</code> needs to be modified when creating the <code class="language-plaintext highlighter-rouge">svg</code>. It selects <code class="language-plaintext highlighter-rouge">div id="d3-barchart-vis"</code>. It uses <code class="language-plaintext highlighter-rouge">preserveAspectRatio</code> and <code class="language-plaintext highlighter-rouge">viewBox</code> for responsive. The <code class="language-plaintext highlighter-rouge">viewBox</code> follows this syntax <code class="language-plaintext highlighter-rouge">"min-x min-y width height"</code>. I concatenated the numbers and the spaces:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var svg = d3.select("#d3-barchart-vis")
-			.append("svg")
-			.attr("preserveAspectRatio", "xMinYMin meet")
-			.attr("viewBox", "0 0 " + w + " " + h);
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
 </code></pre></div></div>
 
 <p>The code for <code class="language-plaintext highlighter-rouge">project.js</code> looks like this:</p>
@@ -1287,46 +1289,46 @@ var h = 300;
 var barPadding = 3;
 var padding = 40;
 var svg = d3.select("#d3-barchart-vis")
-			.append("svg")
-			.attr("preserveAspectRatio", "xMinYMin meet")
-			.attr("viewBox", "0 0 " + w + " " + h);
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
 
 var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	}
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
 
-	xScale = d3.scaleBand()
-			   .domain(d3.range(dataset.length))
-			   .rangeRound([padding, w])
-			   .paddingInner(0.1)
-			   .paddingOuter(0.1);
+    xScale = d3.scaleBand()
+               .domain(d3.range(dataset.length))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
 
-	yScale = d3.scaleLinear()
-			   .domain([0, d3.max(dataset, function(d) { return d.population; })])
-			   .range([h - padding, padding]);
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, function(d) { return d.population; })])
+               .range([h - padding, padding]);
 
-	svg.selectAll("rect")
-	   .data(dataset)
-	   .enter()
-	   .append("rect")
-	   .attr("x", function(d, i) {
-	   	return xScale(i);
-	   })
-	   .attr("y", function(d) {
-	   	return yScale(d.population);
-	   })
-	   .attr("width", xScale.bandwidth())
-	   .attr("height", function(d) {
-	   	return h - padding - yScale(d.population);
-	   })
-	   .attr("fill", "teal");
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", function(d, i) {
+           return xScale(i);
+       })
+       .attr("y", function(d) {
+           return yScale(d.population);
+       })
+       .attr("width", xScale.bandwidth())
+       .attr("height", function(d) {
+           return h - padding - yScale(d.population);
+       })
+       .attr("fill", "teal");
 });
 </code></pre></div></div>
 
@@ -1337,14 +1339,14 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>Given this example:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>elements.map(function(element) {
-	return element.length;
+    return element.length;
 });
 </code></pre></div></div>
 
 <p>This can be simplified to:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>elements.map((element) =&gt; {
-	return element.length;
+    return element.length;
 });
 </code></pre></div></div>
 
@@ -1360,42 +1362,42 @@ var h = 300;
 var barPadding = 3;
 var padding = 40;
 var svg = d3.select("#d3-barchart-vis")
-			.append("svg")
-			.attr("preserveAspectRatio", "xMinYMin meet")
-			.attr("viewBox", "0 0 " + w + " " + h);
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
 
 var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	}
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
 
-	xScale = d3.scaleBand()
-			   .domain(d3.range(dataset.length))
-			   .rangeRound([padding, w])
-			   .paddingInner(0.1)
-			   .paddingOuter(0.1);
+    xScale = d3.scaleBand()
+               .domain(d3.range(dataset.length))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
 
-	yScale = d3.scaleLinear()
-			   .domain([0, d3.max(dataset, function(d) { return d.population; })])
-			   .range([h - padding, padding]);
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, function(d) { return d.population; })])
+               .range([h - padding, padding]);
 
-	svg.selectAll("rect")
-	   .data(dataset)
-	   .enter()
-	   .append("rect")
-	   .attr("x", function(d, i) {
-	   	return xScale(i);
-	   })
-	   .attr("y", d =&gt; yScale(d.population))
-	   .attr("width", xScale.bandwidth())
-	   .attr("height", d =&gt; h - padding - yScale(d.population))
-	   .attr("fill", "teal");
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", function(d, i) {
+           return xScale(i);
+       })
+       .attr("y", d =&gt; yScale(d.population))
+       .attr("width", xScale.bandwidth())
+       .attr("height", d =&gt; h - padding - yScale(d.population))
+       .attr("fill", "teal");
 });
 </code></pre></div></div>
 
@@ -1453,55 +1455,55 @@ var h = 300;
 var barPadding = 3;
 var padding = 40;
 var svg = d3.select("#d3-barchart-vis")
-			.append("svg")
-			.attr("preserveAspectRatio", "xMinYMin meet")
-			.attr("viewBox", "0 0 " + w + " " + h);
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
 
 var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	}
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
 
-	xScale = d3.scaleBand()
-			   .domain(d3.range(dataset.length))
-			   .rangeRound([padding, w])
-			   .paddingInner(0.1)
-			   .paddingOuter(0.1);
+    xScale = d3.scaleBand()
+               .domain(d3.range(dataset.length))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
 
-	yScale = d3.scaleLinear()
-			   .domain([0, d3.max(dataset, function(d) { return d.population; })])
-			   .range([h - padding, padding]);
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, function(d) { return d.population; })])
+               .range([h - padding, padding]);
 
-	var xAxis = d3.axisBottom(xScale);
-	var yAxis = d3.axisLeft(yScale);
+    var xAxis = d3.axisBottom(xScale);
+    var yAxis = d3.axisLeft(yScale);
 
-	svg.selectAll("rect")
-	   .data(dataset)
-	   .enter()
-	   .append("rect")
-	   .attr("x", function(d, i) {
-	   	return xScale(i);
-	   })
-	   .attr("y", d =&gt; yScale(d.population))
-	   .attr("width", xScale.bandwidth())
-	   .attr("height", d =&gt; h - padding - yScale(d.population))
-	   .attr("fill", "teal");
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", function(d, i) {
+           return xScale(i);
+       })
+       .attr("y", d =&gt; yScale(d.population))
+       .attr("width", xScale.bandwidth())
+       .attr("height", d =&gt; h - padding - yScale(d.population))
+       .attr("fill", "teal");
 
-	svg.append("g")
-	   .attr("class", "x axis")
-	   .attr("transform", "translate(0," + (h - padding) + ")")
-	   .call(xAxis);
+    svg.append("g")
+       .attr("class", "x axis")
+       .attr("transform", "translate(0," + (h - padding) + ")")
+       .call(xAxis);
 
-	svg.append("g")
-	   .attr("class", "y axis")
-	   .attr("transform", "translate(" + padding + ",0)")
-	   .call(yAxis);
+    svg.append("g")
+       .attr("class", "y axis")
+       .attr("transform", "translate(" + padding + ",0)")
+       .call(yAxis);
 });
 </code></pre></div></div>
 
@@ -1514,7 +1516,7 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>Use <code class="language-plaintext highlighter-rouge">.tickFormat</code> to format the axis labels.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var xAxis = d3.axisBottom(xScale)
-			  .ticks(someParameterHere);
+              .ticks(someParameterHere);
 </code></pre></div></div>
 
 <p>For now I will not use this.</p>
@@ -1570,78 +1572,78 @@ var h = 300;
 var barPadding = 3;
 var padding = 40;
 var svg = d3.select("#d3-barchart-vis")
-			.append("svg")
-			.attr("preserveAspectRatio", "xMinYMin meet")
-			.attr("viewBox", "0 0 " + w + " " + h);
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
 
 var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	}
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
 
-	xScale = d3.scaleBand()
-			   .domain(d3.range(dataset.length))
-			   .rangeRound([padding, w])
-			   .paddingInner(0.1)
-			   .paddingOuter(0.1);
+    xScale = d3.scaleBand()
+               .domain(d3.range(dataset.length))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
 
-	yScale = d3.scaleLinear()
-			   .domain([0, d3.max(dataset, function(d) { return d.population; })])
-			   .range([h - padding, padding]);
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, function(d) { return d.population; })])
+               .range([h - padding, padding]);
 
-	var xAxis = d3.axisBottom(xScale);
-	var yAxis = d3.axisLeft(yScale);
+    var xAxis = d3.axisBottom(xScale);
+    var yAxis = d3.axisLeft(yScale);
 
-	svg.selectAll("rect")
-	   .data(dataset)
-	   .enter()
-	   .append("rect")
-	   .attr("x", function(d, i) {
-	   	return xScale(i);
-	   })
-	   .attr("y", d =&gt; yScale(d.population))
-	   .attr("width", xScale.bandwidth())
-	   .attr("height", d =&gt; h - padding - yScale(d.population))
-	   .attr("fill", "teal");
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", function(d, i) {
+           return xScale(i);
+       })
+       .attr("y", d =&gt; yScale(d.population))
+       .attr("width", xScale.bandwidth())
+       .attr("height", d =&gt; h - padding - yScale(d.population))
+       .attr("fill", "teal");
 
-	// Add the x Axis
-	svg.append("g")
-	   .attr("class", "x axis")
-	   .attr("transform", "translate(0," + (h - padding) + ")")
-	   .call(xAxis);
+    // Add the x Axis
+    svg.append("g")
+       .attr("class", "x axis")
+       .attr("transform", "translate(0," + (h - padding) + ")")
+       .call(xAxis);
 
-	// Label for x Axis
-	svg.append("text")
-	   .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
-	   .style("text-anchor", "middle")
-	   .text("Year");
+    // Label for x Axis
+    svg.append("text")
+       .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
+       .style("text-anchor", "middle")
+       .text("Year");
 
-	// Add the y Axis
-	svg.append("g")
-	   .attr("class", "y axis")
-	   .attr("transform", "translate(" + padding + ",0)")
-	   .call(yAxis);
+    // Add the y Axis
+    svg.append("g")
+       .attr("class", "y axis")
+       .attr("transform", "translate(" + padding + ",0)")
+       .call(yAxis);
 
-	// Label for y Axis
-	svg.append("text")
-	   .attr("transform", "rotate(-90)")
-	   .attr("x", -(h/2))
-	   .attr("y", 15)
-	   .style("text-anchor", "middle")
-	   .text("Population");
+    // Label for y Axis
+    svg.append("text")
+       .attr("transform", "rotate(-90)")
+       .attr("x", -(h/2))
+       .attr("y", 15)
+       .style("text-anchor", "middle")
+       .text("Population");
 
-	svg.append("text")
-	   .attr("x", w/2)
-	   .attr("y", padding)
-	   .attr("text-anchor", "middle")
-	   .style("font-size", "16px")
-	   .text("Awesome Barchart");
+    svg.append("text")
+       .attr("x", w/2)
+       .attr("y", padding)
+       .attr("text-anchor", "middle")
+       .style("font-size", "16px")
+       .text("Awesome Barchart");
 });
 </code></pre></div></div>
 
@@ -1676,86 +1678,86 @@ svg.append("text")
 <p>The code with the margins is now this:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var margin = {top: 20, right: 20, bottom: 20, left: 20},
-	    w = 500 - margin.left - margin.right,
-	    h = 300 - margin.top - margin.bottom;
+        w = 500 - margin.left - margin.right,
+        h = 300 - margin.top - margin.bottom;
 
 var barPadding = 3;
 var padding = 40;
 var svg = d3.select("#d3-barchart-vis")
-			.append("svg")
-			.attr("preserveAspectRatio", "xMinYMin meet")
-			.attr("viewBox", "0 0 " + w + " " + h);
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
 
 var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	}
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
 
-	xScale = d3.scaleBand()
-			   .domain(d3.range(dataset.length))
-			   .rangeRound([padding, w])
-			   .paddingInner(0.1)
-			   .paddingOuter(0.1);
+    xScale = d3.scaleBand()
+               .domain(d3.range(dataset.length))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
 
-	yScale = d3.scaleLinear()
-			   .domain([0, d3.max(dataset, function(d) { return d.population; })])
-			   .range([h - padding, padding]);
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, function(d) { return d.population; })])
+               .range([h - padding, padding]);
 
-	var xAxis = d3.axisBottom(xScale);
-	var yAxis = d3.axisLeft(yScale);
+    var xAxis = d3.axisBottom(xScale);
+    var yAxis = d3.axisLeft(yScale);
 
-	svg.selectAll("rect")
-	   .data(dataset)
-	   .enter()
-	   .append("rect")
-	   .attr("x", function(d, i) {
-	   	return xScale(i);
-	   })
-	   .attr("y", d =&gt; yScale(d.population))
-	   .attr("width", xScale.bandwidth())
-	   .attr("height", d =&gt; h - padding - yScale(d.population))
-	   .attr("fill", "teal");
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", function(d, i) {
+           return xScale(i);
+       })
+       .attr("y", d =&gt; yScale(d.population))
+       .attr("width", xScale.bandwidth())
+       .attr("height", d =&gt; h - padding - yScale(d.population))
+       .attr("fill", "teal");
 
-	// Add the x Axis
-	svg.append("g")
-	   .attr("class", "x axis")
-	   .attr("transform", "translate(0," + (h - padding) + ")")
-	   .call(xAxis);
+    // Add the x Axis
+    svg.append("g")
+       .attr("class", "x axis")
+       .attr("transform", "translate(0," + (h - padding) + ")")
+       .call(xAxis);
 
-	// Label for x Axis
-	svg.append("text")
-	   .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
-	   .style("text-anchor", "middle")
-	   .style("font-size", "12px")
-	   .text("Year");
+    // Label for x Axis
+    svg.append("text")
+       .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
+       .style("text-anchor", "middle")
+       .style("font-size", "12px")
+       .text("Year");
 
-	// Add the y Axis
-	svg.append("g")
-	   .attr("class", "y axis")
-	   .attr("transform", "translate(" + padding + ",0)")
-	   .call(yAxis);
+    // Add the y Axis
+    svg.append("g")
+       .attr("class", "y axis")
+       .attr("transform", "translate(" + padding + ",0)")
+       .call(yAxis);
 
-	// Label for y Axis
-	svg.append("text")
-	   .attr("transform", "rotate(-90)")
-	   .attr("x", -(h/2))
-	   .attr("y", 10)
-	   .style("text-anchor", "middle")
-	   .style("font-size", "12px")
-	   .text("Population");
+    // Label for y Axis
+    svg.append("text")
+       .attr("transform", "rotate(-90)")
+       .attr("x", -(h/2))
+       .attr("y", 10)
+       .style("text-anchor", "middle")
+       .style("font-size", "12px")
+       .text("Population");
 
-	svg.append("text")
-	   .attr("x", w/2)
-	   .attr("y", padding)
-	   .attr("text-anchor", "middle")
-	   .style("font-size", "16px")
-	   .text("Awesome Barchart");
+    svg.append("text")
+       .attr("x", w/2)
+       .attr("y", padding)
+       .attr("text-anchor", "middle")
+       .style("font-size", "16px")
+       .text("Awesome Barchart");
 });
 </code></pre></div></div>
 
@@ -1772,25 +1774,25 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>It currently looks like this:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
-		   .domain(d3.range(dataset.length))
-		   .rangeRound([padding, w])
-		   .paddingInner(0.1)
-		   .paddingOuter(0.1);
+           .domain(d3.range(dataset.length))
+           .rangeRound([padding, w])
+           .paddingInner(0.1)
+           .paddingOuter(0.1);
 </code></pre></div></div>
 
 <p>I changed it to this:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
-		   .domain(dataset.map(d =&gt; d.year.getFullYear()))
-		   .rangeRound([padding, w])
-		   .paddingInner(0.1)
-		   .paddingOuter(0.1);
+           .domain(dataset.map(d =&gt; d.year.getFullYear()))
+           .rangeRound([padding, w])
+           .paddingInner(0.1)
+           .paddingOuter(0.1);
 </code></pre></div></div>
 
 <p>You can test what this does on the console <code class="language-plaintext highlighter-rouge">dataset.map(d =&gt; d.year.getFullYear())</code> inside this section:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", rowConverter).then(function(dataset) {
-	console.log(dataset.map(d =&gt; d.year.getFullYear()))
+    console.log(dataset.map(d =&gt; d.year.getFullYear()))
 </code></pre></div></div>
 
 <p>The output should be:</p>
@@ -1805,7 +1807,7 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
    .enter()
    .append("rect")
    .attr("x", function(d, i) {
-   	return xScale(i);
+       return xScale(i);
    })
    .attr("y", d =&gt; yScale(d.population))
    .attr("width", xScale.bandwidth())
@@ -1820,7 +1822,7 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
    .enter()
    .append("rect")
    .attr("x", function(d, i) {
-   	return xScale(d.year.getFullYear());
+       return xScale(d.year.getFullYear());
    })
    .attr("y", d =&gt; yScale(d.population))
    .attr("width", xScale.bandwidth())
@@ -1837,84 +1839,84 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>The code with a bit more arrow functions:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var margin = {top: 20, right: 20, bottom: 20, left: 20},
-	    w = 500 - margin.left - margin.right,
-	    h = 300 - margin.top - margin.bottom;
+        w = 500 - margin.left - margin.right,
+        h = 300 - margin.top - margin.bottom;
 
 var barPadding = 3;
 var padding = 40;
 var svg = d3.select("#d3-barchart-vis")
-			.append("svg")
-			.attr("preserveAspectRatio", "xMinYMin meet")
-			.attr("viewBox", "0 0 " + w + " " + h);
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
 
 var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	}
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
 
-	xScale = d3.scaleBand()
-			   .domain(dataset.map(d =&gt; d.year.getFullYear()))
-			   .rangeRound([padding, w])
-			   .paddingInner(0.1)
-			   .paddingOuter(0.1);
+    xScale = d3.scaleBand()
+               .domain(dataset.map(d =&gt; d.year.getFullYear()))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
 
-	yScale = d3.scaleLinear()
-			   .domain([0, d3.max(dataset, d =&gt; d.population)])
-			   .range([h - padding, padding]);
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, d =&gt; d.population)])
+               .range([h - padding, padding]);
 
-	var xAxis = d3.axisBottom(xScale);
-	var yAxis = d3.axisLeft(yScale);
+    var xAxis = d3.axisBottom(xScale);
+    var yAxis = d3.axisLeft(yScale);
 
-	svg.selectAll("rect")
-	   .data(dataset)
-	   .enter()
-	   .append("rect")
-	   .attr("x", d =&gt; xScale(d.year.getFullYear()))
-	   .attr("y", d =&gt; yScale(d.population))
-	   .attr("width", xScale.bandwidth())
-	   .attr("height", d =&gt; h - padding - yScale(d.population))
-	   .attr("fill", "teal");
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", d =&gt; xScale(d.year.getFullYear()))
+       .attr("y", d =&gt; yScale(d.population))
+       .attr("width", xScale.bandwidth())
+       .attr("height", d =&gt; h - padding - yScale(d.population))
+       .attr("fill", "teal");
 
-	// Add the x Axis
-	svg.append("g")
-	   .attr("class", "x axis")
-	   .attr("transform", "translate(0," + (h - padding) + ")")
-	   .call(xAxis);
+    // Add the x Axis
+    svg.append("g")
+       .attr("class", "x axis")
+       .attr("transform", "translate(0," + (h - padding) + ")")
+       .call(xAxis);
 
-	// Label for x Axis
-	svg.append("text")
-	   .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
-	   .style("text-anchor", "middle")
-	   .style("font-size", "12px")
-	   .text("Year");
+    // Label for x Axis
+    svg.append("text")
+       .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
+       .style("text-anchor", "middle")
+       .style("font-size", "12px")
+       .text("Year");
 
-	// Add the y Axis
-	svg.append("g")
-	   .attr("class", "y axis")
-	   .attr("transform", "translate(" + padding + ",0)")
-	   .call(yAxis);
+    // Add the y Axis
+    svg.append("g")
+       .attr("class", "y axis")
+       .attr("transform", "translate(" + padding + ",0)")
+       .call(yAxis);
 
-	// Label for y Axis
-	svg.append("text")
-	   .attr("transform", "rotate(-90)")
-	   .attr("x", -(h/2))
-	   .attr("y", 10)
-	   .style("text-anchor", "middle")
-	   .style("font-size", "12px")
-	   .text("Population");
+    // Label for y Axis
+    svg.append("text")
+       .attr("transform", "rotate(-90)")
+       .attr("x", -(h/2))
+       .attr("y", 10)
+       .style("text-anchor", "middle")
+       .style("font-size", "12px")
+       .text("Population");
 
-	svg.append("text")
-	   .attr("x", w/2)
-	   .attr("y", padding)
-	   .attr("text-anchor", "middle")
-	   .style("font-size", "16px")
-	   .text("Awesome Barchart");
+    svg.append("text")
+       .attr("x", w/2)
+       .attr("y", padding)
+       .attr("text-anchor", "middle")
+       .style("font-size", "16px")
+       .text("Awesome Barchart");
 });
 </code></pre></div></div>
 
@@ -1940,13 +1942,13 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>Then add the functions to process each interaction at the end, before the closing of <code class="language-plaintext highlighter-rouge">d3.csv</code>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function handleMouseOver(d, i) {
-	d3.select(this)
-	  .attr("fill", "red");
+    d3.select(this)
+      .attr("fill", "red");
 }
 
 function handleMouseOut(d, i) {
-	d3.select(this)
-	  .attr("fill", "teal");
+    d3.select(this)
+      .attr("fill", "teal");
 }
 </code></pre></div></div>
 
@@ -1957,120 +1959,215 @@ function handleMouseOut(d, i) {
 <div id="d3-barchart-vis-final"></div>
 <script type="text/javascript" src="../assets/js/d3.min.js"></script>
 
-<script type="text/javascript" src="../assets/js/d3-barchart-vis-final.js"></script>
-
-<p>The final code is this:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var margin = {top: 20, right: 20, bottom: 20, left: 20},
-	    w = 500 - margin.left - margin.right,
-	    h = 300 - margin.top - margin.bottom;
+<script>
+    var margin = {top: 20, right: 20, bottom: 20, left: 20},
+        w = 500 - margin.left - margin.right,
+        h = 300 - margin.top - margin.bottom;
 
 var barPadding = 3;
 var padding = 40;
-var svg = d3.select("#d3-barchart-vis")
-			.append("svg")
-			.attr("preserveAspectRatio", "xMinYMin meet")
-			.attr("viewBox", "0 0 " + w + " " + h);
+var svg = d3.select("div#d3-barchart-vis-final")
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
 
 var parseTime = d3.timeParse("%Y");
 
 var rowConverter = function(d) {
-	return {
-		year: parseTime(d.year),
-		population: +d.population
-	}
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
+}
+
+d3.csv("../assets/csv/file.csv", rowConverter).then(function(dataset) {
+
+    xScale = d3.scaleBand()
+               .domain(dataset.map(d => d.year.getFullYear()))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
+
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, d => d.population)])
+               .range([h - padding, padding]);
+
+    var xAxis = d3.axisBottom(xScale);
+    var yAxis = d3.axisLeft(yScale);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", d => xScale(d.year.getFullYear()))
+       .attr("y", d => yScale(d.population))
+       .attr("width", xScale.bandwidth())
+       .attr("height", d => h - padding - yScale(d.population))
+       .attr("fill", "teal")
+       .on("mouseover", handleMouseOver)
+       .on("mouseout", handleMouseOut);
+
+    // Add the x Axis
+    svg.append("g")
+       .attr("class", "x axis")
+       .attr("transform", "translate(0," + (h - padding) + ")")
+       .call(xAxis);
+
+    // Label for x Axis
+    svg.append("text")
+       .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
+       .style("text-anchor", "middle")
+       .style("font-size", "12px")
+       .text("Year");
+
+    // Add the y Axis
+    svg.append("g")
+       .attr("class", "y axis")
+       .attr("transform", "translate(" + padding + ",0)")
+       .call(yAxis);
+
+    // Label for y Axis
+    svg.append("text")
+       .attr("transform", "rotate(-90)")
+       .attr("x", -(h/2))
+       .attr("y", 10)
+       .style("text-anchor", "middle")
+       .style("font-size", "12px")
+       .text("Population");
+
+    svg.append("text")
+       .attr("x", w/2)
+       .attr("y", padding)
+       .attr("text-anchor", "middle")
+       .style("font-size", "16px")
+       .text("Awesome Barchart");
+
+    function handleMouseOver(d, i) {
+        d3.select(this)
+          .attr("fill", "red");
+    }
+
+    function handleMouseOut(d, i) {
+        d3.select(this)
+          .attr("fill", "teal");
+    }
+});
+</script>
+
+<p>The final code is this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var margin = {top: 20, right: 20, bottom: 20, left: 20},
+        w = 500 - margin.left - margin.right,
+        h = 300 - margin.top - margin.bottom;
+
+var barPadding = 3;
+var padding = 40;
+var svg = d3.select("#d3-barchart-vis")
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
+
+var parseTime = d3.timeParse("%Y");
+
+var rowConverter = function(d) {
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
 }
 
 d3.csv("file.csv", rowConverter).then(function(dataset) {
 
-	xScale = d3.scaleBand()
-			   .domain(dataset.map(d =&gt; d.year.getFullYear()))
-			   .rangeRound([padding, w])
-			   .paddingInner(0.1)
-			   .paddingOuter(0.1);
+    xScale = d3.scaleBand()
+               .domain(dataset.map(d =&gt; d.year.getFullYear()))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
 
-	yScale = d3.scaleLinear()
-			   .domain([0, d3.max(dataset, d =&gt; d.population)])
-			   .range([h - padding, padding]);
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, d =&gt; d.population)])
+               .range([h - padding, padding]);
 
-	var xAxis = d3.axisBottom(xScale);
-	var yAxis = d3.axisLeft(yScale);
+    var xAxis = d3.axisBottom(xScale);
+    var yAxis = d3.axisLeft(yScale);
 
-	svg.selectAll("rect")
-	   .data(dataset)
-	   .enter()
-	   .append("rect")
-	   .attr("x", d =&gt; xScale(d.year.getFullYear()))
-	   .attr("y", d =&gt; yScale(d.population))
-	   .attr("width", xScale.bandwidth())
-	   .attr("height", d =&gt; h - padding - yScale(d.population))
-	   .attr("fill", "teal")
-	   .on("mouseover", handleMouseOver)
-	   .on("mouseout", handleMouseOut);
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", d =&gt; xScale(d.year.getFullYear()))
+       .attr("y", d =&gt; yScale(d.population))
+       .attr("width", xScale.bandwidth())
+       .attr("height", d =&gt; h - padding - yScale(d.population))
+       .attr("fill", "teal")
+       .on("mouseover", handleMouseOver)
+       .on("mouseout", handleMouseOut);
 
-	// Add the x Axis
-	svg.append("g")
-	   .attr("class", "x axis")
-	   .attr("transform", "translate(0," + (h - padding) + ")")
-	   .call(xAxis);
+    // Add the x Axis
+    svg.append("g")
+       .attr("class", "x axis")
+       .attr("transform", "translate(0," + (h - padding) + ")")
+       .call(xAxis);
 
-	// Label for x Axis
-	svg.append("text")
-	   .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
-	   .style("text-anchor", "middle")
-	   .style("font-size", "12px")
-	   .text("Year");
+    // Label for x Axis
+    svg.append("text")
+       .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
+       .style("text-anchor", "middle")
+       .style("font-size", "12px")
+       .text("Year");
 
-	// Add the y Axis
-	svg.append("g")
-	   .attr("class", "y axis")
-	   .attr("transform", "translate(" + padding + ",0)")
-	   .call(yAxis);
+    // Add the y Axis
+    svg.append("g")
+       .attr("class", "y axis")
+       .attr("transform", "translate(" + padding + ",0)")
+       .call(yAxis);
 
-	// Label for y Axis
-	svg.append("text")
-	   .attr("transform", "rotate(-90)")
-	   .attr("x", -(h/2))
-	   .attr("y", 10)
-	   .style("text-anchor", "middle")
-	   .style("font-size", "12px")
-	   .text("Population");
+    // Label for y Axis
+    svg.append("text")
+       .attr("transform", "rotate(-90)")
+       .attr("x", -(h/2))
+       .attr("y", 10)
+       .style("text-anchor", "middle")
+       .style("font-size", "12px")
+       .text("Population");
 
-	svg.append("text")
-	   .attr("x", w/2)
-	   .attr("y", padding)
-	   .attr("text-anchor", "middle")
-	   .style("font-size", "16px")
-	   .text("Awesome Barchart");
+    svg.append("text")
+       .attr("x", w/2)
+       .attr("y", padding)
+       .attr("text-anchor", "middle")
+       .style("font-size", "16px")
+       .text("Awesome Barchart");
 
-	function handleMouseOver(d, i) {
-		d3.select(this)
-		  .attr("fill", "red");
-	}
+    function handleMouseOver(d, i) {
+        d3.select(this)
+          .attr("fill", "red");
+    }
 
-	function handleMouseOut(d, i) {
-		d3.select(this)
-		  .attr("fill", "teal");
-	}
+    function handleMouseOut(d, i) {
+        d3.select(this)
+          .attr("fill", "teal");
+    }
 });
 </code></pre></div></div>
 
-<h2 id="embedding-d3-visualization-on-a-blog-post">Embedding D3 Visualization on a blog post</h2>
+<h2 id="embedding-d3-visualization-on-a-blog-post-not-github-pages">Embedding D3 Visualization on a blog post (not Github Pages)</h2>
 
-<p>You can also add a D3 visualization to a blog post. For example, my website uses Jekyll static generator. As seen on <a href="https://briancaffey.github.io/2016/05/13/d3js-on-jekyll.html">D3.js on Jekyll</a>, you can use liquid tags to include an HTML as shown below.</p>
+<p>You can also add a D3 visualization to a blog post. This part is tricky and might depend on where your website is hosted. I did a lot of research and this seems to work on some websites but not on Github Pages.</p>
+
+<p>As seen on <a href="https://briancaffey.github.io/2016/05/13/d3js-on-jekyll.html">D3.js on Jekyll</a>, you can use liquid tags to include an HTML as shown below.</p>
 
 <p>My blog follows this directory structure:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>assets/
-	csv/
-		file.csv
-	js/
-		d3.min.js
-		d3-barchart-vis.js
+  csv/
+    file.csv
+  js/
+    d3.min.js
+    d3-barchart-vis.js
 _posts/
-	this-blog-post.md
+  this-blog-post.md
 _includes/
-	d3-barchart-vis.html
+  d3-barchart-vis.html
 </code></pre></div></div>
 
 <p>The <code class="language-plaintext highlighter-rouge">d3-barchart-vis.html</code> has this content:</p>
@@ -2083,9 +2180,9 @@ _includes/
 <p>In the <code class="language-plaintext highlighter-rouge">d3-barchart-vis.js</code>, the <code class="language-plaintext highlighter-rouge">svg</code> selects <code class="language-plaintext highlighter-rouge">#d3-barchart-vis</code>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var svg = d3.select("#d3-barchart-vis")
-			.append("svg")
-			.attr("preserveAspectRatio", "xMinYMin meet")
-			.attr("viewBox", "0 0 " + w + " " + h);
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
 </code></pre></div></div>
 
 <p>The <code class="language-plaintext highlighter-rouge">csv</code> file is called like this so it points at the correct directory:</p>
@@ -2095,6 +2192,35 @@ _includes/
 
 <p>Then the blog post has this content:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div id="d3-barchart-vis"&gt;&lt;/div&gt; &lt;script type="text/javascript" src="../assets/js/d3.min.js"&gt;&lt;/script&gt; &lt;script type="text/javascript" src="../assets/js/d3-barchart-vis.js"&gt;&lt;/script&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% include d3-barchart-vis.html %}
 </code></pre></div></div>
+
+<p>This works well on local development. However, on Github Pages, it has a strange behavior. If you open the Console on Firefox you will get these errors:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Content Security Policy: Ignoring “'unsafe-inline'” within script-src: ‘strict-dynamic’ specified
+Content Security Policy: Ignoring “https:” within script-src: ‘strict-dynamic’ specified
+Content Security Policy: Ignoring “http:” within script-src: ‘strict-dynamic’ specified
+</code></pre></div></div>
+
+<p>More about these issue here:</p>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/20311271/hotlink-resources-like-javascript-files-directly-from-github/20311329#20311329">JavaScript files directly from Github</a></li>
+  <li><a href="https://stackoverflow.com/questions/17341122/link-and-execute-external-javascript-file-hosted-on-github">Link and execute external JavaScript file hosted on GitHub</a></li>
+  <li><a href="https://github.blog/2013-04-24-heads-up-nosniff-header-support-coming-to-chrome-and-firefox/">nosniff header support coming to Chrome and Firefox</a></li>
+</ul>
+
+<p>This last resource if from 2013 and it says this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>We added the X-Content-Type-Options: nosniff header to our raw URL
+responses way back in 2011 as a first step in combating hotlinking.
+This has the effect of forcing the browser to treat content in accordance
+with the Content-Type header. That means that when we set
+Content-Type: text/plain for raw views of files, the browser will refuse
+to treat that file as JavaScript or CSS.
+</code></pre></div></div>
+
+<h2 id="embedding-d3-visualization-on-a-blog-post-on-github-pages">Embedding D3 Visualization on a blog post (on Github Pages)</h2>
+
+<p>In progress…</p>
 :ET
