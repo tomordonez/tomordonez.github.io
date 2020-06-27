@@ -1,4 +1,4 @@
-I"ú•<p>This is a detailed D3 tutorial for data visualization. Setup D3, build a barchart, and responsive D3. Updated June 2020.</p>
+I"G–<p>This is a detailed D3 tutorial for data visualization. Setup D3, build a barchart, and responsive D3. Updated June 2020.</p>
 
 <h2 id="resources">Resources:</h2>
 
@@ -1246,7 +1246,7 @@ d3.csv("file.csv", rowConverter).then(function(dataset) {
 <p>(This is a D3 vis)</p>
 
 <div id="d3-barchart-vis"></div>
-<script type="text/javascript" src="../assets/js/d3.min.js"></script>
+<script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
 
 <script>
     var w = 500;
@@ -2002,7 +2002,7 @@ function handleMouseOut(d, i) {
 <p>(This is a D3 vis)</p>
 
 <div id="d3-barchart-vis-final"></div>
-<script type="text/javascript" src="../assets/js/d3.min.js"></script>
+<script type="text/javascript" src="https://raw.githubusercontent.com/tomordonez/tomordonez.github.io/master/assets/js/d3.min.js"></script>
 
 <script>
     var margin = {top: 20, right: 20, bottom: 20, left: 20},
