@@ -1,0 +1,191 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+html {
+	min-width: 1402px;
+	max-width: 1402px;
+	margin: auto;
+}
+
+@font-face {
+    font-family: "Chomsky";
+    src: url("Chomsky.otf") format("opentype");
+}
+
+body {
+	background-color: #F3DFC1;
+	color: #1A1C1A;
+	font-family: 'Libre Baskerville', serif;
+	width: 90%;
+	margin: auto;
+}
+
+.first-header, .second-header, h1, h2, .front-page-content {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.first-header {
+	padding: 10px 0px 8px 0px;
+}
+
+#punch-line {
+	border: 2px solid;
+	padding: 15px 15px;
+	width: 15%;
+	font-size: 16px;
+	text-align: center;
+}
+
+#punch-line>p {
+	margin: 0;
+	padding: 2px 0px;
+}
+
+#newspaper-name {
+	width: 70%;
+	font-family: "Chomsky";
+	font-size: 550%;
+	text-align: center;
+}
+
+#edition-content {
+	width: 15%;
+}
+
+#edition-content>h4 {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#edition-content>p {
+	font-weight: 500;
+	font-size: 10px;
+	padding-top: 6px;
+	text-align: justify;
+}
+
+.second-header {
+	border-top: 2px solid;
+	border-bottom: 2px solid;
+	font-weight: 400;
+	justify-content: space-between;
+}
+
+#news-volume {
+	width: 18%;
+	font-size: 14px;
+	font-style: italic;
+}
+
+#copyright {
+	width: 22%;
+	font-size: 8px;
+}
+
+#date {
+	width: 50%;
+	font-style: italic;
+}
+
+#price {
+	width: 10%;
+	font-style: italic;
+	text-align: right;
+}
+
+h1 {
+	padding: 10px 0px 0px 0px;
+	font-size: 600%;
+	font-weight: bold;
+	text-transform: uppercase;
+	justify-content: center;
+}
+
+hr {
+	width: 50%;
+	border: 1px solid #1A1C1A;
+	margin: auto;
+}
+
+h2 {
+	padding: 15px 0px;
+	font-size: 420%;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-style: italic;
+	justify-content: center;
+	letter-spacing: 4px;
+}
+
+.front-page-content {
+	align-items: flex-start;
+}
+
+.left-column {
+	flex: 1;
+}
+
+.left-column>h3, .right-column>h3 {
+	padding: 20px 0px 10px 0px;
+	font-size: 180%;
+}
+
+.column-body {
+	padding-top: 10px;
+}
+
+.column-body>p {
+	font-size: 65%;
+	font-weight: bold;
+	line-height: 150%;
+	text-indent: 25px;
+}
+
+.middle-column {
+	flex: 1.8;
+	padding: 0px 15px;
+}
+
+.middle-column>img {
+	flex-shrink: 0;
+	min-width: 100%;
+	max-width: 100%;
+}
+
+.img-caption {
+	font-size: 55%;
+	font-weight: bold;
+	text-align: center;
+}
+
+.right-column {
+	flex: 1;
+}
+
+.right-column h4 {
+	padding: 2px 0px;
+	font-size: 70%;
+	font-weight: bold;
+	text-align: center;
+}
+
+#author {
+	font-size: 60%;
+	font-weight: bold;
+	text-align: center;
+}
+
+#author-assignment {
+	padding: 2px 0px;
+	font-size: 45%;
+	font-weight: bold;
+	text-align: center;
+}

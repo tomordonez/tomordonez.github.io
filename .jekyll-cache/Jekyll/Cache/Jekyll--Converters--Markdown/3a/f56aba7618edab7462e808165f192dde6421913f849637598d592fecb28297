@@ -1,4 +1,4 @@
-I"�N<p>I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.</p>
+I"�Y<p>I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.</p>
 
 <p>Sources:</p>
 <ul>
@@ -227,6 +227,51 @@ exclude:
   - gemfiles/
   - Gemfile
 </code></pre></div></div>
+
+<h2 id="updating-the-default-theme-minima">Updating the default theme ‘minima’</h2>
+
+<p>The default theme is installed as a gem and you won’t see the source files in your blog directory. To find the source files run this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle info minima
+</code></pre></div></div>
+
+<p>My output was this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* minima (2.5.1)
+Summary: A beautiful, minimal theme for Jekyll.
+Homepage: https://github.com/jekyll/minima
+Path: /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1
+</code></pre></div></div>
+
+<p>If you open this path, the README file shows where files are located:</p>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">_layouts</code> directory define the markup for your theme.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">_includes</code> directory has snippets of code that can be inserted in layouts.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">_sass</code> directory define the theme’s styles.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">assets</code> directory contains the <code class="language-plaintext highlighter-rouge">main.scss</code>.</li>
+</ul>
+
+<p>The <code class="language-plaintext highlighter-rouge">main.scss</code> imports sass files from the <code class="language-plaintext highlighter-rouge">_sass</code> directory. It gets processed into the theme’s main stylesheet <code class="language-plaintext highlighter-rouge">main.css</code> called by <code class="language-plaintext highlighter-rouge">_layouts/default.html</code> via <code class="language-plaintext highlighter-rouge">_includes/head.html</code>.</p>
+
+<p>To override the default structure and style, create the specific directory at the root of the blog, copy the file to that directory, and then edit the file.</p>
+
+<p>For example:</p>
+
+<ul>
+  <li>To override the <code class="language-plaintext highlighter-rouge">_includes/head.html</code>.</li>
+  <li>Create an <code class="language-plaintext highlighter-rouge">_includes</code> directory in the root of your blog.</li>
+  <li>Copy <code class="language-plaintext highlighter-rouge">_includes/head.html</code> from minima gem folder to this directory.</li>
+  <li>Edit that file.</li>
+</ul>
+
+<h2 id="updating-the-default-css">Updating the default CSS</h2>
+
+<ul>
+  <li>Go to the gem path.</li>
+  <li>Copy the <code class="language-plaintext highlighter-rouge">assets/</code> folder to your blog root.</li>
+  <li>Edit the <code class="language-plaintext highlighter-rouge">/assets/main.scss</code> file.</li>
+</ul>
 
 <h2 id="using-a-different-theme">Using a different theme</h2>
 

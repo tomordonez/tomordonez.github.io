@@ -217,6 +217,47 @@ Mine looks kinda like this:
 	  - Gemfile
 
 
+## Updating the default theme 'minima'
+
+The default theme is installed as a gem and you won't see the source files in your blog directory. To find the source files run this:
+
+	$ bundle info minima
+
+
+My output was this:
+
+	* minima (2.5.1)
+	Summary: A beautiful, minimal theme for Jekyll.
+	Homepage: https://github.com/jekyll/minima
+	Path: /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1
+
+
+If you open this path, the README file shows where files are located:
+
+* The `_layouts` directory define the markup for your theme.
+* The `_includes` directory has snippets of code that can be inserted in layouts.
+* The `_sass` directory define the theme's styles.
+* The `assets` directory contains the `main.scss`.
+
+The `main.scss` imports sass files from the `_sass` directory. It gets processed into the theme's main stylesheet `main.css` called by `_layouts/default.html` via `_includes/head.html`.
+
+To override the default structure and style, create the specific directory at the root of the blog, copy the file to that directory, and then edit the file.
+
+For example:
+
+* To override the `_includes/head.html`.
+* Create an `_includes` directory in the root of your blog.
+* Copy `_includes/head.html` from minima gem folder to this directory.
+* Edit that file.
+
+
+## Updating the default CSS
+
+* Go to the gem path.
+* Copy the `assets/` folder to your blog root.
+* Edit the `/assets/main.scss` file.
+
+
 ## Using a different theme
 
 I tried a theme that looked [Medium](https://wowthemesnet.github.io/mundana-theme-jekyll/index.html)
