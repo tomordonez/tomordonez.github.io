@@ -1,0 +1,95 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body, button {
+	font-family: 'Roboto', sans-serif;
+	color: #424242;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	height: 36px;
+	width: 30%;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.glow {
+	flex: 1;
+	font-size: 30px;
+	color: black;
+	text-align: center;
+	-webkit-animation: glow 1s ease-in-out infinite alternate;
+	-moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: glow 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes glow {
+	from {
+		text-shadow: 0 0 1vh black, 0 0 3vh black, 0 0 8vh #e60073,
+					 0 0 12vh #e60073, 0 0 14vh #e60073;
+	}
+	to {
+		text-shadow: 0 0 3vh black, 0 0 4vh #ff4da6, 0 0 8vh #ff4da6,
+					 0 0 12vh #ff4da6, 0 0 16vh #ff4da6;
+	}
+}
+
+.pet-image {
+	display: flex;
+	justify-content: center;
+	height: 60vh;
+	width: 20%;
+	margin: auto;
+}
+img {
+	flex: 1;
+	height: 60vh;
+}
+
+button {
+	font-size: 22px;
+}
+.buttons {
+	display: flex;
+	justify-content: center;
+	height: 10vh;
+	width: 20%;
+	margin: auto;
+	margin-top: 5vh;
+}
+#left-button,
+#right-button {
+	flex: 1;
+	margin-top: 1vh;
+}
+#left-button {
+	margin-right: 5vh;
+}
+#right-button {
+	margin-left: 5vh;
+}
+
+@media only screen and (max-width: 600px) {
+	header {
+		width: 60%;
+		margin-bottom: 20px;
+	}
+	.pet-image, img {
+		width: 50vh;
+		height: 50vh;
+	}
+	.buttons {
+		width: 60%;
+		margin-top: 1vh;
+	}
+	#left-button {
+		margin-right: 3vh;
+	}
+	#right-button {
+		margin-left: 3vh;
+	}
+}
