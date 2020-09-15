@@ -1,4 +1,4 @@
-I"�<p>I am studying the Google Cloud Platform. I’d like to take the Associate Cloud Engineer certificate in a few months.</p>
+I"<p>I am studying the Google Cloud Platform. I’d like to take the Associate Cloud Engineer certificate in a few months.</p>
 
 <p>I heard about Docker for a while but never used it. Long story short. Goodbye Virtualbox.</p>
 
@@ -43,7 +43,7 @@
 
 <h2 id="install-docker">Install Docker</h2>
 
-<p>(see: https://docs.docker.com/engine/install/debian/)</p>
+<p>Docker install details <a href="https://docs.docker.com/engine/install/debian/">here</a></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 $ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -

@@ -47,7 +47,7 @@ I heard about Docker for a while but never used it. Long story short. Goodbye Vi
 
 ## Install Docker
 
-(see: https://docs.docker.com/engine/install/debian/)
+Docker install details [here](https://docs.docker.com/engine/install/debian/)
 
 	$ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 	$ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
