@@ -8,21 +8,50 @@ image: assets/images/7.jpg
 tags: [coding, python, miniconda]
 ---
 
-I loved `virtualenv` and then I found `Miniconda`. It's pretty similar to `RVM` for Ruby.
+I loved `virtualenv` and then I found `Miniconda`. Follow this guide to **install Miniconda on Linux**.
+
+*Updated September 2020*
 
 You can create a Python environment with a specific Python version and/or specific library versions.
 
-Before installing Miniconda. Create the `.conda` directory in your home folder:
+## Summary
+
+Long story short:
+
+* Create the conda directory in your home folder: `mkdir ~/.conda`
+* Use the script to install Miniconda.
+* Type `yes` to accept the license.
+* Press `Enter` to confirm the install location.
+* Type `yes` if you want the installer to initialize Miniconda with `conda init`
+* Reopen the terminal and check conda was installed `conda --version`
+
+See complete details below.
+
+## Useful Conda commands
+
+* Conda version: `conda --version`
+* List of conda environments: `conda info --envs`
+* Activate a conda: `conda activate name_of_env`
+* Switch to default env: `conda activate`
+* Create env with a yml file: `conda env create --file environment.yml`
+
+## Details step by step with output
+
+If you already tried installing Miniconda and found issues, see troubleshooting at the end.
+
+To avoid issues before installing Miniconda. Create the `.conda` directory in your home folder:
 
     $ mkdir ~/.conda
 
-Then use the script to install Miniconda. Find your install file from [here](
+Then use the script to install Miniconda. Find your install file from [Conda docs](
 https://docs.conda.io/en/latest/miniconda.html)
 
 For Linux:
 
     $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     $ bash Miniconda3-latest-Linux-x86_64.sh
+
+Output:
 
     Welcome to Miniconda3 4.7.10
     In order to continue the installation process, please review the license agreement.
@@ -58,28 +87,39 @@ For Linux:
     `cryptography`
         A Python library which exposes cryptographic recipes and primitives.
 
-Do you accept the license terms? [yes|no]
+
+Accept the license terms.
+
+    Do you accept the license terms?
     
     [no] >>> yes
 
-Miniconda3 will now be installed into this location:
+Review the default installation location.
+
+    Miniconda3 will now be installed into a default location.
+    Press `Enter` or change to your custom location:
 
 	/home/tom/miniconda3
 	  - Press ENTER to confirm the location
 	  - Press CTRL-C to abort the installation
 	  - Or specify a different location below
 
-[/home/tom/miniconda3] >>>
+Press `ENTER` if you want the default location.
+
+    [/home/tom/miniconda3] >>>
+
+Output:
 
 	PREFIX=/home/tom/miniconda3
 	Unpacking payload ...
 	Collecting package metadata (current_repodata.json): done
 	Solving environment: done
 
-Package Plan
+More Output:
 
-  environment location: /home/tom/miniconda3
-  added / updated specs:
+    environment location: /home/tom/miniconda3
+
+    added / updated specs:
 
     - _libgcc_mutex==0.1=main
     - asn1crypto==0.24.0=py37_0
@@ -125,7 +165,9 @@ Package Plan
     - zlib==1.2.11=h7b6447c_3
     - zstd==1.3.7=h0b5b093_0
 
-The following NEW packages will be INSTALLED:
+More output:
+    
+    The following NEW packages will be INSTALLED:
 
     _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
     asn1crypto         pkgs/main/linux-64::asn1crypto-0.24.0-py37_0
@@ -170,12 +212,15 @@ The following NEW packages will be INSTALLED:
     zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
     zstd               pkgs/main/linux-64::zstd-1.3.7-h0b5b093_0
 
-Preparing transaction: done
-Executing transaction: done
-installation finished.
+    Preparing transaction: done
 
-Do you wish the installer to initialize Miniconda3
-by running conda init? [yes|no]
+    Executing transaction: done
+
+    installation finished.
+
+Answer the question "initialize Miniconda3 by running conda init?"
+
+    Do you wish the installer to initialize Miniconda3 by running conda init?
 
     [no] >>> yes
 
@@ -194,13 +239,11 @@ by running conda init? [yes|no]
 
 	==> For changes to take effect, close and re-open your current shell. <==
 
-If you'd prefer that conda's base environment not be activated on startup,
-
-set the auto_activate_base parameter to false:
+    If you'd prefer that conda's base environment not be activated on startup, set the `auto_activate_base` parameter to false:
     
     conda config --set auto_activate_base false
 
-Thank you for installing Miniconda3!
+    Thank you for installing Miniconda3!
 
 ## Reopen Terminal
 
@@ -225,12 +268,11 @@ Use this:
 
 Output:
 
-Collecting package metadata (current_repodata.json): done
-Solving environment: done
+    Collecting package metadata (current_repodata.json): done
+    Solving environment: done
 
-  environment location: /home/tom/miniconda3
-
-  added / updated specs:
+    environment location: /home/tom/miniconda3
+    added / updated specs:
     - conda
 
 
@@ -249,16 +291,16 @@ The following packages will be downloaded:
 
 The following packages will be UPDATED:
 
-    ca-certificates                               2019.5.15-0 --> 2019.5.15-1
-    certifi                                  2019.6.16-py37_0 --> 2019.6.16-py37_1
-    chardet                                      3.0.4-py37_1 --> 3.0.4-py37_1003
-    conda                                       4.7.10-py37_0 --> 4.7.11-py37_0
-    pip                                         19.1.1-py37_0 --> 19.2.2-py37_0
-    python-libarchive~                            2.8-py37_11 --> 2.8-py37_13
+    ca-certificates    2019.5.15-0 --> 2019.5.15-1
+    certifi            2019.6.16-py37_0 --> 2019.6.16-py37_1
+    chardet            3.0.4-py37_1 --> 3.0.4-py37_1003
+    conda              4.7.10-py37_0 --> 4.7.11-py37_0
+    pip                19.1.1-py37_0 --> 19.2.2-py37_0
+    python-libarchive~ 2.8-py37_11 --> 2.8-py37_13
 
 ## Create a conda environment
 
-As seen on the official [docs](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html)
+As seen on the official Conda docs.
 
 You could try this:
 
@@ -269,7 +311,7 @@ It will show an output with these headers:
 * The following packages will be downloaded
 * The following NEW packages will be INSTALLED
 
-Activate:
+Activate the conda environment:
 
     $ conda activate snowflakes
 
@@ -277,7 +319,7 @@ Go back to `base`:
 
     $ conda activate
 
-## Create a conda environment with a `yml` file
+## Create a conda environment with a yml file
 
 This is a `yml` file for a class I was taking:
 
@@ -305,13 +347,7 @@ This is a `yml` file for a class I was taking:
 
 Save the file as `environment.yml`.
 
-If you run this:
-
-    $ conda create --file environment.yml
-
-You will get an error that the target is the base.
-
-Instead run like this:
+Run like this:
 
     $ conda env create --file environment.yml
 

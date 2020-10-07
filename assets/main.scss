@@ -5,6 +5,10 @@
 @import "minima";
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+.post-title {
+	line-height: 1.2;
+}
+
 body {
 	font-family: 'Poppins', sans-serif;
 }
@@ -28,6 +32,6 @@ ul, ol {
 
 @media screen and (max-width: 800px) {
 	.post-title {
-		line-height: 56px;
+		line-height: 1.2;
 	}
 }
