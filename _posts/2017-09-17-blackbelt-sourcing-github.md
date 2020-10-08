@@ -5,7 +5,7 @@ redirect_from:
   - /blackbelt-sourcing-github.html
 categories: [Recruiting]
 image: assets/images/5.jpg
-tags: [featured, recruiting, sourcing, Github]
+tags: [sourcing, Github]
 ---
 
 Are you a sourcer or recruiter looking for talent on Github?

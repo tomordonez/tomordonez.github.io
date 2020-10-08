@@ -5,7 +5,7 @@ redirect_from:
   - /wget-download-files.html
 categories: [Code]
 image: assets/images/2.jpg
-tags: [coding, linux, wget]
+tags: [linux, wget]
 ---
 
 This is how you use **wget to download** files from the shell.

@@ -5,7 +5,7 @@ redirect_from:
   - /touch-typing-z-type.html
 categories: [Code]
 image: assets/images/9.jpg
-tags: [touch typing, focus, ztype]
+tags: [touch typing, productivity, ztype]
 ---
 
 Learn touch typing with the Z-type game and become ultra-focused. This is a great skill to have if you are learning Linux or a programming language.

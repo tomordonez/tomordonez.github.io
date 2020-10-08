@@ -5,7 +5,7 @@ redirect_from:
   - /from-wordpress-to-pelican-python.html
 categories: [Code]
 image: assets/images/2.jpg
-tags: [wordpress, pelican, python, static generator]
+tags: [wordpress, pelican, python, static website]
 ---
 
 I recently moved from Wordpress to Pelican Python. Pelican is a static generator based on Python.

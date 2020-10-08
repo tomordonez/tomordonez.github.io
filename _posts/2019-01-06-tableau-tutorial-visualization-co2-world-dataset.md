@@ -5,7 +5,7 @@ redirect_from:
   - /tableau-tutorial-visualization-co2-world-dataset.html
 categories: [Data Analytics]
 image: assets/images/11.jpg
-tags: [featured, tableau, visualization, analytics]
+tags: [tableau, data visualization, analytics]
 ---
 
 A Tableau tutorial to build a visualization of emissions from a CO2 world dataset.

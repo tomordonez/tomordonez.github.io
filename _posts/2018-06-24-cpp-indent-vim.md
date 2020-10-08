@@ -5,7 +5,7 @@ redirect_from:
   - /cpp-indent-vim.html
 categories: [Code]
 image: assets/images/9.jpg
-tags: [coding, linux, fedora, c++]
+tags: [c++, vim]
 ---
 
 Given `.vimrc`:

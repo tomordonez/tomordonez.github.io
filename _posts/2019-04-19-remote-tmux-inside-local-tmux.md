@@ -5,7 +5,7 @@ redirect_from:
   - /remote-tmux-inside-local-tmux.html
 categories: [Linux]
 image: assets/images/3.jpg
-tags: [tmux, ssh, linux, fedora]
+tags: [tmux, ssh, fedora]
 ---
 
 How to work with an SSH remote Tmux inside a local Tmux.

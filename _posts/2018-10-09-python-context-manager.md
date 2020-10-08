@@ -5,7 +5,7 @@ redirect_from:
   - /python-context-manager.html
 categories: [Code]
 image: assets/images/1.jpg
-tags: [coding, linux, python]
+tags: [python, context manager]
 ---
 
 A short tutorial about Python context manager: "with" statement.

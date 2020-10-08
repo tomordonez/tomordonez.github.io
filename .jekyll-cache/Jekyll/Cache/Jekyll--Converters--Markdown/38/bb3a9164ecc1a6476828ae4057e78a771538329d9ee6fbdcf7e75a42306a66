@@ -1,4 +1,4 @@
-I"Ô–<p>OpenRefine is an open source desktop application for data wrangling.</p>
+I"”<p>OpenRefine is an open source desktop application for data wrangling.</p>
 
 <p>Source:</p>
 
@@ -326,6 +326,23 @@ $ jupyter contrib nbextension install --user
 $ jupyter nbextension enable execute_time/ExecuteTime
 </code></pre></div></div>
 
+  </div>
+
+<div>
+    <h3>Related Posts</h3>
+    <ul>
+    
+      <li><a href="/python-files-os-module/">Python, Files, and OS Module</a></li>
+    
+      <li><a href="/install-miniconda-linux/">Install Miniconda on Linux</a></li>
+    
+      <li><a href="/make-static-website-python-github-pages/">Make a Static Website with Python and Github Pages</a></li>
+    
+      <li><a href="/web-scraping-with-python/">Web Scraping with Python</a></li>
+    
+      <li><a href="/python-unit-testing-tutorial/">Python Unit Testing Tutorial</a></li>
+    
+    </ul>
   </div>
 <p><a class="u-url" href="/python-jupyter-notebook-linux/" hidden=""></a>
 &lt;/article&gt;

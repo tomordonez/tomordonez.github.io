@@ -5,7 +5,7 @@ redirect_from:
   - /d3-troubleshooting.html
 categories: [Data Analytics]
 image: assets/images/1.jpg
-tags: [analytics, data visualization]
+tags: [analytics, data visualization, D3, javascript]
 ---
 
 

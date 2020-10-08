@@ -5,7 +5,7 @@ redirect_from:
   - /ubuntu-wifi-network-disconnected-after-sleep.html
 categories: [Linux]
 image: assets/images/5.jpg
-tags: [ubuntu, linux, wifi]
+tags: [ubuntu, wifi]
 ---
 
 Ubuntu Wifi disconnected after sleep. This is how I fixed this problem.

@@ -5,7 +5,7 @@ redirect_from:
   - /web-scraping-with-python.html
 categories: [Code]
 image: assets/images/sticky.gif
-tags: [sticky, coding, python, scraping, beautifulsoup]
+tags: [coding, python, scraping, beautifulsoup]
 ---
 
 This is a tutorial on web scraping with Python. Learn to scrape websites with Python and BeautifulSoup.

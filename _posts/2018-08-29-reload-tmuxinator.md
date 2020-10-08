@@ -5,7 +5,7 @@ redirect_from:
   - /reload-tmuxinator.html
 categories: [Code]
 image: assets/images/1.jpg
-tags: [coding, linux, tmux, tmuxinator]
+tags: [tmux, tmuxinator]
 ---
 
 This is how I reload Tmuxinator if I want to change my dashboard without having to exit all the panes.

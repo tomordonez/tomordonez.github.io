@@ -5,7 +5,7 @@ redirect_from:
   - /install-sphinx-and-readthedocs.html
 categories: [Code]
 image: assets/images/8.jpg
-tags: [writing, sphinx, readthedocs]
+tags: [sphinx, readthedocs]
 ---
 
 How to install Sphinx and deploy to ReadTheDocs. Sphinx is used to write technical documentation, books or a structured document.

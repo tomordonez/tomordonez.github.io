@@ -5,7 +5,7 @@ redirect_from:
   - /vim-stuck-insert-mode.html
 categories: [Code]
 image: assets/images/11.jpg
-tags: [coding, linux, vim]
+tags: [linux, vim]
 ---
 
 Fixing vim stuck in insert mode.

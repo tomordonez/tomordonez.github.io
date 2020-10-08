@@ -5,7 +5,7 @@ redirect_from:
   - /redirect-stdout-stderr-bash.html
 categories: [Linux]
 image: assets/images/4.jpg
-tags: [linux, bash, stdout, stderr]
+tags: [bash, stdout, stderr]
 ---
 
 This is how to redirect stdout and stderr in bash.

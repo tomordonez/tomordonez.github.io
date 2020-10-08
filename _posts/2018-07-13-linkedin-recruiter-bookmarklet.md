@@ -5,7 +5,7 @@ redirect_from:
   - /linkedin-recruiter-bookmarklet.html
 categories: [Recruiting]
 image: assets/images/11.jpg
-tags: [sourcing, linkedin recruiter]
+tags: [sourcing, linkedin recruiter, bookmarklet]
 ---
 
 This is a sourcing trick that helps you in Linkedin recruiter.

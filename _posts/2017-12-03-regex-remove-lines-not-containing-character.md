@@ -5,7 +5,7 @@ redirect_from:
   - /regex-remove-lines-not-containing-character.html
 categories: [Code]
 image: assets/images/10.jpg
-tags: [regex, remove lines, linux]
+tags: [regex]
 ---
 
 Use this regex pattern to remove lines not containing a character.

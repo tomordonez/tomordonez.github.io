@@ -5,7 +5,7 @@ redirect_from:
   - /remote-access-linux-fedora.html
 categories: [Linux]
 image: assets/images/3.jpg
-tags: [sysadmin, linux, fedora, remote]
+tags: [sysadmin, linux, fedora]
 ---
 
 A mini tutorial about: **remote access in Linux**.

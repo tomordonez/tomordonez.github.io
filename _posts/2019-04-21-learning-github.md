@@ -5,7 +5,7 @@ redirect_from:
   - /learning-github.html
 categories: [Code]
 image: assets/images/8.jpg
-tags: [coding, git, github]
+tags: [git, github]
 ---
 
 **Updated Jan 11, 2020**

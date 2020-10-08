@@ -5,7 +5,7 @@ redirect_from:
   - /previous-directory-vim-commands.html
 categories: [Linux]
 image: assets/images/8.jpg
-tags: [linux, vim]
+tags: [vim]
 ---
 
 When I open a file and I am done with it. I often want to go back to the previous directory. I usually do a `:w` and then `:q`.

@@ -5,7 +5,7 @@ redirect_from:
   - /python-socket-syntax.html
 categories: [Code]
 image: assets/images/8.jpg
-tags: [coding, linux, python]
+tags: [python, socket]
 ---
 
 As seen on late night TV...

@@ -5,7 +5,7 @@ redirect_from:
   - /python-logging-tutorial.html
 categories: [Code]
 image: assets/images/5.jpg
-tags: [featured, coding, linux, python]
+tags: [python, logging, log file]
 ---
 
 This is a short tutorial about logging in Python.

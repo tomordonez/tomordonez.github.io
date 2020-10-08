@@ -5,7 +5,7 @@ redirect_from:
   - /python-lambda-beautifulsoup.html
 categories: [Code]
 image: assets/images/9.jpg
-tags: [featured, coding, linux, python, lambda, beautifulsoup]
+tags: [python, lambda, beautifulsoup]
 ---
 
 This Python Lambda is a very weird concept. I almost grok it.

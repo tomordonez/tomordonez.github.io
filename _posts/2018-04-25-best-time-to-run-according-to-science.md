@@ -5,7 +5,7 @@ redirect_from:
   - /best-time-to-run-according-to-science.html
 categories: [Data Analytics]
 image: assets/images/12.jpg
-tags: [r, data science, data mining, data analysis]
+tags: [r, data science, data mining, analytics]
 ---
 
 What is the best time to run? According to science it depends on the ozone levels where you live.

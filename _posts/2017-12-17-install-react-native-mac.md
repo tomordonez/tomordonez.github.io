@@ -5,7 +5,7 @@ redirect_from:
   - /install-react-native-mac.html
 categories: [Code]
 image: assets/images/1.jpg
-tags: [react native, mobile dev, facebook open source]
+tags: [react native, mobile dev, app, mobile, mobile design]
 ---
 
 Follow this simple tutorial to install React Native on Mac.

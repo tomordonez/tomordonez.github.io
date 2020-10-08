@@ -5,7 +5,7 @@ redirect_from:
   - /regular-expressions-tutorial-regex.html
 categories: [Code]
 image: assets/images/6.jpg
-tags: [coding, regular expressions, regex]
+tags: [regex]
 ---
 
 This is a regular expressions tutorial...regex heaven.

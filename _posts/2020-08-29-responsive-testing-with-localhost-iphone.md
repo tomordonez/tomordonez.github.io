@@ -4,7 +4,7 @@ title: "Responsive Testing with Localhost and iPhone"
 author: tom
 categories: [Linux]
 image: assets/images/1.jpg
-tags: [linux, mobile, web design]
+tags: [mobile, web design]
 ---
 
 I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.

@@ -7,7 +7,7 @@ image: assets/images/3.jpg
 tags: [analytics, API, Python, Google Maps]
 ---
 
-(This blog post being revised. It might not show correctly in Safari/Reader view)
+(This blog post is being revised. It might not show correctly in Safari/Reader view)
 
 This is a tutorial to extract data from the Google Maps API using Python.
 

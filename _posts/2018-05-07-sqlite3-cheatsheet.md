@@ -5,7 +5,7 @@ redirect_from:
   - /sqlite3-cheatsheet.html
 categories: [Code]
 image: assets/images/4.jpg
-tags: [coding, linux, python, sqlite3]
+tags: [python, sqlite]
 ---
 
 This is an ongoing SQLite3 cheatsheet for Python.

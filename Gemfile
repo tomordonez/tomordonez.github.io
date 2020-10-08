@@ -18,6 +18,8 @@ gem "minima", "~> 2.5"
 
 gem "kramdown", ">= 2.3.0"
 
+gem 'jekyll-tagging-related_posts'
+
 group :jekyll_plugins do
     gem 'jekyll-feed', github: 'jekyll/jekyll-feed'
     gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'

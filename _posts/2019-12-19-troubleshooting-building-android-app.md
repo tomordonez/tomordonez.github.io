@@ -5,7 +5,7 @@ redirect_from:
   - /troubleshooting-building-android-app.html
 categories: [Mobile]
 image: assets/images/10.jpg
-tags: [android, linux, mobile dev]
+tags: [android, mobile dev, mobile, mobile design, app]
 ---
 
 Using `Android Studio 3.5`, I had to load a project that was built in another version.

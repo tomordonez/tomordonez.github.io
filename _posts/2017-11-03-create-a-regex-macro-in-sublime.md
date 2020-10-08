@@ -5,7 +5,7 @@ redirect_from:
   - /create-a-regex-macro-in-sublime.html
 categories: [Code]
 image: assets/images/5.jpg
-tags: [regex, macro, sublime]
+tags: [regex, macro, sublime, sublimetext]
 ---
 
 Follow this tutorial to create a regex macro in Sublime.

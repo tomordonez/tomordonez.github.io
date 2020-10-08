@@ -5,7 +5,7 @@ redirect_from:
   - /python-socket-save-data-to-file.html
 categories: [Code]
 image: assets/images/9.jpg
-tags: [coding, linux, python, regex]
+tags: [python, socket]
 ---
 
 ## Setup

@@ -5,7 +5,7 @@ redirect_from:
   - /from-markdown-to-sphinx-restructuredtext.html
 categories: [Code]
 image: assets/images/11.jpg
-tags: [coding, linux, markdown, sphinx, reStructuredText]
+tags: [markdown, sphinx, reStructuredText]
 ---
 
 For the last year I have been taking online courses in Coursera and reading books in programming and computer science.

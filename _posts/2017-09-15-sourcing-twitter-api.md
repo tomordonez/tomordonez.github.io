@@ -5,7 +5,7 @@ redirect_from:
   - /sourcing-twitter-api.html
 categories: [Recruiting]
 image: assets/images/7.jpg
-tags: [sourcing, recruiting, getting data, twitter api]
+tags: [sourcing, twitter api, twitter]
 ---
 
 Follow this process for sourcing with the Twitter API. Getting data using Ruby and the Twitter API

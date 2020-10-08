@@ -5,7 +5,7 @@ redirect_from:
   - /usb-stuck-read-only-linux.html
 categories: [Linux]
 image: assets/images/4.jpg
-tags: [linux, usb]
+tags: [linux]
 ---
 
 Fixing a usb stuck in read only in Linux

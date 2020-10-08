@@ -5,7 +5,7 @@ redirect_from:
   - /windows-10-to-ubuntu-virtualbox-shared-folder.html
 categories: [Linux]
 image: assets/images/2.jpg
-tags: [windows 10, virtualbox, ubuntu, linux]
+tags: [windows 10, virtualbox, ubuntu]
 ---
 
 Follow this process to transfer files from **Windows 10 to Ubuntu in VirtualBox**.

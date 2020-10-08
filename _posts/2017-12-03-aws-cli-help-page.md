@@ -5,7 +5,7 @@ redirect_from:
   - /aws-cli-help-page.html
 categories: [Code]
 image: assets/images/6.jpg
-tags: [aws, CLI, man page, Cloud]
+tags: [aws, CLI]
 ---
 
 How to open the AWS man page or AWS help page through CLI

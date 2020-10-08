@@ -5,7 +5,7 @@ redirect_from:
   - /linkedin-xray-search-googler.html
 categories: [Recruiting]
 image: assets/images/3.jpg
-tags: [linkedin, xray, googler, linux]
+tags: [linkedin, xray, googler, sourcing]
 ---
 
 Linkedin XRay search with Googler. Or Google search anything in a programmatic way.

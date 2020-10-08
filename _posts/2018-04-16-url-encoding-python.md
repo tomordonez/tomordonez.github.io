@@ -5,7 +5,7 @@ redirect_from:
   - /url-encoding-python.html
 categories: [Code]
 image: assets/images/3.jpg
-tags: [coding, linux, http, url]
+tags: [python, url encoding]
 ---
 
 This is not a full reference guide. It's just a quick reminder for URL encoding.

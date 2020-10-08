@@ -1,4 +1,4 @@
-I"€Y<p>I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.</p>
+I"éd<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
 
 <p>Sources:</p>
 <ul>
@@ -10,6 +10,7 @@
   <li><a href="http://www.stephaniehicks.com/githubPages_tutorial/pages/githubpages-jekyll.html">Jekyll tutorial</a></li>
   <li><a href="https://bootstrapstarter.com/bootstrap-templates/mundana-theme-jekyll/">Medium-looking theme</a></li>
   <li><a href="https://wowthemesnet.github.io/mundana-theme-jekyll/index.html">Medium-looking theme demo</a></li>
+  <li><a href="https://github.com/toshimaru/jekyll-tagging-related_posts">Related posts plugin</a></li>
 </ul>
 
 <h2 id="install-ruby">Install Ruby</h2>
@@ -508,4 +509,65 @@ tags: [featured]
 </code></pre></div></div>
 
 <p>Read more in <a href="../python-files-os-module">Python, Files, and OS Module</a></p>
+
+<h2 id="related-posts">Related Posts</h2>
+
+<p>I installed this plugin to show related posts at the bottom of each post. Github page <a href="https://github.com/toshimaru/jekyll-tagging-related_posts">here</a>.</p>
+
+<p>Add this to the <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll-tagging-related_posts'
+</code></pre></div></div>
+
+<p>Ran bundle:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetching nuggets 1.6.0
+Installing nuggets 1.6.0
+Fetching jekyll-tagging 1.1.0
+Installing jekyll-tagging 1.1.0
+Fetching jekyll-tagging-related_posts 1.1.0 
+Installing jekyll-tagging-related_posts 1.1.0
+Using minima 2.5.1
+Bundle complete! 9 Gemfile dependencies, 37 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+Post-install message from nuggets:
+
+nuggets-1.6.0 [2018-07-12]:
+
+* Added &lt;tt&gt;JSON.*_{multi,canonical}&lt;/tt&gt;.
+
+Post-install message from jekyll-tagging:
+
+jekyll-tagging-1.1.0 [2017-03-07]:
+
+* Added ability to append extra data to all tag pages. (tfe)
+* Provides compatibility to the current jekyll (3.4.1).
+* A few fixes. (felipe)
+* Some documentation improvements. (wsmoak, jonathanpberger)
+* Prooves who is the worst open source maintainer. (pattex ^__^)
+</code></pre></div></div>
+
+<p>Updated <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
+  - jekyll/tagging
+  - jekyll-tagging-related_posts
+</code></pre></div></div>
+
+<p>Created a <code class="language-plaintext highlighter-rouge">_layouts</code> directory in my blog root:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir _layouts
+</code></pre></div></div>
+
+<p>Copied the <code class="language-plaintext highlighter-rouge">post.html</code> layout from the <code class="language-plaintext highlighter-rouge">minima</code> theme Gem to this new directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/post.html _layouts/
+</code></pre></div></div>
+
+<p>Added the code to the post layout as shown in the documentation. Inserted this code after the blog post content and before my disqus code. Also reviewed all the tags from all blog posts to improve related posts.</p>
 :ET

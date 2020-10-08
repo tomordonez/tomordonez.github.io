@@ -5,7 +5,7 @@ redirect_from:
   - /file-iterations-python.html
 categories: [Code]
 image: assets/images/1.jpg
-tags: [python, shell, coding]
+tags: [python]
 ---
 
 This is a short explanation on how file iterations work in Python.

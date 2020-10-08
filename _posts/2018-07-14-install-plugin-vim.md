@@ -5,7 +5,7 @@ redirect_from:
   - /install-plugin-vim.html
 categories: [Code]
 image: assets/images/3.jpg
-tags: [coding, linux, vim]
+tags: [vim, vim plugin]
 ---
 
 A short one on how to *install a plugin in Vim*.

@@ -5,7 +5,7 @@ redirect_from:
   - /test-your-site-before-it-goes-live.html
 categories: [Code]
 image: assets/images/10.jpg
-tags: [deploy, websites, staging]
+tags: [web development, web design, web dev]
 ---
 
 This is a very interesting tool to preview your site before it goes live.

@@ -5,7 +5,7 @@ redirect_from:
   - /increase-boot-size-linux.html
 categories: [Linux]
 image: assets/images/5.jpg
-tags: [linux, boot size]
+tags: [linux, fedora]
 ---
 
 I keep having this issue on a local Linux server. When I want to update the system, after it downloads the updates and it's ready to install them, it says the boot size is too small.

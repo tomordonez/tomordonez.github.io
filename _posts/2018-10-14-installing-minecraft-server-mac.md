@@ -5,7 +5,7 @@ redirect_from:
   - /installing-minecraft-server-mac.html
 categories: [Code]
 image: assets/images/5.jpg
-tags: [coding, minecraft, python, mac, JDK, spigot]
+tags: [minecraft, python, mac, JDK]
 ---
 
 Awesome tutorial for installing a Minecraft server on Mac.

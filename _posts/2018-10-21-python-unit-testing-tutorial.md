@@ -5,7 +5,7 @@ redirect_from:
   - /python-unit-testing-tutorial.html
 categories: [Code]
 image: assets/images/8.jpg
-tags: [coding, linux, python, unittest, mock]
+tags: [python, unittest, unit testing]
 ---
 
 This is a tutorial about unit testing in Python.

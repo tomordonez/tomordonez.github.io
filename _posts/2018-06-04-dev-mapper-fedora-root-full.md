@@ -5,7 +5,7 @@ redirect_from:
   - /dev-mapper-fedora-root-full.html
 categories: [Code]
 image: assets/images/1.jpg
-tags: [coding, linux, fedora]
+tags: [linux, fedora, dev mapper]
 ---
 
 On Fedora Linux:

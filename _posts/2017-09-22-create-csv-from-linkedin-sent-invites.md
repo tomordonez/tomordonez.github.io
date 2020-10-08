@@ -5,7 +5,7 @@ redirect_from:
   - /create-csv-from-linkedin-sent-invites.html
 categories: [Recruiting]
 image: assets/images/11.jpg
-tags: [recruiting, sourcing, linkedin, automation]
+tags: [sourcing, linkedin, automation, productivity]
 ---
 
 Follow this process to create a CSV file from Linkedin sent invites.

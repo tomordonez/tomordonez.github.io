@@ -5,7 +5,7 @@ redirect_from:
   - /get-schema-sqlite-python.html
 categories: [Code]
 image: assets/images/4.jpg
-tags: [coding, linux, python]
+tags: [python, schema, sqlite]
 ---
 
 This is how to get the **schema in SQLite with Python**.

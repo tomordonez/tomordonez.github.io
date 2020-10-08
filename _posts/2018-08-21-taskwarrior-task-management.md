@@ -5,7 +5,7 @@ redirect_from:
   - /taskwarrior-task-management.html
 categories: [Code]
 image: assets/images/2.jpg
-tags: [coding, linux, taskwarrior, task management]
+tags: [linux, taskwarrior, task management, productivity]
 ---
 
 I have been using a lot of task management over the years, including a lot of project management software.

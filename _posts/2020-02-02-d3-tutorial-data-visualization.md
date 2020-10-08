@@ -5,7 +5,7 @@ redirect_from:
   - /d3-tutorial-data-visualization.html
 categories: [Data Analytics]
 image: assets/images/2.jpg
-tags: [featured, data analytics, data visualization, D3, javascript]
+tags: [data analytics, data visualization, D3, javascript]
 ---
 
 This is a detailed D3 tutorial for data visualization. Setup D3, build a barchart, and responsive D3. Updated June 2020.

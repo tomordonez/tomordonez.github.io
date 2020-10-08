@@ -5,7 +5,7 @@ redirect_from:
   - /crontab-selenium-chrome-driver.html
 categories: [Code]
 image: assets/images/7.jpg
-tags: [featured, crontab, selenium, chrome driver]
+tags: [crontab, selenium, chromedriver, bash]
 ---
 
 This is how to setup a crontab with Selenium and Chrome Driver

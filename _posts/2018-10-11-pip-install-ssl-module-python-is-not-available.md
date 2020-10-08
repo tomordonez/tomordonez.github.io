@@ -5,7 +5,7 @@ redirect_from:
   - /pip-install-ssl-module-python-is-not-available.html
 categories: [Code]
 image: assets/images/4.jpg
-tags: [coding, linux, python]
+tags: [python, SSL, pip]
 ---
 
 Troubleshooting SSL Module in Python Is Not Available

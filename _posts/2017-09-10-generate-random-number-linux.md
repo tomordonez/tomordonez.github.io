@@ -5,7 +5,7 @@ redirect_from:
   - /generate-random-number-linux.html
 categories: [Linux]
 image: assets/images/3.jpg
-tags: [linux, coding, random number]
+tags: [linux, bash, random number]
 ---
 
 Follow this tutorial to generate a random number with Linux and Bash.

@@ -5,7 +5,7 @@ redirect_from:
   - /install-miniconda-linux.html
 categories: [Code]
 image: assets/images/7.jpg
-tags: [coding, python, miniconda]
+tags: [python, miniconda]
 ---
 
 I loved `virtualenv` and then I found `Miniconda`. Follow this guide to **install Miniconda on Linux**.

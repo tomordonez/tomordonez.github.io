@@ -5,7 +5,7 @@ redirect_from:
   - /from-zero-to-hero-linux.html
 categories: [Linux]
 image: assets/images/8.jpg
-tags: [linux, shell, command line]
+tags: [linux, shell, CLI]
 ---
 
 From zero to hero in Linux is a tutorial to learn the command line and basic Linux commands.

@@ -5,7 +5,7 @@ redirect_from:
   - /automating-tasks-crontab.html
 categories: [Code]
 image: assets/images/2.jpg
-tags: [crontab, automation, linux]
+tags: [crontab, automation, bash]
 ---
 
 Automating tasks with crontab can save you hours of work. This is a short tutorial about cron jobs.

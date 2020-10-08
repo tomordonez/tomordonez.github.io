@@ -5,7 +5,7 @@ redirect_from:
   - /r-tutorial-rstudio-data-analysis.html
 categories: [Data Analytics]
 image: assets/images/1.jpg
-tags: [r, data science, data mining, data analysis]
+tags: [r, data science, data mining, analytics]
 ---
 
 This is an R tutorial with Rstudio and the data analysis from an ozone dataset.

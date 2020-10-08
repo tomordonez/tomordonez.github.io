@@ -5,7 +5,7 @@ redirect_from:
   - /execute-script-different-directory-linux.html
 categories: [Linux]
 image: assets/images/1.jpg
-tags: [linux, shell]
+tags: [linux, shell, CLI]
 ---
 
 Follow this to execute a script in a different directory in Linux.

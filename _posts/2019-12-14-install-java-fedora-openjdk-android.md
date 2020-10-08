@@ -5,7 +5,7 @@ redirect_from:
   - /install-java-fedora-openjdk-android.html
 categories: [Linux]
 image: assets/images/11.jpg
-tags: [linux, fedora, java, openjdk, jshell]
+tags: [fedora, java, openjdk, jshell]
 ---
 
 How to install Java on Fedora with OpenJDK. Also how to setup Android and a review of JShell.

@@ -5,7 +5,7 @@ redirect_from:
   - /sublime-text-typewriter-auto-scroll.html
 categories: [Linux]
 image: assets/images/6.jpg
-tags: [sublimetext, coding]
+tags: [sublimetext]
 ---
 
 How to set **Sublime text typewriter mode** and autoscroll in Sublime Text 3

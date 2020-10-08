@@ -6,7 +6,7 @@ image: assets/images/5.jpg
 tags: [jekyll, github pages]
 ---
 
-I moved from the Pelican Python static website generator back to a static website with Jekyll and Github Pages.
+I moved from the Pelican Python static website generator. This is a step by step tutorial to build a **static website with Jekyll and Github Pages**.
 
 Sources:
 * [Jekyll's blog](https://jekyllrb.com/)
@@ -17,6 +17,7 @@ Sources:
 * [Jekyll tutorial](http://www.stephaniehicks.com/githubPages_tutorial/pages/githubpages-jekyll.html)
 * [Medium-looking theme](https://bootstrapstarter.com/bootstrap-templates/mundana-theme-jekyll/)
 * [Medium-looking theme demo](https://wowthemesnet.github.io/mundana-theme-jekyll/index.html)
+* [Related posts plugin](https://github.com/toshimaru/jekyll-tagging-related_posts)
 
 
 ## Install Ruby
@@ -482,3 +483,59 @@ Also the blog posts used this syntax to insert images in the content `{static}/i
 	{% endraw %}
 
 Read more in [Python, Files, and OS Module](../python-files-os-module)
+
+## Related Posts
+
+I installed this plugin to show related posts at the bottom of each post. Github page [here](https://github.com/toshimaru/jekyll-tagging-related_posts).
+
+Add this to the `Gemfile`:
+
+	gem 'jekyll-tagging-related_posts'
+
+Ran bundle:
+
+	$ bundle
+
+Output:
+
+	Fetching nuggets 1.6.0
+	Installing nuggets 1.6.0
+	Fetching jekyll-tagging 1.1.0
+	Installing jekyll-tagging 1.1.0
+	Fetching jekyll-tagging-related_posts 1.1.0 
+	Installing jekyll-tagging-related_posts 1.1.0
+	Using minima 2.5.1
+	Bundle complete! 9 Gemfile dependencies, 37 gems now installed.
+	Use `bundle info [gemname]` to see where a bundled gem is installed.
+	Post-install message from nuggets:
+
+	nuggets-1.6.0 [2018-07-12]:
+
+	* Added <tt>JSON.*_{multi,canonical}</tt>.
+
+	Post-install message from jekyll-tagging:
+
+	jekyll-tagging-1.1.0 [2017-03-07]:
+
+	* Added ability to append extra data to all tag pages. (tfe)
+	* Provides compatibility to the current jekyll (3.4.1).
+	* A few fixes. (felipe)
+	* Some documentation improvements. (wsmoak, jonathanpberger)
+	* Prooves who is the worst open source maintainer. (pattex ^__^)
+
+Updated `_config.yml`:
+
+	plugins:
+	  - jekyll/tagging
+	  - jekyll-tagging-related_posts
+
+Created a `_layouts` directory in my blog root:
+
+	$ mkdir _layouts
+
+Copied the `post.html` layout from the `minima` theme Gem to this new directory.
+
+	$ cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/post.html _layouts/
+
+
+Added the code to the post layout as shown in the documentation. Inserted this code after the blog post content and before my disqus code. Also reviewed all the tags from all blog posts to improve related posts.

@@ -5,7 +5,7 @@ redirect_from:
   - /python-self.html
 categories: [Code]
 image: assets/images/11.jpg
-tags: [coding, linux, python]
+tags: [python, self]
 ---
 
 Understanding **Python self**.

@@ -5,7 +5,7 @@ redirect_from:
   - /install-chromedriver-linux.html
 categories: [Code]
 image: assets/images/3.jpg
-tags: [coding, linux, chromedriver, python]
+tags: [linux, chromedriver]
 ---
 
 This is a short tutorial to **install Chromedriver in Linux**.

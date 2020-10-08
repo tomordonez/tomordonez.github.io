@@ -5,7 +5,7 @@ redirect_from:
   - /make-static-website-python-github-pages.html
 categories: [Linux]
 image: assets/images/11.jpg
-tags: [coding, static website, python, github pages]
+tags: [static website, python, github pages]
 ---
 
 **Updated Jan 11, 2020**

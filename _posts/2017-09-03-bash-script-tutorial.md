@@ -5,7 +5,7 @@ redirect_from:
   - /bash-script-tutorial.html
 categories: [Linux]
 image: assets/images/6.jpg
-tags: [linux, bash, scripts, vim]
+tags: [bash, scripts, vim]
 ---
 
 In this bash script tutorial you will learn the basics to create bash scripts.

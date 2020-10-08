@@ -5,7 +5,7 @@ redirect_from:
   - /linux-execute-many-commands-one-line.html
 categories: [Linux]
 image: assets/images/11.jpg
-tags: [linux, shell]
+tags: [linux, shell, CLI]
 ---
 
 Execute many commands in one line in Linux
