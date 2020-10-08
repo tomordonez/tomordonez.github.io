@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Troubleshooting Building an Android App | Tom Ordonez</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Troubleshooting Building an Android App" />
+<meta name="author" content="Tom Ordonez" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Using Android Studio 3.5, I had to load a project that was built in another version." />
+<meta property="og:description" content="Using Android Studio 3.5, I had to load a project that was built in another version." />
+<link rel="canonical" href="https://www.tomordonez.com/troubleshooting-building-android-app/" />
+<meta property="og:url" content="https://www.tomordonez.com/troubleshooting-building-android-app/" />
+<meta property="og:site_name" content="Tom Ordonez" />
+<meta property="og:image" content="https://www.tomordonez.com/assets/images/10.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-12-19T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.tomordonez.com/assets/images/10.jpg" />
+<meta property="twitter:title" content="Troubleshooting Building an Android App" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","image":"https://www.tomordonez.com/assets/images/10.jpg","headline":"Troubleshooting Building an Android App","dateModified":"2019-12-19T00:00:00-05:00","datePublished":"2019-12-19T00:00:00-05:00","url":"https://www.tomordonez.com/troubleshooting-building-android-app/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.tomordonez.com/troubleshooting-building-android-app/"},"author":{"@type":"Person","name":"Tom Ordonez"},"description":"Using Android Studio 3.5, I had to load a project that was built in another version.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.tomordonez.com/feed.xml" title="Tom Ordonez" /><link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png">
+  <link rel="manifest" href="/assets/fav/site.webmanifest">
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tom Ordonez</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Troubleshooting Building an Android App</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-12-19T00:00:00-05:00" itemprop="datePublished">Dec 19, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Using <code class="language-plaintext highlighter-rouge">Android Studio 3.5</code>, I had to load a project that was built in another version.</p>
+
+<h2 id="error-failed-to-find-target-with-hash-string-android-22">ERROR: failed to find target with hash string ‘android-22’</h2>
+
+<p>When building the app it got stuck on this error:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR: failed to find target with hash string 'android-22' in: /home/tom/Android/Sdk
+Install missing platform(s) and sync project
+</code></pre></div></div>
+
+<p>I clicked on <code class="language-plaintext highlighter-rouge">Install missing platform(s)</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Packages to install: 
+- Android SDK Platform 22 (platforms;android-22)
+
+Preparing "Install Android SDK Platform 22 (revision: 2)".
+Downloading https://dl.google.com/android/repository/android-22_r02.zip
+"Install Android SDK Platform 22 (revision: 2)" ready.
+Installing Android SDK Platform 22 in /home/tom/Android/Sdk/platforms/android-22
+"Install Android SDK Platform 22 (revision: 2)" complete.
+"Install Android SDK Platform 22 (revision: 2)" finished.
+</code></pre></div></div>
+
+<h2 id="error-failed-to-find-build-tools-revision-2302">ERROR: failed to find Build Tools revision 23.0.2</h2>
+
+<p>Then I got this error</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR: failed to find Build Tools revision 23.0.2
+Install Build Tools 23.0.2 and sync project
+Upgrade plugin to version 3.5.0 and sync project
+</code></pre></div></div>
+
+<p>I clicked on <code class="language-plaintext highlighter-rouge">Install Build Tools 23.0.2</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Packages to install: 
+- Android SDK Build-Tools 23.0.2 (build-tools;23.0.2)
+
+Preparing "Install Android SDK Build-Tools 23.0.2 (revision: 23.0.2)".
+Downloading https://dl.google.com/android/repository/build-tools_r23.0.2-linux.zip
+"Install Android SDK Build-Tools 23.0.2 (revision: 23.0.2)" ready.
+Installing Android SDK Build-Tools 23.0.2 in /home/tom/Android/Sdk/build-tools/23.0.2
+"Install Android SDK Build-Tools 23.0.2 (revision: 23.0.2)" complete.
+"Install Android SDK Build-Tools 23.0.2 (revision: 23.0.2)" finished.
+</code></pre></div></div>
+
+<h2 id="error-failed-to-resolve-comandroidsupportappcompat-v72221">ERROR: Failed to resolve: com.android.support:appcompat-v7:22.2.1</h2>
+
+<p>Then I got these errors</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR: Failed to resolve: com.android.support:appcompat-v7:22.2.1
+Add Google Maven repository and sync project
+Show in Project Structure dialog
+Affected Modules: app
+
+
+ERROR: Failed to resolve: com.android.support:design:22.2.1
+Add Google Maven repository and sync project
+Show in Project Structure dialog
+Affected Modules: app
+</code></pre></div></div>
+
+<p>I clicked on <code class="language-plaintext highlighter-rouge">Add Google Maven repository and sync project</code>.</p>
+
+<p>This opened a tab <code class="language-plaintext highlighter-rouge">Refactoring preview</code> and pointed to a file <code class="language-plaintext highlighter-rouge">build.gradle</code>.</p>
+
+<p>Here are two great resources:</p>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/44071080/could-not-find-com-android-tools-buildgradle3-0-0-alpha1-in-circle-ci">Could not find com.android.tools.build:gradle:3.0.0</a></li>
+  <li><a href="https://stackoverflow.com/questions/46145846/why-does-the-google-maven-repository-exist-and-when-should-i-use-it">Why does the Google maven repository exist and when should I use it?
+</a></li>
+</ul>
+
+<p>As explained in the above resources, there are many repositories when building an Android app:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">jcenter()</code></li>
+  <li><code class="language-plaintext highlighter-rouge">google()</code></li>
+  <li>The Android repository installed by the SDK Manager</li>
+  <li>Other repositories</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">jcenter()</code> is used for open source libraries, like the Android plugin for gradle. <code class="language-plaintext highlighter-rouge">google()</code> is used for support libraries. More about this one at <a href="https://maven.google.com/web/index.html">Google’s Maven Repository</a>. There are <code class="language-plaintext highlighter-rouge">gradle</code> libraries listed inside <code class="language-plaintext highlighter-rouge">com.android.tools.build</code>.</p>
+
+<p>One of the resources also said that for Android Studio 3.0 and higher, <code class="language-plaintext highlighter-rouge">google()</code> should already be added.</p>
+
+<h2 id="comparing-with-an-app-that-compiled-correctly">Comparing with an app that compiled correctly</h2>
+
+<p>I read somewhere on StackOverflow that a good way for troubleshooting was looking at the differences between an app that compiled correctly with the one that didn’t.</p>
+
+<p>I checked a project I previously created and compiled correctly.</p>
+
+<p>This is what <code class="language-plaintext highlighter-rouge">build.gradle</code> looked like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>build.gradle(Project: Test App)
+
+// Top-level build file where you can add
+configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()     
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+</code></pre></div></div>
+
+<p>Back to the project that was not compiling correctly. I opened the <code class="language-plaintext highlighter-rouge">build.gradle</code> file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.5.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+</code></pre></div></div>
+
+<p>I can clearly see that two things are different:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">google()</code> is missing.</li>
+  <li>Replaced this <code class="language-plaintext highlighter-rouge">classpath 'com.android.tools.build:gradle:1.5.0'</code> with <code class="language-plaintext highlighter-rouge">3.5.0</code>.</li>
+</ul>
+
+<p>I added <code class="language-plaintext highlighter-rouge">google()</code> to both <code class="language-plaintext highlighter-rouge">buildscript</code> and <code class="language-plaintext highlighter-rouge">allprojects</code>. Then towards the top right on the blue warning <code class="language-plaintext highlighter-rouge">Try Again</code>.</p>
+
+<h2 id="error-could-not-find-method-google-for-arguments--on-repository-container">ERROR: Could not find method google() for arguments [] on repository container</h2>
+
+<p>Then I got this error:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR: Could not find method google() for arguments [] on repository container.
+</code></pre></div></div>
+
+<p>Here is another resource:</p>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/27470443/could-not-find-method-jcenter-for-arguments-on-repository-container/52039526#52039526">gradle could not find method</a></li>
+</ul>
+
+<p>It has these instructions:</p>
+
+<ul>
+  <li>Go to the Android Project tab</li>
+  <li>Gradle Scripts</li>
+  <li>Open the file <code class="language-plaintext highlighter-rouge">gradle-wrapper.properties</code></li>
+</ul>
+
+<p>It had the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>distributionUrl=https\://services.gradle.org/distributions/gradle-2.8-all.zip
+</code></pre></div></div>
+
+<p>Comparing the Android app that built correctly. The same file had this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>distributionUrl=https\://services.gradle.org/distributions/gradle-5.4.1-all.zip
+</code></pre></div></div>
+
+<p>Saved the file and clicked on <code class="language-plaintext highlighter-rouge">Try Again</code></p>
+
+<p>Now it built the App without errors.</p>
+
+<h2 id="gradle-sync-issues">Gradle Sync Issues</h2>
+
+<p>There are still a few warnings after compiling the app.</p>
+
+<ul>
+  <li>Configuration ‘compile’ is obsolete and has been replaced with ‘implementation’ and ‘api’</li>
+  <li>Configuration ‘testCompile’ is obsolete and has been replaced with ‘testImplementation’</li>
+  <li>The specified Android SDK Build Tools version (23.0.2) is ignored, as it is below the minimum supported version (28.0.3) for Android Gradle Plugin 3.5.0</li>
+</ul>
+
+<p>Reviewing the <code class="language-plaintext highlighter-rouge">build.gradle(Module: app)</code> files for the app that compiled correctly with the one that didn’t.</p>
+
+<p>The App that compiled correctly shows this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.example.myapplicationforexample"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
+</code></pre></div></div>
+
+<p>Compared to the App that didn’t compile</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "mooc.vandy.java4android.shapes"
+        minSdkVersion 22
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.all{
+            ignoreFailures = true
+            maxHeapSize = "1024m"
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:design:22.2.1'
+
+    compile ("org.apache.commons:commons-lang3:3.3.2")
+    compile ("com.google.guava:guava:17.0")
+}
+</code></pre></div></div>
+
+<p>A few things are different.</p>
+
+<p>App that compiled:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compileSdkVersion 29
+buildToolsVersion "29.0.2"
+minSdkVersion 23
+targetSdkVersion 29
+implementation fileTree(dir: 'libs', include: ['*.jar'])
+testImplementation 'junit:junit:4.12'
+</code></pre></div></div>
+
+<p>App that didn’t compile:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compileSdkVersion 22
+buildToolsVersion "23.0.2"
+minSdkVersion 22
+targetSdkVersion 22
+compile fileTree(dir: 'libs', include: ['*.jar'])
+testCompile 'junit:junit:4.12'
+compile 'com.android.support:appcompat-v7:22.2.1'
+compile 'com.android.support:design:22.2.1'
+// compile is deprecated use implementation
+</code></pre></div></div>
+
+<p>I made the changes and compiled again.</p>
+
+<h2 id="configuration-compile-is-obsolete">Configuration ‘compile’ is obsolete</h2>
+
+<p>Only one issue remains:</p>
+
+<ul>
+  <li>Configuration ‘compile’ is obsolete and has been replaced with ‘implementation’ and ‘api’</li>
+</ul>
+
+<p>For this section. I replaced <code class="language-plaintext highlighter-rouge">compile</code> with <code class="language-plaintext highlighter-rouge">implementation</code> and <code class="language-plaintext highlighter-rouge">testCompile</code> with <code class="language-plaintext highlighter-rouge">testImplementation</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies {
+	    compile fileTree(dir: 'libs', include: ['*.jar'])
+	    testCompile 'junit:junit:4.12'
+	    compile 'com.android.support:appcompat-v7:22.2.1'
+	    compile 'com.android.support:design:22.2.1'
+
+	    compile ("org.apache.commons:commons-lang3:3.3.2")
+	    compile ("com.google.guava:guava:17.0")
+	}
+</code></pre></div></div>
+
+<h2 id="gradlecompatible-error-in-buildgradlemodule-app">GradleCompatible error in <code class="language-plaintext highlighter-rouge">build.gradle(Module: app)</code></h2>
+
+<p>After making this change, yet another error showed up, underlined red on these two lines:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.android.support:appcompat-v7:22.2.1'
+compile 'com.android.support:design:22.2.1'
+</code></pre></div></div>
+
+<p>The error says:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Issue id: GradleCompatible
+Version 28 (intended for Android Pie and below) is the last version of the legacy support library, so we recommend that you migrate to AndroidX libraries when using Android Q and moving forward. The IDE can help with this: Refactor &gt; Migrate to AndroidX.
+Inspection info: There are some combinations of libraries, or tools and libraries, that are incompatible, or can lead to bugs. One such incompatibility is compiling with a version of the Android support libraries that is not the latest version (or in particular, a version lower that your targetSdkVersion)
+</code></pre></div></div>
+
+<p>As seen <a href="https://developer.android.com/jetpack/androidx">here</a> it says that <code class="language-plaintext highlighter-rouge">AndroidX is a major improvement to the original Android Support Library, which is no longer maintained</code>.</p>
+
+<p>And this one about <a href="https://developer.android.com/jetpack/androidx/migrate">migrating to AndroidX</a>, which basically follows the same warning above to use <code class="language-plaintext highlighter-rouge">Refactor &gt; Migrate to AndroidX</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">Refactoring Preview</code> shows <code class="language-plaintext highlighter-rouge">References to be changed</code>:</p>
+
+<p>Usage in import in <code class="language-plaintext highlighter-rouge">MainActivity.java</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import android.support.v7.app.AppCompatActivity;
+</code></pre></div></div>
+
+<p>Usage in Gradle build script in <code class="language-plaintext highlighter-rouge">build.gradle(Module:app)</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>implementation 'com.android.support:appcompat-v7:22.2.1'
+implementation 'com.android.support:design:22.2.1'
+</code></pre></div></div>
+
+<p>Clicked on <code class="language-plaintext highlighter-rouge">Do Refactor</code>.</p>
+
+<p>It made these changes:</p>
+
+<p>In <code class="language-plaintext highlighter-rouge">MainActivity.java</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import androidx.appcompat.app.AppCompatActivity;
+</code></pre></div></div>
+
+<p>In <code class="language-plaintext highlighter-rouge">build.gradle(Module:app)</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>implementation 'androidx.appcompat:appcompat:1.0.0'
+implementation 'com.google.android.material:material:1.0.0'
+</code></pre></div></div>
+
+<p>No more errors.</p>
+
+  </div>
+
+  
+  <div>
+    <h3>Related Posts</h3>
+    <ul>
+    
+      <li><a href="/install-react-native-mac/">Install React Native on Mac</a></li>
+    
+      <li><a href="/build-android-app-linux-flutter/">Build an Android App in Linux with Flutter</a></li>
+    
+      <li><a href="/responsive-testing-with-localhost-iphone/">Responsive Testing with Localhost and iPhone</a></li>
+    
+    </ul>
+  </div>
+  <a class="u-url" href="/troubleshooting-building-android-app/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tom Ordonez</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">{&quot;name&quot;=&gt;&quot;Tom Ordonez&quot;}</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomordonez</span></a></li><li><a href="https://www.twitter.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomordonez</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A blog about analytics, data science, software engineering, and other thoughts.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

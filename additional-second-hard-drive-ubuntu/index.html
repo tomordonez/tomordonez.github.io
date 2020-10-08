@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Additional Second Hard Drive in Ubuntu | Tom Ordonez</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Additional Second Hard Drive in Ubuntu" />
+<meta name="author" content="Tom Ordonez" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tutorial for installing an additional second hard drive in Ubuntu." />
+<meta property="og:description" content="Tutorial for installing an additional second hard drive in Ubuntu." />
+<link rel="canonical" href="https://www.tomordonez.com/additional-second-hard-drive-ubuntu/" />
+<meta property="og:url" content="https://www.tomordonez.com/additional-second-hard-drive-ubuntu/" />
+<meta property="og:site_name" content="Tom Ordonez" />
+<meta property="og:image" content="https://www.tomordonez.com/assets/images/8.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-10T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.tomordonez.com/assets/images/8.jpg" />
+<meta property="twitter:title" content="Additional Second Hard Drive in Ubuntu" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","image":"https://www.tomordonez.com/assets/images/8.jpg","headline":"Additional Second Hard Drive in Ubuntu","dateModified":"2017-11-10T00:00:00-05:00","datePublished":"2017-11-10T00:00:00-05:00","url":"https://www.tomordonez.com/additional-second-hard-drive-ubuntu/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.tomordonez.com/additional-second-hard-drive-ubuntu/"},"author":{"@type":"Person","name":"Tom Ordonez"},"description":"Tutorial for installing an additional second hard drive in Ubuntu.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.tomordonez.com/feed.xml" title="Tom Ordonez" /><link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png">
+  <link rel="manifest" href="/assets/fav/site.webmanifest">
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tom Ordonez</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Additional Second Hard Drive in Ubuntu</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-11-10T00:00:00-05:00" itemprop="datePublished">Nov 10, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Tutorial for installing an additional second hard drive in Ubuntu.</p>
+
+<p>I got a refurbished Thinkpad T430 for very cheap. It came with 250GB SSD but wanted to upgrade it 500GB.</p>
+
+<p>I got a 500GB SSD.</p>
+
+<p>When I got the computer and opened the hard drive panel I noticed that it was empty. I thought that maybe I got scammed.</p>
+
+<p>After much head banging I learned that the hard drive was stored on the RAM panel. I first thought was a mini wireless card. But reading the label it said “256 GB”. Uh? I learned it was an “mSATA SSD”.</p>
+
+<p>I couldn’t fit the new SSD in the hard drive panel cause it was missing the tray.</p>
+
+<p>I installed Ubuntu on the current drive.</p>
+
+<p>Then I got a “Caddy” adapter that replaces the DVD drive with a way to insert another hard drive. That was pretty easy to install.</p>
+
+<p>Now you need to configure the hard drive.</p>
+
+<p>I followed this <a href="https://help.ubuntu.com/community/InstallingANewHardDrive" target="_blank">tutorial</a> from the Ubuntu docs. Although it has a section that is outdated.</p>
+
+<h2 id="find-the-logical-name-of-the-new-drive">Find the logical name of the new drive</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo lshw -C disk
+</code></pre></div></div>
+
+<p>This means: <code class="language-plaintext highlighter-rouge">lshw</code> List hardware. <code class="language-plaintext highlighter-rouge">-C</code> with Class of type <code class="language-plaintext highlighter-rouge">disk</code>.</p>
+
+<p>I identified the new disk because it said <code class="language-plaintext highlighter-rouge">product: Crucial</code>. Which is the brand I got. The size was <code class="language-plaintext highlighter-rouge">525GB</code>. And it didn’t say “partitioned”, while the other one said <code class="language-plaintext highlighter-rouge">capabilities: partitioned</code>.</p>
+
+<p>The logical drive of the new SSD was <code class="language-plaintext highlighter-rouge">/dev/sda</code></p>
+
+<h2 id="partition-the-disk-using-gparted">Partition the disk using GParted</h2>
+
+<p>I started the process using the Terminal instructions. But got confused half way. I closed that and I decided to use the GUI. Then it took 5 seconds.</p>
+
+<p>The tool should be under <code class="language-plaintext highlighter-rouge">Applications/System Tools/Administration</code></p>
+
+<p>In my case it wasn’t there so I installed it with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt install gparted
+</code></pre></div></div>
+
+<p>After installing. I opened the tool and it asked for the root password.</p>
+
+<p>When the program opens. There is a drop down to select the drive you want. I chose the new drive.</p>
+
+<p>In my case it was <code class="language-plaintext highlighter-rouge">/dev/sda</code></p>
+
+<h2 id="create-a-partition-table">Create a partition table</h2>
+
+<p>Go to Device/Create Partition Table</p>
+
+<p>Select <code class="language-plaintext highlighter-rouge">msdos</code>.</p>
+
+<p>Then I clicked on the green check mark to apply.</p>
+
+<h2 id="create-a-partition">Create a partition</h2>
+
+<p>Then I right clicked on the white rectangle that said my drive name.</p>
+
+<p>Selected: New
+Chose: Primary Partition.</p>
+
+<p>Filesystem: ext4
+Add.</p>
+
+<p>Green check mark to apply.</p>
+
+<h2 id="change-the-label-of-the-drive">Change the label of the drive</h2>
+
+<p>When I completed the process I realized that under “Places” my drive was listed as “525 GB blabla”. Kind of boring name.</p>
+
+<p>I right clicked on the white rectangle again and hit “Label File System”. I entered an awesome name that I could remember.</p>
+
+<h2 id="create-a-mount-point">Create a mount point</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mkdir /media/name_of_new_drive
+</code></pre></div></div>
+
+<p>For the <code class="language-plaintext highlighter-rouge">name_of_new_drive</code> I used the same name as the “label name”.</p>
+
+<p>Now you need to find the <code class="language-plaintext highlighter-rouge">UUID</code> of the new drive as mentioned <a href="https://help.ubuntu.com/community/UsingUUID" target="_blank">here</a>. UUID means “Universal Unique Identifier”.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo blkid
+</code></pre></div></div>
+
+<p>It says that <code class="language-plaintext highlighter-rouge">blkid</code> is used to “locate device attributes”.</p>
+
+<p>The result was something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/dev/sdb1: UUID="bunch of numbers with letters here" TYPE="ext4" PARTUUID="some other number here"
+/dev/sdb5: UUID="another bunch of numbers" TYPE="swap" PARTUUID="other number here"
+/dev/sda1: LABEL="awesome name I chose" UUID="number I need" TYPE="ext4" PARTUUID="number here"
+</code></pre></div></div>
+
+<p>Now you need to edit the file <code class="language-plaintext highlighter-rouge">fstab</code> like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano -Bw /etc/fstab
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">-B</code> is used to create a backup of the file under <code class="language-plaintext highlighter-rouge">/etc/fstab~</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">w</code> is used to disable wrap of long lines.</p>
+
+<p>Then I added this line to the end of the file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UUID="number I needed from above" /media/name_of_new_drive ext4 defaults 0 2
+</code></pre></div></div>
+
+<p>For <code class="language-plaintext highlighter-rouge">UUID</code> above you don’t need to put the quotes.</p>
+
+<p>Then quit the file with <code class="language-plaintext highlighter-rouge">Ctrl X</code>. It will ask if you want to save. Enter Yes.</p>
+
+<h2 id="mount-all-disks">Mount all disks</h2>
+
+<p>The new disk should be mounted but just in case:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount -a
+</code></pre></div></div>
+
+<h2 id="restart-and-update-the-bios">Restart and Update the BIOS</h2>
+
+<p>I restarted and realized that it wouldn’t boot. I flipped out. I just enabled the Virtualization settings so I thought that probably I broke something.</p>
+
+<p>I thought if it was booting from the 2nd hard drive and that was it.</p>
+
+<p>Change the BIOS and make sure the sequence order starts with your main drive. Otherwise it won’t boot.</p>
+
+<h2 id="last-observation">Last observation</h2>
+
+<p>Inside the <code class="language-plaintext highlighter-rouge">fstab</code> I noticed the following on my main SSD:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>errors=remount-ro
+</code></pre></div></div>
+
+<p>Not sure what that is.</p>
+
+  </div>
+
+  
+  <div>
+    <h3>Related Posts</h3>
+    <ul>
+    
+      <li><a href="/disable-touchscreen-ubuntu/">Disable Touchscreen on Ubuntu</a></li>
+    
+      <li><a href="/installing-ruby-on-ubuntu/">Installing Ruby on Ubuntu</a></li>
+    
+      <li><a href="/windows-10-to-ubuntu-virtualbox-shared-folder/">Windows 10 to Ubuntu VirtualBox Shared Folder</a></li>
+    
+      <li><a href="/ubuntu-wifi-network-disconnected-after-sleep/">Ubuntu Wifi Network Disconnected After Sleep</a></li>
+    
+      <li><a href="/data-wrangling-openrefine-linux/">Data Wrangling with OpenRefine on Linux</a></li>
+    
+    </ul>
+  </div>
+  <a class="u-url" href="/additional-second-hard-drive-ubuntu/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tom Ordonez</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">{&quot;name&quot;=&gt;&quot;Tom Ordonez&quot;}</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomordonez</span></a></li><li><a href="https://www.twitter.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomordonez</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A blog about analytics, data science, software engineering, and other thoughts.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

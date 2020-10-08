@@ -1,0 +1,390 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+header {
+	width: 70%;
+	margin: auto;
+}
+
+.page-title {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+h1 {
+	font-size: 24px;
+}
+
+main {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.flag-columns {
+	margin: 20px;
+	width: 200px;
+	height: 20vh;
+	border: 2px solid #F0F6FF;
+}
+
+p {
+	text-align: center;
+	padding-top: 5px;
+}
+
+.flag-france {
+	display: flex;
+	height: 100%
+}
+.france-1 {
+	flex: 1;
+	background: #002395;
+}
+.france-2 {
+	flex: 1;
+	background: white;
+}
+.france-3 {
+	flex: 1;
+	background: #ED2939;
+}
+
+.flag-germany {
+	display: flex;
+	flex-direction: column;
+	height: 100%
+}
+.germany-1 {
+	flex: 1;
+	background: black;
+}
+.germany-2 {
+	flex: 1;
+	background: #DD0000;
+}
+.germany-3 {
+	flex: 1;
+	background: #FFCE00;
+}
+
+.flag-madagascar {
+	position: relative;
+	height: 100%;
+}
+.flag-madagascar > * {
+	position: absolute;
+}
+.madagascar-1 {
+	width: 33%;
+	height: 100%;
+	background: white;
+}
+.madagascar-2 {
+	left: 33%;
+	width: 66%;
+	height: 50%;
+	background: #FC3D32;
+}
+.madagascar-3 {
+	left: 33%;
+	top: 50%;
+	width: 66%;
+	height: 50%;
+	background: #007E3A;
+}
+
+.flag-switzerland {
+	position: relative;
+	height: 100%;
+}
+
+.flag-switzerland > * {
+	position: absolute;
+}
+.switzerland-1 {
+	background: #FF0000;
+	height: 100%;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+}
+.switzerland-2 {
+	width: 45%;
+	height: 20%;
+	top: 40%;
+	left: 27.5%;
+	background: white;
+}
+.switzerland-3 {
+	width: 13%;
+	height: 70%;
+	left: 43.5%;
+	top: 15%;
+	background: white;
+}
+
+.flag-sweden {
+	position: relative;
+	height: 100%;
+}
+.flag-sweden > * {
+	position: absolute;
+}
+.sweden-1 {
+	background: #006AA7;
+	height: 100%;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+}
+.sweden-2 {
+	width: 100%;
+	height: 20%;
+	top: 40%;
+	background: #FECC00;
+}
+.sweden-3 {
+	width: 12%;
+	height: 100%;
+	left: 30%;
+	background: #FECC00;
+}
+
+.flag-gambia {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.gambia-1 {
+	flex: 3;
+	background: #CE1126;
+}
+.gambia-2 {
+	flex: 0.7;
+	background: white;
+}
+.gambia-3 {
+	flex: 2;
+	background: #0C1C8C;
+}
+.gambia-4 {
+	flex: 0.7;
+	background: white;
+}
+.gambia-5 {
+	flex: 3;
+	background: #3A7728;
+}
+
+.flag-japan {
+	position: relative;
+	height: 100%;
+}
+.flag-japan > * {
+	position: absolute;
+}
+.japan-1 {
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	height: 100%;
+	background: white;
+}
+.japan-2 {
+	top: 17.5%;
+	left: 25%;
+	width: 50%;
+	height: 65%;
+	border-radius: 50%;
+	background: #BC002D;
+}
+
+.flag-niger {
+	position: relative;
+	height: 100%;
+}
+.flag-niger > * {
+	position: absolute;
+}
+.niger-1 {
+	width: 100%;
+	height: 33%;
+	background: #E05206;
+}
+.niger-2 {
+	width: 100%;
+	height: 33%;
+	top: 33%;
+	background: white;
+}
+.niger-3 {
+	width: 100%;
+	height: 34%;
+	top: 66%;
+	background: #0DB02B;
+}
+.niger-4 {
+	width: 22%;
+	height: 30%;
+	top: 34.5%;
+	left: 39%;
+	border-radius: 50%;
+	background: #E05206;
+}
+
+.flag-tonga {
+	position: relative;
+	height: 100%;
+}
+.flag-tonga > * {
+	position: absolute;
+}
+.tonga-1 {
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	background: #C10000;
+}
+.tonga-2 {
+	width: 40%;
+	height: 50%;
+	background: white;
+}
+.tonga-3 {
+	top: 19%;
+	left: 10%;
+	width: 19%;
+	height: 15%;
+	background: #C10000;
+}
+.tonga-4 {
+	top: 5%;
+	left: 16%;
+	width: 7%;
+	height: 41%;
+	background: #C10000;
+}
+
+.flag-greece {
+	position: relative;
+	height: 100%;
+}
+.flag-greece > * {
+	position: absolute;
+}
+.greece-1,
+.greece-2,
+.greece-3,
+.greece-4,
+.greece-5 {
+	width: 100%;
+	height: 11%;
+	background: #0D5EAF;
+}
+.greece-1 {
+	top: 0px;
+}
+.greece-2 {
+	top: 22%;
+}
+.greece-3 {
+	top: 44%;
+}
+.greece-4 {
+	top: 66%;
+}
+.greece-5 {
+	top: 89%;
+}
+.greece-6 {
+	top: 0px;
+	width: 30%;
+	height: 50%;
+	background: #0D5EAF;
+}
+.greece-7 {
+	top: 22%;
+	width: 30%;
+	height: 11%;
+	background: white;
+}
+.greece-8 {
+	top: 0px;
+	left: 12%;
+	width: 7%;
+	height: 55%;
+	background: white;
+}
+
+.flag-maldives {
+	position: relative;
+	height: 100%
+}
+.flag-maldives > * {
+	position: absolute;
+}
+.maldives-1 {
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	height: 100%;
+	background: #D21034;
+}
+.maldives-2 {
+	top: 25%;
+	left: 20%;
+	width: 60%;
+	height: 50%;
+	background: #007E3A;
+}
+.maldives-3 {
+	top: 33%;
+	left: 40%;
+	width: 20%;
+	height: 35%;
+	border-radius: 50%;
+	background: white;
+}
+.maldives-4 {
+	top: 33%;
+	left: 45%;
+	width: 20%;
+	height: 35%;
+	border-radius: 50%;
+	background: #007E3A;
+}
+
+.flag-colombia {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.colombia-1 {
+	flex: 2;
+	background: #FCD116;
+}
+.colombia-2 {
+	flex: 1;
+	background: #003893;
+}
+.colombia-3 {
+	flex: 1;
+	background: #CE1126;
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Create a CSV file from Linkedin Sent Invites | Tom Ordonez</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Create a CSV file from Linkedin Sent Invites" />
+<meta name="author" content="Tom Ordonez" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Follow this process to create a CSV file from Linkedin sent invites." />
+<meta property="og:description" content="Follow this process to create a CSV file from Linkedin sent invites." />
+<link rel="canonical" href="https://www.tomordonez.com/create-csv-from-linkedin-sent-invites/" />
+<meta property="og:url" content="https://www.tomordonez.com/create-csv-from-linkedin-sent-invites/" />
+<meta property="og:site_name" content="Tom Ordonez" />
+<meta property="og:image" content="https://www.tomordonez.com/assets/images/11.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-09-22T00:00:00-04:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.tomordonez.com/assets/images/11.jpg" />
+<meta property="twitter:title" content="Create a CSV file from Linkedin Sent Invites" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","image":"https://www.tomordonez.com/assets/images/11.jpg","headline":"Create a CSV file from Linkedin Sent Invites","dateModified":"2017-09-22T00:00:00-04:00","datePublished":"2017-09-22T00:00:00-04:00","url":"https://www.tomordonez.com/create-csv-from-linkedin-sent-invites/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.tomordonez.com/create-csv-from-linkedin-sent-invites/"},"author":{"@type":"Person","name":"Tom Ordonez"},"description":"Follow this process to create a CSV file from Linkedin sent invites.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.tomordonez.com/feed.xml" title="Tom Ordonez" /><link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png">
+  <link rel="manifest" href="/assets/fav/site.webmanifest">
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tom Ordonez</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Create a CSV file from Linkedin Sent Invites</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-09-22T00:00:00-04:00" itemprop="datePublished">Sep 22, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Follow this process to create a CSV file from Linkedin sent invites.</p>
+
+<h2 id="objective">Objective</h2>
+
+<ol>
+  <li>Connect with People</li>
+  <li>Get a list of sent invitations</li>
+  <li>Automate “view profile” on browser</li>
+</ol>
+
+<h2 id="1-connect-with-people">1. Connect with People</h2>
+
+<p>Invite as Friend</p>
+
+<h2 id="2-get-a-list-of-sent-invitations">2. Get a list of sent invitations</h2>
+
+<p>Go to <a href="https://www.linkedin.com/people/invites?trk=tab_inv">Linkedin People Invites</a></p>
+
+<p>Scroll down the infinite scroll until the bottom.</p>
+
+<p>Inspect HTML and copy element <code class="language-plaintext highlighter-rouge">&lt;ul class="list-container invites"&gt;</code></p>
+
+<h2 id="create-a-csv-list">Create a CSV list</h2>
+
+<p>Paste code into Sublime.</p>
+
+<p>Go back to LI and get the name of the first person on top of the list and the last person on the bottom of the list.</p>
+
+<p>Go to Sublime and search for these names to make sure you got all the HTML code.</p>
+
+<p>Find:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(&lt;div class="entityblock"&gt;)
+</code></pre></div></div>
+
+<p>Replace with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\n$1
+</code></pre></div></div>
+
+<p>Find:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>,
+</code></pre></div></div>
+
+<p>Replace with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;
+</code></pre></div></div>
+
+<p>Remove the first row that starts with <code class="language-plaintext highlighter-rouge">&lt;ul class="list-container invites"&gt;</code></p>
+
+<p>Find:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>^.*value="
+</code></pre></div></div>
+
+<p>Replace with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>empty
+</code></pre></div></div>
+
+<p>Find:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>" id="checkbox.*?a href="
+</code></pre></div></div>
+
+<p>Replace with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>,
+</code></pre></div></div>
+
+<p>Find:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&amp;amp;.*&lt;span&gt;
+</code></pre></div></div>
+
+<p>(pending to review if this is <code class="language-plaintext highlighter-rouge">&amp;amp;</code> or <code class="language-plaintext highlighter-rouge">&amp;</code>)</p>
+
+<p>Replace with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>,
+</code></pre></div></div>
+
+<p>Find:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;/span.*subheader"&gt;
+</code></pre></div></div>
+
+<p>Replace with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>,
+</code></pre></div></div>
+
+<p>Find:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;/p&gt;.*
+</code></pre></div></div>
+
+<p>Replace with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>empty
+</code></pre></div></div>
+
+<p>A CSV list is born</p>
+
+<h2 id="3-automate-view-profiles-on-browser">3. Automate “view profiles” on browser</h2>
+
+<p>This part is going to be a little manual.</p>
+
+<p>If you want to prioritize some invites then you need to add the date of the invite in the CSV.</p>
+
+<p>Go back to LI sent invites and get the invite dates. Add them manually to your CSV (in Excel).</p>
+
+<p>You can convert your CSV into XLS if you want.</p>
+
+<p>You could also segment your list by priorities.</p>
+
+<h2 id="automating-view-profiles-with-bash">Automating View Profiles with Bash</h2>
+
+<p>Note: This requires some coding skills.</p>
+
+<p>This process is only half automated and requires some manual work. Perhaps 30min daily.</p>
+
+<p>With LI logged in. The process is to open each URL on the browser and then close them.</p>
+
+<p>With bash you can automate opening each URL but you have to close them manually.</p>
+
+<p>The number of tabs that you can open in Chrome depends on your RAM. If you have 16GB of RAM you could have up to 80 tabs opened.</p>
+
+<p>Perhaps you can have lists of 20 URLs for each file and run the script in batches.</p>
+
+<p>The script should be something simple like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/usr/local/bin/bash
+while read -r line
+do
+  open "$line"
+  sleep 10
+done &lt; "$1"
+</code></pre></div></div>
+
+<p>When you create a text file such as <code class="language-plaintext highlighter-rouge">input.txt</code> and add say…20 URLs to the file. Then 
+you can run the script like this:</p>
+
+<p>Save and name the script with whatever name you want but ending in <code class="language-plaintext highlighter-rouge">.sh</code></p>
+
+<p>Such as: <code class="language-plaintext highlighter-rouge">awesome-file.sh</code></p>
+
+<p>Now enable the file to be executable.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ chmod +x awesome-file.sh
+</code></pre></div></div>
+
+<p>Now you can execute the file like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./awesome-file.sh input.txt
+</code></pre></div></div>
+
+<p>This will open the URLs on the browser. Once they load, you need to manually close them.</p>
+
+<h2 id="automating-view-profiles-with-python">Automating View Profiles with Python</h2>
+
+<p>The problem with the Bash script is that you have to manually close the profiles.</p>
+
+<p>If you want to automate opening and closing you need to use Python and Selenium.</p>
+
+<p>You need to install Selenium:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip install selenium
+</code></pre></div></div>
+
+<p>You need to install ChromeDriver from <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank">here</a>.</p>
+
+<p>This downloads a zip file. Unzip. Take a note of where this is installed. You will need this location below.</p>
+
+<p><strong>Note: This script is incomplete</strong></p>
+
+<p>This Python script opens and closes the profiles but it’s missing Linkedin authentication…to be continued.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import os
+import time
+from selenium import webdriver
+
+chromedriver = "Path to where you downloaded the Chromedriver"
+os.environ["webdriver.chrome.driver"] = chromedriver
+dr = webdriver.Chrome(chromedriver)
+
+dr.get('URL of profile here')
+dr.execute_script("$(window.open('URL of next profile here'))")
+
+time.sleep(10)
+dr.close()
+dr.switch_to.window(dr.window_handles[-1])
+dr.close()
+</code></pre></div></div>
+
+
+  </div>
+
+  
+  <div>
+    <h3>Related Posts</h3>
+    <ul>
+    
+      <li><a href="/linkedin-xray-search-googler/">Linkedin X-Ray Search with Googler</a></li>
+    
+      <li><a href="/automating-tasks-crontab/">Automating Tasks with Crontab</a></li>
+    
+      <li><a href="/bash-commands-for-productivity/">Bash Commands for Productivity</a></li>
+    
+      <li><a href="/taskwarrior-task-management/">TaskWarrior Task Management</a></li>
+    
+      <li><a href="/touch-typing-z-type/">Learn Touch Typing with Z-Type Game</a></li>
+    
+    </ul>
+  </div>
+  <a class="u-url" href="/create-csv-from-linkedin-sent-invites/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tom Ordonez</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">{&quot;name&quot;=&gt;&quot;Tom Ordonez&quot;}</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomordonez</span></a></li><li><a href="https://www.twitter.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomordonez</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A blog about analytics, data science, software engineering, and other thoughts.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

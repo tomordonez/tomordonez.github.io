@@ -1,0 +1,109 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+
+header {
+	border-top: 5px solid #424242;
+	border-bottom: 1px solid #e8e8e8;
+}
+.header-content {
+	width: 50%;
+	height: 10vh;
+	margin: auto;
+	display: flex;
+	align-items: center;
+}
+
+.logo {
+	flex: 1;
+	font-size: 24px;
+}
+.logo > a {
+	text-decoration: none;
+	color: #424242;
+}
+.logo > a:hover {
+	text-decoration: underline;
+}
+
+nav {
+	flex: 2;
+}
+.nav-links {
+	display: flex;
+	justify-content: flex-end;
+	list-style: none;
+}
+.nav-link {
+	padding: 0px 20px;
+}
+.nav-link > a {
+	text-decoration: none;
+	color: inherit;
+}
+.nav-link > a:hover {
+	text-decoration: underline;
+}
+
+.content {
+	width: 50%;
+	margin: auto;
+}
+
+.content > h2 {
+	margin: 30px 0px;
+}
+
+.posts {
+	list-style: none;
+}
+.post {
+	display: flex;
+	flex-direction: column;
+	margin: 0px 0px 30px 0px;
+}
+img {
+	width: 40%;
+}
+.post-date {
+	flex: 1;
+	font-size: 14px;
+	color: #828282;
+}
+.post-title {
+	flex: 1;
+	font-size: 24px;
+	margin: 0px 0px 10px 0px;
+}
+.post-title > a {
+	text-decoration: none;
+	color: #1756a9;
+}
+.post-title > a:hover {
+	text-decoration: underline;
+}
+.post-summary {
+	flex: 1;
+}
+
+@media screen and (max-width: 990px) {
+	.header-content, .content {
+		width: 80%;
+	}
+	.logo, nav {
+		flex: 1;
+	}
+	.nav-links {
+		justify-content: space-around;
+	}
+	.nav-link {
+		padding: 0;
+	}
+}

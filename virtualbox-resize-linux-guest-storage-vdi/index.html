@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>VirtualBox Resize Linux Guest Storage VDI | Tom Ordonez</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="VirtualBox Resize Linux Guest Storage VDI" />
+<meta name="author" content="Tom Ordonez" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This tutorial applies to Virtualbox when Windows is the host and Linux is the VM guest." />
+<meta property="og:description" content="This tutorial applies to Virtualbox when Windows is the host and Linux is the VM guest." />
+<link rel="canonical" href="https://www.tomordonez.com/virtualbox-resize-linux-guest-storage-vdi/" />
+<meta property="og:url" content="https://www.tomordonez.com/virtualbox-resize-linux-guest-storage-vdi/" />
+<meta property="og:site_name" content="Tom Ordonez" />
+<meta property="og:image" content="https://www.tomordonez.com/assets/images/10.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-05T00:00:00-04:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.tomordonez.com/assets/images/10.jpg" />
+<meta property="twitter:title" content="VirtualBox Resize Linux Guest Storage VDI" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","image":"https://www.tomordonez.com/assets/images/10.jpg","headline":"VirtualBox Resize Linux Guest Storage VDI","dateModified":"2017-11-05T00:00:00-04:00","datePublished":"2017-11-05T00:00:00-04:00","url":"https://www.tomordonez.com/virtualbox-resize-linux-guest-storage-vdi/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.tomordonez.com/virtualbox-resize-linux-guest-storage-vdi/"},"author":{"@type":"Person","name":"Tom Ordonez"},"description":"This tutorial applies to Virtualbox when Windows is the host and Linux is the VM guest.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.tomordonez.com/feed.xml" title="Tom Ordonez" /><link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png">
+  <link rel="manifest" href="/assets/fav/site.webmanifest">
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tom Ordonez</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">VirtualBox Resize Linux Guest Storage VDI</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-11-05T00:00:00-04:00" itemprop="datePublished">Nov 5, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This tutorial applies to Virtualbox when Windows is the host and Linux is the VM guest.</p>
+
+<h2 id="setup">Setup</h2>
+
+<ul>
+  <li>Windows 10 host</li>
+  <li>Virtualbox</li>
+  <li>Ubuntu Linux guest or</li>
+  <li>Fedora Linux guest</li>
+</ul>
+
+<p>You also need to download the <code class="language-plaintext highlighter-rouge">ISO</code> file from <code class="language-plaintext highlighter-rouge">Gparted</code>. You can download it from <a href="https://gparted.org/download.php" target="_blank">here</a>. This file is about 200MB. It should take 1-10m depending on your Internet speed.</p>
+
+<p>The file might say <code class="language-plaintext highlighter-rouge">gparted live i686.iso</code>.</p>
+
+<h2 id="video-tutorial">Video Tutorial</h2>
+
+<div class="videoWrapper">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/txcq0AAeGzQ?rel=0" frameborder="0" allowfullscreen=""></iframe>
+</div>
+
+<h2 id="backup-the-vdi-file">Backup the VDI file</h2>
+
+<p>Open Virtualbox.</p>
+
+<p>The Virtual Machine should NOT be running. If it’s running just shut it down.</p>
+
+<p>Right click the Virtual Machine. Then Settings.</p>
+
+<p>Go to Storage.</p>
+
+<p>Under <code class="language-plaintext highlighter-rouge">Controller: SATA</code>. Click on the <code class="language-plaintext highlighter-rouge">.vdi</code> file.</p>
+
+<p>On the right there is a field that says <code class="language-plaintext highlighter-rouge">Location</code>. Copy/paste this somewhere (Sublime)</p>
+
+<p>In my case this location is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Users\neo\VirtualBox VMs\Ubuntu\Ubuntu.vdi
+</code></pre></div></div>
+
+<p>Open that folder.</p>
+
+<p>Copy paste the <code class="language-plaintext highlighter-rouge">vdi</code> file to another location. Perhaps <code class="language-plaintext highlighter-rouge">Downloads</code>. You can use this as a backup in case you mess something up :)</p>
+
+<h2 id="resize-the-vdi-file">Resize the VDI file</h2>
+
+<p>Close VirtualBox</p>
+
+<p>We are going to resize the current vdi file. NOT the backup.</p>
+
+<p>Open the command prompt.</p>
+
+<p>If you go to the Windows search and type <code class="language-plaintext highlighter-rouge">command</code> you should find it.</p>
+
+<p>Go to this directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd C:\Program Files\Oracle\VirtualBox
+</code></pre></div></div>
+
+<p>You have to resize the file in MBs. Get your calculator.</p>
+
+<p>Let’s say that your current file is 10GBs.</p>
+
+<p>You want to resize it to 20GBs?</p>
+
+<p>Calculate 1024 * 20.</p>
+
+<p>The result is 20480.</p>
+
+<p>You are going to need this number and the location of your <code class="language-plaintext highlighter-rouge">vdi</code> file.</p>
+
+<p>Go to the command prompt and follow this formula:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VBoxManage modifyhd "Location" --resize RESULT
+</code></pre></div></div>
+
+<p>In my case:</p>
+
+<ul>
+  <li>Location: C:\Users\neo\VirtualBox VMs\Ubuntu\Ubuntu.vdi</li>
+  <li>Result: 20480</li>
+</ul>
+
+<p>The command should be:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VBoxManage modifyhd "C:\Users\neo\VirtualBox VMs\Ubuntu\Ubuntu.vdi" --resize 20480
+</code></pre></div></div>
+
+<p>It should show an output such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0%...10%...20%...30%...
+</code></pre></div></div>
+
+<p>Then go back to the prompt. You can close the prompt for now.</p>
+
+<p>Open VirtualBox. Select the VM but don’t start it. On the Preview specs on the right side. Look at <code class="language-plaintext highlighter-rouge">Storage</code>. Under <code class="language-plaintext highlighter-rouge">Controller: SATA</code> it should have changed the size of the storage drive.</p>
+
+<p>In my case it would say <code class="language-plaintext highlighter-rouge">20GB</code>. (It used to say 10GB).</p>
+
+<h2 id="load-gparted">Load Gparted</h2>
+
+<p>Go back to VirtualBox. Right click on the VM. Then Settings.</p>
+
+<p>Go to Storage.</p>
+
+<p>Click on <code class="language-plaintext highlighter-rouge">Controller: IDE</code>.</p>
+
+<p>If this is not listed. You could create one. There is a little Plus icon towards the bottom of this window. Actually there are 2 icons. The one closest to the right is a tilted square. Click on this. There is an option to <code class="language-plaintext highlighter-rouge">Add IDE Controller</code>.</p>
+
+<p>Once you click on Controller: IDE.</p>
+
+<p>Click on the Plus icon that is closest to the left. Click the option <code class="language-plaintext highlighter-rouge">Add Optical Drive</code>.</p>
+
+<p>On the popup box, click on <code class="language-plaintext highlighter-rouge">Choose disk</code>.</p>
+
+<p>Find the <code class="language-plaintext highlighter-rouge">Gparted</code> iso file that you downloaded previously.</p>
+
+<p>Then click <code class="language-plaintext highlighter-rouge">Open</code>.</p>
+
+<p>Click on this drive.</p>
+
+<p>On the right side choose these options:</p>
+
+<ul>
+  <li>Optical Drive: IDE Primary Master</li>
+  <li>Live CD: Checked.</li>
+</ul>
+
+<p>Click OK to save. And close the settings window.</p>
+
+<h2 id="resize-the-partition-with-gparted">Resize the Partition with Gparted</h2>
+
+<p>Start the VM.</p>
+
+<p>It should load <code class="language-plaintext highlighter-rouge">Gparted</code>.</p>
+
+<p>There are a few options when it starts. Just hit <code class="language-plaintext highlighter-rouge">Enter</code> to everything until you login to what it looks like a Linux VM.</p>
+
+<p>By default it starts <code class="language-plaintext highlighter-rouge">Gparted</code> automatically.</p>
+
+<p>The screen should show 3 partitions:</p>
+
+<ul>
+  <li>/dev/sda1: root</li>
+  <li>/dev/sda2: swap</li>
+  <li>unallocated</li>
+</ul>
+
+<p>In my example my original storage drive was 10GB and I resized it to 20GB.</p>
+
+<p>You will see that:</p>
+
+<ul>
+  <li>/dev/sda1 size is 6GB</li>
+  <li>/dev/sda2 size is 4GB</li>
+</ul>
+
+<p>If you setup the VM with 4GB of RAM. Well this used by a <code class="language-plaintext highlighter-rouge">swap</code> partition. In this case <code class="language-plaintext highlighter-rouge">/dev/sda2</code>.</p>
+
+<p>All your files should be in the <code class="language-plaintext highlighter-rouge">root</code> partition.</p>
+
+<p>But you will see that the <code class="language-plaintext highlighter-rouge">unallocated</code> partition is on the opposite side of <code class="language-plaintext highlighter-rouge">root</code> with <code class="language-plaintext highlighter-rouge">swap</code> in the middle.</p>
+
+<p>In other words. You need to resize <code class="language-plaintext highlighter-rouge">root</code> but <code class="language-plaintext highlighter-rouge">swap</code> is on the way.</p>
+
+<p>We need to delete <code class="language-plaintext highlighter-rouge">swap</code>. Resize <code class="language-plaintext highlighter-rouge">root</code> to the <code class="language-plaintext highlighter-rouge">unallocated</code> side. Type in the <code class="language-plaintext highlighter-rouge">swap</code> size again. And build a new <code class="language-plaintext highlighter-rouge">swap</code> partition.</p>
+
+<p>Follow these steps. Thanks to <a href="https://askubuntu.com/questions/101715/resizing-virtual-drive" target="_blank">this</a> source:</p>
+
+<ol>
+  <li>Right click the <code class="language-plaintext highlighter-rouge">swap</code> partition</li>
+  <li>Click on <code class="language-plaintext highlighter-rouge">Swapoff</code>. (if this option is not there, continue)</li>
+  <li>Right click the <code class="language-plaintext highlighter-rouge">swap</code> partition and Click on <code class="language-plaintext highlighter-rouge">Delete</code></li>
+  <li>On the top menu. Click the <code class="language-plaintext highlighter-rouge">Apply</code>.</li>
+  <li>Right click on the <code class="language-plaintext highlighter-rouge">Extended</code> file system that had the swap partition and delete it.</li>
+  <li>Right click on the <code class="language-plaintext highlighter-rouge">root</code> partition <code class="language-plaintext highlighter-rouge">/dev/sda1</code>.</li>
+  <li>Use the mouse to drag and resize to take all the <code class="language-plaintext highlighter-rouge">unallocated</code> space.</li>
+  <li>Inside the field <code class="language-plaintext highlighter-rouge">Free space following</code> enter the size of the <code class="language-plaintext highlighter-rouge">swap</code> partition. In my example this is 4GB. So type <code class="language-plaintext highlighter-rouge">4096</code>.</li>
+  <li>Hit tab to see how it auto-resizes the total. Click Save or OK.</li>
+</ol>
+
+<p>Let’s create the <code class="language-plaintext highlighter-rouge">swap</code> partition again.</p>
+
+<ul>
+  <li>Right click <code class="language-plaintext highlighter-rouge">unallocated</code>.</li>
+  <li>Select <code class="language-plaintext highlighter-rouge">extended partition</code>. Click OK</li>
+  <li>Right click on this new partition.</li>
+  <li>In <code class="language-plaintext highlighter-rouge">File system</code>. Select <code class="language-plaintext highlighter-rouge">linux-swap</code>. Click OK</li>
+  <li>On the top menu select Apply.</li>
+  <li>Right click on the swap partition and hit <code class="language-plaintext highlighter-rouge">swapon</code>.</li>
+</ul>
+
+<p>Quit Gparted. File, exit.</p>
+
+<p>Then on the desktop, hit the red turn off button.</p>
+
+<p>When shutting down, it might say to remove the CD and hit Enter. Do that.</p>
+
+<p>It might take 5m for this to turn off.</p>
+
+<h2 id="change-gparted-settings">Change Gparted settings</h2>
+
+<p>Right click on the VM, then Settings.</p>
+
+<p>Go to Storage.</p>
+
+<p>Under <code class="language-plaintext highlighter-rouge">Controller: IDE</code> select gparted.</p>
+
+<p>Set the <code class="language-plaintext highlighter-rouge">Optical Drive</code> to IDE Secondary Master or IDE Secondary Slave.</p>
+
+<p>Uncheck <code class="language-plaintext highlighter-rouge">Live CD</code>.</p>
+
+<p>Click OK.</p>
+
+<h2 id="start-the-vm">Start the VM</h2>
+
+<p>We should be good now.</p>
+
+<p>Start the VM and it should start as usual. Verify that all files remain there.</p>
+
+
+  </div>
+
+  
+  <div>
+    <h3>Related Posts</h3>
+    <ul>
+    
+      <li><a href="/windows-10-to-ubuntu-virtualbox-shared-folder/">Windows 10 to Ubuntu VirtualBox Shared Folder</a></li>
+    
+      <li><a href="/data-wrangling-openrefine-linux/">Data Wrangling with OpenRefine on Linux</a></li>
+    
+      <li><a href="/python-jupyter-notebook-linux/">Python Jupyter Notebook in Linux</a></li>
+    
+      <li><a href="/increase-boot-size-linux/">Increase Boot Size in Linux Fedora</a></li>
+    
+      <li><a href="/build-android-app-linux-flutter/">Build an Android App in Linux with Flutter</a></li>
+    
+    </ul>
+  </div>
+  <a class="u-url" href="/virtualbox-resize-linux-guest-storage-vdi/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tom Ordonez</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">{&quot;name&quot;=&gt;&quot;Tom Ordonez&quot;}</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomordonez</span></a></li><li><a href="https://www.twitter.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomordonez</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A blog about analytics, data science, software engineering, and other thoughts.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

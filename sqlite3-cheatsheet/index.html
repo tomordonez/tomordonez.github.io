@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>SQLite3 CheatSheet for Python | Tom Ordonez</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="SQLite3 CheatSheet for Python" />
+<meta name="author" content="Tom Ordonez" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is an ongoing SQLite3 cheatsheet for Python." />
+<meta property="og:description" content="This is an ongoing SQLite3 cheatsheet for Python." />
+<link rel="canonical" href="https://www.tomordonez.com/sqlite3-cheatsheet/" />
+<meta property="og:url" content="https://www.tomordonez.com/sqlite3-cheatsheet/" />
+<meta property="og:site_name" content="Tom Ordonez" />
+<meta property="og:image" content="https://www.tomordonez.com/assets/images/4.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-07T00:00:00-04:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.tomordonez.com/assets/images/4.jpg" />
+<meta property="twitter:title" content="SQLite3 CheatSheet for Python" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","image":"https://www.tomordonez.com/assets/images/4.jpg","headline":"SQLite3 CheatSheet for Python","dateModified":"2018-05-07T00:00:00-04:00","datePublished":"2018-05-07T00:00:00-04:00","url":"https://www.tomordonez.com/sqlite3-cheatsheet/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.tomordonez.com/sqlite3-cheatsheet/"},"author":{"@type":"Person","name":"Tom Ordonez"},"description":"This is an ongoing SQLite3 cheatsheet for Python.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.tomordonez.com/feed.xml" title="Tom Ordonez" /><link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png">
+  <link rel="manifest" href="/assets/fav/site.webmanifest">
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tom Ordonez</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">SQLite3 CheatSheet for Python</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-05-07T00:00:00-04:00" itemprop="datePublished">May 7, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This is an ongoing SQLite3 cheatsheet for Python.</p>
+
+<p>SQLite3 comes with Python and you can launch it with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3
+</code></pre></div></div>
+
+<p>If you launch it without an argument, it will say <code class="language-plaintext highlighter-rouge">Connected to a transient in-memory database</code>.</p>
+
+<p>The prompt changes to:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; 
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">.help</code> is a good idea.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .help
+</code></pre></div></div>
+
+<p>To exit do <code class="language-plaintext highlighter-rouge">.exit</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .exit
+</code></pre></div></div>
+
+<h2 id="create-a-sqlite-database">Create a SQLite database</h2>
+
+<p>I find it better to launch <code class="language-plaintext highlighter-rouge">SQLite</code> passing the name of the database as an argument.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3 sql1
+</code></pre></div></div>
+
+<p>Now it says <code class="language-plaintext highlighter-rouge">SQLite version...Enter .help for usage hints</code>.</p>
+
+<h2 id="create-a-sqlite-table">Create a SQLite table</h2>
+
+<p>This is just your standard SQL. You can use uppercase or lowercase. But I prefer to follow the standard.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; CREATE TABLE Users (
+   ...&gt; name VARCHAR(128),
+   ...&gt; email VARCHAR(128)
+   ...&gt; );
+</code></pre></div></div>
+
+<p>I often forget the semicolon <code class="language-plaintext highlighter-rouge">;</code>. It will give you an error if you forget.</p>
+
+<p>Check that a <code class="language-plaintext highlighter-rouge">TABLE</code> was created:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .tables
+Users
+</code></pre></div></div>
+
+<p>You can also check the <code class="language-plaintext highlighter-rouge">schema</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .schema
+CREATE TABLE Users (
+name VARCHAR(128),
+email VARCHAR(128)
+);
+</code></pre></div></div>
+
+<h2 id="add-values-to-the-sqlite-table">Add values to the SQLite table</h2>
+
+<p>Add some data to the table:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; INSERT INTO Users VALUES('homer', 'homer@simpson.com');
+sqlite&gt; INSERT INTO Users VALUES('marge', 'marge@simpson.com');
+sqlite&gt; INSERT INTO Users VALUES('lisa', 'lisa@simpson.com');
+sqlite&gt; INSERT INTO Users VALUES('bart', 'bart@simpson.com');
+sqlite&gt; INSERT INTO Users VALUES('maggie', 'maggie@simpson.com');
+</code></pre></div></div>
+
+<h2 id="read-data-from-sqlite-table">Read data from SQLite table</h2>
+
+<p>This doesn’t work:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; Users;
+</code></pre></div></div>
+
+<p>I wish that <code class="language-plaintext highlighter-rouge">SQL</code> was more user friendly with a variety of human-friendly options:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Show me users
+Give me users
+What's in Users
+</code></pre></div></div>
+
+<p>Instead do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; SELECT * FROM Users;
+homer|homer@simpson.com
+marge|marge@simpson.com
+lisa|lisa@simpson.com
+bart|bart@simpson.com
+maggie|maggie@simpson.com
+sqlite&gt;
+</code></pre></div></div>
+
+<p>Exit:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .exit
+</code></pre></div></div>
+
+<p>Open again:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3
+Connected to a transient in-memory database.
+</code></pre></div></div>
+
+<p>Ooops forgot to open the right database.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .open sql1
+sqlite&gt;
+sqlite&gt; .schema
+CREATE TABLE Users(
+name VARCHAR(128),
+email VARCHAR(128)
+);
+</code></pre></div></div>
+
+<p>Looks like the right place.</p>
+
+<h2 id="export-sqlite-database-table-to-csv">Export SQLite database table to CSV</h2>
+
+<p>I can’t always remember how to do this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .mode list
+sqlite&gt; .separator ","
+sqlite&gt; .output test_sql1.csv
+sqlite&gt; SELECT * FROM Users;
+sqlite&gt; .exit
+</code></pre></div></div>
+
+<p>Although a good way to remember is to understand the workflow:</p>
+
+<ul>
+  <li>Convert to a list</li>
+  <li>Separate with a comma</li>
+  <li>Output to file name</li>
+  <li>SQL statement</li>
+  <li>
+    <p>Exit sqlite3</p>
+
+    <p>$ cat test_sql1.csv
+  homer,homer@simpson.com
+  marge,marge@simpson.com
+  lisa,lisa@simpson.com
+  bart,bart@simpson.com
+  maggie,maggie@simpson.com</p>
+  </li>
+</ul>
+
+<h2 id="import-csv-to-sqlite-database-table">Import CSV to SQLite database table</h2>
+
+<p>Let’s say we have a <code class="language-plaintext highlighter-rouge">CSV</code> called <code class="language-plaintext highlighter-rouge">springfield.csv</code> with some <code class="language-plaintext highlighter-rouge">name, email</code> values:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apu,apu@springfield.com
+mrburns,mrburns@springfield.com
+milhouse,milhouse@springfield.com
+ned,ned@springfield.com
+moe,moe@springfield.com
+</code></pre></div></div>
+
+<p>Open <code class="language-plaintext highlighter-rouge">SQLite</code> and import:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3 sql1
+sqlite&gt; .tables
+Users
+</code></pre></div></div>
+
+<p>Workflow:</p>
+
+<ul>
+  <li>mode CSV</li>
+  <li>
+    <p>import file into table</p>
+
+    <p>sqlite&gt; .mode csv
+  sqlite&gt; .import springfield.csv Users
+  sqlite&gt; SELECT * FROM Users;
+  homer,homer@simpson.com
+  marge,marge@simpson.com
+  lisa,lisa@simpson.com
+  bart,bart@simpson.com
+  maggie,maggie@simpson.com
+  apu,apu@springfield.com
+  mrburns,mrburns@springfield.com
+  milhouse,milhouse@springfield.com
+  ned,ned@springfield.com
+  moe,moe@springfield.com</p>
+  </li>
+</ul>
+
+<h2 id="export-sqlite-table-to-csvanother-way">Export SQLite Table to CSV…another way</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .headers on
+sqlite&gt; .mode csv
+sqlite&gt; .once test2_sql1.csv
+sqlite&gt; SELECT * FROM Users;
+</code></pre></div></div>
+
+<p>Workflow:</p>
+
+<ul>
+  <li>Add the header</li>
+  <li>Set mode to <code class="language-plaintext highlighter-rouge">CSV</code></li>
+  <li>Output to static</li>
+  <li>SQL command</li>
+</ul>
+
+<p>If you look at the <code class="language-plaintext highlighter-rouge">.help</code> you fill find what <code class="language-plaintext highlighter-rouge">.once</code> means:</p>
+
+<p>“Output for the next <code class="language-plaintext highlighter-rouge">SQL</code> command only to <code class="language-plaintext highlighter-rouge">FILENAME</code>”. Used like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.once FILENAME
+</code></pre></div></div>
+
+<h2 id="open-the-csv-without-closing-sqlite">Open the CSV without closing SQLite</h2>
+
+<p>If you are in Linux or maybe Mac(not sure):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .system xdg-open test2_sql1.csv
+</code></pre></div></div>
+
+<p>This will open the <code class="language-plaintext highlighter-rouge">CSV</code> file in the default editor for <code class="language-plaintext highlighter-rouge">CSV</code>.</p>
+
+<h2 id="insert-rows-into-sqlite-table">Insert rows into SQLite table</h2>
+
+<p>Open the database:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3 sql1
+sqlite&gt; .tables
+Users
+sqlite&gt; .schema
+CREATE TABLE Users (
+name VARCHAR(128),
+email VARCHAR(128)
+);
+</code></pre></div></div>
+
+<p>I find it useful to see what the <code class="language-plaintext highlighter-rouge">tables</code> and <code class="language-plaintext highlighter-rouge">schema</code> are.</p>
+
+<p>This is the same as before:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; INSERT INTO Users VALUES('bob', 'bob@springfield.com');
+</code></pre></div></div>
+
+<p>Although this syntax is optional:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; INSERT INTO Users(name, email) VALUES('bob', 'bob@springfield.com');
+</code></pre></div></div>
+
+<p>That one shows a comma-separated list of columns. Perhaps is a reminder of the data that you are inserting. I think is a good idea.</p>
+
+<h2 id="delete-data-from-a-sqlite-table">Delete data from a SQLite table</h2>
+
+<p>In our example database we have <code class="language-plaintext highlighter-rouge">name</code> and <code class="language-plaintext highlighter-rouge">email</code>. Let’s delete the last row that has <code class="language-plaintext highlighter-rouge">bob</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; DELETE FROM Users WHERE email='bob@springfield.com';
+</code></pre></div></div>
+
+<h2 id="update-a-field-from-a-sqlite-table">Update a field from a SQLite table</h2>
+
+<p>Let’s update <code class="language-plaintext highlighter-rouge">moe</code> and change his email to <code class="language-plaintext highlighter-rouge">moe@moestavern.com</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; UPDATE Users SET email='moe@moestavern.com' WHERE email='moe@springfield.com';
+</code></pre></div></div>
+
+<h2 id="get-records-from-a-sqlite-table">Get records from a SQLite table</h2>
+
+<p>We already tried this too many times:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; SELECT * FROM Users;
+</code></pre></div></div>
+
+<p>What about this one:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; SELECT * FROM Users WHERE name='bart';
+bart|bart@simpson.com
+</code></pre></div></div>
+
+<h2 id="get-records-and-sorting-from-a-sqlite-table">Get records and sorting from a SQLite table</h2>
+
+<p>Use <code class="language-plaintext highlighter-rouge">ORDER BY</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; SELECT * FROM Users ORDER BY name;
+sqlite&gt; SELECT * FROM Users ORDER BY email;
+</code></pre></div></div>
+
+<h2 id="create-a-sqlite-connection-in-python">Create a SQLite connection in Python</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import sqlite3
+conn = sqlite3.connect('phantom.sqlite')
+cur = conn.cursor()
+...
+do something here
+cur.close()
+</code></pre></div></div>
+
+<h2 id="sqlite-in-python">SQLite in Python</h2>
+
+<p>Let’s write a simple program called <code class="language-plaintext highlighter-rouge">contacts.py</code> that asks for names and emails:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import sqlite3
+
+conn = sqlite3.connect('contacts.sqlite')
+cur = conn.cursor()
+
+cur.execute('DROP TABLE IF EXISTS Users')
+cur.execute('CREATE TABLE Users(name TEXT, email TEXT)')
+while True:
+    name = input('Enter name: ')
+    email = input('Enter email: ')
+    cur.execute('INSERT INTO Users(name, email) VALUES(?, ?)', (name, email))
+    conn.commit()
+
+    try:
+        more_values = input('Add more? (y/n): ')
+        if more_values == 'y':
+            continue
+        elif more_values == 'n':
+            break
+    except (KeyboardInterrupt, SystemExit):
+        raise
+cur.close()
+</code></pre></div></div>
+
+<p>This line <code class="language-plaintext highlighter-rouge">DROP TABLE IF EXISTS Users</code> is used to drop table everytime we run the program.</p>
+
+<p>Running the program:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python3 contacts.py
+Enter name: homer
+Enter email: homer@simpson.com
+Add more? y/n: y
+Enter name: bart
+Enter email: bart@simpson.com
+Add more? y/n: n
+$ ls
+contacts.py contacts.sqlite
+</code></pre></div></div>
+
+<p>Let’s open the <code class="language-plaintext highlighter-rouge">contacts.sqlite</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3 contacts.sqlite
+sqlite&gt; .tables
+Users
+sqlite&gt; SELECT * FROM Users;
+homer|homer@simpson.com
+bart|bart@simpson.com
+</code></pre></div></div>
+
+<p>Let’s export to <code class="language-plaintext highlighter-rouge">CSV</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; .headers on
+sqlite&gt; .mode csv
+sqlite&gt; .once contacts.csv
+sqlite&gt; SELECT * FROM Users;
+sqlite&gt; .system xdg-open contacts.csv
+</code></pre></div></div>
+
+<p>Launches my text editor <code class="language-plaintext highlighter-rouge">Sublime Text</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name,email
+homer,homer@simpson.com
+bart,bart@simpson.com
+</code></pre></div></div>
+
+
+  </div>
+
+  
+  <div>
+    <h3>Related Posts</h3>
+    <ul>
+    
+      <li><a href="/get-schema-sqlite-python/">Get Schema in SQLite with Python</a></li>
+    
+      <li><a href="/python-files-os-module/">Python, Files, and OS Module</a></li>
+    
+      <li><a href="/python-jupyter-notebook-linux/">Python Jupyter Notebook in Linux</a></li>
+    
+      <li><a href="/install-miniconda-linux/">Install Miniconda on Linux</a></li>
+    
+      <li><a href="/make-static-website-python-github-pages/">Make a Static Website with Python and Github Pages</a></li>
+    
+    </ul>
+  </div>
+  <a class="u-url" href="/sqlite3-cheatsheet/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tom Ordonez</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">{&quot;name&quot;=&gt;&quot;Tom Ordonez&quot;}</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomordonez</span></a></li><li><a href="https://www.twitter.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomordonez</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A blog about analytics, data science, software engineering, and other thoughts.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

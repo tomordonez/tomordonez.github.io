@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Responsive Testing with Localhost and iPhone | Tom Ordonez</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Responsive Testing with Localhost and iPhone" />
+<meta name="author" content="tom" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface." />
+<meta property="og:description" content="I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface." />
+<link rel="canonical" href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" />
+<meta property="og:url" content="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" />
+<meta property="og:site_name" content="Tom Ordonez" />
+<meta property="og:image" content="https://www.tomordonez.com/assets/images/1.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-29T00:00:00-04:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.tomordonez.com/assets/images/1.jpg" />
+<meta property="twitter:title" content="Responsive Testing with Localhost and iPhone" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","image":"https://www.tomordonez.com/assets/images/1.jpg","headline":"Responsive Testing with Localhost and iPhone","dateModified":"2020-08-29T00:00:00-04:00","datePublished":"2020-08-29T00:00:00-04:00","url":"https://www.tomordonez.com/responsive-testing-with-localhost-iphone/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.tomordonez.com/responsive-testing-with-localhost-iphone/"},"author":{"@type":"Person","name":"tom"},"description":"I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.tomordonez.com/feed.xml" title="Tom Ordonez" /><link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png">
+  <link rel="manifest" href="/assets/fav/site.webmanifest">
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tom Ordonez</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Responsive Testing with Localhost and iPhone</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-08-29T00:00:00-04:00" itemprop="datePublished">Aug 29, 2020
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">tom</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.</p>
+
+<p>My development laptop runs on Linux Fedora, 8GB RAM, and just 64GB of disk. No way to run an iPhone simulator. I had Android installed but it was taking way too much space.</p>
+
+<p>I am on a quest to learn React Native to develop a set of ideas and get more hands-on experience developing apps, while also studying GCP, and following a product owner mindset. I recently completed a web design course with HTML, CSS, and JavaScript. I’ve been using Chrome and Firefox developer tools heavily to keep in mind the responsive design experience.</p>
+
+<p>For my last exercise in JavaScript I made a grid that changes color when you mouse over a cell. When you double click on a specific cell it changes to a different color. It works well on the browser:</p>
+
+<p><img src="/assets/images/grid-color-web-javascript.jpg" alt="Grid on Web" /></p>
+
+<p>With Developer tools set to responsive design iPhone 6/7/8. Moving the mouse over the grid doesn’t do anything. However, you can click on a cell and the color changes. The behavior remains when you double click on a cell and it shows the correct programmed color.</p>
+
+<p><img src="/assets/images/grid-color-responsive-javascript.jpg" alt="Grid with Responsive Design on Firefox" /></p>
+
+<p>Then I deployed the grid to my website. Tested this on Safari and the behavior was different. Touching a cell didn’t do anything. Double tapping the cell changed the color. Triple tapping the cell didn’t do anything. The behavior changed completely from web to mobile.</p>
+
+<p>Why isn’t there a mobile simulator in Linux? Android is way too heavy and can’t install Xcode.</p>
+
+<h2 id="access-localhost-from-iphone">Access Localhost from iPhone</h2>
+
+<p>My next quest was a quick google away. I am sure you can access localhost from a phone. This took a lot of troubleshooting.</p>
+
+<p>The quick answer is found <a href="https://stackoverflow.com/questions/3132105/how-do-you-access-a-website-running-on-localhost-from-iphone-browser/45396972">on this Stackoverflow post</a>.</p>
+
+<ul>
+  <li>Find the local IP address of the computer</li>
+  <li>From your phone browse to <code class="language-plaintext highlighter-rouge">IP:Port</code></li>
+</ul>
+
+<p>If your localhost runs like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1:1234
+</code></pre></div></div>
+
+<p>First you need to find the local IP number given to the laptop. Let’s say it is <code class="language-plaintext highlighter-rouge">192.168.1.35</code>.</p>
+
+<p>Then from mobile you can browse to:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.1.35:1234
+</code></pre></div></div>
+
+<h2 id="port-number-and-firewall">Port Number and Firewall</h2>
+
+<p>If this doesn’t work you can try enabling incoming traffic to the port number on your firewall.</p>
+
+<p>This is for GNOME/Linux:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo firewall-cmd --state
+running
+
+$ firewall-cmd --help
+Usage: firewall-cmd [OPTIONS...]
+
+$ firewall-cmd --list-ports
+1025-65535/udp 1025-65535/tcp
+
+$ sudo firewall-cmd --add-port=1234/tcp
+
+$ firewall-cmd --list-ports
+1025-65535/udp 1025-65535/tcp 1234/tcp
+
+$ sudo firewall-cmd --remove-port=1234/tcp
+
+$ firewall-cmd --list-ports
+1025-65535/udp 1025-65535/tcp
+</code></pre></div></div>
+
+<p>More about firewalld <a href="https://docs.fedoraproject.org/en-US/quick-docs/firewalld/">here</a>.</p>
+
+<h2 id="run-localhost-on-0000">Run localhost on 0.0.0.0</h2>
+
+<p>This is what worked for me. Running the server on <code class="language-plaintext highlighter-rouge">0.0.0.0</code>.</p>
+
+<p>More about the difference between <code class="language-plaintext highlighter-rouge">0.0.0.0</code> and <code class="language-plaintext highlighter-rouge">127.0.0.1</code> <a href="https://stackoverflow.com/questions/20778771/what-is-the-difference-between-0-0-0-0-127-0-0-1-and-localhost">here</a></p>
+
+<p>You can run your server like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python -m http.server 1234 --bind 0.0.0.0
+</code></pre></div></div>
+
+<p>Find the IP number of the laptop. Let’s say it is <code class="language-plaintext highlighter-rouge">192.168.1.35</code>.</p>
+
+<p>Then from your mobile (iPhone or Android or any).</p>
+
+<p>Browse to:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.1.35:1234
+</code></pre></div></div>
+
+<p>Now you can test your responsive design on your mobile.</p>
+
+<p><img src="/assets/images/grid-color-mobile-javascript.jpg" alt="Grid on Mobile" /></p>
+
+  </div>
+
+  
+  <div>
+    <h3>Related Posts</h3>
+    <ul>
+    
+      <li><a href="/test-your-site-before-it-goes-live/">Test Your Site Before It Goes Live</a></li>
+    
+      <li><a href="/troubleshooting-building-android-app/">Troubleshooting Building an Android App</a></li>
+    
+      <li><a href="/build-android-app-linux-flutter/">Build an Android App in Linux with Flutter</a></li>
+    
+      <li><a href="/install-react-native-mac/">Install React Native on Mac</a></li>
+    
+    </ul>
+  </div>
+  <a class="u-url" href="/responsive-testing-with-localhost-iphone/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tom Ordonez</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">{&quot;name&quot;=&gt;&quot;Tom Ordonez&quot;}</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomordonez</span></a></li><li><a href="https://www.twitter.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomordonez</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A blog about analytics, data science, software engineering, and other thoughts.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

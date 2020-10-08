@@ -1,0 +1,108 @@
+I"�<p>Here are some interesting bash commands to run from the shell for productivity.</p>
+
+<h2 id="make-changes-to-many-directories">Make changes to many directories</h2>
+
+<p>If you want to create the same file in multiple directories.</p>
+
+<p>For example. I have these directories:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+~/languages/
+
+$ ls
+python java cpp
+</code></pre></div></div>
+
+<p>I wanted to create an <code class="language-plaintext highlighter-rouge">index.rst</code> inside each directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ for i in */; do touch "$i"/index.rst; done
+</code></pre></div></div>
+
+<p>Now these directories have that file:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">~/languages/python/index.rst</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~/languages/java/index.rst</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~/languages/cpp/index.rst</code></li>
+</ul>
+
+<p>I moved one level up on my directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd ..
+$ ls
+languages books tools frameworks
+</code></pre></div></div>
+
+<p>Inside these directories I also have an <code class="language-plaintext highlighter-rouge">index.rst</code> such as:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">~/languages/index.rst</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~/books/index.rst</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~/tools/index.rst</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~/frameworks/index.rst</code></li>
+</ul>
+
+<p>Ooops I forgot to add a title inside the <code class="language-plaintext highlighter-rouge">index.rst</code> for the directories inside <code class="language-plaintext highlighter-rouge">languages</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ for in in */; do echo "Title" &gt;&gt; "$i"/index.rst; done
+</code></pre></div></div>
+
+<p>Oh wait. I made a mistake.</p>
+
+<p>I am still inside my main directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+~/
+$ ls
+languages books tools frameworks
+</code></pre></div></div>
+
+<p>I only wanted to add “Title” inside <code class="language-plaintext highlighter-rouge">index.rst</code> for the subdirectories of <code class="language-plaintext highlighter-rouge">languages</code>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">~/languages/python/index.rst</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~/languages/java/index.rst</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~/languages/cpp/index.rst</code></li>
+</ul>
+
+<p>And NOT for the directories of home:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">~/languages/index.rst</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~/books/index.rst</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~/tools/index.rst</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~/frameworks/index.rst</code></li>
+</ul>
+
+<p>If I open this: <code class="language-plaintext highlighter-rouge">~/languages/index.rst</code></p>
+
+<p>Now I have my index content and the last line is <code class="language-plaintext highlighter-rouge">Title</code>. This sucks. How do I remove the last line of multiple files now?</p>
+
+<h2 id="remove-the-last-line-of-multiple-files">Remove the last line of multiple files</h2>
+
+<p>Let me see where I am:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwd
+~/
+$ ls
+languages books tools frameworks
+</code></pre></div></div>
+
+<p>As seen <a href="https://stackoverflow.com/questions/4881930/remove-the-last-line-from-a-file-in-bash" target="_blank">here</a>. This is a solution to remove the last line from a file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed -i '$ d' foo.txt
+</code></pre></div></div>
+
+<p>Applied to many files:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ for i in */index.rst; do sed -i '$ d' "$i"; done
+</code></pre></div></div>
+
+<p>Now the last line is gone.</p>
+
+<p>Let’s go to the correct directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd languages/
+$ for in in */; do echo "Title" &gt;&gt; "$i"/index.rst; doneone.
+</code></pre></div></div>
+:ET

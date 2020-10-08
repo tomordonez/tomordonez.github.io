@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Crontab with Selenium and Chrome Driver | Tom Ordonez</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Crontab with Selenium and Chrome Driver" />
+<meta name="author" content="Tom Ordonez" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is how to setup a crontab with Selenium and Chrome Driver" />
+<meta property="og:description" content="This is how to setup a crontab with Selenium and Chrome Driver" />
+<link rel="canonical" href="https://www.tomordonez.com/crontab-selenium-chrome-driver/" />
+<meta property="og:url" content="https://www.tomordonez.com/crontab-selenium-chrome-driver/" />
+<meta property="og:site_name" content="Tom Ordonez" />
+<meta property="og:image" content="https://www.tomordonez.com/assets/images/7.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-09-09T00:00:00-04:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.tomordonez.com/assets/images/7.jpg" />
+<meta property="twitter:title" content="Crontab with Selenium and Chrome Driver" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","image":"https://www.tomordonez.com/assets/images/7.jpg","headline":"Crontab with Selenium and Chrome Driver","dateModified":"2017-09-09T00:00:00-04:00","datePublished":"2017-09-09T00:00:00-04:00","url":"https://www.tomordonez.com/crontab-selenium-chrome-driver/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.tomordonez.com/crontab-selenium-chrome-driver/"},"author":{"@type":"Person","name":"Tom Ordonez"},"description":"This is how to setup a crontab with Selenium and Chrome Driver","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.tomordonez.com/feed.xml" title="Tom Ordonez" /><link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png">
+  <link rel="manifest" href="/assets/fav/site.webmanifest">
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tom Ordonez</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Crontab with Selenium and Chrome Driver</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-09-09T00:00:00-04:00" itemprop="datePublished">Sep 9, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This is how to setup a crontab with Selenium and Chrome Driver</p>
+
+<p>If you are here I assume you have some knowledge of <code class="language-plaintext highlighter-rouge">cron</code>. Otherwise read this <a href="https://www.tomordonez.com/automating-tasks-crontab.html">cronjob tutorial</a>.</p>
+
+<p>Let’s pretend that we have a Python script in this directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/Documents/scripts/awesome.py
+</code></pre></div></div>
+
+<h2 id="just-for-reference-you-should-use-this-for-troubleshooting-purposes">Just for reference. You should use this for troubleshooting purposes:</h2>
+
+<p>Review the system log file here: <code class="language-plaintext highlighter-rouge">/var/log/syslog</code></p>
+
+<p>Send the stderr and stdout to a file like this. Right after the last crontab command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; awesome.log 2&gt;&amp;1
+</code></pre></div></div>
+
+<p>Read more about the redirection syntax <a href="http://tldp.org/LDP/abs/html/io-redirection.html" target="_blank">here</a>.</p>
+
+<h2 id="edit-your-crontab">Edit your crontab</h2>
+
+<p>Edit your crontab with <code class="language-plaintext highlighter-rouge">crontab -e</code></p>
+
+<p>In this example you run a job every day at 7:45am.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>45 7 * * * export DISPLAY=:0 &amp;&amp; cd /home/your-username/Documents/scripts/ &amp;&amp; /usr/bin/python awesome.py &gt; awesome.log 2&gt;&amp;1
+</code></pre></div></div>
+
+<p>To learn what <code class="language-plaintext highlighter-rouge">45 7 * * *</code> means. Go to this tutorial about <a href="https://www.tomordonez.com/automating-tasks-crontab.html">automating tasks with crontab</a>.</p>
+
+<p>Since <code class="language-plaintext highlighter-rouge">cron</code> runs with a limited number of environment variables. You need to set the <code class="language-plaintext highlighter-rouge">DISPLAY</code> variable.</p>
+
+<p><a href="http://askubuntu.com/questions/432255/what-is-display-environment-variable" target="_blank">This</a> explains more about the <code class="language-plaintext highlighter-rouge">DISPLAY</code> variable.</p>
+
+<p><code class="language-plaintext highlighter-rouge">DISPLAY</code> consists of a keyboard, a mouse and a screen. The display is managed by the <code class="language-plaintext highlighter-rouge">X server</code>.</p>
+
+<p>If I want to open Sublime in Linux. X server is the framework that helps me display the program into a window. If I move the mouse then it helps me go to an exact pixel in the screen.</p>
+
+<p>Lookup more details on Wikipedia as <code class="language-plaintext highlighter-rouge">X Window System</code>.</p>
+
+<p>“The X server receives input from the keyboard and mouse and displays to a screen. A web browser and a terminal run on the user’s workstation.”</p>
+
+<p>If you do this on your terminal:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo $DISPLAY
+</code></pre></div></div>
+
+<p>Most likely you will get:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:0
+</code></pre></div></div>
+
+<p>Which means that <code class="language-plaintext highlighter-rouge">DISPLAY</code> variable is set to <code class="language-plaintext highlighter-rouge">:0</code>.</p>
+
+<p>If you do this on your terminal:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env | grep 'DISPLAY'
+</code></pre></div></div>
+
+<p>You will get:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DISPLAY:=0
+</code></pre></div></div>
+
+<p>Other examples of DISPLAY could be:</p>
+
+<ul>
+  <li>DISPLAY=localhost:4</li>
+  <li>DISPLAY=google.com:0</li>
+</ul>
+
+<p>The syntax for <code class="language-plaintext highlighter-rouge">DISPLAY</code> is <code class="language-plaintext highlighter-rouge">hostname:D.S</code> which means screen <code class="language-plaintext highlighter-rouge">S</code> on display <code class="language-plaintext highlighter-rouge">D</code> of host <code class="language-plaintext highlighter-rouge">hostname</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hostname:D.S
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">hostname</code> is the computer name where the X server is running. If there is no hostname then it means the <code class="language-plaintext highlighter-rouge">localhost</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">D</code> is a sequence number. Usually 0. It can be different if the computer has many displays connected.</li>
+  <li><code class="language-plaintext highlighter-rouge">S</code> is the screen number. 0 is the default.</li>
+</ul>
+
+<p>When you <code class="language-plaintext highlighter-rouge">echo $DISPLAY</code>. The hostname is omitted and it shows only the default <code class="language-plaintext highlighter-rouge">DISPLAY</code> number: <code class="language-plaintext highlighter-rouge">:0</code>.</p>
+
+<h2 id="crontab-and-display">Crontab and DISPLAY</h2>
+
+<p>Selenium opens the browser if you are using the Chromedriver.</p>
+
+<p>Cron doesn’t have the <code class="language-plaintext highlighter-rouge">DISPLAY</code> environment variable set.</p>
+
+<p>You need to set the <code class="language-plaintext highlighter-rouge">DISPLAY</code> variable inside the crontab such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export DISPLAY=:0
+</code></pre></div></div>
+
+<p>Going back the example where you run a job every day at 7:45am.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>45 7 * * * export DISPLAY=:0 &amp;&amp; cd /home/your-username/Documents/scripts/ &amp;&amp; /usr/bin/python awesome.py &gt; awesome.log 2&gt;&amp;1
+</code></pre></div></div>
+
+<p>You are setting the <code class="language-plaintext highlighter-rouge">DISPLAY</code> variable before executing any command.</p>
+
+<p>You are using the full path to where the files are.</p>
+
+<p>And you are sending stdout and stderr to a log file for troubleshooting.</p>
+
+  </div>
+
+  
+  <div>
+    <h3>Related Posts</h3>
+    <ul>
+    
+      <li><a href="/automating-tasks-crontab/">Automating Tasks with Crontab</a></li>
+    
+      <li><a href="/install-chromedriver-linux/">Install Chromedriver in Linux</a></li>
+    
+      <li><a href="/bash-commands-for-productivity/">Bash Commands for Productivity</a></li>
+    
+      <li><a href="/redirect-stdout-stderr-bash/">Redirect stdout and stderr in bash</a></li>
+    
+      <li><a href="/generate-random-number-linux/">Generate a Random Number with Linux and Bash</a></li>
+    
+    </ul>
+  </div>
+  <a class="u-url" href="/crontab-selenium-chrome-driver/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tom Ordonez</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">{&quot;name&quot;=&gt;&quot;Tom Ordonez&quot;}</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomordonez</span></a></li><li><a href="https://www.twitter.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomordonez</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A blog about analytics, data science, software engineering, and other thoughts.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

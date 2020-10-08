@@ -1,0 +1,47 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #424242;
+}
+
+header {
+	font-size: 36px;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.instructions {
+	text-align: center;
+	margin-bottom: 10px;
+}
+.grid-container {
+	height: 80vh;
+	width: 60%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	border: 2px solid black;
+}
+.row {
+	flex: 1;
+	height: 10vh;
+	border-bottom: 1px solid #424242;
+	display: flex;
+}
+.column {
+	width: 10vh;
+	flex: 1;
+	border-right: 1px solid #424242;
+}
+
+@media only screen and (max-width: 600px) {
+	header {
+		font-size: 28px;
+		margin-bottom: 20px;
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Install React Native on Mac | Tom Ordonez</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Install React Native on Mac" />
+<meta name="author" content="Tom Ordonez" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Follow this simple tutorial to install React Native on Mac." />
+<meta property="og:description" content="Follow this simple tutorial to install React Native on Mac." />
+<link rel="canonical" href="https://www.tomordonez.com/install-react-native-mac/" />
+<meta property="og:url" content="https://www.tomordonez.com/install-react-native-mac/" />
+<meta property="og:site_name" content="Tom Ordonez" />
+<meta property="og:image" content="https://www.tomordonez.com/assets/images/1.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-17T00:00:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.tomordonez.com/assets/images/1.jpg" />
+<meta property="twitter:title" content="Install React Native on Mac" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","image":"https://www.tomordonez.com/assets/images/1.jpg","headline":"Install React Native on Mac","dateModified":"2017-12-17T00:00:00-05:00","datePublished":"2017-12-17T00:00:00-05:00","url":"https://www.tomordonez.com/install-react-native-mac/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.tomordonez.com/install-react-native-mac/"},"author":{"@type":"Person","name":"Tom Ordonez"},"description":"Follow this simple tutorial to install React Native on Mac.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.tomordonez.com/feed.xml" title="Tom Ordonez" /><link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png">
+  <link rel="manifest" href="/assets/fav/site.webmanifest">
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tom Ordonez</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Install React Native on Mac</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-12-17T00:00:00-05:00" itemprop="datePublished">Dec 17, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Follow this simple tutorial to install React Native on Mac.</p>
+
+<h2 id="install-node">Install Node</h2>
+
+<p>Download the Node installer from <a href="https://nodejs.org/en/" target="_blank">here</a>.</p>
+
+<p>When I published this tutorial 12/17/17. The current Node version was <code class="language-plaintext highlighter-rouge">8.9.3 LTS</code>.</p>
+
+<h2 id="this-package-will-install">This package will install:</h2>
+
+<ul>
+  <li>Node.js v8.9.3 to /usr/local/bin/node</li>
+  <li>npm v5.5.1 to /usr/local/bin/npm</li>
+</ul>
+
+<h2 id="make-sure-that-usrlocalbin-is-in-your-path">Make sure that /usr/local/bin is in your $PATH</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ echo $PATH
+
+/usr/local/bin
+</code></pre></div></div>
+
+<h2 id="check-node-version">Check node version</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ node -v
+v8.9.3
+
+$ npm -v
+5.5.1
+</code></pre></div></div>
+
+<h2 id="fixing-npm-permissions">Fixing npm permissions</h2>
+
+<p>Fixing npm permissions as seen <a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions" target="_blank">here</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm config get prefix
+/usr/local
+
+$ sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+</code></pre></div></div>
+
+<h2 id="install-create-react-native-app">Install <code class="language-plaintext highlighter-rouge">create-react-native-app</code></h2>
+
+<p>Go to the official react native docs <a href="https://facebook.github.io/react-native/docs/getting-started.html" target="_blank">here</a>.</p>
+
+<p>“Create React Native App does not currently work with npm v5. We strongly recommend using npm v3, v4, or a recent version of Yarn”.</p>
+
+<h2 id="install-yarn">Install Yarn:</h2>
+
+<p>Follow the official Yarn doc <a href="https://yarnpkg.com/lang/en/docs/install/" target="_blank">here</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install yarn --without-node
+
+==&gt; Downloading https://yarnpkg.com/downloads/1.3.2/yarn-v1.3.2.tar.gz
+==&gt; Downloading from https://github.com/yarnpkg/yarn/releases/download/v1.3.2/yarn-v1.3.2.tar.gz
+/usr/local/Cellar/yarn/1.3.2: 14 files, 3.9MB, built in 8 seconds
+</code></pre></div></div>
+
+<h2 id="install-create-react-native-app-using-yarn">Install <code class="language-plaintext highlighter-rouge">create-react-native-app</code> using Yarn</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yarn global add create-react-native-app
+
+yarn global v1.3.2
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Installed "create-react-native-app@1.0.0" with binaries:
+  - create-react-native-app
+</code></pre></div></div>
+
+<h2 id="create-a-react-native-app">Create a react native app</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ create-react-native-app AwesomeProject
+
+Creating a new React Native app in /Users/../AwesomeProject.
+</code></pre></div></div>
+
+<h2 id="start-the-app">Start the app</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd AwesomeProject
+
+$ yarn start
+yarn run v1.3.2
+</code></pre></div></div>
+
+<h2 id="output-error-unable-to-start-server">Output Error Unable to start server</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ react-native-scripts start
+
+23:15:49: Unable to start server
+See https://git.io/v5vcn for more information, either install watchman or run the following snippet:
+sudo sysctl -w kern.maxfiles=5242880
+sudo sysctl -w kern.maxfilesperproc=524288
+
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+</code></pre></div></div>
+
+<p><a href="https://github.com/react-community/create-react-native-app/issues/382" target="_blank">This</a> page had 2 solutions:</p>
+
+<ol>
+  <li>Run the <code class="language-plaintext highlighter-rouge">sudo sysctl</code> commands or</li>
+  <li>Install Watchman.</li>
+</ol>
+
+<p>Here is more info about <code class="language-plaintext highlighter-rouge">Watchman</code>:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Watchman</code> is a file watching service open sourced by Facebook.</p>
+
+<p>“<a href="https://facebook.github.io/watchman/" target="_blank">Watchman</a> exists to watch files and record when they change. It can also trigger actions (such as rebuilding assets) when matching files change.”</p>
+
+<p>The solution with the most thumbs up is this one:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo sysctl -w kern.maxfiles=5242880
+kern.maxfiles: 12288 -&gt; 5242880
+
+$ sudo sysctl -w kern.maxfilesperproc=524288
+kern.maxfilesperproc: 10240 -&gt; 524288
+</code></pre></div></div>
+
+<p>Here is more info about this command:</p>
+
+<p><code class="language-plaintext highlighter-rouge">sysctl</code> is used to get or set kernel state.</p>
+
+<p><a href="https://www.freebsd.org/doc/handbook/configtuning-kernel-limits.html" target="_blank">Here</a> is more info about “tuning kernel limits”:</p>
+
+<p>It says that “The kern.maxfiles sysctl(8) variable can be raised or lowered based upon system requirements. This variable indicates the maximum number of file descriptors on the system”</p>
+
+<p><a href="http://krypted.com/mac-os-x/maximum-files-in-mac-os-x/" target="_blank">Here</a> is some more info about this:</p>
+
+<p>“By default, the maximum number of files that Mac OS X can open is set to 12,288 and the maximum number of files a given process can open is 10,240.”</p>
+
+<p>It also says that if you reboot, that it will go back to the original values. Although there is a workaround as seen on that post.</p>
+
+<h2 id="start-development-server">Start development server</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yarn start
+</code></pre></div></div>
+
+<p>It will show this output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn run v1.3.2
+$ react-native-scripts start
+12:11:00: Starting packager...
+Packager started!
+
+To view your app with live reloading, point the Expo app to this QR code.
+You'll find the QR scanner on the Projects tab of the app.
+
+GIANT QR CODE HERE
+...
+
+Or enter this address in the Expo app's search bar:
+
+exp://10.0.0.10:19000
+
+Your phone will need to be on the same local network as this computer.
+For links to install the Expo app, please visit https://expo.io.
+
+Logs from serving your app will appear here. Press Ctrl+C at any time to stop.
+
+› Press a to open Android device or emulator, or i to open iOS emulator.
+› Press q to display QR code.
+› Press r to restart packager, or R to restart packager and clear cache.
+› Press d to toggle development mode. (current mode: development)
+</code></pre></div></div>
+
+<h2 id="install-the-expo-client-app">Install the Expo client app</h2>
+
+<p>As seen in the Expo doc <a href="https://expo.io/learn" target="_blank">here</a>:</p>
+
+<p>Download the app on your phone. Then scan the QR code on your terminal.</p>
+
+<p>Back in the Terminal now says:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>12:17:51: Finished building JavaScript bundle in 69956ms
+12:17:58: Running app on Tom O in development mode
+</code></pre></div></div>
+
+<p>To stop use <code class="language-plaintext highlighter-rouge">Ctrl+C</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>12:36:05: Stopping packager...
+12:36:06: Packager stopped.
+</code></pre></div></div>
+
+
+  </div>
+
+  
+  <div>
+    <h3>Related Posts</h3>
+    <ul>
+    
+      <li><a href="/troubleshooting-building-android-app/">Troubleshooting Building an Android App</a></li>
+    
+      <li><a href="/build-android-app-linux-flutter/">Build an Android App in Linux with Flutter</a></li>
+    
+      <li><a href="/responsive-testing-with-localhost-iphone/">Responsive Testing with Localhost and iPhone</a></li>
+    
+    </ul>
+  </div>
+  <a class="u-url" href="/install-react-native-mac/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tom Ordonez</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">{&quot;name&quot;=&gt;&quot;Tom Ordonez&quot;}</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomordonez</span></a></li><li><a href="https://www.twitter.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomordonez</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A blog about analytics, data science, software engineering, and other thoughts.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

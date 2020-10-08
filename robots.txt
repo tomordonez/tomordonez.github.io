@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /index2.html
+Disallow: /index3.html
+Disallow: /tag/
+Disallow: /category/
+Disallow: /pages/
+Disallow: /archives.html
+Disallow: /authors.html
+Disallow: /cf7_style/monochrome/page/4/
+Allow: /

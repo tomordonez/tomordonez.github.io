@@ -1,0 +1,6 @@
+_site
+.sass-cache
+.jekyll-metadata
+node_modules
+Gemfile.lock
+YYYY-MM-DD-blogpost_format.md

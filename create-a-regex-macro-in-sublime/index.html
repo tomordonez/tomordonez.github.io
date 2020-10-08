@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Create a Regex Macro in Sublime | Tom Ordonez</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Create a Regex Macro in Sublime" />
+<meta name="author" content="Tom Ordonez" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Follow this tutorial to create a regex macro in Sublime." />
+<meta property="og:description" content="Follow this tutorial to create a regex macro in Sublime." />
+<link rel="canonical" href="https://www.tomordonez.com/create-a-regex-macro-in-sublime/" />
+<meta property="og:url" content="https://www.tomordonez.com/create-a-regex-macro-in-sublime/" />
+<meta property="og:site_name" content="Tom Ordonez" />
+<meta property="og:image" content="https://www.tomordonez.com/assets/images/5.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-03T00:00:00-04:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.tomordonez.com/assets/images/5.jpg" />
+<meta property="twitter:title" content="Create a Regex Macro in Sublime" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","image":"https://www.tomordonez.com/assets/images/5.jpg","headline":"Create a Regex Macro in Sublime","dateModified":"2017-11-03T00:00:00-04:00","datePublished":"2017-11-03T00:00:00-04:00","url":"https://www.tomordonez.com/create-a-regex-macro-in-sublime/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.tomordonez.com/create-a-regex-macro-in-sublime/"},"author":{"@type":"Person","name":"Tom Ordonez"},"description":"Follow this tutorial to create a regex macro in Sublime.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.tomordonez.com/feed.xml" title="Tom Ordonez" /><link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png">
+  <link rel="manifest" href="/assets/fav/site.webmanifest">
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tom Ordonez</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Create a Regex Macro in Sublime</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-11-03T00:00:00-04:00" itemprop="datePublished">Nov 3, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Follow this tutorial to create a regex macro in Sublime.</p>
+
+<h2 id="install-sublime">Install Sublime</h2>
+
+<p>You need to have Sublime right? Download from <a href="https://www.sublimetext.com/3" target="_blank"> here</a>.</p>
+
+<h2 id="learn-some-json">Learn some JSON</h2>
+
+<p>You need to be familiar with <a href="http://json.org/" target="_blank">JSON</a>.</p>
+
+<h2 id="install-sublime-package-control">Install Sublime Package Control</h2>
+
+<p>You need to have Sublime Package Control installed.</p>
+
+<p>On the top menu Preferences/Package Control. (It will install it by clicking on it the first time).</p>
+
+<h2 id="install-regreplace">Install RegReplace</h2>
+
+<p>You need to have RegReplace installed.</p>
+
+<p>Use the shortcut <code class="language-plaintext highlighter-rouge">Ctrl+Shift+p</code>. This opens a sort of popup menu.</p>
+
+<p>Then type <code class="language-plaintext highlighter-rouge">Package Control: Install Package</code> and hit Enter.</p>
+
+<p>Type <code class="language-plaintext highlighter-rouge">RegReplace</code>. Then select it.</p>
+
+<p>It will open a new file that says:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># RegReplace
+  
+Welcome to RegReplace!  For a quick start guide, please go to
+`Preferences-&gt;Package Settings-&gt;RegReplace-&gt;Quick Start Guide`.
+</code></pre></div></div>
+
+<h2 id="learn-python-re-regex-syntax">Learn Python re regex syntax</h2>
+
+<p>To build the Macros you must learn the <code class="language-plaintext highlighter-rouge">Python re</code> syntax. Which is slightly different from the default regex engine on Sublime.</p>
+
+<p>This is the documentation for <a href="https://docs.python.org/3.4/library/re.html" target="_blank">Python re</a>.</p>
+
+<h2 id="learn-which-files-to-edit-in-sublime">Learn which files to edit in Sublime</h2>
+
+<p>You need to edit 2 files:</p>
+
+<ul>
+  <li>The JSON file with the Find and Replace pairs</li>
+  <li>The JSON file with the Macro command</li>
+</ul>
+
+<h2 id="json-file-with-find-and-replace-pairs">JSON file with Find and Replace pairs</h2>
+
+<p>Go to the top menu Preferences/Package Settings/RegReplace/Rules-User.</p>
+
+<p>Follow <a href="http://facelessuser.github.io/RegReplace/usage/" target="_blank">this syntax</a> to see what type of string and values you can create.</p>
+
+<p>You can also read this file in Sublime. To see examples. Go to Preferences/Package Settings/RegReplace/Rules-Example.</p>
+
+<p>This is an example I did, when I copy/paste a piece of HTML code into Sublime. It breaks lines at an specific element, removes the first line and replaces the “and” character.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "format": "3.0",
+    "replacements": {
+        // break into lines
+        "break_lines": {
+            "find": "(&lt;li class=\"card card-user)",
+            "replace": "\\n\\1",
+            "greedy": true
+        },
+        // remove first ul line
+        "remove_first_line": {
+            "find": "^&lt;ul class.*\\n",
+            "replace": "",
+            "greedy": true
+        },
+        // replace &amp;amp; with and
+        "replace_amp": {
+            "find": "&amp;amp;",
+            "replace": "and",
+            "greedy": true
+        }
+    }
+}
+</code></pre></div></div>
+
+<p>Each find and replace rule has this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// break into lines
+"break_lines": {
+  "find": "(&lt;li class=\"card card-user)",
+  "replace": "\\n\\1",
+  "greedy": true
+},
+</code></pre></div></div>
+
+<ul>
+  <li>A <code class="language-plaintext highlighter-rouge">// comment</code>.</li>
+  <li>A command name <code class="language-plaintext highlighter-rouge">"break_lines"</code>.</li>
+  <li>A pair for <code class="language-plaintext highlighter-rouge">find</code>.</li>
+  <li>A pair for <code class="language-plaintext highlighter-rouge">replace</code>.</li>
+</ul>
+
+<p>You can add more string/value pairs as seen in the official documentation.</p>
+
+<p>Each rule is enclosed with open and close curly braces <code class="language-plaintext highlighter-rouge">{ rule }</code>.</p>
+
+<p>Rules are separated by a comma.</p>
+
+<p>The last rule doesn’t have a comma.</p>
+
+<p>Save the file.</p>
+
+<h2 id="json-file-with-the-macro-command">JSON file with the Macro command</h2>
+
+<p>Go to the top menu.</p>
+
+<p>Preferences/Package Settings/RegReplace/Commands-User</p>
+
+<p>This JSON file looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> [
+  {
+ 	"caption": "Reg Replace: Clean HTML into something nice",
+    "command": "reg_replace",
+    "args": {"replacements": ["break_lines", "remove_first_line", "replace_amp"]}
+ }
+]
+</code></pre></div></div>
+
+<p>Following the previous example. The <code class="language-plaintext highlighter-rouge">caption</code> is how you can find the Macro.</p>
+
+<p>Do <code class="language-plaintext highlighter-rouge">Ctrl+Shift+p</code>. Start typing the “caption” name and you will see it listed.</p>
+
+<p>For example. I would type: <code class="language-plaintext highlighter-rouge">Reg Replace: Clean HTML...</code></p>
+
+<h2 id="running-the-macro">Running the Macro</h2>
+
+<p>My workflow is like this:</p>
+
+<ul>
+  <li>Open the raw HTML file.</li>
+  <li>Do <code class="language-plaintext highlighter-rouge">Ctrl+Shift+p</code>.</li>
+  <li>Find the Macro name.</li>
+  <li>Click on it and it runs.</li>
+</ul>
+
+<h2 id="building-the-macro">Building the Macro</h2>
+
+<p>There are 2 processes.</p>
+
+<p>One is testing the regex in Sublime. Edit the JSON. Run the Macro. Test the next regex. Edit JSON. Run Macro and so on.</p>
+
+<p>While this workflow works. It is kind of tedious having to go back and forth and run the whole Macro from the beginning every time you add something new to the JSON file.</p>
+
+<p>The official documentation recommends another process <a href="http://facelessuser.github.io/RegReplace/usage/" target="_blank">here</a>.</p>
+
+<p>It allows you to edit the regex rules in a Python panel with highlighted syntax.</p>
+
+<h2 id="github-example">Github example</h2>
+
+<p>You don’t have to understand what this does exactly but just follow the regex examples to see how you can apply them to your own macro.</p>
+
+<p>Inside the Rules User:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "format": "3.0",
+    "replacements": {
+        "github_get_contributor_url_remove_comma": {
+            "find": ",",
+            "replace": "",
+            "greedy": true
+        },
+        "github_get_contributor_url_join_lines": {
+            "find": "(^#.*)\\n(.*)",
+            "replace": "\\1,\\2",
+            "greedy": true
+        },
+        "github_get_contributor_url_remove_lines": {
+            "find": "^(?!.*#.*).+$\\n",
+            "replace": "",
+            "greedy": true
+        },
+        "github_get_contributor_url_remove_pound_sign": {
+            "find": "^#",
+            "replace": "",
+            "greedy": true
+        },
+        "github_get_contributor_url_remove_commits_word": {
+            "find": "commits /",
+            "replace": ",",
+            "greedy": true
+        },
+        "github_get_contributor_url_remove_plus_sign": {
+            "find": "\\+\\+ /",
+            "replace": ",",
+            "greedy": true
+        },
+        "github_get_contributor_url_remove_minus_sign": {
+            "find": "--",
+            "replace": "",
+            "greedy": true
+        },
+        "github_get_contributor_url_insert_github_url": {
+            "find": "^",
+            "replace": "https://github.com/",
+            "greedy": true
+        },
+        "github_get_contributor_url_remove_dotcom_number": {
+            "find": "(\\.com/)\\d{1,3}",
+            "replace": "\\1",
+            "greedy": true
+        },
+        "github_get_contributor_url_remove_spaces": {
+            "find": " ",
+            "replace": "",
+            "greedy": true
+        },
+        "github_get_contributor_url_add_first_row_header": {
+            "find": "^https://github.com/$",
+            "replace": "user_url,commits,lines_added,lines_removed",
+            "greedy": true
+        },
+        "github_get_contributor_url_remove_last_line": {
+            "find": "https://github.com/&amp;copy;.*",
+            "replace": "",
+            "greedy": true
+        }
+    }
+}
+</code></pre></div></div>
+
+<p>Go to the top menu Preferences/Package Settings/RegReplace/Commands-User</p>
+
+<p>Add this to JSON file</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> [
+  {
+    "caption": "Reg Replace: Github Get Contributor URL",
+    "command": "reg_replace",
+    "args": {"replacements": ["github_get_contributor_url_remove_comma", "github_get_contributor_url_join_lines", "github_get_contributor_url_remove_lines", "github_get_contributor_url_remove_pound_sign", "github_get_contributor_url_remove_commits_word", "github_get_contributor_url_remove_plus_sign", "github_get_contributor_url_remove_minus_sign", "github_get_contributor_url_insert_github_url", "github_get_contributor_url_remove_dotcom_number", "github_get_contributor_url_remove_spaces", "github_get_contributor_url_add_first_row_header", "github_get_contributor_url_remove_last_line"]}
+ }
+]
+</code></pre></div></div>
+
+<p>Run Macro by doing <code class="language-plaintext highlighter-rouge">Ctrl+Shift+P</code> and type “Github Get Contributor URL”.</p>
+
+  </div>
+
+  
+  <div>
+    <h3>Related Posts</h3>
+    <ul>
+    
+      <li><a href="/sublime-text-typewriter-auto-scroll/">Sublime Text Typewriter Autoscroll</a></li>
+    
+      <li><a href="/regex-remove-lines-not-containing-character/">Regex Remove Lines Not Containing a Character</a></li>
+    
+      <li><a href="/regular-expressions-tutorial-regex/">Regular Expressions Tutorial Regex Heaven</a></li>
+    
+    </ul>
+  </div>
+  <a class="u-url" href="/create-a-regex-macro-in-sublime/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tom Ordonez</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">{&quot;name&quot;=&gt;&quot;Tom Ordonez&quot;}</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomordonez</span></a></li><li><a href="https://www.twitter.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomordonez</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A blog about analytics, data science, software engineering, and other thoughts.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

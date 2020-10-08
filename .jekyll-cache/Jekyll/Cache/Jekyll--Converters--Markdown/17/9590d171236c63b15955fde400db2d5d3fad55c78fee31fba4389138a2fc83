@@ -1,0 +1,265 @@
+I"�-<p>Awesome tutorial for installing a Minecraft server on Mac.</p>
+
+<p>I am reading a book to apply Python to Minecraft. The book is called <a href="https://nostarch.com/programwithminecraft" target="_blank">“Learn to Program with Minecraft”</a> by Craig Richardson.</p>
+
+<p>This blog post was inspired by the procedure explained on the book.</p>
+
+<h2 id="starting-the-server">Starting the server</h2>
+
+<p>Used for reference. Don’t start here:</p>
+
+<ol>
+  <li>Right click &gt; Open the file <code class="language-plaintext highlighter-rouge">Start_Server</code></li>
+  <li>Open Minecraft</li>
+  <li>Play &gt; drop down &gt; 1.11.2</li>
+  <li>Multiplayer</li>
+  <li>Select <code class="language-plaintext highlighter-rouge">pycraft-server</code>. Join Server.</li>
+</ol>
+
+<h2 id="setup-a-mac-environment">Setup a Mac environment</h2>
+
+<p>Start here. We need to install 5 components:</p>
+
+<ul>
+  <li>Minecraft</li>
+  <li>Python3</li>
+  <li>JDK</li>
+  <li>Minecraft Python API</li>
+  <li>Spigot Minecraft Server</li>
+</ul>
+
+<h2 id="minecraft">Minecraft</h2>
+
+<p>You need to get an account and buy Minecraft. Installing is really easy.</p>
+
+<p>Open the program and login. Click Play.</p>
+
+<p>Go to Single Player &gt; Create New World. I called it <code class="language-plaintext highlighter-rouge">pycraft</code>.</p>
+
+<h2 id="python-3">Python 3</h2>
+
+<p>There are a lot of tutorials about this.</p>
+
+<p>I haven’t used the Mac for a long time so I had some issues. This is what I did:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pip3 install --upgrade pip
+</code></pre></div></div>
+
+<h2 id="jdk">JDK</h2>
+
+<p>I thought I previously had this installed. To check if you have it. Go to System Preferences and there should be an icon that says <code class="language-plaintext highlighter-rouge">Java</code>.</p>
+
+<p>But later in the process when I ran the Minecraft server it said:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>No Java runtime present
+</code></pre></div></div>
+
+<p>Go to: <code class="language-plaintext highlighter-rouge">https://www.oracle.com/technetwork/java/javase/downloads/index.html</code></p>
+
+<p>Click the button: <code class="language-plaintext highlighter-rouge">Java Download</code>. It’s just a square and it is easy to miss.</p>
+
+<p>Scroll down and choose the radio button to accept the license.</p>
+
+<p>Then download the <code class="language-plaintext highlighter-rouge">dmg</code> for macOS.</p>
+
+<p>Follow the GUI install process.</p>
+
+<h2 id="install-the-api">Install the API</h2>
+
+<p>Here is a summary of the process from the book:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">https://nostarch.com/programwithminecraft/</code></li>
+  <li>Download setup files for MAC: <code class="language-plaintext highlighter-rouge">https://sourceforge.net/projects/program-with-minecraft-mac/</code></li>
+  <li>Download</li>
+  <li>The file downloaded is: <code class="language-plaintext highlighter-rouge">Minecraft_Tools_Mac.zip</code>.</li>
+  <li>Extract the content: <code class="language-plaintext highlighter-rouge">Minecraft Tools Mac</code>.</li>
+</ul>
+
+<p>This folder has these:</p>
+
+<ul>
+  <li>Directory: <code class="language-plaintext highlighter-rouge">py3minepi-master</code></li>
+  <li>Directory: <code class="language-plaintext highlighter-rouge">server</code></li>
+  <li>File: <code class="language-plaintext highlighter-rouge">Start_Server</code></li>
+  <li>File: <code class="language-plaintext highlighter-rouge">Install_API.command</code></li>
+</ul>
+
+<p>Install the API by running this file: <code class="language-plaintext highlighter-rouge">Install_API.command</code>. This opens the terminal and might ask for the admin password.</p>
+
+<p>If this doesn’t work. Go to the terminal and locate the file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo ./Install_API.command
+</code></pre></div></div>
+
+<p>The output was this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The directory '/Users/tomordonez/Library/Caches/pip/http' or its 
+parent directory is not owned by the current user and the cache has 
+been disabled. Please check the permissions and owner of that 
+directory. If executing pip with sudo, you may want sudo's -H flag.
+
+The directory '/Users/tomordonez/Library/Caches/pip' or its parent 
+directory is not owned by the current user and caching wheels has 
+been disabled. check the permissions and owner of that directory. If
+ executing pip with sudo, you may want sudo's -H flag.
+
+Processing ./py3minepi-master
+Installing collected packages: py3minepi
+Running setup.py install for py3minepi ... done
+Successfully installed py3minepi-0.0.1
+</code></pre></div></div>
+
+<p>I tried this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chown -R $USER /Users/$USER/Library/Caches/pip
+</code></pre></div></div>
+
+<p>But it said the file didn’t exist. I checked this. Not sure how to solve this for now.</p>
+
+<h2 id="run-the-server">Run the server</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Spigot</code> is a single-player Minecraft server.</p>
+
+<p>Inside your <code class="language-plaintext highlighter-rouge">Minecraft Tools Mac</code> directory. Right click &gt; Open the file <code class="language-plaintext highlighter-rouge">Start_Server</code>.</p>
+
+<h2 id="minecraft-launch-options">Minecraft launch options</h2>
+
+<p>The book says to find the server version:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Starting minecraft server version 1.11.2
+</code></pre></div></div>
+
+<p>Launch Minecraft.</p>
+
+<p>Go to Menu &gt; Launch Options &gt; Add New.</p>
+
+<p>Enter a name. I entered: <code class="language-plaintext highlighter-rouge">pycraft</code>.</p>
+
+<p>Select the version: <code class="language-plaintext highlighter-rouge">1.11.2</code>.</p>
+
+<p>Save and close the Launch Options. Click the logo to go to the main screen.</p>
+
+<p>Go to <code class="language-plaintext highlighter-rouge">PLAY</code>, drop down now has the option: <code class="language-plaintext highlighter-rouge">pycraft 1.11.2</code>.</p>
+
+<p>It will start downloading this version.</p>
+
+<h2 id="add-the-server-to-minecraft">Add the server to Minecraft</h2>
+
+<p>When Minecraft opens. Go to Multiplayer.</p>
+
+<p>Then <code class="language-plaintext highlighter-rouge">Add Server</code>.</p>
+
+<p>For server name I put: <code class="language-plaintext highlighter-rouge">pycraft-server</code>.</p>
+
+<p>For server address: <code class="language-plaintext highlighter-rouge">localhost</code>.</p>
+
+<p>Then Done.</p>
+
+<p>The added server will show up. Click on it and <code class="language-plaintext highlighter-rouge">Join Server</code>.</p>
+
+<p>Minecraft will launch the world.</p>
+
+<p>The server output shows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[15:51:17 INFO]: UUID of player my-username is 3b1c5...
+[15:51:18 INFO]: my-username[/127.0.0.1:51952] 
+logged in with entity id 1633 at 
+([world]-49.5, 61.0, -154.5)
+</code></pre></div></div>
+
+<h2 id="navigating-the-world">Navigating the world</h2>
+
+<p>I am not an expert in Minecraft. I only played it a few times.</p>
+
+<p>To leave the window. Click <code class="language-plaintext highlighter-rouge">ESC</code>.</p>
+
+<p>It says that the world is set to <code class="language-plaintext highlighter-rouge">Creative Mode</code>.</p>
+
+<ul>
+  <li>Fly: Tap space twice</li>
+  <li>Up: Press space</li>
+  <li>Down: Shift</li>
+  <li>Stop Flying: Tap space twice again.</li>
+</ul>
+
+<h2 id="create-a-new-world">Create a new world</h2>
+
+<p>The book has some tips about creating a new world.</p>
+
+<ul>
+  <li>In Minecraft, leave the game to go back to the menu.</li>
+  <li>Close the server shell.</li>
+  <li>Create a copy of the folder <code class="language-plaintext highlighter-rouge">Minecraft Tools Mac</code>.</li>
+  <li>Go to the server folder</li>
+  <li>Delete the folders: world, world_nether, world_the_end</li>
+  <li>Start the server on the new copy.</li>
+</ul>
+
+<h2 id="play-offline">Play offline</h2>
+
+<p>Close the server by typing ‘stop’. Then close the shell.</p>
+
+<p>Inside the server folder:</p>
+
+<ul>
+  <li>Open the file <code class="language-plaintext highlighter-rouge">server.properties</code>.</li>
+  <li>Change this <code class="language-plaintext highlighter-rouge">online-mode=true</code></li>
+  <li>To this <code class="language-plaintext highlighter-rouge">online-mode=false</code>.</li>
+</ul>
+
+<h2 id="switch-from-creative-to-survival">Switch from Creative to Survival</h2>
+
+<p>The book says that it is a good idea to test Python programs in Survival mode. By default the config is in Creative mode.</p>
+
+<p>Open <code class="language-plaintext highlighter-rouge">server.properties</code>.</p>
+
+<p>Change <code class="language-plaintext highlighter-rouge">gamemode=1</code> to <code class="language-plaintext highlighter-rouge">gamemode=0</code>.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">gamemode=1</code> is Creative mode.</li>
+  <li><code class="language-plaintext highlighter-rouge">gamemode=0</code> is Survival mode.</li>
+</ul>
+
+<h2 id="test-your-setup">Test your setup</h2>
+
+<ol>
+  <li>Start the server</li>
+  <li>Start Minecraft in multiplayer mode and selecting the server.</li>
+  <li>Open another shell</li>
+  <li>Open the python shell: <code class="language-plaintext highlighter-rouge">$ python3</code></li>
+  <li>Import the module: <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt; from mcpi.minecraft import Minecraft</code>.</li>
+  <li>Create a Minecraft object: <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt; mc = Minecraft.create()</code></li>
+</ol>
+
+<h2 id="minecraft-class-methods">Minecraft class methods</h2>
+
+<p>The Minecraft class has these methods:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', 
+'__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', 
+'__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', 
+'__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', 
+'__repr__', '__setattr__', '__sizeof__', '__str__', 
+'__subclasshook__', '__weakref__', 'create', 'getBlock', 
+'getBlockWithData', 'getBlocks', 'getHeight', 'getPlayerEntityIds', 
+'postToChat', 'restoreCheckpoint', 'saveCheckpoint', 'setBlock', 
+'setBlocks', 'setting']
+</code></pre></div></div>
+
+<h2 id="minecraft-object-methods">Minecraft object methods</h2>
+
+<p>The Minecraft object <code class="language-plaintext highlighter-rouge">mc</code> has these methods:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', 
+'__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', 
+'__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', 
+'__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', 
+'__repr__', '__setattr__', '__sizeof__', '__str__', 
+'__subclasshook__', '__weakref__', 'camera', 'conn', 'create', 
+'entity', 'events', 'getBlock', 'getBlockWithData', 'getBlocks', 
+'getHeight', 'getPlayerEntityIds', 'player', 'postToChat', 
+'restoreCheckpoint', 'saveCheckpoint', 'setBlock', 'setBlocks', 
+'setting']
+</code></pre></div></div>
+:ET

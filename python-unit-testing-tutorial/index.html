@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Python Unit Testing Tutorial | Tom Ordonez</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Python Unit Testing Tutorial" />
+<meta name="author" content="Tom Ordonez" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is a tutorial about unit testing in Python." />
+<meta property="og:description" content="This is a tutorial about unit testing in Python." />
+<link rel="canonical" href="https://www.tomordonez.com/python-unit-testing-tutorial/" />
+<meta property="og:url" content="https://www.tomordonez.com/python-unit-testing-tutorial/" />
+<meta property="og:site_name" content="Tom Ordonez" />
+<meta property="og:image" content="https://www.tomordonez.com/assets/images/8.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-21T00:00:00-04:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://www.tomordonez.com/assets/images/8.jpg" />
+<meta property="twitter:title" content="Python Unit Testing Tutorial" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","image":"https://www.tomordonez.com/assets/images/8.jpg","headline":"Python Unit Testing Tutorial","dateModified":"2018-10-21T00:00:00-04:00","datePublished":"2018-10-21T00:00:00-04:00","url":"https://www.tomordonez.com/python-unit-testing-tutorial/","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.tomordonez.com/python-unit-testing-tutorial/"},"author":{"@type":"Person","name":"Tom Ordonez"},"description":"This is a tutorial about unit testing in Python.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.tomordonez.com/feed.xml" title="Tom Ordonez" /><link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png">
+  <link rel="manifest" href="/assets/fav/site.webmanifest">
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Tom Ordonez</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Python Unit Testing Tutorial</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-10-21T00:00:00-04:00" itemprop="datePublished">Oct 21, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This is a tutorial about unit testing in Python.</p>
+
+<p>Here are some great resources that helped me write this tutorial:</p>
+
+<ul>
+  <li><a href="https://docs.python.org/3/library/unittest.html" target="_blank">Official Docs</a>.</li>
+  <li><a href="https://www.youtube.com/watch?v=6tNS--WetLI" target="_blank">This Youtube video about unit testing</a>.</li>
+</ul>
+
+<h2 id="python-unit-testing">Python Unit Testing</h2>
+
+<p>Unit testing files follow this convention:</p>
+
+<ul>
+  <li>If the module name is <code class="language-plaintext highlighter-rouge">calculator.py</code>.</li>
+  <li>Then the test file should be <code class="language-plaintext highlighter-rouge">test_calculator.py</code>.</li>
+</ul>
+
+<p>Create a virtual environment.</p>
+
+<p>Create the file <code class="language-plaintext highlighter-rouge">calculator.py</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Calculator:
+
+    def __init__(self):
+        pass
+
+    def add(self, x, y):
+        return(x + y)
+
+    def subtract(self, x, y):
+        return(x - y)
+
+    def multiply(self, x, y):
+        return(x * y)
+
+    def divide(self, x, y):
+        return(x / y)
+</code></pre></div></div>
+
+<p>You could run this from the Python shell:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; from calculator import *
+&gt;&gt;&gt; a = Calculator()
+&gt;&gt;&gt; a.add(2, 3)
+5
+&gt;&gt;&gt; a.subtract(2, 3)
+-1
+&gt;&gt;&gt; a.multiply(2, 3)
+6
+&gt;&gt;&gt; a.divide(2, 3)
+0.6666
+</code></pre></div></div>
+
+<h2 id="create-the-test-file">Create the test file</h2>
+
+<p>Create the test file <code class="language-plaintext highlighter-rouge">test_calculator.py</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import unittest
+from calculator import *
+</code></pre></div></div>
+
+<p>Create a test class that inherits from <code class="language-plaintext highlighter-rouge">unittest.TestCase</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class TestCalculator(unittest.TestCase):
+</code></pre></div></div>
+
+<p>Create methods following the same convention <code class="language-plaintext highlighter-rouge">test_</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class TestCalculator(unittest.TestCase):
+    
+    def test_add(self):
+</code></pre></div></div>
+
+<h2 id="testcase-assert-methods">TestCase assert methods</h2>
+
+<p>The official docs show that <code class="language-plaintext highlighter-rouge">TestCase</code> provides many <code class="language-plaintext highlighter-rouge">assert</code> methods we can use.</p>
+
+<p>They use the format <code class="language-plaintext highlighter-rouge">assertSomething(first, second, msg=None)</code>.</p>
+
+<p>The methods can accept a <code class="language-plaintext highlighter-rouge">msg</code> as an argument to output an error message.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">assertEqual(a, b)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assertNotEqual(a, b)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assertTrue(x)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assertFalse(x)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assertIs(a, b)</code>: a is b</li>
+  <li><code class="language-plaintext highlighter-rouge">assertIsNot(a, b)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assertIsNone(x)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assertIsNotNone(x)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assertIn(a, b)</code>: a in b</li>
+  <li><code class="language-plaintext highlighter-rouge">assertNotIn(a, b)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assertIsInstance(a, b)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assertNotIsInstane(a, b)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">assertRaises(exception, callable, *args, **kwds)</code></li>
+</ul>
+
+<h2 id="using-the-method-assertequal">Using the method <code class="language-plaintext highlighter-rouge">assertEqual</code>:</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def test_add(self):
+    result = Calculator().add(1, 2)
+    self.assertEqual(result, 3)
+</code></pre></div></div>
+
+<h2 id="running-the-test-file">Running the test file</h2>
+
+<p>Run <code class="language-plaintext highlighter-rouge">unittest</code> as the main module:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python -m unittest test_calculator.py
+</code></pre></div></div>
+
+<p>Or modify the test file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if __name__ == '__main__':
+    unittest.main()
+</code></pre></div></div>
+
+<p>Then run the file like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python test_calculator.py
+</code></pre></div></div>
+
+<p>This will show:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+-------------------
+Ran 1 test in 0.00s
+</code></pre></div></div>
+
+<h2 id="this-is-what-we-have-so-far">This is what we have so far</h2>
+
+<p>This is what we have for <code class="language-plaintext highlighter-rouge">test_calculator.py</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import unittest
+from calculator import *
+
+class TestCalculator(unittest.TestCase):
+    
+def test_add(self):
+    result = Calculator().add(1, 2)
+    self.assertEqual(result, 3)
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre></div></div>
+
+<p>Then run the test file like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python test_calculator.py
+</code></pre></div></div>
+
+<h2 id="refactoring">Refactoring</h2>
+
+<p>Add the <code class="language-plaintext highlighter-rouge">result</code> variable into the <code class="language-plaintext highlighter-rouge">assert</code> statement:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def test_add(self):
+    self.assertEqual(Calculator().add(1, 2), 3)
+</code></pre></div></div>
+
+<h2 id="check-edge-cases">Check edge cases</h2>
+
+<p>Add more <code class="language-plaintext highlighter-rouge">assert</code> statements:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def test_add(self):
+    self.assertEqual(Calculator().add(1, 2), 3)
+    self.assertEqual(Calculator().add(-1, 2), 1)
+    self.assertEqual(Calculator().add(-1, -2), -3)
+    self.assertEqual(Calculator().add(1, -2), -1)
+</code></pre></div></div>
+
+<h2 id="using-assertraises">Using <code class="language-plaintext highlighter-rouge">assertRaises()</code></h2>
+
+<p>This method uses this format:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>assertRaises(exception, callable, *args, **kwds)
+</code></pre></div></div>
+
+<p>Following the example of division by <code class="language-plaintext highlighter-rouge">0</code>.</p>
+
+<p>Inside <code class="language-plaintext highlighter-rouge">calculator.py</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def divide(self, x, y):
+    if y == 0:
+        raise ValueError('Cannot divide by zero')
+    return(x / y)
+</code></pre></div></div>
+
+<p>Inside <code class="language-plaintext highlighter-rouge">test_calculator.py</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def test_divide(self):
+    self.assertRaises(ValueError, Calculator().divide, 1, 0)
+</code></pre></div></div>
+
+<p>I don’t really like this syntax. I don’t understand why this cannot be done instead:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>self.assertRaises(ValueError, Calculator().divide(1, 0))
+</code></pre></div></div>
+
+<p>Following the video tutorial. The alternative is to do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>with self.assertRaises(ValueError):
+    Calculator().divide(1,0)
+</code></pre></div></div>
+
+<h2 id="using-assertisinstance">Using <code class="language-plaintext highlighter-rouge">assertIsInstance()</code></h2>
+
+<p>Try a different example to follow and unfollow users on Twitter. Do not mind the calculations. They don’t make much sense :)</p>
+
+<p>Given <code class="language-plaintext highlighter-rouge">user.py</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class User:
+
+    follow_rate = 1.2
+
+	def __init__(self, name, following, followers):
+	    self.name = name
+	    self.following = following
+	    self.followers = followers
+
+	def screen_name(self):
+	    return('@{}'.format(self.name))
+
+	def auto_follow(self):
+	    if self.following &lt; self.followers:
+	        self.following = self.followers * self.follow_rate
+            return(self.following)
+    
+    def unfollow(self):
+        if self.following &gt; self.followers:
+            self.following = (self.following - self.followers)\
+                              * self.follow_rate
+            return(self.following)
+</code></pre></div></div>
+
+<p>And <code class="language-plaintext highlighter-rouge">test_user.py</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import unittest
+from user import User
+
+class TestUser(unittest.TestCase):
+
+    def test_screen_name(self):
+        pass
+
+    def test_auto_follow(self):
+        pass
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre></div></div>
+
+<p>The test is not doing anything right now. But it should pass:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python test_user.py
+..
+------
+Ran 2 tests in 0.000s
+</code></pre></div></div>
+
+<p>Add some tests:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def test_screen_name(self):
+    
+    user1 = User('homer', 50, 100)
+    user2 = User('bart', 20, 10)
+
+    self.assertIsInstance(user1.name, str)
+    self.assertIsInstance(user1.following, int)
+    self.assertIsInstance(user1.followers, int)
+
+def test_auto_follow(self):
+    pass
+</code></pre></div></div>
+
+<p>Running:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>..
+----
+Ran 2 tests in 0.00s
+</code></pre></div></div>
+
+<h2 id="using-assertequal">Using <code class="language-plaintext highlighter-rouge">assertEqual()</code></h2>
+
+<p>Add the method to <code class="language-plaintext highlighter-rouge">test_screen_name</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def test_screen_name(self):
+    
+	user1 = User('homer', 50, 100)
+
+	self.assertIsInstance(user1.name, str)
+	self.assertIsInstance(user1.following, int)
+	self.assertIsInstance(user1.followers, int)
+	self.assertEqual(self.screen_name, '@homer')
+
+def test_auto_follow(self):
+    pass
+</code></pre></div></div>
+
+<p>Just to show what a failure looks like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python test_user.py
+.E
+============
+ERROR: test_screen_name(__main__.TestUser)
+-------------
+Traceback (most recent call last):
+  File "test_user.py", line 14, in test_screen_name
+    self.assertEqual(self.screen_name, '@homer')
+AttributeError: 'TestUser' objet has no attribute
+'screen_name'
+------------
+Ran 2 tests in 0.00s
+FAILED (errors=1)
+</code></pre></div></div>
+
+<p>To correct this. Replace:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>self.assertEqual(self.screen_name, '@homer')
+</code></pre></div></div>
+
+<p>With:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>self.assertEqual(user1.screen_name(), '@homer')
+</code></pre></div></div>
+
+<p>Running:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>..
+------
+Ran 2 tests in 0.00s
+</code></pre></div></div>
+
+<p>Add another test:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def test_auto_follow(self):
+    
+	user1 = User('homer', 50, 100)
+	user1.auto_follow()
+	self.assertEqual(user1.follow, 50*1.2)
+</code></pre></div></div>
+
+<p>Running:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>..
+------
+Ran 2 tests in 0.001s
+</code></pre></div></div>
+
+<h2 id="using-setup-and-teardown">Using setUp() and tearDown()</h2>
+
+<p>This is what we have so far for <code class="language-plaintext highlighter-rouge">test_user.py</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import unittest
+from user import User
+
+class TestUser(unittest.TestCase):
+
+    def test_screen_name(self):
+        
+        # User(name, following, followers)
+        # screen_name returns @name
+
+        user1 = User('homer', 50, 100)
+        user2 = User('bart', 20, 10)
+
+        self.assertIsInstance(user1.name, str)
+        self.assertIsInstance(user1.following, int)
+        self.assertIsInstance(user1.followers, int)
+        self.assertEqual(user1.screen_name(), '@homer')
+
+        self.assertEqual(user2.screen_name(), '@bart')
+
+    def test_auto_follow(self):
+        
+        # if following &lt; followers
+        # self.follow = following * follow_rate
+        # follow_rate = 1.2
+
+        user1 = User('homer', 50, 100)
+        user2 = User('bart', 20, 10)
+
+        user1.auto_follow()
+        self.assertEqual(user1.follow, 50*1.2)
+
+        user2.auto_follow()
+        self.assertEqual(user2.unfollow, (20-10)*1.2) 
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre></div></div>
+
+<p>The test cases <code class="language-plaintext highlighter-rouge">user1</code> and <code class="language-plaintext highlighter-rouge">user2</code> are repeated for both tests.</p>
+
+<p>Instead use this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class TestUser(unittest.TestCase):
+
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+</code></pre></div></div>
+
+<p>Create the users in <code class="language-plaintext highlighter-rouge">setUp()</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class TestUser(unittest.TestCase):
+
+    def setUp(self):
+        self.user1 = User('homer', 50, 100)
+        self.user2 = User('bart', 20, 10)
+</code></pre></div></div>
+
+<p>The other methods need to be changed to instance attributes:</p>
+
+<p>From this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>self.assertEqual(user1.screen_name(), '@homer')
+self.assertEqual(user2.screen_name(), '@bart')
+</code></pre></div></div>
+
+<p>To this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>self.assertEqual(self.user1.screen_name(), '@homer')
+self.assertEqual(self.user2.screen_name(), '@bart')
+</code></pre></div></div>
+
+<h2 id="isolated-tests">Isolated tests</h2>
+
+<p>Here is something interesting. If you add print statements after each method. You can see that <code class="language-plaintext highlighter-rouge">setUp</code> and <code class="language-plaintext highlighter-rouge">tearDown</code> run after each test such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setUp
+test_screen_name
+tearDown
+
+setUp
+test_auto_follow
+tearDown
+</code></pre></div></div>
+
+<p>Also, the tests might not run in order.</p>
+
+<h2 id="using-teardown">Using <code class="language-plaintext highlighter-rouge">tearDown()</code></h2>
+
+<p>Use case could be when setting up a database.</p>
+
+<p>Use <code class="language-plaintext highlighter-rouge">setUp()</code> to create the database and use <code class="language-plaintext highlighter-rouge">tearDown()</code> to delete it.</p>
+
+<h2 id="using-setupclass-and-teardownclass">Using <code class="language-plaintext highlighter-rouge">setUpClass()</code> and <code class="language-plaintext highlighter-rouge">tearDownClass()</code></h2>
+
+<p>Since <code class="language-plaintext highlighter-rouge">setUp</code> runs before each test and <code class="language-plaintext highlighter-rouge">tearDown</code> after each test. There is a way to run a different kind of setup before all tests (<code class="language-plaintext highlighter-rouge">setUpClass</code>) and a kind of teardown after all tests (<code class="language-plaintext highlighter-rouge">tearDownClass</code>).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class TestUser(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        pass
+
+    @classmethod
+    def tearDownClass(cls):
+        pass
+</code></pre></div></div>
+
+<p>You can also add print statements to these methods to see where they run.</p>
+
+<p>As seen <a href="https://stackoverflow.com/questions/12179271/meaning-of-classmethod-and-staticmethod-for-beginner" target="_blank">here</a>. With <code class="language-plaintext highlighter-rouge">@classmethod</code>, the class is passed as the first argument, instead of the instance of the class. You can use the class and properties inside that method.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">setUpClass(cls)</code> could be used to populate a database. So that this is not done for each separate test. The tests can read from the database. Then use the <code class="language-plaintext highlighter-rouge">tearDownClass(cls)</code>.</p>
+
+<h2 id="python-mocking">Python Mocking</h2>
+
+<p>The use case is connecting to a website. We want the test to fail only if there is something wrong with the code but not when the server is down.</p>
+
+<p>Install <code class="language-plaintext highlighter-rouge">requests</code> inside your virtual environment:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env$ pip install requests
+</code></pre></div></div>
+
+<p>To test that <code class="language-plaintext highlighter-rouge">requests</code> was installed:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env$ python
+&gt;&gt;&gt; import requests
+&gt;&gt;&gt; response = requests.get('https://github.com/tomordonez')
+</code></pre></div></div>
+
+<p>The variable <code class="language-plaintext highlighter-rouge">response</code> is a <code class="language-plaintext highlighter-rouge">requests Response</code> object:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; type(response)
+&lt;class 'requests.models.Response'&gt;
+</code></pre></div></div>
+
+<p>You can review its methods using:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; dir(response)
+</code></pre></div></div>
+
+<p>These are some of the methods</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">response.headers</code>: Returns a dictionary</li>
+  <li><code class="language-plaintext highlighter-rouge">response.encoding</code>: ‘utf-8’</li>
+  <li><code class="language-plaintext highlighter-rouge">response.status_code</code>: 200</li>
+  <li><code class="language-plaintext highlighter-rouge">response.ok</code>: True</li>
+  <li><code class="language-plaintext highlighter-rouge">response.text</code>: Returns the content of the page</li>
+</ul>
+
+<p>Adding the method to <code class="language-plaintext highlighter-rouge">user.py</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import requests
+
+class User:
+
+    follow_rate = 1.2
+
+    def __init__(self, name, following, followers):
+        self.name = name
+        self.following = following
+        self.followers = followers
+
+    def get_user(self):
+        self.response = requests.get('https://twitter.com/{}'\
+                                     .format(self.name))
+        if self.response.ok:
+            return(self.response.headers)
+        else:
+            return('Bad Response')
+
+    def screen_name(self):
+        return('@{}'.format(self.name))
+
+    def auto_follow(self):
+        if self.following &lt; self.followers:
+            self.following = self.followers * self.follow_rate
+            return(self.following)
+    
+    def unfollow(self):
+        if self.following &gt; self.followers:
+            self.following = (self.following - self.followers)\
+                              * self.follow_rate
+            return(self.following)
+</code></pre></div></div>
+
+<p>To read the source code for <code class="language-plaintext highlighter-rouge">mock</code> go <a href="https://github.com/python/cpython/blob/3.7/Lib/unittest/mock.py" target="_blank">here</a>.</p>
+
+<p>These are some of the classes:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">class Mock(CallableMixin, NonCallableMock)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">class CallableMixin(Base)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">class NonCallableMock(Base)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">class Base(object)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">class MagicMock(MagicMixin, Mock)</code></li>
+  <li><code class="language-plaintext highlighter-rouge">class MagicMixin(object)</code></li>
+</ul>
+
+<p>The Mock Class:</p>
+
+<ul>
+  <li>Mocks are callable and create attributes.</li>
+  <li><code class="language-plaintext highlighter-rouge">MagicMock</code> is a subclass of <code class="language-plaintext highlighter-rouge">Mock</code> with implementations of most of the magic methods.</li>
+  <li>Python magic methods are special methods that you can define to add magic to your classes. Always enclosed in double underscore. For example: <code class="language-plaintext highlighter-rouge">__init__</code>. More details <a href="https://rszalski.github.io/magicmethods/" target="_blank">here</a>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">patch()</code> decorator is used to replace classes in a module with a <code class="language-plaintext highlighter-rouge">Mock</code> object. It will create a <code class="language-plaintext highlighter-rouge">MagicMock</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">return_value</code> is a <code class="language-plaintext highlighter-rouge">Mock</code> argument. It’s the value returned when the mock is called.</li>
+</ul>
+
+<p>I guess this is why we are using <code class="language-plaintext highlighter-rouge">patch</code> here:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from unittest.mock import patch
+</code></pre></div></div>
+
+<p>Since <code class="language-plaintext highlighter-rouge">patch()</code> creates a <code class="language-plaintext highlighter-rouge">MagicMock</code> and this one is a subclass of <code class="language-plaintext highlighter-rouge">Mock</code>. Get all the <code class="language-plaintext highlighter-rouge">Mock</code> details from the official docs <a href="https://docs.python.org/3/library/unittest.mock.html" target="_blank">here</a>.</p>
+
+<p>Add the test to <code class="language-plaintext highlighter-rouge">test_user.py</code>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">mocked_get</code> is a <code class="language-plaintext highlighter-rouge">Mock</code> object.</li>
+  <li><code class="language-plaintext highlighter-rouge">mocked_get.return_value</code> is the return value when <code class="language-plaintext highlighter-rouge">mocked_get</code> is called.</li>
+  <li><code class="language-plaintext highlighter-rouge">mocked_get.assert_called_with</code> is <code class="language-plaintext highlighter-rouge">Mock</code> method.</li>
+</ul>
+
+<p>Test a good response:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def test_get_user(self):
+    with patch('user.requests.get') as mocked_get:
+        mocked_get.return_value.ok = True
+        mocked_get.return_value.headers = "Success"
+
+        response = self.user1.get_user()
+        mocked_get.assert_called_with('https://twitter.com/{}'\
+                                       .format(self.user1.name))
+        self.assertEqual(response, "Success")
+</code></pre></div></div>
+
+<p>Test a bad response:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def test_get_user(self):
+    with patch('user.requests.get') as mocked_get:
+        mocked_get.return_value.ok = True
+        mocked_get.return_value.headers = "Success"
+
+        response = self.user1.get_user()
+        mocked_get.assert_called_with('https://twitter.com/{}'\
+                                       .format(self.user1.name))
+        self.assertEqual(response, "Success")
+
+        mocked_get.return_value.ok = False
+
+        response = self.user1.get_user()
+        mocked_get.assert_called_with('https://twitter.com/{}'\
+                                       .format(self.user1.name))
+        self.assertEqual(response, "Bad response")
+</code></pre></div></div>
+
+<p>Review all the code for <code class="language-plaintext highlighter-rouge">test_user.py</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import unittest
+from unittest.mock import patch
+from user import User
+
+class TestUser(unittest.TestCase):
+
+    def setUp(self):
+        self.user1 = User('homer', 100, 200)
+
+    def tearDown(self):
+        pass
+
+    def test_get_user(self):
+        with patch('user.requests.get') as mocked_get:
+            mocked_get.return_value.ok = True
+            mocked_get.return_value.headers = "Success"
+
+            response = self.user1.get_user()
+            mocked_get.assert_called_with('https://twitter.com/{}'\
+                                           .format(self.user1.name))
+            self.assertEqual(response, "Success")
+
+            mocked_get.return_value.ok = False
+
+            response = self.user1.get_user()
+            mocked_get.assert_called_with('https://twitter.com/{}'\
+                                           .format(self.user1.name))
+            self.assertEqual(response, "Bad response")
+
+    def test_screen_name(self):
+
+        self.assertIsInstance(self.user1.name, str)
+        self.assertIsInstance(self.user1.following, int)
+        self.assertIsInstance(self.user1.followers, int)
+        self.assertEqual(self.user1.screen_name(), '@homer')
+
+    def test_auto_follow(self):
+
+        self.assertEqual(self.user1.auto_follow(), self.user1.followers\
+                         * self.user1.follow_rate)
+
+    def test_unfollow(self):
+
+        self.assertEqual(self.user1.unfollow(), (self.user1.followers\
+                         - self.user1.following) * self.user1.follow_rate) 
+
+if __name__ == '__main__':
+    unittest.main()
+</code></pre></div></div>
+
+<p>I don’t fully understand <code class="language-plaintext highlighter-rouge">Mock</code> but here are more resources:</p>
+
+<ul>
+  <li>Get all the <code class="language-plaintext highlighter-rouge">Mock</code> details from the official docs <a href="https://docs.python.org/3/library/unittest.mock.html" target="_blank">here</a>.</li>
+</ul>
+
+  </div>
+
+  
+  <div>
+    <h3>Related Posts</h3>
+    <ul>
+    
+      <li><a href="/python-files-os-module/">Python, Files, and OS Module</a></li>
+    
+      <li><a href="/python-jupyter-notebook-linux/">Python Jupyter Notebook in Linux</a></li>
+    
+      <li><a href="/install-miniconda-linux/">Install Miniconda on Linux</a></li>
+    
+      <li><a href="/make-static-website-python-github-pages/">Make a Static Website with Python and Github Pages</a></li>
+    
+      <li><a href="/web-scraping-with-python/">Web Scraping with Python</a></li>
+    
+    </ul>
+  </div>
+  <a class="u-url" href="/python-unit-testing-tutorial/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Tom Ordonez</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">{&quot;name&quot;=&gt;&quot;Tom Ordonez&quot;}</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomordonez</span></a></li><li><a href="https://www.twitter.com/tomordonez"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomordonez</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>A blog about analytics, data science, software engineering, and other thoughts.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
