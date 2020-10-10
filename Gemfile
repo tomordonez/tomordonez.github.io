@@ -20,6 +20,10 @@ gem "kramdown", ">= 2.3.0"
 
 gem 'jekyll-tagging-related_posts'
 
+# https://www.yegor256.com/2014/06/24/jekyll-github-deploy.html
+# Jekyll Github Deploy
+gem 'jgd'
+
 group :jekyll_plugins do
     gem 'jekyll-feed', github: 'jekyll/jekyll-feed'
     gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'

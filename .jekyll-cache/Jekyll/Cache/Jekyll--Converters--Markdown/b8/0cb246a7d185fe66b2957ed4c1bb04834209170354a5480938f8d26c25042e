@@ -1,4 +1,4 @@
-I"�d<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
+I"!�<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
 
 <p>Sources:</p>
 <ul>
@@ -127,6 +127,19 @@ Use `bundle info [gemname]` to see where a bundled gem is installed.
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec jekyll serve
 </code></pre></div></div>
 
+<h2 id="more-about-github-pages">More about Github Pages</h2>
+
+<p>Official docs <a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/getting-started-with-github-pages">here</a>.</p>
+
+<p>A few important details:</p>
+
+<ul>
+  <li>There are three types of sites: project, user, and organization.</li>
+  <li>The default publishing source for project sites is the root of the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch. For user/org sites the default source might be <code class="language-plaintext highlighter-rouge">master</code>. Review below a section on setting up a user site with custom plugins with the gh-pages branch.</li>
+  <li>The site cannot be larger than 1GB.</li>
+  <li>Bandwidth limit of 100GB per month.</li>
+</ul>
+
 <h2 id="troubleshooting-dependency-errors">Troubleshooting dependency errors</h2>
 
 <p>When testing the site. For <code class="language-plaintext highlighter-rouge">jekyll-3.8.5</code> it says <code class="language-plaintext highlighter-rouge">warning: Using the last argument as keyword parameters is deprecated</code>.</p>
@@ -178,7 +191,7 @@ end
 
 <p>It has instructions on how to set your <code class="language-plaintext highlighter-rouge">_config.yml</code></p>
 
-<p>Mine looks kinda like this:</p>
+<p>Here is a template:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>title: Name and Title of My Blog
 email: 
@@ -193,7 +206,7 @@ permalink: /:title/
 # Build settings
 theme: minima
 minima:
-  skin: solarized #not seeing this skin yet
+  skin: solarized
 
 header_pages:
   - about.md
@@ -229,7 +242,7 @@ exclude:
   - Gemfile
 </code></pre></div></div>
 
-<h2 id="updating-the-default-theme-minima">Updating the default theme ‘minima’</h2>
+<h2 id="customizing-the-theme-minima">Customizing the theme ‘minima’</h2>
 
 <p>The default theme is installed as a gem and you won’t see the source files in your blog directory. To find the source files run this:</p>
 
@@ -274,9 +287,22 @@ Path: /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1
   <li>Edit the <code class="language-plaintext highlighter-rouge">/assets/main.scss</code> file.</li>
 </ul>
 
+<h2 id="using-seo">Using SEO</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">minima</code> theme comes with the plugin <code class="language-plaintext highlighter-rouge">jekyll-seo-tag</code> which is approved by Github Pages.</p>
+
+<p>Follow the <a href="https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md">usage docs</a> and <a href="https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/advanced-usage.md">advanced usage</a>.</p>
+
+<p>You can use the following in your post/page YAML header:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">title</code></li>
+  <li><code class="language-plaintext highlighter-rouge">description</code></li>
+</ul>
+
 <h2 id="using-a-different-theme">Using a different theme</h2>
 
-<p>I tried a theme that looked <a href="https://wowthemesnet.github.io/mundana-theme-jekyll/index.html">Medium</a></p>
+<p>I tried a theme that looked like <a href="https://wowthemesnet.github.io/mundana-theme-jekyll/index.html">Medium</a></p>
 
 <p>Instead of installing Jekyll as shown above, do the following:</p>
 
@@ -510,7 +536,7 @@ tags: [featured]
 
 <p>Read more in <a href="../python-files-os-module">Python, Files, and OS Module</a></p>
 
-<h2 id="related-posts">Related Posts</h2>
+<h2 id="setting-up-related-posts">Setting up Related Posts</h2>
 
 <p>I installed this plugin to show related posts at the bottom of each post. Github page <a href="https://github.com/toshimaru/jekyll-tagging-related_posts">here</a>.</p>
 
@@ -570,4 +596,181 @@ jekyll-tagging-1.1.0 [2017-03-07]:
 </code></pre></div></div>
 
 <p>Added the code to the post layout as shown in the documentation. Inserted this code after the blog post content and before my disqus code. Also reviewed all the tags from all blog posts to improve related posts.</p>
+
+<h2 id="deploying-related-posts-to-github-pages">Deploying Related Posts to Github Pages</h2>
+
+<p>Here is where it gets interesting. Github Pages does not allow custom plugins. As shown on the <a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages-and-jekyll#plugins">Github Pages docs</a>. Github Pages cannot build sites using unsupported plugins.</p>
+
+<p>Here is the list of approved plugins. Go to <a href="https://pages.github.com/versions/">dependency versions</a>.</p>
+
+<p>As shown in this blog post <a href="https://www.yegor256.com/2014/06/24/jekyll-github-deploy.html">Deploy Jekyll to Github Pages</a>. You can use a gem to setup deployment of Jekyll when you are using custom plugins.</p>
+
+<p>Here is the Github <a href="https://github.com/yegor256/jekyll-github-deploy/issues">issues</a> page for reference.</p>
+
+<h3 id="change-the-source-of-your-github-pages">Change the source of your Github Pages</h3>
+
+<ul>
+  <li>Go to your Github repo</li>
+  <li>Settings</li>
+  <li>Options</li>
+  <li>Scroll down to Github Pages</li>
+  <li>Source</li>
+  <li>Change your branch from <code class="language-plaintext highlighter-rouge">master</code> to <code class="language-plaintext highlighter-rouge">gh-pages</code>.</li>
+  <li>Save</li>
+</ul>
+
+<p>If you don’t have a <code class="language-plaintext highlighter-rouge">gh-pages</code> branch, do the following steps first, then try again.</p>
+
+<h3 id="update-your-gemfile">Update your Gemfile</h3>
+
+<p>Update your <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jgd'
+</code></pre></div></div>
+
+<p>Run <code class="language-plaintext highlighter-rouge">bundle</code> and the output was:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetching trollop 2.9.9
+Installing trollop 2.9.9
+Fetching jgd 1.12
+Installing jgd 1.12
+
+Post-install message from trollop:
+!    The 'trollop' gem has been deprecated and has been replaced by 'optimist'.
+!    See: https://rubygems.org/gems/optimist
+!    And: https://github.com/ManageIQ/optimist
+</code></pre></div></div>
+
+<p>Not exactly sure what <code class="language-plaintext highlighter-rouge">trollop</code> does so here is the <a href="https://www.manageiq.org/optimist/">doc</a>. Here is a tutorial about it: <a href="https://kundeveloper.com/blog/trollop/">writing a Ruby CLI using Trollop</a>.</p>
+
+<p>Deploy to Github Pages with this command in your blog root:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
+</code></pre></div></div>
+
+<p>At some point it will ask for your repo user/pwd.</p>
+
+<p>Some of the output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[DEPRECATION] This gem has been renamed to optimist 
+and will no longer be supported. Please switch to optimist 
+as soon as possible.
++ set -e
++ set -o pipefail
++ URL=https://github.com/...git
++ BRANCH=gh-pages
++ BRANCH_FROM=master
++ DEPLOY_CONFIG=_config-deploy.yml
++ BUNDLE=
++ DRAFTS=
+++ pwd
++ SRC=/home/.../blog
+++ mktemp -d -t jgd-XXX
++ TEMP=/tmp/jgd-NAn
++ trap 'rm -rf /tmp/jgd-NAn' EXIT
++ CLONE=/tmp/jgd-NAn/clone
++ COPY=/tmp/jgd-NAn/copy
++ echo -e 'Cloning Github repository:'
+
+Cloning Github repository:
++ git clone -b master https://github.com/... /tmp/jgd-NAn/clone
+
+Cloning into '/tmp/jgd-NAn/clone'...
+remote: Enumerating objects: 3025, done.   
+remote: Counting objects: 100% (3025/3025), done.                                     
+remote: Compressing objects: 100% (1920/1920), done.                                  
+remote: Total 3025 (delta 1272), 
+  reused 2692 (delta 954), pack-reused 0               
+Receiving objects: 100% (3025/3025), 31.22 MiB 
+  | 13.20 MiB/s, done.
+Resolving deltas: 100% (1272/1272), done.
++ cp -R /tmp/jgd-NAn/clone /tmp/jgd-NAn/copy
++ cd /tmp/jgd-NAn/clone
++ echo -e '\nBuilding Jekyll site:'
+
+Building Jekyll site:
++ rm -rf _site
++ '[' -r _config-deploy.yml ']'
++ jekyll build
+Configuration file: /tmp/jgd-NAn/clone/_config.yml
+            Source: /tmp/jgd-NAn/clone
+       Destination: /tmp/jgd-NAn/clone/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 1.67 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
++ '[' '!' -e _site ']'
++ cp -R _site /tmp/jgd-NAn
++ cd /tmp/jgd-NAn
++ rm -rf /tmp/jgd-NAn/clone
++ mv /tmp/jgd-NAn/copy /tmp/jgd-NAn/clone
++ cd /tmp/jgd-NAn/clone
++ echo -e '\nPreparing gh-pages branch:'
+
+Preparing gh-pages branch:
+++ git branch -a
+++ grep origin/gh-pages
++ '[' -z '' ']'
++ git checkout --orphan gh-pages
+
+Switched to a new branch 'gh-pages'
++ echo -e '\nDeploying into gh-pages branch:'
+
+Deploying into gh-pages branch:
++ rm -rf 404.md about.md assets CNAME _config.yml Gemfile 
+  Gemfile.lock _includes index.markdown _layouts _posts
++ cp -R /tmp/jgd-NAn/_site/404.html /tmp/jgd-NAn/_site/about.html
++ rm -f README.md
++ git add .
+++ date
++ git commit -am 'new version Thu 08 Oct 2020 
+  12:10:05 AM EDT' --allow-empty
+[gh-pages (root-commit) a36ecd2] new version 
+  Thu 08 Oct 2020 12:10:05 AM EDT
+ 819 files changed, 61268 insertions(+)
+ create mode 100644 .github/FUNDING.yml
+ create mode 100644 .gitignore
+ create mode 100644 .jekyll-cache/Jekyll/Cache/Jekyll--Cache/b7
+ ...
+
++ git push origin gh-pages
++ sed 's|https://github.com/...|[skipped]|g'
+remote: 
+remote: Create a pull request for 'gh-pages' on GitHub by visiting:        
+remote:      https://github.com/.../pull/new/gh-pages         
+remote: 
+To [skipped]
+ * [new branch]      gh-pages -&gt; gh-pages
++ echo -e '\nCleaning up:'
+
+Cleaning up:
++ rm -rf /tmp/jgd-NAn/clone
++ rm -rf ''
++ rm -rf /tmp/jgd-NAn
+</code></pre></div></div>
+
+<h2 id="jekyll-without-plugins">Jekyll without Plugins</h2>
+
+<p>An alternative option to using custom plugins restricted by Jekyll is by not using plugins at all.</p>
+
+<p>Here is a list of features to use <a href="https://jekyllcodex.org/without-plugins/">Jekyll without plugins</a>.</p>
+
+<h3 id="reading-time">Reading Time</h3>
+
+<p>Similar to Medium you can show the time it will take to read the blog post.</p>
+
+<p>Here is the documentation to <a href="https://jekyllcodex.org/without-plugin/reading-time-indicator/#">reading time</a></p>
+
+<p>Create the file <code class="language-plaintext highlighter-rouge">reading-time.html</code> in your <code class="language-plaintext highlighter-rouge">_includes</code> and add the code shown on the doc.</p>
+
+<p>Go to your <code class="language-plaintext highlighter-rouge">_layouts/post.html</code> and include the <code class="language-plaintext highlighter-rouge">reading-time.html</code> line within the <code class="language-plaintext highlighter-rouge">header</code> tag, before the closing paragraph. You can test to see if it shows correctly on your blog post such as <code class="language-plaintext highlighter-rouge">Aug 29, 2020 • tom • 3 min read</code>.</p>
+
+<p>Deploy the source to <code class="language-plaintext highlighter-rouge">master</code> and the static pages to <code class="language-plaintext highlighter-rouge">gh-pages</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add .
+$ git commit -m "Added reading time"
+$ git push -u origin master
+</code></pre></div></div>
+
 :ET
