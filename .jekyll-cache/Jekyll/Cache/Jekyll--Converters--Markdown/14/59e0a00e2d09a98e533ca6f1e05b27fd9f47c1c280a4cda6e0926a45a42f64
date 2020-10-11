@@ -1,0 +1,9 @@
+I"<p>When I open a file and I am done with it. I often want to go back to the previous directory. I usually do a <code class="language-plaintext highlighter-rouge">:w</code> and then <code class="language-plaintext highlighter-rouge">:q</code>.</p>
+
+<h2 id="vim-command-to-go-to-the-previous-directory">Vim Command to Go to the Previous Directory</h2>
+
+<p>If you want to go to the previous directory do</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:Ex
+</code></pre></div></div>
+:ET

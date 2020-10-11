@@ -1,0 +1,144 @@
+I"<p>I am studying the Google Cloud Platform. I’d like to take the Associate Cloud Engineer certificate in a few months.</p>
+
+<p>I heard about Docker for a while but never used it. Long story short. Goodbye Virtualbox.</p>
+
+<h2 id="create-a-vm-instance">Create a VM instance</h2>
+
+<ul>
+  <li>Open a GCP account. Free trial has $300 credit to be used in 90 days</li>
+  <li>Create a project <code class="language-plaintext highlighter-rouge">awesome-proj</code> (top left, next to GCP logo)</li>
+  <li>Switch to this project (if your default project is something else)</li>
+  <li>Add a VM instance (Search type <code class="language-plaintext highlighter-rouge">VM</code>. Click <code class="language-plaintext highlighter-rouge">Add a VM instance</code>)</li>
+  <li>Instance Name: <code class="language-plaintext highlighter-rouge">awesome-vm</code></li>
+  <li>Right sidebar says “You have $300 free trial credits. $24.67 monthly estimate”</li>
+  <li>Labels: (nothing)</li>
+  <li>Region: leave default</li>
+  <li>Machine configuration Series: <code class="language-plaintext highlighter-rouge">N1</code> (default)</li>
+  <li>Machine configuration Machine type: Change to <code class="language-plaintext highlighter-rouge">n1-standard-2: 2vCPU, 7.5GB memory</code> if you wish to run big data tutorials (the recommended/default option was <code class="language-plaintext highlighter-rouge">n1-standard-1: 1vCPU, 3.75GB memory</code>)</li>
+  <li>Sidebar price changed from $24.67 monthly estimate to $48.95</li>
+  <li>Container (checkbox): (nothing)</li>
+  <li>Boot disk: <code class="language-plaintext highlighter-rouge">Debian GNU/Linux 9</code> (default)</li>
+  <li>Leave everything else default</li>
+  <li>Click Create</li>
+  <li>Check that the instance is created (green check mark)</li>
+</ul>
+
+<h2 id="connect-to-the-instance">Connect to the instance</h2>
+
+<p>(using ssh on browser)</p>
+
+<ul>
+  <li>Go to Google Cloud Platform logo. This shows the Project dashboard</li>
+  <li>Go to Resources. Click on Compute Engine &gt; 1 instance</li>
+  <li>The VM instance is listed. Click on SSH</li>
+  <li>A popup says <code class="language-plaintext highlighter-rouge">Connecting. Transferring SSH keys to the VM.</code></li>
+  <li>It opens SSH on browser</li>
+  <li>Use the top right icons to customize the shell, upload/download files, customize copy/paste</li>
+</ul>
+
+<p><strong>Update the instance</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get update
+</code></pre></div></div>
+
+<h2 id="install-docker">Install Docker</h2>
+
+<p>Docker install details <a href="https://docs.docker.com/engine/install/debian/">here</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+$ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+$ sudo apt-key fingerprint 0EBFCD88
+$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+$ sudo apt-get update
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+</code></pre></div></div>
+
+<p><strong>Check the install</strong>
+(Need to use sudo to run docker commands)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo service docker status
+$ sudo docker run hello-world
+$ sudo docker images
+</code></pre></div></div>
+
+<h2 id="sunlab-docker">Sunlab Docker</h2>
+
+<p>This is an example of a container setup for Big Data.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker run -it --privileged=true --cap-add=SYS_ADMIN -m 6144m -h bootcamp.local --name bigbox -p 2222:22 -p 9530:9530 -p 8888:8888 -v /:/mnt/host sunlab/bigbox:latest /bin/bash
+</code></pre></div></div>
+
+<h2 id="playing-with-docker">Playing with Docker</h2>
+
+<p>The terminal prompt now is root:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@bootcamp /]# whoami
+root
+
+[root@bootcamp /]# ls
+anaconda-post.log  bigdata-bootcamp  bin  data  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  scripts  srv  sys  tini  tmp  usr  var
+</code></pre></div></div>
+
+<p>Detach the instance (keyboard shortcut one after the other fast)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + p, ctrl + q
+</code></pre></div></div>
+
+<p>Reattach the instance…</p>
+
+<p>Why can’t I find the shell? mmm right. It’s SSH on the browser.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker ps -a
+</code></pre></div></div>
+
+<p>Attach the instance:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo docker attach bigbox
+
+[root@bootcamp /]# ls
+anaconda-post.log  bigdata-bootcamp  bin  data  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  scripts  srv  sys  tini  tmp  usr  var
+</code></pre></div></div>
+
+<p><strong>Start Services</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[root@bootcamp /]# /scripts/start-services.sh
+</code></pre></div></div>
+
+<p>Some of the output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Starting zookeeper ... STARTED
+Started Hadoop proxyserver
+Started Hadoop namenode
+Started Hadoop datanode (hadoop-hdfs-datanode)
+Started Hadoop resourcemanager
+Started Hadoop historyserver
+Started Hadoop nodemanager
+Starting Spark worker (spark-worker)
+Starting Spark master (spark-master)
+Started HBase master daemon (hbase-master)
+Started HBase thrift daemon (hbase-thrift)
+</code></pre></div></div>
+
+<h2 id="editing-files">Editing files</h2>
+
+<p>I read that you don’t have to install an editor in the Docker container. Here are two options:</p>
+<ul>
+  <li>Edit the file locally, copy to VM instance, copy from host to Docker container</li>
+  <li>Edit the file in the VM instance with Vim, copy from host to Docker container.</li>
+</ul>
+
+<p>Edit file locally</p>
+
+<ul>
+  <li>Edit your file: awesome-file</li>
+  <li>Detach the instance (if attached): <code class="language-plaintext highlighter-rouge">ctrl+p, ctrl+q</code></li>
+  <li>Copy to VM instance using SSH on browser, top right wheel icon, Upload file</li>
+  <li>Copy file from host to container: <code class="language-plaintext highlighter-rouge">sudo docker cp awesome-file bigbox:/bigdata-bootcamp/sample/hadoop/</code></li>
+</ul>
+
+<p>Edit file in the VM instance</p>
+<ul>
+  <li>Edit your file with Vim (if you dare to)</li>
+  <li>Follow same process to copy from host to docker.</li>
+</ul>
+:ET

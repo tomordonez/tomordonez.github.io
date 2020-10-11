@@ -1,0 +1,48 @@
+I"ê<p>Update conda</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda update conda
+</code></pre></div></div>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">yml</code> file, use a name and dependencies. Example:</p>
+
+<p>File: <code class="language-plaintext highlighter-rouge">env_py_3.7.6.yml</code></p>
+
+<p>Contents of this file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name: awesome_name
+dependencies:
+- python=3.7.6
+- jupyter
+</code></pre></div></div>
+
+<p>Create the environment using this file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda env create --file env_py_3.7.6.yml
+$ conda activate awesome_name
+</code></pre></div></div>
+
+<p>Check Python version</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ which python
+$ python -V
+</code></pre></div></div>
+
+<p>Run Jupyter Notebook:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jupyter notebook
+</code></pre></div></div>
+
+<p>If this doesn‚Äôt work. Try it like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jupyter notebook --ip=127.0.0.1
+</code></pre></div></div>
+
+<h2 id="cell-timer-for-jupyter-notebook">Cell timer for Jupyter notebook</h2>
+
+<p>As seen <a href="https://stackoverflow.com/questions/32565829/simple-way-to-measure-cell-execution-time-in-ipython-notebook/50384459#50384459">here</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip install jupyter_contrib_nbextensions
+$ jupyter contrib nbextension install --user
+$ jupyter nbextension enable execute_time/ExecuteTime
+</code></pre></div></div>
+:ET

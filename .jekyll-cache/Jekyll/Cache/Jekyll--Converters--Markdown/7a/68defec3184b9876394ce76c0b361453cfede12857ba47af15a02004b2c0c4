@@ -1,0 +1,137 @@
+I"#<p>Tutorial for installing an additional second hard drive in Ubuntu.</p>
+
+<p>I got a refurbished Thinkpad T430 for very cheap. It came with 250GB SSD but wanted to upgrade it 500GB.</p>
+
+<p>I got a 500GB SSD.</p>
+
+<p>When I got the computer and opened the hard drive panel I noticed that it was empty. I thought that maybe I got scammed.</p>
+
+<p>After much head banging I learned that the hard drive was stored on the RAM panel. I first thought was a mini wireless card. But reading the label it said “256 GB”. Uh? I learned it was an “mSATA SSD”.</p>
+
+<p>I couldn’t fit the new SSD in the hard drive panel cause it was missing the tray.</p>
+
+<p>I installed Ubuntu on the current drive.</p>
+
+<p>Then I got a “Caddy” adapter that replaces the DVD drive with a way to insert another hard drive. That was pretty easy to install.</p>
+
+<p>Now you need to configure the hard drive.</p>
+
+<p>I followed this <a href="https://help.ubuntu.com/community/InstallingANewHardDrive" target="_blank">tutorial</a> from the Ubuntu docs. Although it has a section that is outdated.</p>
+
+<h2 id="find-the-logical-name-of-the-new-drive">Find the logical name of the new drive</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo lshw -C disk
+</code></pre></div></div>
+
+<p>This means: <code class="language-plaintext highlighter-rouge">lshw</code> List hardware. <code class="language-plaintext highlighter-rouge">-C</code> with Class of type <code class="language-plaintext highlighter-rouge">disk</code>.</p>
+
+<p>I identified the new disk because it said <code class="language-plaintext highlighter-rouge">product: Crucial</code>. Which is the brand I got. The size was <code class="language-plaintext highlighter-rouge">525GB</code>. And it didn’t say “partitioned”, while the other one said <code class="language-plaintext highlighter-rouge">capabilities: partitioned</code>.</p>
+
+<p>The logical drive of the new SSD was <code class="language-plaintext highlighter-rouge">/dev/sda</code></p>
+
+<h2 id="partition-the-disk-using-gparted">Partition the disk using GParted</h2>
+
+<p>I started the process using the Terminal instructions. But got confused half way. I closed that and I decided to use the GUI. Then it took 5 seconds.</p>
+
+<p>The tool should be under <code class="language-plaintext highlighter-rouge">Applications/System Tools/Administration</code></p>
+
+<p>In my case it wasn’t there so I installed it with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt install gparted
+</code></pre></div></div>
+
+<p>After installing. I opened the tool and it asked for the root password.</p>
+
+<p>When the program opens. There is a drop down to select the drive you want. I chose the new drive.</p>
+
+<p>In my case it was <code class="language-plaintext highlighter-rouge">/dev/sda</code></p>
+
+<h2 id="create-a-partition-table">Create a partition table</h2>
+
+<p>Go to Device/Create Partition Table</p>
+
+<p>Select <code class="language-plaintext highlighter-rouge">msdos</code>.</p>
+
+<p>Then I clicked on the green check mark to apply.</p>
+
+<h2 id="create-a-partition">Create a partition</h2>
+
+<p>Then I right clicked on the white rectangle that said my drive name.</p>
+
+<p>Selected: New
+Chose: Primary Partition.</p>
+
+<p>Filesystem: ext4
+Add.</p>
+
+<p>Green check mark to apply.</p>
+
+<h2 id="change-the-label-of-the-drive">Change the label of the drive</h2>
+
+<p>When I completed the process I realized that under “Places” my drive was listed as “525 GB blabla”. Kind of boring name.</p>
+
+<p>I right clicked on the white rectangle again and hit “Label File System”. I entered an awesome name that I could remember.</p>
+
+<h2 id="create-a-mount-point">Create a mount point</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mkdir /media/name_of_new_drive
+</code></pre></div></div>
+
+<p>For the <code class="language-plaintext highlighter-rouge">name_of_new_drive</code> I used the same name as the “label name”.</p>
+
+<p>Now you need to find the <code class="language-plaintext highlighter-rouge">UUID</code> of the new drive as mentioned <a href="https://help.ubuntu.com/community/UsingUUID" target="_blank">here</a>. UUID means “Universal Unique Identifier”.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo blkid
+</code></pre></div></div>
+
+<p>It says that <code class="language-plaintext highlighter-rouge">blkid</code> is used to “locate device attributes”.</p>
+
+<p>The result was something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/dev/sdb1: UUID="bunch of numbers with letters here" TYPE="ext4" PARTUUID="some other number here"
+/dev/sdb5: UUID="another bunch of numbers" TYPE="swap" PARTUUID="other number here"
+/dev/sda1: LABEL="awesome name I chose" UUID="number I need" TYPE="ext4" PARTUUID="number here"
+</code></pre></div></div>
+
+<p>Now you need to edit the file <code class="language-plaintext highlighter-rouge">fstab</code> like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano -Bw /etc/fstab
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">-B</code> is used to create a backup of the file under <code class="language-plaintext highlighter-rouge">/etc/fstab~</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">w</code> is used to disable wrap of long lines.</p>
+
+<p>Then I added this line to the end of the file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UUID="number I needed from above" /media/name_of_new_drive ext4 defaults 0 2
+</code></pre></div></div>
+
+<p>For <code class="language-plaintext highlighter-rouge">UUID</code> above you don’t need to put the quotes.</p>
+
+<p>Then quit the file with <code class="language-plaintext highlighter-rouge">Ctrl X</code>. It will ask if you want to save. Enter Yes.</p>
+
+<h2 id="mount-all-disks">Mount all disks</h2>
+
+<p>The new disk should be mounted but just in case:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mount -a
+</code></pre></div></div>
+
+<h2 id="restart-and-update-the-bios">Restart and Update the BIOS</h2>
+
+<p>I restarted and realized that it wouldn’t boot. I flipped out. I just enabled the Virtualization settings so I thought that probably I broke something.</p>
+
+<p>I thought if it was booting from the 2nd hard drive and that was it.</p>
+
+<p>Change the BIOS and make sure the sequence order starts with your main drive. Otherwise it won’t boot.</p>
+
+<h2 id="last-observation">Last observation</h2>
+
+<p>Inside the <code class="language-plaintext highlighter-rouge">fstab</code> I noticed the following on my main SSD:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>errors=remount-ro
+</code></pre></div></div>
+
+<p>Not sure what that is.</p>
+:ET

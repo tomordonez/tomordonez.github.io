@@ -1,0 +1,8 @@
+I"€<p>file: Use this format to name the file YYYY-MM-DD-title.md
+title: Update the Title
+Categories options: Data Analytics, Code, Linux, Mobile, Recruiting
+tags: Any keyword
+image: Choose from 1.jpg to 12.jpg (Not currently used)
+Add images with: <img src="{{ site.baseurl }}/assets/images/add_image.jpg" alt="Image Name" />
+Add local URL with: <a href="../local-url">Local URL</a></p>
+:ET

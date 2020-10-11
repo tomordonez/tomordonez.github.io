@@ -30,6 +30,28 @@ ul, ol {
 	padding-top: 5px;
 }
 
+.search input {
+    height: 30px;
+    width: 60%;
+    padding-left: 10px;
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.pagination {
+	display: flex;
+}
+.previous, a.previous {
+	flex: 1;
+}
+.page_number {
+	flex: 1;
+}
+next, a.next {
+	flex: 1;
+}
+
 @media screen and (max-width: 800px) {
 	.post-title {
 		line-height: 1.2;

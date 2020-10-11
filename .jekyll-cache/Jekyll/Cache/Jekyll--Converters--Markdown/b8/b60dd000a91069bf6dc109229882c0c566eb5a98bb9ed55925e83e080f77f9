@@ -1,4 +1,4 @@
-I"!�<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
+I"Ο<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
 
 <p>Sources:</p>
 <ul>
@@ -340,7 +340,7 @@ tags: [some tags here]
 
 file: YYYY-MM-DD-title.md (or it won't show up)
 title: Don't forget to update this
-Add images with: ![Image Name]({{ site.baseurl }}/assets/images/add_image.jpg)
+{%raw%}Add images with: ![Image Name]({{ site.baseurl }}/assets/images/add_image.jpg){%endraw%}
 Add local URL with: [Local URL](../local-url)
 </code></pre></div></div>
 
@@ -531,7 +531,9 @@ tags: [featured]
 
 <p>Also the blog posts used this syntax to insert images in the content <code class="language-plaintext highlighter-rouge">{static}/images/</code> while Jekyll uses:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{ {site.baseurl} }/assets/images/
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% raw %}
+{ {site.baseurl} }/assets/images/
+{% endraw %}
 </code></pre></div></div>
 
 <p>Read more in <a href="../python-files-os-module">Python, Files, and OS Module</a></p>
@@ -750,6 +752,55 @@ Cleaning up:
 + rm -rf /tmp/jgd-NAn
 </code></pre></div></div>
 
+<h2 id="pagination">Pagination</h2>
+
+<p>Jekyll comes with a default plugin <code class="language-plaintext highlighter-rouge">jekyll-paginate</code> that you can set by adding the line <code class="language-plaintext highlighter-rouge">paginate: 5</code> to <code class="language-plaintext highlighter-rouge">_config.yml</code>. This is the Jekyll <a href="https://jekyllrb.com/docs/pagination/">doc</a>.</p>
+
+<p>Go to <code class="language-plaintext highlighter-rouge">_config.yml</code> and make sure this line is under <code class="language-plaintext highlighter-rouge">plugins</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
+  - jekyll-paginate
+</code></pre></div></div>
+
+<p>Then add another line (outside of plugins):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>paginate: 5
+</code></pre></div></div>
+
+<p>If your theme’s index is <code class="language-plaintext highlighter-rouge">index.markdown</code>, change it to <code class="language-plaintext highlighter-rouge">index.html</code> or you will get this error:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pagination: Pagination is enabled, but I couldn't find an index.html
+page to use as the pagination template. Skipping pagination.
+</code></pre></div></div>
+
+<p>Update your <code class="language-plaintext highlighter-rouge">_layouts/home.html</code>. Change this line, from this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for post in site.posts
+</code></pre></div></div>
+
+<p>To this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for post in paginator.posts
+</code></pre></div></div>
+
+<p>For pagination links, add the code as shown on <a href="https://jekyllrb.com/docs/pagination/#render-the-paginated-posts">Jekyll’s Render the paginated posts</a>. Before the closing <code class="language-plaintext highlighter-rouge">endif</code> of <code class="language-plaintext highlighter-rouge">if site.posts.size &gt; 0</code>.</p>
+
+<p>You can center the CSS of pagination in <code class="language-plaintext highlighter-rouge">assets/main.scss</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.pagination {
+	display: flex;
+}
+.previous, a.previous {
+	flex: 1;
+}
+.page_number {
+	flex: 1;
+}
+next, a.next {
+	flex: 1;
+}
+</code></pre></div></div>
+
 <h2 id="jekyll-without-plugins">Jekyll without Plugins</h2>
 
 <p>An alternative option to using custom plugins restricted by Jekyll is by not using plugins at all.</p>
@@ -766,11 +817,62 @@ Cleaning up:
 
 <p>Go to your <code class="language-plaintext highlighter-rouge">_layouts/post.html</code> and include the <code class="language-plaintext highlighter-rouge">reading-time.html</code> line within the <code class="language-plaintext highlighter-rouge">header</code> tag, before the closing paragraph. You can test to see if it shows correctly on your blog post such as <code class="language-plaintext highlighter-rouge">Aug 29, 2020 • tom • 3 min read</code>.</p>
 
-<p>Deploy the source to <code class="language-plaintext highlighter-rouge">master</code> and the static pages to <code class="language-plaintext highlighter-rouge">gh-pages</code></p>
+<p>Deploy the source to <code class="language-plaintext highlighter-rouge">master</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add .
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll build
+$ git add .
 $ git commit -m "Added reading time"
 $ git push -u origin master
+</code></pre></div></div>
+
+<p>If you installed the <code class="language-plaintext highlighter-rouge">jgd</code> gem, then deploy static pages to the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
+</code></pre></div></div>
+
+<h3 id="search-box">Search Box</h3>
+
+<p>Here is the documentation to <a href="https://jekyllcodex.org/without-plugin/search-lunr/#">Search with Lunr.js</a></p>
+
+<p>Save the file <code class="language-plaintext highlighter-rouge">search-lunr.html</code> in <code class="language-plaintext highlighter-rouge">_includes</code>. In this file, you can exclude the types of documents to search. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if page.url contains '.xml' or page.url contains 'assets' or page.url contains '.json' or page.url contains 'about.html'
+</code></pre></div></div>
+
+<p>Download the file <code class="language-plaintext highlighter-rouge">lunr.js</code> into your <code class="language-plaintext highlighter-rouge">js</code> folder, then make sure that <code class="language-plaintext highlighter-rouge">search-lunr.html</code> indicates the correct location of the file. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>src="/assets/js/lunr.js"
+</code></pre></div></div>
+
+<p>I copied the <code class="language-plaintext highlighter-rouge">default.html</code> layout file from my Gem location to the <code class="language-plaintext highlighter-rouge">_layouts</code> directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/default.html _layouts/
+</code></pre></div></div>
+
+<p>Inside the <code class="language-plaintext highlighter-rouge">default.html</code> layout page, include the <code class="language-plaintext highlighter-rouge">search-lunr.html</code> as indicated in the docs inside curly percentage brackets. Add this in the <code class="language-plaintext highlighter-rouge">main</code> class, before the <code class="language-plaintext highlighter-rouge">content</code> tag.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include search-lunr.html
+</code></pre></div></div>
+
+<p>Customize the CSS for the search box. At the bottom of <code class="language-plaintext highlighter-rouge">search-lunr.html</code> there is code with the form. You can wrap this in a class:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="search"&gt;
+    &lt;form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);"&gt;
+        &lt;p&gt;&lt;input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Search" /&gt;&lt;/p&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+</code></pre></div></div>
+
+<p>Then in <code class="language-plaintext highlighter-rouge">assets/main.scss</code> you can try something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.search input {
+    height: 30px;
+    width: 60%;
+    padding-left: 10px;
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    font-size: 16px;
+}
 </code></pre></div></div>
 
 :ET

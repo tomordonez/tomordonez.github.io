@@ -29,29 +29,15 @@ github_username:  tomordonez
 permalink: /:title/
 
 
-# Build settings
 theme: minima
 minima:
     skin: solarized
-
-header_pages:
-  - about.md
-
-disqus:
-    shortname: tomordonez-com
-
-author:
-  name: Tom Ordonez
-
-show_excerpts: true
 
 minima:
   social_links:
     twitter: tomordonez
     github: tomordonez
     linkedin: tomordonez
-
-google_analytics: UA-56050409-28
 
 plugins:
   - jekyll-feed
@@ -62,6 +48,21 @@ plugins:
   - jekyll-redirect-from
   - jekyll/tagging
   - jekyll-tagging-related_posts
+
+header_pages:
+  - about.md
+
+paginate: 5
+
+author:
+  name: Tom Ordonez
+
+show_excerpts: true
+
+disqus:
+    shortname: tomordonez-com
+
+google_analytics: UA-56050409-28
 
 # Exclude from processing.
 # The following items will not be processed, by default.
