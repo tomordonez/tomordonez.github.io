@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-10-10T15:48:44-04:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-10-11T12:17:27-04:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
 
 &lt;p&gt;My development laptop runs on Linux Fedora, 8GB RAM, and just 64GB of disk. No way to run an iPhone simulator. I had Android installed but it was taking way too much space.&lt;/p&gt;
 
@@ -1537,6 +1537,55 @@ Cleaning up:
 + rm -rf /tmp/jgd-NAn
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;h2 id=&quot;pagination&quot;&gt;Pagination&lt;/h2&gt;
+
+&lt;p&gt;Jekyll comes with a default plugin &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-paginate&lt;/code&gt; that you can set by adding the line &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;paginate: 5&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;. This is the Jekyll &lt;a href=&quot;https://jekyllrb.com/docs/pagination/&quot;&gt;doc&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Go to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; and make sure this line is under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plugins&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;plugins:
+  - jekyll-paginate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then add another line (outside of plugins):&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;paginate: 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If your theme’s index is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.markdown&lt;/code&gt;, change it to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.html&lt;/code&gt; or you will get this error:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Pagination: Pagination is enabled, but I couldn't find an index.html
+page to use as the pagination template. Skipping pagination.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Update your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/home.html&lt;/code&gt;. Change this line, from this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for post in site.posts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for post in paginator.posts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For pagination links, add the code as shown on &lt;a href=&quot;https://jekyllrb.com/docs/pagination/#render-the-paginated-posts&quot;&gt;Jekyll’s Render the paginated posts&lt;/a&gt;. Before the closing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;endif&lt;/code&gt; of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if site.posts.size &amp;gt; 0&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can center the CSS of pagination in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/main.scss&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.pagination {
+	display: flex;
+}
+.previous, a.previous {
+	flex: 1;
+}
+.page_number {
+	flex: 1;
+}
+next, a.next {
+	flex: 1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;h2 id=&quot;jekyll-without-plugins&quot;&gt;Jekyll without Plugins&lt;/h2&gt;
 
 &lt;p&gt;An alternative option to using custom plugins restricted by Jekyll is by not using plugins at all.&lt;/p&gt;
@@ -1564,6 +1613,51 @@ $ git push -u origin master
 &lt;p&gt;If you installed the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jgd&lt;/code&gt; gem, then deploy static pages to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jgd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;search-box&quot;&gt;Search Box&lt;/h3&gt;
+
+&lt;p&gt;Here is the documentation to &lt;a href=&quot;https://jekyllcodex.org/without-plugin/search-lunr/#&quot;&gt;Search with Lunr.js&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Save the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;search-lunr.html&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes&lt;/code&gt;. In this file, you can exclude the types of documents to search. For example:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if page.url contains '.xml' or page.url contains 'assets' or page.url contains '.json' or page.url contains 'about.html'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Download the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lunr.js&lt;/code&gt; into your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;js&lt;/code&gt; folder, then make sure that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;search-lunr.html&lt;/code&gt; indicates the correct location of the file. For example:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;src=&quot;/assets/js/lunr.js&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I copied the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;default.html&lt;/code&gt; layout file from my Gem location to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; directory:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/default.html _layouts/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Inside the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;default.html&lt;/code&gt; layout page, include the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;search-lunr.html&lt;/code&gt; as indicated in the docs inside curly percentage brackets. Add this in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; class, before the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;content&lt;/code&gt; tag.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;include search-lunr.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Customize the CSS for the search box. At the bottom of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;search-lunr.html&lt;/code&gt; there is code with the form. You can wrap this in a class:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div class=&quot;search&quot;&amp;gt;
+    &amp;lt;form onSubmit=&quot;return lunr_search(document.getElementById('lunrsearch').value);&quot;&amp;gt;
+        &amp;lt;p&amp;gt;&amp;lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;lunrsearch&quot; name=&quot;q&quot; maxlength=&quot;255&quot; value=&quot;&quot; placeholder=&quot;Search&quot; /&amp;gt;&amp;lt;/p&amp;gt;
+    &amp;lt;/form&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/main.scss&lt;/code&gt; you can try something like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.search input {
+    height: 30px;
+    width: 60%;
+    padding-left: 10px;
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    font-size: 16px;
+}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">I moved from the Pelican Python static website generator. This is a step by step tutorial to build a static website with Jekyll and Github Pages.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Python, Files, and OS Module</title><link href="https://www.tomordonez.com/python-files-os-module/" rel="alternate" type="text/html" title="Python, Files, and OS Module" /><published>2020-05-24T00:00:00-04:00</published><updated>2020-05-24T00:00:00-04:00</updated><id>https://www.tomordonez.com/python-files-os-module</id><content type="html" xml:base="https://www.tomordonez.com/python-files-os-module/">&lt;p&gt;Migrating from one static website to another, I had to rename multiple files, extract some content, remove it, and do other operations.&lt;/p&gt;
 
 &lt;p&gt;For about 100 blog posts I had to rename the files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;title.md&lt;/code&gt; to the format &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-title.md&lt;/code&gt;.&lt;/p&gt;
