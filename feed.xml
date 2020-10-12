@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-10-12T10:18:31-04:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-10-12T10:51:50-04:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
 
 &lt;p&gt;My development laptop runs on Linux Fedora, 8GB RAM, and just 64GB of disk. No way to run an iPhone simulator. I had Android installed but it was taking way too much space.&lt;/p&gt;
 
@@ -1799,6 +1799,29 @@ and here
 &lt;p&gt;Add this to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/default.html&lt;/code&gt; before the closing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;body&lt;/code&gt; tag.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% include new-window-fix.html %}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;add-external-site-to-menu&quot;&gt;Add external site to menu&lt;/h2&gt;
+
+&lt;p&gt;There isn’t a clear way to add an external link to the menu as discussed on &lt;a href=&quot;https://github.com/jekyll/minima/issues/207&quot;&gt;navigation external links&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This &lt;a href=&quot;https://github.com/jekyll/minima/issues/207#issuecomment-377095111&quot;&gt;comment&lt;/a&gt; shows a quick fix to add the external link to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/header.html&lt;/code&gt;. I added a link to my Linkedin profile as shown:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div class=&quot;trigger&quot;&amp;gt;
+  {%- for path in page_paths -%}
+    {%- assign my_page = site.pages | where: &quot;path&quot;, path | first -%}
+    {%- if my_page.title -%}
+    &amp;lt;a class=&quot;page-link&quot; href=&quot;{{ my_page.url | relative_url }}&quot;&amp;gt;{{ my_page.title | escape }}&amp;lt;/a&amp;gt;
+    &amp;lt;a class=&quot;page-link&quot; href=&quot;https://www.linkedin.com/in/tomordonez/&quot;&amp;gt;Linkedin&amp;lt;/a&amp;gt;
+    {%- endif -%}
+  {%- endfor -%}
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;header_pages&lt;/code&gt; has to be enabled in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; for the menu to show. I have an about page here:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;header_pages:
+  - about.md
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">I moved from the Pelican Python static website generator. This is a step by step tutorial to build a static website with Jekyll and Github Pages.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Python, Files, and OS Module</title><link href="https://www.tomordonez.com/python-files-os-module/" rel="alternate" type="text/html" title="Python, Files, and OS Module" /><published>2020-05-24T00:00:00-04:00</published><updated>2020-05-24T00:00:00-04:00</updated><id>https://www.tomordonez.com/python-files-os-module</id><content type="html" xml:base="https://www.tomordonez.com/python-files-os-module/">&lt;p&gt;Migrating from one static website to another, I had to rename multiple files, extract some content, remove it, and do other operations.&lt;/p&gt;
 
 &lt;p&gt;For about 100 blog posts I had to rename the files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;title.md&lt;/code&gt; to the format &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-title.md&lt;/code&gt;.&lt;/p&gt;
