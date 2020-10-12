@@ -1,4 +1,4 @@
-I"˹<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
+I"h�<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
 
 <p>Sources:</p>
 <ul>
@@ -1014,4 +1014,26 @@ and here
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% include new-window-fix.html %}
 </code></pre></div></div>
 
+<h2 id="add-external-site-to-menu">Add external site to menu</h2>
+
+<p>There isn’t a clear way to add an external link to the menu as discussed on <a href="https://github.com/jekyll/minima/issues/207">navigation external links</a>.</p>
+
+<p>This <a href="https://github.com/jekyll/minima/issues/207#issuecomment-377095111">comment</a> shows a quick fix to add the external link to <code class="language-plaintext highlighter-rouge">_includes/header.html</code>. I added a link to my Linkedin profile as shown:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="trigger"&gt;
+  {%- for path in page_paths -%}
+    {%- assign my_page = site.pages | where: "path", path | first -%}
+    {%- if my_page.title -%}
+    &lt;a class="page-link" href="{{ my_page.url | relative_url }}"&gt;{{ my_page.title | escape }}&lt;/a&gt;
+    &lt;a class="page-link" href="https://www.linkedin.com/in/tomordonez/"&gt;Linkedin&lt;/a&gt;
+    {%- endif -%}
+  {%- endfor -%}
+&lt;/div&gt;
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">header_pages</code> has to be enabled in <code class="language-plaintext highlighter-rouge">_config.yml</code> for the menu to show. I have an about page here:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>header_pages:
+  - about.md
+</code></pre></div></div>
 :ET
