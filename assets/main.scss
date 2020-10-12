@@ -52,6 +52,11 @@ next, a.next {
 	flex: 1;
 }
 
+details {
+	padding-bottom: 20px;
+	color: grey;
+}
+
 @media screen and (max-width: 800px) {
 	.post-title {
 		line-height: 1.2;

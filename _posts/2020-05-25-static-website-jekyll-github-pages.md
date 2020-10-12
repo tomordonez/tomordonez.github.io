@@ -82,6 +82,15 @@ Run the blog:
 
 Open `http://localhost:4000` and Ctrl+C to stop
 
+## Jekyll and Markdown
+
+Jekyll uses Kramdown. Github Pages uses a customized `CommonMark` markdown.
+
+* [Jekyll Kramdown markdown](https://jekyllrb.com/docs/configuration/markdown/)
+* [Kramdown syntax](https://kramdown.gettalong.org/syntax.html)
+* [CommonMark doc](https://commonmark.org/)
+* [CommonMark Github Pages version](https://github.com/github/jekyll-commonmark-ghpages)
+
 
 ## Jekyll and Github Pages
 
@@ -178,8 +187,9 @@ The default theme is `minima`. The [docs](https://github.com/jekyll/minima) have
 
 It has instructions on how to set your `_config.yml`
 
-Here is a template:
-
+<details>
+	<summary>Here is a template:</summary>
+	<pre>
 	title: Name and Title of My Blog
 	email: 
 	description: >-
@@ -227,7 +237,8 @@ Here is a template:
 	  - .jekyll-cache/
 	  - gemfiles/
 	  - Gemfile
-
+	</pre>
+</details>
 
 ## Customizing the theme 'minima'
 
@@ -518,8 +529,9 @@ Ran bundle:
 
 	$ bundle
 
-Output:
-
+<details>
+	<summary>Output:</summary>
+	<pre>
 	Fetching nuggets 1.6.0
 	Installing nuggets 1.6.0
 	Fetching jekyll-tagging 1.1.0
@@ -544,6 +556,8 @@ Output:
 	* A few fixes. (felipe)
 	* Some documentation improvements. (wsmoak, jonathanpberger)
 	* Prooves who is the worst open source maintainer. (pattex ^__^)
+	</pre>
+</details>
 
 Updated `_config.yml`:
 
@@ -611,8 +625,9 @@ Deploy to Github Pages with this command in your blog root:
 
 At some point it will ask for your repo user/pwd.
 
-Some of the output:
-
+<details>
+	<summary>Some of the output:</summary>
+	<pre>
 	[DEPRECATION] This gem has been renamed to optimist 
 	and will no longer be supported. Please switch to optimist 
 	as soon as possible.
@@ -709,6 +724,8 @@ Some of the output:
 	+ rm -rf /tmp/jgd-NAn/clone
 	+ rm -rf ''
 	+ rm -rf /tmp/jgd-NAn
+	</pre>
+</details>
 
 ## Pagination
 
@@ -819,3 +836,129 @@ Then in `assets/main.scss` you can try something like this:
 	    font-size: 16px;
 	}
 
+
+## Text Expand/Collapse or Collapbsible Markdown
+
+I often add whole output to every command I use. This can take a large space in a blog post and might disrupt reading focus.
+
+There are three options for hiding/display text that can be expanded, also known by these keywords: text expand, expand/collapse, collapsible markdown, details element.
+
+Use whatever works best.
+
+### Text Expand
+
+This is a JS that might need some tweaking. When you click on `read more` it expands the section but it scrolls back to the top.
+
+This is the doc for [Jekyll Text Expand](https://jekyllcodex.org/without-plugin/text-expand/).
+
+Download the file `text-expand.html` into the `_includes` directory. Then edit the `_layouts/default.html` and add this before the closing `body` tag:
+
+{% raw %}
+
+	{% include text-expand.html %}
+
+{% endraw %}
+
+Then you can use the `expand` tag in a blog post by adding only one line for each of the open/closing tag such as:
+
+	[expand]
+	Long content here
+	and here
+	...
+	[/expand]
+
+### Collapbsible Markdown with Details element
+
+This uses the details disclosure element: `details`. More details in the [Mozilla details element doc](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details).
+
+You have to wrap your content like this:
+
+	<details>
+		<summary>Click to expand</summary>
+		Long content here
+		and here
+	</details>
+
+To add a code block, you need to have a previous empty line, enclose the code block with three tildes `~~~`, optionally you can add the language at the end of the first enclosing tildes:
+
+	<details>
+		<summary>Click to expand</summary>
+		
+		~~~ python
+		Code here
+		~~~
+	</details>
+
+However, you can encounter this issue [Details is not formatted correctly in Jekyll/Github pages](https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d#gistcomment-2710296). You can enclose the content with the `<pre>` tag.
+
+I am using this for my long content output:
+
+	<details>
+		<summary>Click to expand</summary>
+		<pre>
+			
+		Long content here
+		</pre>
+
+	</details>
+
+Here is an example:
+
+<details>
+	<summary>Click to expand</summary>
+	<pre>
+	Long content here
+	</pre>
+</details>
+
+I also customized the CSS:
+
+	details {
+		padding-bottom: 20px;
+		color: grey;
+	}
+
+### The text in details not processed correctly
+
+I haven't tested this. This blog post shows [adding support for HTML5 details element to Jekyll](http://movb.de/jekyll-details-support.html). It uses a custom plugin.
+
+Add the `ruby` code into `_plugins/details_tag.rb`.
+
+Then use like this:
+
+{% raw %}
+
+	{% details Click to expand %}
+
+		~~~ python
+		Code here
+		~~~
+	{% enddetails %}
+
+{% endraw %}
+
+More troubleshooting in [using details in Github](https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d) and [collapsible markdown](https://gist.github.com/joyrexus/16041f2426450e73f5df9391f7f7ae5f).
+
+## Open external site in new window
+
+By default linking to external sites open in the same window using this syntax:
+
+	[External Title](link to external site)
+
+Jekyll uses `kramdown` and you can link like this:
+
+	[External Title](link to external site){:target="_blank"}
+
+What I find annoying about this, is that it adds a weird highlighted row in SublimeText. I also think it's a weird syntax to remember.
+
+An alternative option is this JS called [new window fix](https://jekyllcodex.org/without-plugin/new-window-fix)
+
+Download the code into `_includes/new-window-fix.html` and remove the `PDF` section if you don't need it.
+
+Add this to your `_layouts/default.html` before the closing `body` tag.
+
+{% raw %}
+
+	{% include new-window-fix.html %}
+
+{% endraw %}
