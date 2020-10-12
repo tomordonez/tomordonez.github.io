@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-10-11T12:17:27-04:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-10-12T10:18:31-04:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
 
 &lt;p&gt;My development laptop runs on Linux Fedora, 8GB RAM, and just 64GB of disk. No way to run an iPhone simulator. I had Android installed but it was taking way too much space.&lt;/p&gt;
 
@@ -870,6 +870,17 @@ _posts/
 
 &lt;p&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://localhost:4000&lt;/code&gt; and Ctrl+C to stop&lt;/p&gt;
 
+&lt;h2 id=&quot;jekyll-and-markdown&quot;&gt;Jekyll and Markdown&lt;/h2&gt;
+
+&lt;p&gt;Jekyll uses Kramdown. Github Pages uses a customized &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CommonMark&lt;/code&gt; markdown.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/docs/configuration/markdown/&quot;&gt;Jekyll Kramdown markdown&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kramdown.gettalong.org/syntax.html&quot;&gt;Kramdown syntax&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://commonmark.org/&quot;&gt;CommonMark doc&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/github/jekyll-commonmark-ghpages&quot;&gt;CommonMark Github Pages version&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&quot;jekyll-and-github-pages&quot;&gt;Jekyll and Github Pages&lt;/h2&gt;
 
 &lt;p&gt;Look at Github pages dependency &lt;a href=&quot;https://pages.github.com/versions/&quot;&gt;versions&lt;/a&gt;&lt;/p&gt;
@@ -978,56 +989,58 @@ end
 
 &lt;p&gt;It has instructions on how to set your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Here is a template:&lt;/p&gt;
+&lt;details&gt;
+	&lt;summary&gt;Here is a template:&lt;/summary&gt;
+	&lt;pre&gt;
+	title: Name and Title of My Blog
+	email: 
+	description: &amp;gt;-
+	  Some awesome description here
+	baseurl: &quot;&quot;
+	url: &quot;https://www.mywebsite.com&quot;
+	twitter_username: mytwitter
+	github_username:  mygithub
+	permalink: /:title/
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;title: Name and Title of My Blog
-email: 
-description: &amp;gt;-
-  Some awesome description here
-baseurl: &quot;&quot;
-url: &quot;https://www.mywebsite.com&quot;
-twitter_username: mytwitter
-github_username:  mygithub
-permalink: /:title/
+	# Build settings
+	theme: minima
+	minima:
+	  skin: solarized
 
-# Build settings
-theme: minima
-minima:
-  skin: solarized
+	header_pages:
+	  - about.md
 
-header_pages:
-  - about.md
+	disqus:
+	    shortname: mydisqus_shortname
 
-disqus:
-    shortname: mydisqus_shortname
+	author:
+	  name: My Name
 
-author:
-  name: My Name
+	show_excerpts: true
 
-show_excerpts: true
+	minima:
+	  social_links:
+	    twitter: mytwitter
+	    github: mygithub
+	    linkedin: mylinkedin_shortname
 
-minima:
-  social_links:
-    twitter: mytwitter
-    github: mygithub
-    linkedin: mylinkedin_shortname
+	google_analytics: myGAcode
 
-google_analytics: myGAcode
+	plugins:
+	  - jekyll-feed
+	  - jekyll-feed
+	  - jekyll-sitemap
+	  - jekyll-paginate
+	  - jekyll-seo-tag
+	  - jekyll-redirect-from
 
-plugins:
-  - jekyll-feed
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jekyll-seo-tag
-  - jekyll-redirect-from
-
-exclude:
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
-  - Gemfile
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+	exclude:
+	  - .sass-cache/
+	  - .jekyll-cache/
+	  - gemfiles/
+	  - Gemfile
+	&lt;/pre&gt;
+&lt;/details&gt;
 
 &lt;h2 id=&quot;customizing-the-theme-minima&quot;&gt;Customizing the theme ‘minima’&lt;/h2&gt;
 
@@ -1337,33 +1350,35 @@ tags: [featured]
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ bundle
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Output:&lt;/p&gt;
+&lt;details&gt;
+	&lt;summary&gt;Output:&lt;/summary&gt;
+	&lt;pre&gt;
+	Fetching nuggets 1.6.0
+	Installing nuggets 1.6.0
+	Fetching jekyll-tagging 1.1.0
+	Installing jekyll-tagging 1.1.0
+	Fetching jekyll-tagging-related_posts 1.1.0 
+	Installing jekyll-tagging-related_posts 1.1.0
+	Using minima 2.5.1
+	Bundle complete! 9 Gemfile dependencies, 37 gems now installed.
+	Use `bundle info [gemname]` to see where a bundled gem is installed.
+	Post-install message from nuggets:
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Fetching nuggets 1.6.0
-Installing nuggets 1.6.0
-Fetching jekyll-tagging 1.1.0
-Installing jekyll-tagging 1.1.0
-Fetching jekyll-tagging-related_posts 1.1.0 
-Installing jekyll-tagging-related_posts 1.1.0
-Using minima 2.5.1
-Bundle complete! 9 Gemfile dependencies, 37 gems now installed.
-Use `bundle info [gemname]` to see where a bundled gem is installed.
-Post-install message from nuggets:
+	nuggets-1.6.0 [2018-07-12]:
 
-nuggets-1.6.0 [2018-07-12]:
+	* Added &lt;tt&gt;JSON.*_{multi,canonical}&lt;/tt&gt;.
 
-* Added &amp;lt;tt&amp;gt;JSON.*_{multi,canonical}&amp;lt;/tt&amp;gt;.
+	Post-install message from jekyll-tagging:
 
-Post-install message from jekyll-tagging:
+	jekyll-tagging-1.1.0 [2017-03-07]:
 
-jekyll-tagging-1.1.0 [2017-03-07]:
-
-* Added ability to append extra data to all tag pages. (tfe)
-* Provides compatibility to the current jekyll (3.4.1).
-* A few fixes. (felipe)
-* Some documentation improvements. (wsmoak, jonathanpberger)
-* Prooves who is the worst open source maintainer. (pattex ^__^)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+	* Added ability to append extra data to all tag pages. (tfe)
+	* Provides compatibility to the current jekyll (3.4.1).
+	* A few fixes. (felipe)
+	* Some documentation improvements. (wsmoak, jonathanpberger)
+	* Prooves who is the worst open source maintainer. (pattex ^__^)
+	&lt;/pre&gt;
+&lt;/details&gt;
 
 &lt;p&gt;Updated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
 
@@ -1437,105 +1452,107 @@ Post-install message from trollop:
 
 &lt;p&gt;At some point it will ask for your repo user/pwd.&lt;/p&gt;
 
-&lt;p&gt;Some of the output:&lt;/p&gt;
+&lt;details&gt;
+	&lt;summary&gt;Some of the output:&lt;/summary&gt;
+	&lt;pre&gt;
+	[DEPRECATION] This gem has been renamed to optimist 
+	and will no longer be supported. Please switch to optimist 
+	as soon as possible.
+	+ set -e
+	+ set -o pipefail
+	+ URL=https://github.com/...git
+	+ BRANCH=gh-pages
+	+ BRANCH_FROM=master
+	+ DEPLOY_CONFIG=_config-deploy.yml
+	+ BUNDLE=
+	+ DRAFTS=
+	++ pwd
+	+ SRC=/home/.../blog
+	++ mktemp -d -t jgd-XXX
+	+ TEMP=/tmp/jgd-NAn
+	+ trap 'rm -rf /tmp/jgd-NAn' EXIT
+	+ CLONE=/tmp/jgd-NAn/clone
+	+ COPY=/tmp/jgd-NAn/copy
+	+ echo -e 'Cloning Github repository:'
+	
+	Cloning Github repository:
+	+ git clone -b master https://github.com/... /tmp/jgd-NAn/clone
+	
+	Cloning into '/tmp/jgd-NAn/clone'...
+	remote: Enumerating objects: 3025, done.   
+	remote: Counting objects: 100% (3025/3025), done.                                     
+	remote: Compressing objects: 100% (1920/1920), done.                                  
+	remote: Total 3025 (delta 1272), 
+	  reused 2692 (delta 954), pack-reused 0               
+	Receiving objects: 100% (3025/3025), 31.22 MiB 
+	  | 13.20 MiB/s, done.
+	Resolving deltas: 100% (1272/1272), done.
+	+ cp -R /tmp/jgd-NAn/clone /tmp/jgd-NAn/copy
+	+ cd /tmp/jgd-NAn/clone
+	+ echo -e '\nBuilding Jekyll site:'
+	
+	Building Jekyll site:
+	+ rm -rf _site
+	+ '[' -r _config-deploy.yml ']'
+	+ jekyll build
+	Configuration file: /tmp/jgd-NAn/clone/_config.yml
+	            Source: /tmp/jgd-NAn/clone
+	       Destination: /tmp/jgd-NAn/clone/_site
+	 Incremental build: disabled. Enable with --incremental
+	      Generating... 
+	       Jekyll Feed: Generating feed for posts
+	                    done in 1.67 seconds.
+	 Auto-regeneration: disabled. Use --watch to enable.
+	+ '[' '!' -e _site ']'
+	+ cp -R _site /tmp/jgd-NAn
+	+ cd /tmp/jgd-NAn
+	+ rm -rf /tmp/jgd-NAn/clone
+	+ mv /tmp/jgd-NAn/copy /tmp/jgd-NAn/clone
+	+ cd /tmp/jgd-NAn/clone
+	+ echo -e '\nPreparing gh-pages branch:'
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[DEPRECATION] This gem has been renamed to optimist 
-and will no longer be supported. Please switch to optimist 
-as soon as possible.
-+ set -e
-+ set -o pipefail
-+ URL=https://github.com/...git
-+ BRANCH=gh-pages
-+ BRANCH_FROM=master
-+ DEPLOY_CONFIG=_config-deploy.yml
-+ BUNDLE=
-+ DRAFTS=
-++ pwd
-+ SRC=/home/.../blog
-++ mktemp -d -t jgd-XXX
-+ TEMP=/tmp/jgd-NAn
-+ trap 'rm -rf /tmp/jgd-NAn' EXIT
-+ CLONE=/tmp/jgd-NAn/clone
-+ COPY=/tmp/jgd-NAn/copy
-+ echo -e 'Cloning Github repository:'
+	Preparing gh-pages branch:
+	++ git branch -a
+	++ grep origin/gh-pages
+	+ '[' -z '' ']'
+	+ git checkout --orphan gh-pages
+	
+	Switched to a new branch 'gh-pages'
+	+ echo -e '\nDeploying into gh-pages branch:'
 
-Cloning Github repository:
-+ git clone -b master https://github.com/... /tmp/jgd-NAn/clone
+	Deploying into gh-pages branch:
+	+ rm -rf 404.md about.md assets CNAME _config.yml Gemfile 
+	  Gemfile.lock _includes index.markdown _layouts _posts
+	+ cp -R /tmp/jgd-NAn/_site/404.html /tmp/jgd-NAn/_site/about.html
+	+ rm -f README.md
+	+ git add .
+	++ date
+	+ git commit -am 'new version Thu 08 Oct 2020 
+	  12:10:05 AM EDT' --allow-empty
+	[gh-pages (root-commit) a36ecd2] new version 
+	  Thu 08 Oct 2020 12:10:05 AM EDT
+	 819 files changed, 61268 insertions(+)
+	 create mode 100644 .github/FUNDING.yml
+	 create mode 100644 .gitignore
+	 create mode 100644 .jekyll-cache/Jekyll/Cache/Jekyll--Cache/b7
+	 ...
 
-Cloning into '/tmp/jgd-NAn/clone'...
-remote: Enumerating objects: 3025, done.   
-remote: Counting objects: 100% (3025/3025), done.                                     
-remote: Compressing objects: 100% (1920/1920), done.                                  
-remote: Total 3025 (delta 1272), 
-  reused 2692 (delta 954), pack-reused 0               
-Receiving objects: 100% (3025/3025), 31.22 MiB 
-  | 13.20 MiB/s, done.
-Resolving deltas: 100% (1272/1272), done.
-+ cp -R /tmp/jgd-NAn/clone /tmp/jgd-NAn/copy
-+ cd /tmp/jgd-NAn/clone
-+ echo -e '\nBuilding Jekyll site:'
+    + git push origin gh-pages
+	+ sed 's|https://github.com/...|[skipped]|g'
+	remote: 
+	remote: Create a pull request for 'gh-pages' on GitHub by visiting:        
+	remote:      https://github.com/.../pull/new/gh-pages         
+	remote: 
+	To [skipped]
+	 * [new branch]      gh-pages -&amp;gt; gh-pages
+	+ echo -e '\nCleaning up:'
 
-Building Jekyll site:
-+ rm -rf _site
-+ '[' -r _config-deploy.yml ']'
-+ jekyll build
-Configuration file: /tmp/jgd-NAn/clone/_config.yml
-            Source: /tmp/jgd-NAn/clone
-       Destination: /tmp/jgd-NAn/clone/_site
- Incremental build: disabled. Enable with --incremental
-      Generating... 
-       Jekyll Feed: Generating feed for posts
-                    done in 1.67 seconds.
- Auto-regeneration: disabled. Use --watch to enable.
-+ '[' '!' -e _site ']'
-+ cp -R _site /tmp/jgd-NAn
-+ cd /tmp/jgd-NAn
-+ rm -rf /tmp/jgd-NAn/clone
-+ mv /tmp/jgd-NAn/copy /tmp/jgd-NAn/clone
-+ cd /tmp/jgd-NAn/clone
-+ echo -e '\nPreparing gh-pages branch:'
-
-Preparing gh-pages branch:
-++ git branch -a
-++ grep origin/gh-pages
-+ '[' -z '' ']'
-+ git checkout --orphan gh-pages
-
-Switched to a new branch 'gh-pages'
-+ echo -e '\nDeploying into gh-pages branch:'
-
-Deploying into gh-pages branch:
-+ rm -rf 404.md about.md assets CNAME _config.yml Gemfile 
-  Gemfile.lock _includes index.markdown _layouts _posts
-+ cp -R /tmp/jgd-NAn/_site/404.html /tmp/jgd-NAn/_site/about.html
-+ rm -f README.md
-+ git add .
-++ date
-+ git commit -am 'new version Thu 08 Oct 2020 
-  12:10:05 AM EDT' --allow-empty
-[gh-pages (root-commit) a36ecd2] new version 
-  Thu 08 Oct 2020 12:10:05 AM EDT
- 819 files changed, 61268 insertions(+)
- create mode 100644 .github/FUNDING.yml
- create mode 100644 .gitignore
- create mode 100644 .jekyll-cache/Jekyll/Cache/Jekyll--Cache/b7
- ...
-
-+ git push origin gh-pages
-+ sed 's|https://github.com/...|[skipped]|g'
-remote: 
-remote: Create a pull request for 'gh-pages' on GitHub by visiting:        
-remote:      https://github.com/.../pull/new/gh-pages         
-remote: 
-To [skipped]
- * [new branch]      gh-pages -&amp;gt; gh-pages
-+ echo -e '\nCleaning up:'
-
-Cleaning up:
-+ rm -rf /tmp/jgd-NAn/clone
-+ rm -rf ''
-+ rm -rf /tmp/jgd-NAn
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+	Cleaning up:
+	+ rm -rf /tmp/jgd-NAn/clone
+	+ rm -rf ''
+	+ rm -rf /tmp/jgd-NAn
+	&lt;/pre&gt;
+&lt;/details&gt;
 
 &lt;h2 id=&quot;pagination&quot;&gt;Pagination&lt;/h2&gt;
 
@@ -1658,6 +1675,130 @@ $ git push -u origin master
     border-radius: 10px;
     font-size: 16px;
 }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;text-expandcollapse-or-collapbsible-markdown&quot;&gt;Text Expand/Collapse or Collapbsible Markdown&lt;/h2&gt;
+
+&lt;p&gt;I often add whole output to every command I use. This can take a large space in a blog post and might disrupt reading focus.&lt;/p&gt;
+
+&lt;p&gt;There are three options for hiding/display text that can be expanded, also known by these keywords: text expand, expand/collapse, collapsible markdown, details element.&lt;/p&gt;
+
+&lt;p&gt;Use whatever works best.&lt;/p&gt;
+
+&lt;h3 id=&quot;text-expand&quot;&gt;Text Expand&lt;/h3&gt;
+
+&lt;p&gt;This is a JS that might need some tweaking. When you click on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;read more&lt;/code&gt; it expands the section but it scrolls back to the top.&lt;/p&gt;
+
+&lt;p&gt;This is the doc for &lt;a href=&quot;https://jekyllcodex.org/without-plugin/text-expand/&quot;&gt;Jekyll Text Expand&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Download the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;text-expand.html&lt;/code&gt; into the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes&lt;/code&gt; directory. Then edit the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/default.html&lt;/code&gt; and add this before the closing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;body&lt;/code&gt; tag:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% include text-expand.html %}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then you can use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;expand&lt;/code&gt; tag in a blog post by adding only one line for each of the open/closing tag such as:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[expand]
+Long content here
+and here
+...
+[/expand]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;collapbsible-markdown-with-details-element&quot;&gt;Collapbsible Markdown with Details element&lt;/h3&gt;
+
+&lt;p&gt;This uses the details disclosure element: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;details&lt;/code&gt;. More details in the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details&quot;&gt;Mozilla details element doc&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You have to wrap your content like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;details&amp;gt;
+	&amp;lt;summary&amp;gt;Click to expand&amp;lt;/summary&amp;gt;
+	Long content here
+	and here
+&amp;lt;/details&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To add a code block, you need to have a previous empty line, enclose the code block with three tildes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~~~&lt;/code&gt;, optionally you can add the language at the end of the first enclosing tildes:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;details&amp;gt;
+	&amp;lt;summary&amp;gt;Click to expand&amp;lt;/summary&amp;gt;
+	
+	~~~ python
+	Code here
+	~~~
+&amp;lt;/details&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;However, you can encounter this issue &lt;a href=&quot;https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d#gistcomment-2710296&quot;&gt;Details is not formatted correctly in Jekyll/Github pages&lt;/a&gt;. You can enclose the content with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;pre&amp;gt;&lt;/code&gt; tag.&lt;/p&gt;
+
+&lt;p&gt;I am using this for my long content output:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;details&amp;gt;
+	&amp;lt;summary&amp;gt;Click to expand&amp;lt;/summary&amp;gt;
+	&amp;lt;pre&amp;gt;
+		
+	Long content here
+	&amp;lt;/pre&amp;gt;
+
+&amp;lt;/details&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here is an example:&lt;/p&gt;
+
+&lt;details&gt;
+	&lt;summary&gt;Click to expand&lt;/summary&gt;
+	&lt;pre&gt;
+	Long content here
+	&lt;/pre&gt;
+&lt;/details&gt;
+
+&lt;p&gt;I also customized the CSS:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;details {
+	padding-bottom: 20px;
+	color: grey;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;the-text-in-details-not-processed-correctly&quot;&gt;The text in details not processed correctly&lt;/h3&gt;
+
+&lt;p&gt;I haven’t tested this. This blog post shows &lt;a href=&quot;http://movb.de/jekyll-details-support.html&quot;&gt;adding support for HTML5 details element to Jekyll&lt;/a&gt;. It uses a custom plugin.&lt;/p&gt;
+
+&lt;p&gt;Add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby&lt;/code&gt; code into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_plugins/details_tag.rb&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then use like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% details Click to expand %}
+
+	~~~ python
+	Code here
+	~~~
+{% enddetails %}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;More troubleshooting in &lt;a href=&quot;https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d&quot;&gt;using details in Github&lt;/a&gt; and &lt;a href=&quot;https://gist.github.com/joyrexus/16041f2426450e73f5df9391f7f7ae5f&quot;&gt;collapsible markdown&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;open-external-site-in-new-window&quot;&gt;Open external site in new window&lt;/h2&gt;
+
+&lt;p&gt;By default linking to external sites open in the same window using this syntax:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[External Title](link to external site)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Jekyll uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kramdown&lt;/code&gt; and you can link like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[External Title](link to external site){:target=&quot;_blank&quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;What I find annoying about this, is that it adds a weird highlighted row in SublimeText. I also think it’s a weird syntax to remember.&lt;/p&gt;
+
+&lt;p&gt;An alternative option is this JS called &lt;a href=&quot;https://jekyllcodex.org/without-plugin/new-window-fix&quot;&gt;new window fix&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Download the code into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/new-window-fix.html&lt;/code&gt; and remove the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PDF&lt;/code&gt; section if you don’t need it.&lt;/p&gt;
+
+&lt;p&gt;Add this to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/default.html&lt;/code&gt; before the closing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;body&lt;/code&gt; tag.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% include new-window-fix.html %}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">I moved from the Pelican Python static website generator. This is a step by step tutorial to build a static website with Jekyll and Github Pages.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Python, Files, and OS Module</title><link href="https://www.tomordonez.com/python-files-os-module/" rel="alternate" type="text/html" title="Python, Files, and OS Module" /><published>2020-05-24T00:00:00-04:00</published><updated>2020-05-24T00:00:00-04:00</updated><id>https://www.tomordonez.com/python-files-os-module</id><content type="html" xml:base="https://www.tomordonez.com/python-files-os-module/">&lt;p&gt;Migrating from one static website to another, I had to rename multiple files, extract some content, remove it, and do other operations.&lt;/p&gt;
 
 &lt;p&gt;For about 100 blog posts I had to rename the files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;title.md&lt;/code&gt; to the format &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-title.md&lt;/code&gt;.&lt;/p&gt;

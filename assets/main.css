@@ -297,6 +297,8 @@ ul, ol { margin-top: 30px; margin-bottom: 30px; }
 
 next, a.next { flex: 1; }
 
+details { padding-bottom: 20px; color: grey; }
+
 @media screen and (max-width: 800px) { .post-title { line-height: 1.2; } }
 
 /*# sourceMappingURL=main.css.map */
