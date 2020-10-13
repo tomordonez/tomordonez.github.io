@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-10-12T10:51:50-04:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-10-13T10:47:55-04:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
 
 &lt;p&gt;My development laptop runs on Linux Fedora, 8GB RAM, and just 64GB of disk. No way to run an iPhone simulator. I had Android installed but it was taking way too much space.&lt;/p&gt;
 
@@ -787,19 +787,6 @@ json_data = json.loads(string)
 
 &lt;p&gt;&lt;strong&gt;TODO&lt;/strong&gt;&lt;/p&gt;</content><author><name>tom</name></author><category term="analytics" /><category term="API" /><category term="Python" /><category term="Google Maps" /><summary type="html">(This blog post is being revised. It might not show correctly in Safari/Reader view)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/3.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/3.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Static Website with Jekyll and Github Pages</title><link href="https://www.tomordonez.com/static-website-jekyll-github-pages/" rel="alternate" type="text/html" title="Static Website with Jekyll and Github Pages" /><published>2020-05-25T00:00:00-04:00</published><updated>2020-05-25T00:00:00-04:00</updated><id>https://www.tomordonez.com/static-website-jekyll-github-pages</id><content type="html" xml:base="https://www.tomordonez.com/static-website-jekyll-github-pages/">&lt;p&gt;I moved from the Pelican Python static website generator. This is a step by step tutorial to build a &lt;strong&gt;static website with Jekyll and Github Pages&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Sources:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll’s blog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll&quot;&gt;Create a Github pages site with Jekyll&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://help.github.com/en/github/working-with-github-pages/adding-content-to-your-github-pages-site-using-jekyll&quot;&gt;Adding content&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://help.github.com/en/github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll&quot;&gt;Adding a theme&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jamstackthemes.dev/&quot;&gt;Jekyll themes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.stephaniehicks.com/githubPages_tutorial/pages/githubpages-jekyll.html&quot;&gt;Jekyll tutorial&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bootstrapstarter.com/bootstrap-templates/mundana-theme-jekyll/&quot;&gt;Medium-looking theme&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://wowthemesnet.github.io/mundana-theme-jekyll/index.html&quot;&gt;Medium-looking theme demo&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/toshimaru/jekyll-tagging-related_posts&quot;&gt;Related posts plugin&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
 &lt;h2 id=&quot;install-ruby&quot;&gt;Install Ruby&lt;/h2&gt;
 
 &lt;p&gt;Install RVM as seen &lt;a href=&quot;http://rvm.io/&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
@@ -1242,13 +1229,46 @@ Allow: /
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git config --global credential.helper 'cache --timeout=3600'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;There are two way to build your blog, development and production.&lt;/p&gt;
+
+&lt;p&gt;Build in development and test in localhost:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ bundle exec jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Build in development uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jekyll build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Build to production using an environment variable:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ JEKYLL_ENV=production jekyll build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you prefer to use a separate deploy configuration you can add a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt; to your blog root.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cp _config.yml _config-deploy.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add this line to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;environment: production
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Build the blog like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jekyll build --config _config-deploy.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;p&gt;Then deploy:&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git status
-$ git add .
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git add .
 $ git commit -m &quot;Awesome commit message here&quot;
 $ git push -u origin master
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can also build to production using a gem called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jgd&lt;/code&gt; as explained below in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Deploying custom plugins&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;change-your-dns-name-server&quot;&gt;Change your DNS name server&lt;/h2&gt;
 
@@ -1336,78 +1356,53 @@ tags: [featured]
 
 &lt;p&gt;Read more in &lt;a href=&quot;../python-files-os-module&quot;&gt;Python, Files, and OS Module&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;setting-up-related-posts&quot;&gt;Setting up Related Posts&lt;/h2&gt;
+&lt;h2 id=&quot;deploying-custom-plugins&quot;&gt;Deploying custom plugins&lt;/h2&gt;
 
-&lt;p&gt;I installed this plugin to show related posts at the bottom of each post. Github page &lt;a href=&quot;https://github.com/toshimaru/jekyll-tagging-related_posts&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Add this to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'jekyll-tagging-related_posts'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Ran bundle:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ bundle
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;details&gt;
-	&lt;summary&gt;Output:&lt;/summary&gt;
-	&lt;pre&gt;
-	Fetching nuggets 1.6.0
-	Installing nuggets 1.6.0
-	Fetching jekyll-tagging 1.1.0
-	Installing jekyll-tagging 1.1.0
-	Fetching jekyll-tagging-related_posts 1.1.0 
-	Installing jekyll-tagging-related_posts 1.1.0
-	Using minima 2.5.1
-	Bundle complete! 9 Gemfile dependencies, 37 gems now installed.
-	Use `bundle info [gemname]` to see where a bundled gem is installed.
-	Post-install message from nuggets:
-
-	nuggets-1.6.0 [2018-07-12]:
-
-	* Added &lt;tt&gt;JSON.*_{multi,canonical}&lt;/tt&gt;.
-
-	Post-install message from jekyll-tagging:
-
-	jekyll-tagging-1.1.0 [2017-03-07]:
-
-	* Added ability to append extra data to all tag pages. (tfe)
-	* Provides compatibility to the current jekyll (3.4.1).
-	* A few fixes. (felipe)
-	* Some documentation improvements. (wsmoak, jonathanpberger)
-	* Prooves who is the worst open source maintainer. (pattex ^__^)
-	&lt;/pre&gt;
-&lt;/details&gt;
-
-&lt;p&gt;Updated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;plugins:
-  - jekyll/tagging
-  - jekyll-tagging-related_posts
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Created a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; directory in my blog root:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkdir _layouts
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Copied the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;post.html&lt;/code&gt; layout from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minima&lt;/code&gt; theme Gem to this new directory.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/post.html _layouts/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Added the code to the post layout as shown in the documentation. Inserted this code after the blog post content and before my disqus code. Also reviewed all the tags from all blog posts to improve related posts.&lt;/p&gt;
-
-&lt;h2 id=&quot;deploying-related-posts-to-github-pages&quot;&gt;Deploying Related Posts to Github Pages&lt;/h2&gt;
-
-&lt;p&gt;Here is where it gets interesting. Github Pages does not allow custom plugins. As shown on the &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages-and-jekyll#plugins&quot;&gt;Github Pages docs&lt;/a&gt;. Github Pages cannot build sites using unsupported plugins.&lt;/p&gt;
+&lt;p&gt;As shown on the &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages-and-jekyll#plugins&quot;&gt;Github Pages docs&lt;/a&gt;. Github Pages cannot build sites using unsupported plugins.&lt;/p&gt;
 
 &lt;p&gt;Here is the list of approved plugins. Go to &lt;a href=&quot;https://pages.github.com/versions/&quot;&gt;dependency versions&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;As shown in this blog post &lt;a href=&quot;https://www.yegor256.com/2014/06/24/jekyll-github-deploy.html&quot;&gt;Deploy Jekyll to Github Pages&lt;/a&gt;. You can use a gem to setup deployment of Jekyll when you are using custom plugins.&lt;/p&gt;
 
-&lt;p&gt;Here is the Github &lt;a href=&quot;https://github.com/yegor256/jekyll-github-deploy/issues&quot;&gt;issues&lt;/a&gt; page for reference.&lt;/p&gt;
+&lt;p&gt;Before you install this gem, make sure that you setup a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt; like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cp _config.yml _config-deploy.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add this line to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;environment: production
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Update your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'jgd'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ bundle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Fetching trollop 2.9.9
+Installing trollop 2.9.9
+Fetching jgd 1.12
+Installing jgd 1.12
+
+Post-install message from trollop:
+!    The 'trollop' gem has been deprecated and has been replaced by 'optimist'.
+!    See: https://rubygems.org/gems/optimist
+!    And: https://github.com/ManageIQ/optimist
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;More about &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;trollop&lt;/code&gt; in the &lt;a href=&quot;https://www.manageiq.org/optimist/&quot;&gt;official doc&lt;/a&gt; and this tutorial: &lt;a href=&quot;https://kundeveloper.com/blog/trollop/&quot;&gt;writing a Ruby CLI using Trollop&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To deploy, just use the command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jgd&lt;/code&gt; since &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt; is the default for this gem:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jgd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;change-the-source-of-your-github-pages&quot;&gt;Change the source of your Github Pages&lt;/h3&gt;
 
@@ -1421,36 +1416,10 @@ tags: [featured]
   &lt;li&gt;Save&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;If you don’t have a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch, do the following steps first, then try again.&lt;/p&gt;
-
-&lt;h3 id=&quot;update-your-gemfile&quot;&gt;Update your Gemfile&lt;/h3&gt;
-
-&lt;p&gt;Update your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'jgd'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle&lt;/code&gt; and the output was:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Fetching trollop 2.9.9
-Installing trollop 2.9.9
-Fetching jgd 1.12
-Installing jgd 1.12
-
-Post-install message from trollop:
-!    The 'trollop' gem has been deprecated and has been replaced by 'optimist'.
-!    See: https://rubygems.org/gems/optimist
-!    And: https://github.com/ManageIQ/optimist
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Not exactly sure what &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;trollop&lt;/code&gt; does so here is the &lt;a href=&quot;https://www.manageiq.org/optimist/&quot;&gt;doc&lt;/a&gt;. Here is a tutorial about it: &lt;a href=&quot;https://kundeveloper.com/blog/trollop/&quot;&gt;writing a Ruby CLI using Trollop&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Deploy to Github Pages with this command in your blog root:&lt;/p&gt;
+&lt;p&gt;Then deploy again:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jgd
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;At some point it will ask for your repo user/pwd.&lt;/p&gt;
 
 &lt;details&gt;
 	&lt;summary&gt;Some of the output:&lt;/summary&gt;
@@ -1553,6 +1522,120 @@ Post-install message from trollop:
 	+ rm -rf /tmp/jgd-NAn
 	&lt;/pre&gt;
 &lt;/details&gt;
+
+&lt;h2 id=&quot;related-posts---jekyll-plugin&quot;&gt;Related Posts - Jekyll Plugin&lt;/h2&gt;
+
+&lt;p&gt;This is a custom Jekyll plugin. Documentation &lt;a href=&quot;https://github.com/toshimaru/jekyll-tagging-related_posts&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Update your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'jekyll-tagging-related_posts'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ bundle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Fetching nuggets 1.6.0
+Installing nuggets 1.6.0
+Fetching jekyll-tagging 1.1.0
+Installing jekyll-tagging 1.1.0
+Fetching jekyll-tagging-related_posts 1.1.0 
+Installing jekyll-tagging-related_posts 1.1.0
+
+Post-install message from nuggets:
+
+nuggets-1.6.0 [2018-07-12]:
+
+* Added &amp;lt;tt&amp;gt;JSON.*_{multi,canonical}&amp;lt;/tt&amp;gt;.
+
+Post-install message from jekyll-tagging:
+
+jekyll-tagging-1.1.0 [2017-03-07]:
+
+* Added ability to append extra data to all tag pages. (tfe)
+* Provides compatibility to the current jekyll (3.4.1).
+* A few fixes. (felipe)
+* Some documentation improvements. (wsmoak, jonathanpberger)
+* Prooves who is the worst open source maintainer. (pattex ^__^)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Update &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;plugins:
+  - jekyll/tagging
+  - jekyll-tagging-related_posts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; directory in blog root:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkdir _layouts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Copy the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;post.html&lt;/code&gt; layout from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minima&lt;/code&gt; theme Gem to this new directory.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/post.html _layouts/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add this code to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;post.html&lt;/code&gt; after the blog post content and before disqus code.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% if site.related_posts.size &amp;gt;= 1 %}
+&amp;lt;div&amp;gt;
+  &amp;lt;h3&amp;gt;Related Posts&amp;lt;/h3&amp;gt;
+  &amp;lt;ul&amp;gt;
+  {% for related_post in site.related_posts limit: 5 %}
+    &amp;lt;li&amp;gt;&amp;lt;a href=&quot;{{ related_post.url }}&quot;&amp;gt;{{ related_post.title }}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+  {% endfor %}
+  &amp;lt;/ul&amp;gt;
+&amp;lt;/div&amp;gt;
+{% endif %}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;google-analytics&quot;&gt;Google Analytics&lt;/h2&gt;
+
+&lt;p&gt;The default theme &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minima&lt;/code&gt; comes with this line in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;google_analytics: UA-XXXXXX
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Enter your Google Analytics code there.&lt;/p&gt;
+
+&lt;p&gt;For reference, this is inserted into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/head.html&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{%- if jekyll.environment == 'production' and site.google_analytics -%}
+	{%- include google-analytics.html -%}
+{%- endif -%}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Therefore the blog needs to be deployed either using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;production&lt;/code&gt; environment variable or a different deploy config file as previously shown.&lt;/p&gt;
+
+&lt;p&gt;Using the environment variable:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ JEKYLL_ENV=production jekyll build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you prefer to use a separate deploy configuration you can add a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt; to your blog root.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cp _config.yml _config-deploy.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add this line to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;environment: production
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Build the blog like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jekyll build --config _config-deploy.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you are using the gem &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jgd&lt;/code&gt; the default uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt; so just run like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jgd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;pagination&quot;&gt;Pagination&lt;/h2&gt;
 
