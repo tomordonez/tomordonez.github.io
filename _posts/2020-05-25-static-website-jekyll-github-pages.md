@@ -8,18 +8,6 @@ tags: [jekyll, github pages]
 
 I moved from the Pelican Python static website generator. This is a step by step tutorial to build a **static website with Jekyll and Github Pages**.
 
-Sources:
-* [Jekyll's blog](https://jekyllrb.com/)
-* [Create a Github pages site with Jekyll](https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll)
-* [Adding content](https://help.github.com/en/github/working-with-github-pages/adding-content-to-your-github-pages-site-using-jekyll)
-* [Adding a theme](https://help.github.com/en/github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll)
-* [Jekyll themes](https://jamstackthemes.dev/)
-* [Jekyll tutorial](http://www.stephaniehicks.com/githubPages_tutorial/pages/githubpages-jekyll.html)
-* [Medium-looking theme](https://bootstrapstarter.com/bootstrap-templates/mundana-theme-jekyll/)
-* [Medium-looking theme demo](https://wowthemesnet.github.io/mundana-theme-jekyll/index.html)
-* [Related posts plugin](https://github.com/toshimaru/jekyll-tagging-related_posts)
-
-
 ## Install Ruby
 
 Install RVM as seen [here](http://rvm.io/)
@@ -426,13 +414,40 @@ If you want to cache your credentials
 
 	$ git config --global credential.helper 'cache --timeout=3600'
 
+
+There are two way to build your blog, development and production.
+
+Build in development and test in localhost:
+
+	$ bundle exec jekyll serve
+
+Build in development uses `_config.yml`:
+
+	$ jekyll build
+
+Build to production using an environment variable:
+
+	$ JEKYLL_ENV=production jekyll build
+
+If you prefer to use a separate deploy configuration you can add a `_config-deploy.yml` to your blog root.
+
+	$ cp _config.yml _config-deploy.yml
+
+Add this line to `_config-deploy.yml`:
+
+	environment: production
+
+Build the blog like this:
+
+	$ jekyll build --config _config-deploy.yml
+
 Then deploy:
 
-	$ git status
 	$ git add .
 	$ git commit -m "Awesome commit message here"
 	$ git push -u origin master
 
+You can also build to production using a gem called `jgd` as explained below in `Deploying custom plugins`.
 
 ## Change your DNS name server
 
@@ -517,94 +532,31 @@ Also the blog posts used this syntax to insert images in the content `{static}/i
 
 Read more in [Python, Files, and OS Module](../python-files-os-module)
 
-## Setting up Related Posts
+## Deploying custom plugins
 
-I installed this plugin to show related posts at the bottom of each post. Github page [here](https://github.com/toshimaru/jekyll-tagging-related_posts).
-
-Add this to the `Gemfile`:
-
-	gem 'jekyll-tagging-related_posts'
-
-Ran bundle:
-
-	$ bundle
-
-<details>
-	<summary>Output:</summary>
-	<pre>
-	Fetching nuggets 1.6.0
-	Installing nuggets 1.6.0
-	Fetching jekyll-tagging 1.1.0
-	Installing jekyll-tagging 1.1.0
-	Fetching jekyll-tagging-related_posts 1.1.0 
-	Installing jekyll-tagging-related_posts 1.1.0
-	Using minima 2.5.1
-	Bundle complete! 9 Gemfile dependencies, 37 gems now installed.
-	Use `bundle info [gemname]` to see where a bundled gem is installed.
-	Post-install message from nuggets:
-
-	nuggets-1.6.0 [2018-07-12]:
-
-	* Added <tt>JSON.*_{multi,canonical}</tt>.
-
-	Post-install message from jekyll-tagging:
-
-	jekyll-tagging-1.1.0 [2017-03-07]:
-
-	* Added ability to append extra data to all tag pages. (tfe)
-	* Provides compatibility to the current jekyll (3.4.1).
-	* A few fixes. (felipe)
-	* Some documentation improvements. (wsmoak, jonathanpberger)
-	* Prooves who is the worst open source maintainer. (pattex ^__^)
-	</pre>
-</details>
-
-Updated `_config.yml`:
-
-	plugins:
-	  - jekyll/tagging
-	  - jekyll-tagging-related_posts
-
-Created a `_layouts` directory in my blog root:
-
-	$ mkdir _layouts
-
-Copied the `post.html` layout from the `minima` theme Gem to this new directory.
-
-	$ cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/post.html _layouts/
-
-
-Added the code to the post layout as shown in the documentation. Inserted this code after the blog post content and before my disqus code. Also reviewed all the tags from all blog posts to improve related posts.
-
-## Deploying Related Posts to Github Pages
-
-Here is where it gets interesting. Github Pages does not allow custom plugins. As shown on the [Github Pages docs](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages-and-jekyll#plugins). Github Pages cannot build sites using unsupported plugins.
+As shown on the [Github Pages docs](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages-and-jekyll#plugins). Github Pages cannot build sites using unsupported plugins.
 
 Here is the list of approved plugins. Go to [dependency versions](https://pages.github.com/versions/).
 
 As shown in this blog post [Deploy Jekyll to Github Pages](https://www.yegor256.com/2014/06/24/jekyll-github-deploy.html). You can use a gem to setup deployment of Jekyll when you are using custom plugins.
 
-Here is the Github [issues](https://github.com/yegor256/jekyll-github-deploy/issues) page for reference.
+Before you install this gem, make sure that you setup a `_config-deploy.yml` like this:
 
-### Change the source of your Github Pages
+	$ cp _config.yml _config-deploy.yml
 
-* Go to your Github repo
-* Settings
-* Options
-* Scroll down to Github Pages
-* Source
-* Change your branch from `master` to `gh-pages`.
-* Save
+Add this line to `_config-deploy.yml`:
 
-If you don't have a `gh-pages` branch, do the following steps first, then try again.
-
-### Update your Gemfile
+	environment: production
 
 Update your `Gemfile`:
 
 	gem 'jgd'
 
-Run `bundle` and the output was:
+Run `bundle`
+	
+	$ bundle
+
+Output:
 
 	Fetching trollop 2.9.9
 	Installing trollop 2.9.9
@@ -616,14 +568,25 @@ Run `bundle` and the output was:
 	!    See: https://rubygems.org/gems/optimist
 	!    And: https://github.com/ManageIQ/optimist
 
+More about `trollop` in the [official doc](https://www.manageiq.org/optimist/) and this tutorial: [writing a Ruby CLI using Trollop](https://kundeveloper.com/blog/trollop/).
 
-Not exactly sure what `trollop` does so here is the [doc](https://www.manageiq.org/optimist/). Here is a tutorial about it: [writing a Ruby CLI using Trollop](https://kundeveloper.com/blog/trollop/).
-
-Deploy to Github Pages with this command in your blog root:
+To deploy, just use the command `jgd` since `_config-deploy.yml` is the default for this gem:
 
 	$ jgd
 
-At some point it will ask for your repo user/pwd.
+### Change the source of your Github Pages
+
+* Go to your Github repo
+* Settings
+* Options
+* Scroll down to Github Pages
+* Source
+* Change your branch from `master` to `gh-pages`.
+* Save
+
+Then deploy again:
+
+	$ jgd
 
 <details>
 	<summary>Some of the output:</summary>
@@ -726,6 +689,114 @@ At some point it will ask for your repo user/pwd.
 	+ rm -rf /tmp/jgd-NAn
 	</pre>
 </details>
+
+## Related Posts - Jekyll Plugin
+
+This is a custom Jekyll plugin. Documentation [here](https://github.com/toshimaru/jekyll-tagging-related_posts).
+
+Update your `Gemfile`:
+
+	gem 'jekyll-tagging-related_posts'
+
+Run `bundle`
+	
+	$ bundle
+
+Output:
+
+	Fetching nuggets 1.6.0
+	Installing nuggets 1.6.0
+	Fetching jekyll-tagging 1.1.0
+	Installing jekyll-tagging 1.1.0
+	Fetching jekyll-tagging-related_posts 1.1.0 
+	Installing jekyll-tagging-related_posts 1.1.0
+
+	Post-install message from nuggets:
+
+	nuggets-1.6.0 [2018-07-12]:
+
+	* Added <tt>JSON.*_{multi,canonical}</tt>.
+
+	Post-install message from jekyll-tagging:
+
+	jekyll-tagging-1.1.0 [2017-03-07]:
+
+	* Added ability to append extra data to all tag pages. (tfe)
+	* Provides compatibility to the current jekyll (3.4.1).
+	* A few fixes. (felipe)
+	* Some documentation improvements. (wsmoak, jonathanpberger)
+	* Prooves who is the worst open source maintainer. (pattex ^__^)
+
+Update `_config.yml` and `_config-deploy.yml`:
+
+	plugins:
+	  - jekyll/tagging
+	  - jekyll-tagging-related_posts
+
+Create a `_layouts` directory in blog root:
+
+	$ mkdir _layouts
+
+Copy the `post.html` layout from the `minima` theme Gem to this new directory.
+
+	$ cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/post.html _layouts/
+
+Add this code to `post.html` after the blog post content and before disqus code.
+
+{% raw %}
+
+	{% if site.related_posts.size >= 1 %}
+	<div>
+	  <h3>Related Posts</h3>
+	  <ul>
+	  {% for related_post in site.related_posts limit: 5 %}
+	    <li><a href="{{ related_post.url }}">{{ related_post.title }}</a></li>
+	  {% endfor %}
+	  </ul>
+	</div>
+	{% endif %}
+
+{% endraw %}
+
+## Google Analytics
+
+The default theme `minima` comes with this line in the `_config.yml` file:
+
+	google_analytics: UA-XXXXXX
+
+Enter your Google Analytics code there.
+
+For reference, this is inserted into `_includes/head.html`.
+
+{% raw %}
+
+	{%- if jekyll.environment == 'production' and site.google_analytics -%}
+		{%- include google-analytics.html -%}
+	{%- endif -%}
+
+{% endraw %}
+
+Therefore the blog needs to be deployed either using the `production` environment variable or a different deploy config file as previously shown.
+
+Using the environment variable:
+
+	$ JEKYLL_ENV=production jekyll build
+
+If you prefer to use a separate deploy configuration you can add a `_config-deploy.yml` to your blog root.
+
+	$ cp _config.yml _config-deploy.yml
+
+Add this line to `_config-deploy.yml`:
+
+	environment: production
+
+Build the blog like this:
+
+	$ jekyll build --config _config-deploy.yml
+
+If you are using the gem `jgd` the default uses `_config-deploy.yml` so just run like this:
+
+	$ jgd
 
 ## Pagination
 

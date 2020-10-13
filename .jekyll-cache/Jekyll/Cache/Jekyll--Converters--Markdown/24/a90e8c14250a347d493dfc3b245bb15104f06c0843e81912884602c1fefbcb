@@ -1,17 +1,4 @@
-I"h¿<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
-
-<p>Sources:</p>
-<ul>
-  <li><a href="https://jekyllrb.com/">Jekyllâ€™s blog</a></li>
-  <li><a href="https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll">Create a Github pages site with Jekyll</a></li>
-  <li><a href="https://help.github.com/en/github/working-with-github-pages/adding-content-to-your-github-pages-site-using-jekyll">Adding content</a></li>
-  <li><a href="https://help.github.com/en/github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll">Adding a theme</a></li>
-  <li><a href="https://jamstackthemes.dev/">Jekyll themes</a></li>
-  <li><a href="http://www.stephaniehicks.com/githubPages_tutorial/pages/githubpages-jekyll.html">Jekyll tutorial</a></li>
-  <li><a href="https://bootstrapstarter.com/bootstrap-templates/mundana-theme-jekyll/">Medium-looking theme</a></li>
-  <li><a href="https://wowthemesnet.github.io/mundana-theme-jekyll/index.html">Medium-looking theme demo</a></li>
-  <li><a href="https://github.com/toshimaru/jekyll-tagging-related_posts">Related posts plugin</a></li>
-</ul>
+I"ÒÎ<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
 
 <h2 id="install-ruby">Install Ruby</h2>
 
@@ -455,13 +442,46 @@ Allow: /
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global credential.helper 'cache --timeout=3600'
 </code></pre></div></div>
 
+<p>There are two way to build your blog, development and production.</p>
+
+<p>Build in development and test in localhost:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec jekyll serve
+</code></pre></div></div>
+
+<p>Build in development uses <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll build
+</code></pre></div></div>
+
+<p>Build to production using an environment variable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jekyll build
+</code></pre></div></div>
+
+<p>If you prefer to use a separate deploy configuration you can add a <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> to your blog root.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp _config.yml _config-deploy.yml
+</code></pre></div></div>
+
+<p>Add this line to <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>environment: production
+</code></pre></div></div>
+
+<p>Build the blog like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll build --config _config-deploy.yml
+</code></pre></div></div>
+
 <p>Then deploy:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git status
-$ git add .
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add .
 $ git commit -m "Awesome commit message here"
 $ git push -u origin master
 </code></pre></div></div>
+
+<p>You can also build to production using a gem called <code class="language-plaintext highlighter-rouge">jgd</code> as explained below in <code class="language-plaintext highlighter-rouge">Deploying custom plugins</code>.</p>
 
 <h2 id="change-your-dns-name-server">Change your DNS name server</h2>
 
@@ -549,78 +569,53 @@ tags: [featured]
 
 <p>Read more in <a href="../python-files-os-module">Python, Files, and OS Module</a></p>
 
-<h2 id="setting-up-related-posts">Setting up Related Posts</h2>
+<h2 id="deploying-custom-plugins">Deploying custom plugins</h2>
 
-<p>I installed this plugin to show related posts at the bottom of each post. Github page <a href="https://github.com/toshimaru/jekyll-tagging-related_posts">here</a>.</p>
-
-<p>Add this to the <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll-tagging-related_posts'
-</code></pre></div></div>
-
-<p>Ran bundle:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle
-</code></pre></div></div>
-
-<details>
-	<summary>Output:</summary>
-	<pre>
-	Fetching nuggets 1.6.0
-	Installing nuggets 1.6.0
-	Fetching jekyll-tagging 1.1.0
-	Installing jekyll-tagging 1.1.0
-	Fetching jekyll-tagging-related_posts 1.1.0 
-	Installing jekyll-tagging-related_posts 1.1.0
-	Using minima 2.5.1
-	Bundle complete! 9 Gemfile dependencies, 37 gems now installed.
-	Use `bundle info [gemname]` to see where a bundled gem is installed.
-	Post-install message from nuggets:
-
-	nuggets-1.6.0 [2018-07-12]:
-
-	* Added <tt>JSON.*_{multi,canonical}</tt>.
-
-	Post-install message from jekyll-tagging:
-
-	jekyll-tagging-1.1.0 [2017-03-07]:
-
-	* Added ability to append extra data to all tag pages. (tfe)
-	* Provides compatibility to the current jekyll (3.4.1).
-	* A few fixes. (felipe)
-	* Some documentation improvements. (wsmoak, jonathanpberger)
-	* Prooves who is the worst open source maintainer. (pattex ^__^)
-	</pre>
-</details>
-
-<p>Updated <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
-  - jekyll/tagging
-  - jekyll-tagging-related_posts
-</code></pre></div></div>
-
-<p>Created a <code class="language-plaintext highlighter-rouge">_layouts</code> directory in my blog root:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir _layouts
-</code></pre></div></div>
-
-<p>Copied the <code class="language-plaintext highlighter-rouge">post.html</code> layout from the <code class="language-plaintext highlighter-rouge">minima</code> theme Gem to this new directory.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/post.html _layouts/
-</code></pre></div></div>
-
-<p>Added the code to the post layout as shown in the documentation. Inserted this code after the blog post content and before my disqus code. Also reviewed all the tags from all blog posts to improve related posts.</p>
-
-<h2 id="deploying-related-posts-to-github-pages">Deploying Related Posts to Github Pages</h2>
-
-<p>Here is where it gets interesting. Github Pages does not allow custom plugins. As shown on the <a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages-and-jekyll#plugins">Github Pages docs</a>. Github Pages cannot build sites using unsupported plugins.</p>
+<p>As shown on the <a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/about-github-pages-and-jekyll#plugins">Github Pages docs</a>. Github Pages cannot build sites using unsupported plugins.</p>
 
 <p>Here is the list of approved plugins. Go to <a href="https://pages.github.com/versions/">dependency versions</a>.</p>
 
 <p>As shown in this blog post <a href="https://www.yegor256.com/2014/06/24/jekyll-github-deploy.html">Deploy Jekyll to Github Pages</a>. You can use a gem to setup deployment of Jekyll when you are using custom plugins.</p>
 
-<p>Here is the Github <a href="https://github.com/yegor256/jekyll-github-deploy/issues">issues</a> page for reference.</p>
+<p>Before you install this gem, make sure that you setup a <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp _config.yml _config-deploy.yml
+</code></pre></div></div>
+
+<p>Add this line to <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>environment: production
+</code></pre></div></div>
+
+<p>Update your <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jgd'
+</code></pre></div></div>
+
+<p>Run <code class="language-plaintext highlighter-rouge">bundle</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetching trollop 2.9.9
+Installing trollop 2.9.9
+Fetching jgd 1.12
+Installing jgd 1.12
+
+Post-install message from trollop:
+!    The 'trollop' gem has been deprecated and has been replaced by 'optimist'.
+!    See: https://rubygems.org/gems/optimist
+!    And: https://github.com/ManageIQ/optimist
+</code></pre></div></div>
+
+<p>More about <code class="language-plaintext highlighter-rouge">trollop</code> in the <a href="https://www.manageiq.org/optimist/">official doc</a> and this tutorial: <a href="https://kundeveloper.com/blog/trollop/">writing a Ruby CLI using Trollop</a>.</p>
+
+<p>To deploy, just use the command <code class="language-plaintext highlighter-rouge">jgd</code> since <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> is the default for this gem:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
+</code></pre></div></div>
 
 <h3 id="change-the-source-of-your-github-pages">Change the source of your Github Pages</h3>
 
@@ -634,36 +629,10 @@ tags: [featured]
   <li>Save</li>
 </ul>
 
-<p>If you donâ€™t have a <code class="language-plaintext highlighter-rouge">gh-pages</code> branch, do the following steps first, then try again.</p>
-
-<h3 id="update-your-gemfile">Update your Gemfile</h3>
-
-<p>Update your <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jgd'
-</code></pre></div></div>
-
-<p>Run <code class="language-plaintext highlighter-rouge">bundle</code> and the output was:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetching trollop 2.9.9
-Installing trollop 2.9.9
-Fetching jgd 1.12
-Installing jgd 1.12
-
-Post-install message from trollop:
-!    The 'trollop' gem has been deprecated and has been replaced by 'optimist'.
-!    See: https://rubygems.org/gems/optimist
-!    And: https://github.com/ManageIQ/optimist
-</code></pre></div></div>
-
-<p>Not exactly sure what <code class="language-plaintext highlighter-rouge">trollop</code> does so here is the <a href="https://www.manageiq.org/optimist/">doc</a>. Here is a tutorial about it: <a href="https://kundeveloper.com/blog/trollop/">writing a Ruby CLI using Trollop</a>.</p>
-
-<p>Deploy to Github Pages with this command in your blog root:</p>
+<p>Then deploy again:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
 </code></pre></div></div>
-
-<p>At some point it will ask for your repo user/pwd.</p>
 
 <details>
 	<summary>Some of the output:</summary>
@@ -766,6 +735,120 @@ Post-install message from trollop:
 	+ rm -rf /tmp/jgd-NAn
 	</pre>
 </details>
+
+<h2 id="related-posts---jekyll-plugin">Related Posts - Jekyll Plugin</h2>
+
+<p>This is a custom Jekyll plugin. Documentation <a href="https://github.com/toshimaru/jekyll-tagging-related_posts">here</a>.</p>
+
+<p>Update your <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll-tagging-related_posts'
+</code></pre></div></div>
+
+<p>Run <code class="language-plaintext highlighter-rouge">bundle</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetching nuggets 1.6.0
+Installing nuggets 1.6.0
+Fetching jekyll-tagging 1.1.0
+Installing jekyll-tagging 1.1.0
+Fetching jekyll-tagging-related_posts 1.1.0 
+Installing jekyll-tagging-related_posts 1.1.0
+
+Post-install message from nuggets:
+
+nuggets-1.6.0 [2018-07-12]:
+
+* Added &lt;tt&gt;JSON.*_{multi,canonical}&lt;/tt&gt;.
+
+Post-install message from jekyll-tagging:
+
+jekyll-tagging-1.1.0 [2017-03-07]:
+
+* Added ability to append extra data to all tag pages. (tfe)
+* Provides compatibility to the current jekyll (3.4.1).
+* A few fixes. (felipe)
+* Some documentation improvements. (wsmoak, jonathanpberger)
+* Prooves who is the worst open source maintainer. (pattex ^__^)
+</code></pre></div></div>
+
+<p>Update <code class="language-plaintext highlighter-rouge">_config.yml</code> and <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
+  - jekyll/tagging
+  - jekyll-tagging-related_posts
+</code></pre></div></div>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">_layouts</code> directory in blog root:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir _layouts
+</code></pre></div></div>
+
+<p>Copy the <code class="language-plaintext highlighter-rouge">post.html</code> layout from the <code class="language-plaintext highlighter-rouge">minima</code> theme Gem to this new directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/post.html _layouts/
+</code></pre></div></div>
+
+<p>Add this code to <code class="language-plaintext highlighter-rouge">post.html</code> after the blog post content and before disqus code.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if site.related_posts.size &gt;= 1 %}
+&lt;div&gt;
+  &lt;h3&gt;Related Posts&lt;/h3&gt;
+  &lt;ul&gt;
+  {% for related_post in site.related_posts limit: 5 %}
+    &lt;li&gt;&lt;a href="{{ related_post.url }}"&gt;{{ related_post.title }}&lt;/a&gt;&lt;/li&gt;
+  {% endfor %}
+  &lt;/ul&gt;
+&lt;/div&gt;
+{% endif %}
+</code></pre></div></div>
+
+<h2 id="google-analytics">Google Analytics</h2>
+
+<p>The default theme <code class="language-plaintext highlighter-rouge">minima</code> comes with this line in the <code class="language-plaintext highlighter-rouge">_config.yml</code> file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>google_analytics: UA-XXXXXX
+</code></pre></div></div>
+
+<p>Enter your Google Analytics code there.</p>
+
+<p>For reference, this is inserted into <code class="language-plaintext highlighter-rouge">_includes/head.html</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%- if jekyll.environment == 'production' and site.google_analytics -%}
+	{%- include google-analytics.html -%}
+{%- endif -%}
+</code></pre></div></div>
+
+<p>Therefore the blog needs to be deployed either using the <code class="language-plaintext highlighter-rouge">production</code> environment variable or a different deploy config file as previously shown.</p>
+
+<p>Using the environment variable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jekyll build
+</code></pre></div></div>
+
+<p>If you prefer to use a separate deploy configuration you can add a <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> to your blog root.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp _config.yml _config-deploy.yml
+</code></pre></div></div>
+
+<p>Add this line to <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>environment: production
+</code></pre></div></div>
+
+<p>Build the blog like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll build --config _config-deploy.yml
+</code></pre></div></div>
+
+<p>If you are using the gem <code class="language-plaintext highlighter-rouge">jgd</code> the default uses <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> so just run like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
+</code></pre></div></div>
 
 <h2 id="pagination">Pagination</h2>
 
