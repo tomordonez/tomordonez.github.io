@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-10-13T21:28:59-04:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-10-13T21:39:41-04:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
 
 &lt;p&gt;My development laptop runs on Linux Fedora, 8GB RAM, and just 64GB of disk. No way to run an iPhone simulator. I had Android installed but it was taking way too much space.&lt;/p&gt;
 
@@ -1364,16 +1364,6 @@ tags: [featured]
 
 &lt;p&gt;As shown in this blog post &lt;a href=&quot;https://www.yegor256.com/2014/06/24/jekyll-github-deploy.html&quot;&gt;Deploy Jekyll to Github Pages&lt;/a&gt;. You can use a gem to setup deployment of Jekyll when you are using custom plugins.&lt;/p&gt;
 
-&lt;p&gt;Before you install this gem, make sure that you setup a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt; like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cp _config.yml _config-deploy.yml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Add this line to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;environment: production
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;p&gt;Update your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'jgd'
@@ -1399,9 +1389,9 @@ Post-install message from trollop:
 
 &lt;p&gt;More about &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;trollop&lt;/code&gt; in the &lt;a href=&quot;https://www.manageiq.org/optimist/&quot;&gt;official doc&lt;/a&gt; and this tutorial: &lt;a href=&quot;https://kundeveloper.com/blog/trollop/&quot;&gt;writing a Ruby CLI using Trollop&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;To deploy, just use the command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jgd&lt;/code&gt; since &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt; is the default for this gem:&lt;/p&gt;
+&lt;p&gt;To deploy use this:&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jgd
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ JEKYLL_ENV=production jgd
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;change-the-source-of-your-github-pages&quot;&gt;Change the source of your Github Pages&lt;/h3&gt;
@@ -1418,7 +1408,7 @@ Post-install message from trollop:
 
 &lt;p&gt;Then deploy again:&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jgd
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ JEKYLL_ENV=production jgd
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;details&gt;
@@ -1617,24 +1607,9 @@ jekyll-tagging-1.1.0 [2017-03-07]:
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ JEKYLL_ENV=production jekyll build
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;If you prefer to use a separate deploy configuration you can add a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt; to your blog root.&lt;/p&gt;
+&lt;p&gt;If you are using the gem &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jgd&lt;/code&gt; then deploy like this&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cp _config.yml _config-deploy.yml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Add this line to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;environment: production
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Build the blog like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jekyll build --config _config-deploy.yml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If you are using the gem &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jgd&lt;/code&gt; the default uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt; so just run like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jgd
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ JEKYLL_ENV=production jgd
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;pagination&quot;&gt;Pagination&lt;/h2&gt;
@@ -1712,7 +1687,7 @@ $ git push -u origin master
 
 &lt;p&gt;If you installed the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jgd&lt;/code&gt; gem, then deploy static pages to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch:&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jgd
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ JEKYLL_ENV=production jgd
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;search-box&quot;&gt;Search Box&lt;/h3&gt;
@@ -4772,6 +4747,24 @@ $ jupyter nbextension enable execute_time/ExecuteTime
     
     &lt;/ul&gt;
   &lt;/div&gt;
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    var disqus_config = function () {
+      this.page.url = 'https://www.tomordonez.com/python-jupyter-notebook-linux/';
+      this.page.identifier = 'https://www.tomordonez.com/python-jupyter-notebook-linux/';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      s.src = 'https://tomordonez-com.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  &lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot; rel=&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
 &lt;p&gt;&lt;a class=&quot;u-url&quot; href=&quot;/python-jupyter-notebook-linux/&quot; hidden=&quot;&quot;&gt;&lt;/a&gt;
 &amp;lt;/article&amp;gt;
 highlighter_prefix
