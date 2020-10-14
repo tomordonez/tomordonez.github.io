@@ -540,14 +540,6 @@ Here is the list of approved plugins. Go to [dependency versions](https://pages.
 
 As shown in this blog post [Deploy Jekyll to Github Pages](https://www.yegor256.com/2014/06/24/jekyll-github-deploy.html). You can use a gem to setup deployment of Jekyll when you are using custom plugins.
 
-Before you install this gem, make sure that you setup a `_config-deploy.yml` like this:
-
-	$ cp _config.yml _config-deploy.yml
-
-Add this line to `_config-deploy.yml`:
-
-	environment: production
-
 Update your `Gemfile`:
 
 	gem 'jgd'
@@ -570,9 +562,9 @@ Output:
 
 More about `trollop` in the [official doc](https://www.manageiq.org/optimist/) and this tutorial: [writing a Ruby CLI using Trollop](https://kundeveloper.com/blog/trollop/).
 
-To deploy, just use the command `jgd` since `_config-deploy.yml` is the default for this gem:
+To deploy use this:
 
-	$ jgd
+	$ JEKYLL_ENV=production jgd
 
 ### Change the source of your Github Pages
 
@@ -586,7 +578,7 @@ To deploy, just use the command `jgd` since `_config-deploy.yml` is the default 
 
 Then deploy again:
 
-	$ jgd
+	$ JEKYLL_ENV=production jgd
 
 <details>
 	<summary>Some of the output:</summary>
@@ -782,21 +774,9 @@ Using the environment variable:
 
 	$ JEKYLL_ENV=production jekyll build
 
-If you prefer to use a separate deploy configuration you can add a `_config-deploy.yml` to your blog root.
+If you are using the gem `jgd` then deploy like this
 
-	$ cp _config.yml _config-deploy.yml
-
-Add this line to `_config-deploy.yml`:
-
-	environment: production
-
-Build the blog like this:
-
-	$ jekyll build --config _config-deploy.yml
-
-If you are using the gem `jgd` the default uses `_config-deploy.yml` so just run like this:
-
-	$ jgd
+	$ JEKYLL_ENV=production jgd
 
 ## Pagination
 
@@ -866,7 +846,7 @@ Deploy the source to `master`:
 
 If you installed the `jgd` gem, then deploy static pages to the `gh-pages` branch:
 
-	$ jgd
+	$ JEKYLL_ENV=production jgd
 
 ### Search Box
 

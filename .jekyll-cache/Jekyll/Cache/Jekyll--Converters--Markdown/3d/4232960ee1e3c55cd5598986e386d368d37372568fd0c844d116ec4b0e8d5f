@@ -1,4 +1,4 @@
-I"рн<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
+I"╤х<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
 
 <h2 id="install-ruby">Install Ruby</h2>
 
@@ -577,16 +577,6 @@ tags: [featured]
 
 <p>As shown in this blog post <a href="https://www.yegor256.com/2014/06/24/jekyll-github-deploy.html">Deploy Jekyll to Github Pages</a>. You can use a gem to setup deployment of Jekyll when you are using custom plugins.</p>
 
-<p>Before you install this gem, make sure that you setup a <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> like this:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp _config.yml _config-deploy.yml
-</code></pre></div></div>
-
-<p>Add this line to <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>environment: production
-</code></pre></div></div>
-
 <p>Update your <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jgd'
@@ -612,9 +602,9 @@ Post-install message from trollop:
 
 <p>More about <code class="language-plaintext highlighter-rouge">trollop</code> in the <a href="https://www.manageiq.org/optimist/">official doc</a> and this tutorial: <a href="https://kundeveloper.com/blog/trollop/">writing a Ruby CLI using Trollop</a>.</p>
 
-<p>To deploy, just use the command <code class="language-plaintext highlighter-rouge">jgd</code> since <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> is the default for this gem:</p>
+<p>To deploy use this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jgd
 </code></pre></div></div>
 
 <h3 id="change-the-source-of-your-github-pages">Change the source of your Github Pages</h3>
@@ -631,7 +621,7 @@ Post-install message from trollop:
 
 <p>Then deploy again:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jgd
 </code></pre></div></div>
 
 <details>
@@ -830,24 +820,9 @@ jekyll-tagging-1.1.0 [2017-03-07]:
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jekyll build
 </code></pre></div></div>
 
-<p>If you prefer to use a separate deploy configuration you can add a <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> to your blog root.</p>
+<p>If you are using the gem <code class="language-plaintext highlighter-rouge">jgd</code> then deploy like this</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp _config.yml _config-deploy.yml
-</code></pre></div></div>
-
-<p>Add this line to <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>environment: production
-</code></pre></div></div>
-
-<p>Build the blog like this:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll build --config _config-deploy.yml
-</code></pre></div></div>
-
-<p>If you are using the gem <code class="language-plaintext highlighter-rouge">jgd</code> the default uses <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> so just run like this:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jgd
 </code></pre></div></div>
 
 <h2 id="pagination">Pagination</h2>
@@ -925,7 +900,7 @@ $ git push -u origin master
 
 <p>If you installed the <code class="language-plaintext highlighter-rouge">jgd</code> gem, then deploy static pages to the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jgd
 </code></pre></div></div>
 
 <h3 id="search-box">Search Box</h3>

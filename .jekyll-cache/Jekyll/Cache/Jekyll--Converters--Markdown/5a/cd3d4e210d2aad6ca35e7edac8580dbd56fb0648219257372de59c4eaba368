@@ -1,4 +1,4 @@
-I"äÏ<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
+I"¶È<p>I moved from the Pelican Python static website generator. This is a step by step tutorial to build a <strong>static website with Jekyll and Github Pages</strong>.</p>
 
 <h2 id="install-ruby">Install Ruby</h2>
 
@@ -340,7 +340,7 @@ tags: [some tags here]
 
 file: YYYY-MM-DD-title.md (or it won't show up)
 title: Don't forget to update this
-{%raw%}Add images with: ![Image Name]({{ site.baseurl }}/assets/images/add_image.jpg){%endraw%}
+Add images with: ![Image Name]({{ site.baseurl }}/assets/images/add_image.jpg)
 Add local URL with: [Local URL](../local-url)
 </code></pre></div></div>
 
@@ -564,9 +564,7 @@ tags: [featured]
 
 <p>Also the blog posts used this syntax to insert images in the content <code class="language-plaintext highlighter-rouge">{static}/images/</code> while Jekyll uses:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% raw %}
-{ {site.baseurl} }/assets/images/
-{% endraw %}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{ {site.baseurl} }/assets/images/
 </code></pre></div></div>
 
 <p>Read more in <a href="../python-files-os-module">Python, Files, and OS Module</a></p>
@@ -578,16 +576,6 @@ tags: [featured]
 <p>Here is the list of approved plugins. Go to <a href="https://pages.github.com/versions/">dependency versions</a>.</p>
 
 <p>As shown in this blog post <a href="https://www.yegor256.com/2014/06/24/jekyll-github-deploy.html">Deploy Jekyll to Github Pages</a>. You can use a gem to setup deployment of Jekyll when you are using custom plugins.</p>
-
-<p>Before you install this gem, make sure that you setup a <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> like this:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp _config.yml _config-deploy.yml
-</code></pre></div></div>
-
-<p>Add this line to <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>environment: production
-</code></pre></div></div>
 
 <p>Update your <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
 
@@ -614,9 +602,9 @@ Post-install message from trollop:
 
 <p>More about <code class="language-plaintext highlighter-rouge">trollop</code> in the <a href="https://www.manageiq.org/optimist/">official doc</a> and this tutorial: <a href="https://kundeveloper.com/blog/trollop/">writing a Ruby CLI using Trollop</a>.</p>
 
-<p>To deploy, just use the command <code class="language-plaintext highlighter-rouge">jgd</code> since <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> is the default for this gem:</p>
+<p>To deploy use this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jgd
 </code></pre></div></div>
 
 <h3 id="change-the-source-of-your-github-pages">Change the source of your Github Pages</h3>
@@ -633,7 +621,7 @@ Post-install message from trollop:
 
 <p>Then deploy again:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jgd
 </code></pre></div></div>
 
 <details>
@@ -797,8 +785,6 @@ jekyll-tagging-1.1.0 [2017-03-07]:
 
 <p>Add this code to <code class="language-plaintext highlighter-rouge">post.html</code> after the blog post content and before disqus code.</p>
 
-<p>{% raw %}</p>
-
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if site.related_posts.size &gt;= 1 %}
 &lt;div&gt;
   &lt;h3&gt;Related Posts&lt;/h3&gt;
@@ -811,8 +797,6 @@ jekyll-tagging-1.1.0 [2017-03-07]:
 {% endif %}
 </code></pre></div></div>
 
-<p>{% endraw %}</p>
-
 <h2 id="google-analytics">Google Analytics</h2>
 
 <p>The default theme <code class="language-plaintext highlighter-rouge">minima</code> comes with this line in the <code class="language-plaintext highlighter-rouge">_config.yml</code> file:</p>
@@ -824,14 +808,10 @@ jekyll-tagging-1.1.0 [2017-03-07]:
 
 <p>For reference, this is inserted into <code class="language-plaintext highlighter-rouge">_includes/head.html</code>.</p>
 
-<p>{% raw %}</p>
-
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%- if jekyll.environment == 'production' and site.google_analytics -%}
 	{%- include google-analytics.html -%}
 {%- endif -%}
 </code></pre></div></div>
-
-<p>{% endraw %}</p>
 
 <p>Therefore the blog needs to be deployed either using the <code class="language-plaintext highlighter-rouge">production</code> environment variable or a different deploy config file as previously shown.</p>
 
@@ -840,24 +820,9 @@ jekyll-tagging-1.1.0 [2017-03-07]:
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jekyll build
 </code></pre></div></div>
 
-<p>If you prefer to use a separate deploy configuration you can add a <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> to your blog root.</p>
+<p>If you are using the gem <code class="language-plaintext highlighter-rouge">jgd</code> then deploy like this</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp _config.yml _config-deploy.yml
-</code></pre></div></div>
-
-<p>Add this line to <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>environment: production
-</code></pre></div></div>
-
-<p>Build the blog like this:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll build --config _config-deploy.yml
-</code></pre></div></div>
-
-<p>If you are using the gem <code class="language-plaintext highlighter-rouge">jgd</code> the default uses <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code> so just run like this:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jgd
 </code></pre></div></div>
 
 <h2 id="pagination">Pagination</h2>
@@ -935,7 +900,7 @@ $ git push -u origin master
 
 <p>If you installed the <code class="language-plaintext highlighter-rouge">jgd</code> gem, then deploy static pages to the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jgd
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jgd
 </code></pre></div></div>
 
 <h3 id="search-box">Search Box</h3>
@@ -999,12 +964,8 @@ $ git push -u origin master
 
 <p>Download the file <code class="language-plaintext highlighter-rouge">text-expand.html</code> into the <code class="language-plaintext highlighter-rouge">_includes</code> directory. Then edit the <code class="language-plaintext highlighter-rouge">_layouts/default.html</code> and add this before the closing <code class="language-plaintext highlighter-rouge">body</code> tag:</p>
 
-<p>{% raw %}</p>
-
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% include text-expand.html %}
 </code></pre></div></div>
-
-<p>{% endraw %}</p>
 
 <p>Then you can use the <code class="language-plaintext highlighter-rouge">expand</code> tag in a blog post by adding only one line for each of the open/closing tag such as:</p>
 
@@ -1078,8 +1039,6 @@ and here
 
 <p>Then use like this:</p>
 
-<p>{% raw %}</p>
-
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% details Click to expand %}
 
 	~~~ python
@@ -1087,8 +1046,6 @@ and here
 	~~~
 {% enddetails %}
 </code></pre></div></div>
-
-<p>{% endraw %}</p>
 
 <p>More troubleshooting in <a href="https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d">using details in Github</a> and <a href="https://gist.github.com/joyrexus/16041f2426450e73f5df9391f7f7ae5f">collapsible markdown</a>.</p>
 
@@ -1112,20 +1069,14 @@ and here
 
 <p>Add this to your <code class="language-plaintext highlighter-rouge">_layouts/default.html</code> before the closing <code class="language-plaintext highlighter-rouge">body</code> tag.</p>
 
-<p>{% raw %}</p>
-
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% include new-window-fix.html %}
 </code></pre></div></div>
-
-<p>{% endraw %}</p>
 
 <h2 id="add-external-site-to-menu">Add external site to menu</h2>
 
 <p>There isnâ€™t a clear way to add an external link to the menu as discussed on <a href="https://github.com/jekyll/minima/issues/207">navigation external links</a>.</p>
 
 <p>This <a href="https://github.com/jekyll/minima/issues/207#issuecomment-377095111">comment</a> shows a quick fix to add the external link to <code class="language-plaintext highlighter-rouge">_includes/header.html</code>. I added a link to my Linkedin profile as shown:</p>
-
-<p>{% raw %}</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="trigger"&gt;
   {%- for path in page_paths -%}
@@ -1137,8 +1088,6 @@ and here
   {%- endfor -%}
 &lt;/div&gt;
 </code></pre></div></div>
-
-<p>{% endraw %}</p>
 
 <p>The <code class="language-plaintext highlighter-rouge">header_pages</code> has to be enabled in <code class="language-plaintext highlighter-rouge">_config.yml</code> for the menu to show. I have an about page here:</p>
 
