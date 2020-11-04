@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-10-13T21:39:41-04:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-11-04T10:02:25-05:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
 
 &lt;p&gt;My development laptop runs on Linux Fedora, 8GB RAM, and just 64GB of disk. No way to run an iPhone simulator. I had Android installed but it was taking way too much space.&lt;/p&gt;
 
@@ -231,17 +231,20 @@ Started HBase thrift daemon (hbase-thrift)
 &lt;ul&gt;
   &lt;li&gt;Edit your file with Vim (if you dare to)&lt;/li&gt;
   &lt;li&gt;Follow same process to copy from host to docker.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>tom</name></author><category term="docker" /><category term="google cloud" /><category term="GCP" /><summary type="html">I am studying the Google Cloud Platform. I’d like to take the Associate Cloud Engineer certificate in a few months.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/1.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Google Maps API with Python</title><link href="https://www.tomordonez.com/google-maps-api-python/" rel="alternate" type="text/html" title="Google Maps API with Python" /><published>2020-05-30T00:00:00-04:00</published><updated>2020-05-30T00:00:00-04:00</updated><id>https://www.tomordonez.com/google-maps-api-python</id><content type="html" xml:base="https://www.tomordonez.com/google-maps-api-python/">&lt;p&gt;(This blog post is being revised. It might not show correctly in Safari/Reader view)&lt;/p&gt;
-
-&lt;p&gt;This is a tutorial to extract data from the Google Maps API using Python.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>tom</name></author><category term="docker" /><category term="google cloud" /><category term="GCP" /><summary type="html">I am studying the Google Cloud Platform. I’d like to take the Associate Cloud Engineer certificate in a few months.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/1.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Google Maps API with Python</title><link href="https://www.tomordonez.com/google-maps-api-python/" rel="alternate" type="text/html" title="Google Maps API with Python" /><published>2020-05-30T00:00:00-04:00</published><updated>2020-05-30T00:00:00-04:00</updated><id>https://www.tomordonez.com/google-maps-api-python</id><content type="html" xml:base="https://www.tomordonez.com/google-maps-api-python/">&lt;p&gt;This is a tutorial to extract data from the Google Maps API using Python.&lt;/p&gt;
 
 &lt;h2 id=&quot;get-a-google-maps-api-key&quot;&gt;Get a Google Maps API key&lt;/h2&gt;
 
 &lt;p&gt;As shown in &lt;a href=&quot;https://developers.google.com/places/web-service/get-api-key&quot;&gt;get API key&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Go to GCP (Google Cloud Platform) &amp;gt; APIs &amp;amp; Services &amp;gt; Credentials.&lt;/p&gt;
+&lt;p&gt;Go to the GCP dashboard:&lt;/p&gt;
 
-&lt;p&gt;Click on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Create Credentials&lt;/code&gt; then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;API key&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;APIs &amp;amp; Services&lt;/li&gt;
+  &lt;li&gt;Then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Credentials&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Click on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Create Credentials&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;API key&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;enable-a-google-maps-api-service&quot;&gt;Enable a Google Maps API service&lt;/h2&gt;
 
@@ -289,9 +292,11 @@ Street View Static API
   &lt;li&gt;iOS apps&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&quot;google-maps-api-key-best-practices&quot;&gt;Google Maps API key best practices&lt;/h2&gt;
+
 &lt;p&gt;More about this in &lt;a href=&quot;https://developers.google.com/maps/api-key-best-practices&quot;&gt;API key best practices&lt;/a&gt;, &lt;a href=&quot;https://developers.google.com/maps/api-key-best-practices#api_key_table&quot;&gt;more best practices&lt;/a&gt;, and &lt;a href=&quot;https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions&quot;&gt;API key restrictions&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;One of the best practices says this:&lt;/p&gt;
+&lt;p&gt;One of the best practices says:&lt;/p&gt;
 
 &lt;p&gt;You may use an unrestricted API with the Google Maps API. However, it is recommended to restrict the API keys in the following scenarios:&lt;/p&gt;
 
@@ -315,11 +320,7 @@ Street View Static API
 
 &lt;p&gt;First I am going to test finding a place.&lt;/p&gt;
 
-&lt;p&gt;Select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Restrict the key&lt;/code&gt; and from the drop down choose&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Places API.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Restrict the key&lt;/code&gt; and from the drop down choose &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Places API&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Then click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Save&lt;/code&gt;.&lt;/p&gt;
 
@@ -741,51 +742,48 @@ est': {'lat': 37.45713972010728, 'lng': -122.1742241298927}}}, 'icon': 'https://
 [{'access_points': [{'access_point_type': 'TYPE_SEGMENT', 'location': {'latitude': 37.4213102, 'longitude': -122.0852443}, 'location_on_segment': {'latitude': 37.4212816, 'lngitude': -122.0852472}, 'place_id': 'ChIJpdYZQgK6j4ARnmfrthhmnZ8', 'segment_position': 0.5404474139213562, 'unsuitable_travel_modes': []}], 'address_components': [{'long_nae': '1600', 'short_name': '1600', 'types': ['street_number']}, {'long_name': 'Amphitheatre Parkway', 'short_name': 'Amphitheatre Pkwy', 'types': ['route']}, {'long_name': 'Muntain View', 'short_name': 'Mountain View', 'types': ['locality', 'political']}, {'long_name': 'Santa Clara County', 'short_name': 'Santa Clara County', 'types': ['administative_area_level_2', 'political']}, {'long_name': 'California', 'short_name': 'CA', 'types': ['administrative_area_level_1', 'political']}, {'long_name': 'United States', 'sort_name': 'US', 'types': ['country', 'political']}, {'long_name': '94043', 'short_name': '94043', 'types': ['postal_code']}], 'formatted_address': '1600 Amphitheatre Pkwy, ountain View, CA 94043, USA', 'geometry': {'location': {'lat': 37.4223105, 'lng': -122.0846329}, 'location_type': 'ROOFTOP', 'viewport': {'northeast': {'lat': 37.423659480295, 'lng': -122.0832839197085}, 'southwest': {'lat': 37.42096151970851, 'lng': -122.0859818802915}}}, 'place_id': 'ChIJtYuu0V25j4ARwu5e4wwRYgE', 'plus_code': {'compound_code' 'CWC8+W4 Mountain View, CA, United States', 'global_code': '849VCWC8+W4'}, 'types': ['street_address']}]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Pulling the 2nd page and next pages:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.linkedin.com/in/tomordonez/&quot;&gt;&lt;img src=&quot;/assets/images/ama-linkedin-tomordonez.png&quot; alt=&quot;Ask me anything on Linkedin&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>tom</name></author><category term="analytics" /><category term="API" /><category term="Python" /><category term="Google Maps" /><summary type="html">This is a tutorial to extract data from the Google Maps API using Python.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/3.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/3.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Static Website with Jekyll and Github Pages</title><link href="https://www.tomordonez.com/static-website-jekyll-github-pages/" rel="alternate" type="text/html" title="Static Website with Jekyll and Github Pages" /><published>2020-05-25T00:00:00-04:00</published><updated>2020-05-25T00:00:00-04:00</updated><id>https://www.tomordonez.com/static-website-jekyll-github-pages</id><content type="html" xml:base="https://www.tomordonez.com/static-website-jekyll-github-pages/">&lt;p&gt;This is a step by step tutorial to build a &lt;strong&gt;static website with Jekyll and Github Pages&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;TODO&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 
-&lt;h2 id=&quot;google-maps-api-with-python-requests&quot;&gt;Google Maps API with Python Requests&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Install Ruby&lt;/li&gt;
+  &lt;li&gt;Jekyll and Github Pages&lt;/li&gt;
+  &lt;li&gt;Customizing the theme&lt;/li&gt;
+  &lt;li&gt;Using SEO&lt;/li&gt;
+  &lt;li&gt;Creating blog posts&lt;/li&gt;
+  &lt;li&gt;Github Pages custom domain&lt;/li&gt;
+  &lt;li&gt;Change your DNS name server&lt;/li&gt;
+  &lt;li&gt;Deploying custom plugins&lt;/li&gt;
+  &lt;li&gt;Google Analytics&lt;/li&gt;
+  &lt;li&gt;Pagination&lt;/li&gt;
+  &lt;li&gt;Jekyll without Plugins&lt;/li&gt;
+  &lt;li&gt;Reading Time&lt;/li&gt;
+  &lt;li&gt;Search Box&lt;/li&gt;
+  &lt;li&gt;Text Expand/Collapse&lt;/li&gt;
+  &lt;li&gt;Open external site in new window&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;This is how you use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;requests&lt;/code&gt;:&lt;/p&gt;
+&lt;h2 id=&quot;cheat-sheet-for-building-and-deploying&quot;&gt;Cheat Sheet for Building and Deploying&lt;/h2&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import requests
+&lt;p&gt;Build in development and test in localhost:&lt;/p&gt;
 
-userdata = {&quot;firstname&quot;: &quot;Homer&quot;, &quot;lastname&quot;: &quot;Simpson&quot;, &quot;password&quot;: &quot;beer123&quot;}
-resp = requests.post('http://www.springfield.com/user', data=userdata)
-resp.json()
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ bundle exec jekyll serve
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;TODO&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Backup development files to Github:&lt;/p&gt;
 
-&lt;h2 id=&quot;google-maps-api-with-python-httpclient&quot;&gt;Google Maps API with Python http.client&lt;/h2&gt;
-
-&lt;p&gt;In comparison to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http.client&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import http.client
-
-conn = http.client.HTTPSConnection(&quot;springfield.com)
-key = api_key
-auth_token = {'Authorization': 'key '+key}
-payload = &quot;{}&quot;
-headers = auth_token
-params = '/api/v3/?page_size='+str(quantity)
-  
-conn.request(&quot;GET&quot;, params, payload, headers=headers)
-
-# Get the response, decode the bytes response
-response = conn.getresponse()
-string = response.read().decode()
-
-# Load the string into JSON
-json_data = json.loads(string)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git add .
+$ git commit -m &quot;Awesome commit message here&quot;
+$ git push -u origin master
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;TODO&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Deploy to production:&lt;/p&gt;
 
-&lt;h2 id=&quot;google-maps-api-billing&quot;&gt;Google Maps API Billing&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ JEKYLL_ENV=production jgd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;TODO&lt;/strong&gt;&lt;/p&gt;</content><author><name>tom</name></author><category term="analytics" /><category term="API" /><category term="Python" /><category term="Google Maps" /><summary type="html">(This blog post is being revised. It might not show correctly in Safari/Reader view)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/3.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/3.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Static Website with Jekyll and Github Pages</title><link href="https://www.tomordonez.com/static-website-jekyll-github-pages/" rel="alternate" type="text/html" title="Static Website with Jekyll and Github Pages" /><published>2020-05-25T00:00:00-04:00</published><updated>2020-05-25T00:00:00-04:00</updated><id>https://www.tomordonez.com/static-website-jekyll-github-pages</id><content type="html" xml:base="https://www.tomordonez.com/static-website-jekyll-github-pages/">&lt;p&gt;I moved from the Pelican Python static website generator. This is a step by step tutorial to build a &lt;strong&gt;static website with Jekyll and Github Pages&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;More details below…&lt;/p&gt;
 
 &lt;h2 id=&quot;install-ruby&quot;&gt;Install Ruby&lt;/h2&gt;
 
@@ -1880,7 +1878,7 @@ and here
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;header_pages:
   - about.md
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">I moved from the Pelican Python static website generator. This is a step by step tutorial to build a static website with Jekyll and Github Pages.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Python, Files, and OS Module</title><link href="https://www.tomordonez.com/python-files-os-module/" rel="alternate" type="text/html" title="Python, Files, and OS Module" /><published>2020-05-24T00:00:00-04:00</published><updated>2020-05-24T00:00:00-04:00</updated><id>https://www.tomordonez.com/python-files-os-module</id><content type="html" xml:base="https://www.tomordonez.com/python-files-os-module/">&lt;p&gt;Migrating from one static website to another, I had to rename multiple files, extract some content, remove it, and do other operations.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">This is a step by step tutorial to build a static website with Jekyll and Github Pages.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Python, Files, and OS Module</title><link href="https://www.tomordonez.com/python-files-os-module/" rel="alternate" type="text/html" title="Python, Files, and OS Module" /><published>2020-05-24T00:00:00-04:00</published><updated>2020-05-24T00:00:00-04:00</updated><id>https://www.tomordonez.com/python-files-os-module</id><content type="html" xml:base="https://www.tomordonez.com/python-files-os-module/">&lt;p&gt;Migrating from one static website to another, I had to rename multiple files, extract some content, remove it, and do other operations.&lt;/p&gt;
 
 &lt;p&gt;For about 100 blog posts I had to rename the files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;title.md&lt;/code&gt; to the format &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-title.md&lt;/code&gt;.&lt;/p&gt;
 
