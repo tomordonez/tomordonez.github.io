@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Install Chromedriver in Linux"
+description: "A short tutorial to install Chromedriver in Linux"
 redirect_from:
   - /install-chromedriver-linux.html
 categories: [Code]
@@ -8,11 +9,7 @@ image: assets/images/3.jpg
 tags: [linux, chromedriver]
 ---
 
-This is a short tutorial to **install Chromedriver in Linux**.
-
-Based on this <a href="https://gist.github.com/natritmeyer/6522446" target="_blank">git</a> about installing Chromedriver in Linux Fedora. And setting up the correct file location in your Python scripts.
-
-This is the directory where to **<a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank">download Chromedriver</a>**.
+Based on this [gist](https://gist.github.com/natritmeyer/6522446) about installing Chromedriver in Linux Fedora. And setting up the correct file location in your Python scripts.
 
     $ wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
     $ unzip chromedriver_linux64_2.3.zip

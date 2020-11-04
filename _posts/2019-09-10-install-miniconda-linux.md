@@ -1,41 +1,41 @@
 ---
 layout: post
 title: "Install Miniconda on Linux"
+description: "This is a step by step tutorial to install Miniconda on Linux, including output of commands, a Miniconda cheat sheet, and resources for Miniconda on Windows"
 redirect_from:
   - /install-miniconda-linux.html
 categories: [Code]
-image: assets/images/7.jpg
+image: assets/images/install-miniconda-linux.jpg
 tags: [python, miniconda]
 ---
 
-I loved `virtualenv` and then I found `Miniconda`. Follow this guide to **install Miniconda on Linux**.
+I loved `virtualenv` and then I found `Miniconda`. With Miniconda you can create a Python environment with a specific Python version and/or specific library versions.
 
-*Updated September 2020*
+Miniconda is a light version of Anaconda, a Python distribution from continuum. You can install Miniconda with an installer or use the command line.
 
-You can create a Python environment with a specific Python version and/or specific library versions.
+![Install Miniconda on Linux]({{ site.baseurl }}/assets/images/install-miniconda-linux.jpg)
 
-## Summary
+## Install Miniconda on Linux
 
 Long story short:
 
 * Create the conda directory in your home folder: `mkdir ~/.conda`
 * Use the script to install Miniconda.
-* Type `yes` to accept the license.
-* Press `Enter` to confirm the install location.
-* Type `yes` if you want the installer to initialize Miniconda with `conda init`
 * Reopen the terminal and check conda was installed `conda --version`
 
 See complete details below.
 
-## Useful Conda commands
+## Conda Cheat Sheet
 
 * Conda version: `conda --version`
-* List of conda environments: `conda info --envs`
+* List of conda environments: `conda info --envs` or `conda env list`
 * Activate a conda: `conda activate name_of_env`
 * Switch to default env: `conda activate`
 * Create env with a yml file: `conda env create --file environment.yml`
 
-## Details step by step with output
+## Installing Miniconda Step by Step
+
+I tested this installing Miniconda on Ubuntu and Fedora.
 
 If you already tried installing Miniconda and found issues, see troubleshooting at the end.
 
@@ -46,13 +46,15 @@ To avoid issues before installing Miniconda. Create the `.conda` directory in yo
 Then use the script to install Miniconda. Find your install file from [Conda docs](
 https://docs.conda.io/en/latest/miniconda.html)
 
-For Linux:
+**Minconda for Linux**
 
     $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     $ bash Miniconda3-latest-Linux-x86_64.sh
 
-Output:
-
+<details>
+    <summary>Click to see Output</summary>
+    <pre>
+        
     Welcome to Miniconda3 4.7.10
     In order to continue the installation process, please review the license agreement.
     Please, press ENTER to continue
@@ -87,6 +89,9 @@ Output:
     `cryptography`
         A Python library which exposes cryptographic recipes and primitives.
 
+    </pre>
+
+</details>
 
 Accept the license terms.
 
@@ -108,14 +113,14 @@ Press `ENTER` if you want the default location.
 
     [/home/tom/miniconda3] >>>
 
-Output:
-
-	PREFIX=/home/tom/miniconda3
-	Unpacking payload ...
-	Collecting package metadata (current_repodata.json): done
-	Solving environment: done
-
-More Output:
+<details>
+    <summary>Click to see Output</summary>
+    <pre>
+        
+    PREFIX=/home/tom/miniconda3
+    Unpacking payload ...
+    Collecting package metadata (current_repodata.json): done
+    Solving environment: done
 
     environment location: /home/tom/miniconda3
 
@@ -165,8 +170,6 @@ More Output:
     - zlib==1.2.11=h7b6447c_3
     - zstd==1.3.7=h0b5b093_0
 
-More output:
-    
     The following NEW packages will be INSTALLED:
 
     _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
@@ -218,12 +221,20 @@ More output:
 
     installation finished.
 
+    </pre>
+
+</details>
+
 Answer the question "initialize Miniconda3 by running conda init?"
 
     Do you wish the installer to initialize Miniconda3 by running conda init?
 
     [no] >>> yes
 
+<details>
+    <summary>Click to see Output</summary>
+    <pre>
+        
     no change     /home/tom/miniconda3/condabin/conda
     no change     /home/tom/miniconda3/bin/conda
     no change     /home/tom/miniconda3/bin/conda-env
@@ -236,6 +247,12 @@ Answer the question "initialize Miniconda3 by running conda init?"
     no change     /home/tom/miniconda3/lib/python3.7/site-packages/xontrib/conda.xsh
     no change     /home/tom/miniconda3/etc/profile.d/conda.csh
     modified      /home/tom/.bashrc
+
+    </pre>
+
+</details>
+
+Final Output:
 
 	==> For changes to take effect, close and re-open your current shell. <==
 
@@ -364,13 +381,63 @@ To deactivate and go back to `base`:
 
     $ conda activate
 
-To list your `conda` environments:
+## conda env list
 
-    $ conda info --envs
+Or use `conda info --envs` to list your conda environments.
 
-## Conda cheat sheet
+## conda help
 
-Get it [here](https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html)
+Run this:
+
+    $ conda help
+
+Output:
+
+    usage: conda [-h] [-V] command ...
+
+    conda is a tool for managing and deploying applications, environments and packages.
+
+<details>
+    <summary>Click to see Output</summary>
+    <pre>
+        
+    Options:
+
+    positional arguments:
+      command
+        clean        Remove unused packages and caches.
+        config       Modify configuration values in .condarc. This is modeled
+                     after the git config command. Writes to the user .condarc
+                     file (/home/tom/.condarc) by default.
+        create       Create a new conda environment from a list of specified
+                     packages.
+        help         Displays a list of available conda commands and their help
+                     strings.
+        info         Display information about current conda install.
+        init         Initialize conda for shell interaction. [Experimental]
+        install      Installs a list of packages into a specified conda
+                     environment.
+        list         List linked packages in a conda environment.
+        package      Low-level conda package utility. (EXPERIMENTAL)
+        remove       Remove a list of packages from a specified conda environment.
+        uninstall    Alias for conda remove.
+        run          Run an executable in a conda environment. [Experimental]
+        search       Search for packages and display associated information. The
+                     input is a MatchSpec, a query language for conda packages.
+                     See examples below.
+        update       Updates conda packages to the latest compatible version.
+        upgrade      Alias for conda update.
+
+    optional arguments:
+      -h, --help     Show this help message and exit.
+      -V, --version  Show the conda version number and exit.
+
+    conda commands available from other packages:
+      env
+
+    </pre>
+
+</details>
 
 ## Troubleshooting installation
 
@@ -390,3 +457,12 @@ If you see this error try this:
 * Remove what the install added to your `bashrc`
 * Create the `.conda` directory.
 * Reinstall
+
+## Miniconda on Windows
+
+Here are some resources to install Miniconda on Windows:
+
+* [Conda Docs installing Miniconda on Windows](https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html)
+* [Setup Python on Windows with Miniconda](https://katiekodes.com/setup-python-windows-miniconda/)
+
+[![Ask me anything on Linkedin]({{ site.baseurl }}/assets/images/ama-linkedin-tomordonez.png)](https://www.linkedin.com/in/tomordonez/)

@@ -1,0 +1,140 @@
+I"�<p>This is how to get the <strong>schema in SQLite with Python</strong>.</p>
+
+<p>You can check if you already have SQLite installed:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3
+</code></pre></div></div>
+
+<p>If the prompt doesn’t change to <code class="language-plaintext highlighter-rouge">sqlite&gt;</code> then try the download options from the official docs <a href="https://www.sqlite.org/download.html">here</a>.</p>
+
+<h2 id="create-a-sqlite-database">Create a SQLite database</h2>
+
+<p>Let’s setup this tutorial by creating a SQLite database. I created a simple table and added one record:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3
+sqlite&gt; CREATE TABLE Users(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT);
+sqlite&gt; INSERT INTO Users(name, email) VALUES('homer', 'homer@simpson.com');
+sqlite&gt; SELECT * FROM Users;
+1|homer|homer@simpson.com
+</code></pre></div></div>
+
+<p>You can also create a SQLite database and table using a Python script:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import sqlite3
+conn = sqlite3.connect('users.sqlite')
+cur = conn.cursor()
+
+cur.execute('CREATE TABLE Users(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT')
+cur.execute('INSERT INTO Users(name, email) VALUES(?, ?)', ('homer', 'homer@simpson.com'))
+conn.commit()
+cur.close()
+</code></pre></div></div>
+
+<h2 id="get-the-sqlite-schema-with-pragma">Get the SQLite schema with PRAGMA</h2>
+
+<p>Given that the table name is <code class="language-plaintext highlighter-rouge">Users</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PRAGMA table_info('Users')
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">PRAGMA</code> is a <code class="language-plaintext highlighter-rouge">SQL</code> extension for <code class="language-plaintext highlighter-rouge">SQLite</code>.</p>
+
+<ul>
+  <li>A <code class="language-plaintext highlighter-rouge">PRAGMA</code> can take <code class="language-plaintext highlighter-rouge">0</code> or <code class="language-plaintext highlighter-rouge">1</code> argument.</li>
+  <li>The argument could be in parenthesis <code class="language-plaintext highlighter-rouge">()</code> or with an equal <code class="language-plaintext highlighter-rouge">=</code></li>
+  <li>The argument could be boolean: <code class="language-plaintext highlighter-rouge">1 yes true on</code>, <code class="language-plaintext highlighter-rouge">0 no false off</code>.</li>
+  <li>The argument could be a string literal.</li>
+  <li>There could be an optional <code class="language-plaintext highlighter-rouge">schema-name</code> before the <code class="language-plaintext highlighter-rouge">PRAGMA</code> name.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">schema-name</code> is the name of the attached database or <code class="language-plaintext highlighter-rouge">main</code> or <code class="language-plaintext highlighter-rouge">temp</code>.</li>
+  <li>If the name is omitted, the defaul is <code class="language-plaintext highlighter-rouge">main</code>.</li>
+  <li>In some pragmas the <code class="language-plaintext highlighter-rouge">schema-name</code> is ignored.</li>
+</ul>
+
+<p>More details about PRAGMA on the official SQLite docs <a href="https://www.sqlite.org/pragma.html#pragma_table_info">here</a></p>
+
+<h2 id="sqlite-schema-syntax">SQLite schema syntax</h2>
+
+<p>The syntax is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PRAGMA schema.table_info(table-name);
+</code></pre></div></div>
+
+<p>This one returns one row for each colum in the table.</p>
+
+<p>Each row includes:</p>
+
+<ul>
+  <li>column name</li>
+  <li>data type</li>
+  <li>whether or not the column can be <code class="language-plaintext highlighter-rouge">NULL</code></li>
+  <li>the default value for the column</li>
+  <li>the primary key in the result set is <code class="language-plaintext highlighter-rouge">0</code> for columns that are not part of the primary key</li>
+  <li>otherwise the primary key in the result set is the index of the column</li>
+</ul>
+
+<h2 id="get-schema-in-sqlite-with-python">Get Schema in SQLite with Python</h2>
+
+<p>Get the SQLite schema:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PRAGMA table_info('Users')
+</code></pre></div></div>
+
+<p>Let’s add it here:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3
+
+sqlite&gt; CREATE TABLE Users(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT);
+
+sqlite&gt; INSERT INTO Users(name, email) VALUES('homer', 'homer@simpson.com');
+
+sqlite&gt; SELECT * FROM Users;
+1|homer|homer@simpson.com
+
+sqlite&gt; PRAGMA table_info('Users')
+0|id|INTEGER|0||1
+1|name|TEXT|0||0
+2|email|TEXT|0||0
+</code></pre></div></div>
+
+<p>Get the SQLite schema with Python:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cur.execute("PRAGMA table_info('Courses')").fetchall()
+</code></pre></div></div>
+
+<p>Using the Python shell:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import sqlite3
+&gt;&gt;&gt; conn = sqlite3.connect('users.sqlite')
+&gt;&gt;&gt; cur = conn.cursor()
+
+&gt;&gt;&gt; cur.execute('CREATE TABLE Users(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT)')
+
+&gt;&gt;&gt; cur.execute('INSERT INTO Users(name, email) VALUES(?, ?)', ('homer', 'homer@simpson.com'))
+
+&gt;&gt;&gt; cur.execute("PRAGMA table_info('Users')")
+&lt;sqlite3.Cursor object at 0x7f590a00cea0&gt;
+
+&gt;&gt;&gt; cur.execute("PRAGMA table_info('Users')").fetchall()
+[(0, 'id', 'INTEGER', 0, None, 1), (1, 'name', 'TEXT', 0, None, 0), (2, 'email', 'TEXT', 0, None, 0)]
+
+&gt;&gt;&gt; for row in cur.execute("PRAGMA table_info('Users')").fetchall():
+...    print(row)
+...
+(0, 'id', 'INTEGER', 0, None, 1)
+(1, 'name', 'TEXT', 0, None, 0)
+(2, 'email', 'TEXT', 0, None, 0)
+</code></pre></div></div>
+
+<h2 id="sqlite-cheat-sheet">SQLite cheat sheet</h2>
+
+<p><a href="../sqlite3-cheatsheet/">SQLite cheat sheet for Python</a></p>
+
+<h2 id="more-sqlite-resources">More SQLite resources</h2>
+
+<ul>
+  <li><a href="https://sqlite.org/lang_aggfunc.html">Aggregate functions in SQLite</a></li>
+  <li><a href="https://sqlite.org/lang_datefunc.html">Date in SQLite</a></li>
+  <li><a href="https://github.com/sqlitebrowser/sqlitebrowser">SQLite browser</a></li>
+  <li><a href="https://github.com/pawelsalawa/sqlitestudio">SQLitestudio SQLite manager</a></li>
+</ul>
+:ET

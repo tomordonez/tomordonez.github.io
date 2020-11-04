@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Disable Touchscreen on Ubuntu"
+description: "Follow this process to disable touchscreen on Ubuntu"
 redirect_from:
   - /disable-touchscreen-ubuntu.html
   - /disable-touchscreen-ubuntu.html
@@ -39,9 +40,7 @@ It will show you something like this:
 
 Find the touchscreen system id and disable it.
 
-I initially got confused between choosing Touchpad and Touch System.
-
-I looked up Raydium Corporation and indeed they do touch screens.
+I initially got confused between choosing Touchpad and Touch System. I looked up Raydium Corporation and indeed they do touch screens.
 
 In my case the `id` is `15`
 
@@ -54,3 +53,9 @@ If you feel like you made a mistake and cannot live without the touchscreen then
     xinput enable 15
 
 Using obviously the `id` that corresponds to your config.
+
+## Other resources to disable touchscreen on Ubuntu
+
+* [Disable touchscreen on Ubuntu 18.04](https://askubuntu.com/questions/1038248/how-to-disable-touchscreen-permanently-on-ubuntu-18-04)
+* [Disable touchscreen on Dell Inspiron and Ubuntu](http://www.pakzilla.com/2018/05/22/how-to-disable-touch-screen-of-dell-inspiron-14-5000-series-in-ubuntu-18-04/)
+* [Disable touchscreen on ASUS and Ubuntu 16.04](http://jaykilleen.com/posts/disable-the-touchscreen-and-touchpad-on-asus-running-ubuntu-16-04)

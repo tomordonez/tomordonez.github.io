@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Crontab with Selenium and Chrome Driver"
+description: "Create a crontab with Selenium and Chrome Driver"
 redirect_from:
   - /crontab-selenium-chrome-driver.html
 categories: [Code]

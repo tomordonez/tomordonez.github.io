@@ -1,12 +1,49 @@
 ---
 layout: post
 title: "Static Website with Jekyll and Github Pages"
+description: "Build a free website with Jekyll and Github Pages with custom domain."
 categories: [Code]
 image: assets/images/5.jpg
 tags: [jekyll, github pages]
 ---
 
-I moved from the Pelican Python static website generator. This is a step by step tutorial to build a **static website with Jekyll and Github Pages**.
+This is a step by step tutorial to build a **static website with Jekyll and Github Pages**.
+
+## Summary
+
+* Install Ruby
+* Jekyll and Github Pages
+* Customizing the theme
+* Using SEO
+* Creating blog posts
+* Github Pages custom domain
+* Change your DNS name server
+* Deploying custom plugins
+* Google Analytics
+* Pagination
+* Jekyll without Plugins
+* Reading Time
+* Search Box
+* Text Expand/Collapse
+* Open external site in new window
+
+## Cheat Sheet for Building and Deploying
+
+Build in development and test in localhost:
+
+	$ bundle exec jekyll serve
+
+Backup development files to Github:
+
+	$ git add .
+	$ git commit -m "Awesome commit message here"
+	$ git push -u origin master
+
+Deploy to production:
+
+	$ JEKYLL_ENV=production jgd
+
+More details below...
 
 ## Install Ruby
 

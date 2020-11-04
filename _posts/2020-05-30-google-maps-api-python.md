@@ -1,13 +1,12 @@
 ---
 layout: post
 title: "Google Maps API with Python"
+description: "A Google Maps API tutorial to extract data using Python"
 author: tom
 categories: [Data Analytics]
 image: assets/images/3.jpg
 tags: [analytics, API, Python, Google Maps]
 ---
-
-(This blog post is being revised. It might not show correctly in Safari/Reader view)
 
 This is a tutorial to extract data from the Google Maps API using Python.
 
@@ -15,9 +14,12 @@ This is a tutorial to extract data from the Google Maps API using Python.
 
 As shown in [get API key](https://developers.google.com/places/web-service/get-api-key).
 
-Go to GCP (Google Cloud Platform) > APIs & Services > Credentials.
+Go to the GCP dashboard:
 
-Click on `Create Credentials` then `API key`.
+* APIs & Services
+* Then `Credentials`
+* Click on `Create Credentials`
+* Then `API key`
 
 
 ## Enable a Google Maps API service
@@ -61,9 +63,11 @@ Then `Application Restrictions` controls which websites or IP addresses or appli
 * Android apps
 * iOS apps
 
+## Google Maps API key best practices
+
 More about this in [API key best practices](https://developers.google.com/maps/api-key-best-practices), [more best practices](https://developers.google.com/maps/api-key-best-practices#api_key_table), and [API key restrictions](https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions)
 
-One of the best practices says this:
+One of the best practices says:
 
 You may use an unrestricted API with the Google Maps API. However, it is recommended to restrict the API keys in the following scenarios:
 
@@ -84,10 +88,7 @@ The `API restrictions` specify the enabled APIs that can be called:
 
 First I am going to test finding a place.
 
-
-Select `Restrict the key` and from the drop down choose
-
-* Places API.
+Select `Restrict the key` and from the drop down choose `Places API`
 
 Then click `Save`.
 
@@ -476,48 +477,4 @@ Find the lat,long of Google's office:
 	>>> place
 	[{'access_points': [{'access_point_type': 'TYPE_SEGMENT', 'location': {'latitude': 37.4213102, 'longitude': -122.0852443}, 'location_on_segment': {'latitude': 37.4212816, 'lngitude': -122.0852472}, 'place_id': 'ChIJpdYZQgK6j4ARnmfrthhmnZ8', 'segment_position': 0.5404474139213562, 'unsuitable_travel_modes': []}], 'address_components': [{'long_nae': '1600', 'short_name': '1600', 'types': ['street_number']}, {'long_name': 'Amphitheatre Parkway', 'short_name': 'Amphitheatre Pkwy', 'types': ['route']}, {'long_name': 'Muntain View', 'short_name': 'Mountain View', 'types': ['locality', 'political']}, {'long_name': 'Santa Clara County', 'short_name': 'Santa Clara County', 'types': ['administative_area_level_2', 'political']}, {'long_name': 'California', 'short_name': 'CA', 'types': ['administrative_area_level_1', 'political']}, {'long_name': 'United States', 'sort_name': 'US', 'types': ['country', 'political']}, {'long_name': '94043', 'short_name': '94043', 'types': ['postal_code']}], 'formatted_address': '1600 Amphitheatre Pkwy, ountain View, CA 94043, USA', 'geometry': {'location': {'lat': 37.4223105, 'lng': -122.0846329}, 'location_type': 'ROOFTOP', 'viewport': {'northeast': {'lat': 37.423659480295, 'lng': -122.0832839197085}, 'southwest': {'lat': 37.42096151970851, 'lng': -122.0859818802915}}}, 'place_id': 'ChIJtYuu0V25j4ARwu5e4wwRYgE', 'plus_code': {'compound_code' 'CWC8+W4 Mountain View, CA, United States', 'global_code': '849VCWC8+W4'}, 'types': ['street_address']}]
 
-
-Pulling the 2nd page and next pages:
-
-**TODO**
-
-## Google Maps API with Python Requests
-
-This is how you use `requests`:
-
-	import requests
-
-	userdata = {"firstname": "Homer", "lastname": "Simpson", "password": "beer123"}
-	resp = requests.post('http://www.springfield.com/user', data=userdata)
-	resp.json()
-
-
-**TODO**
-
-## Google Maps API with Python http.client
-
-In comparison to `http.client`:
-
-	import http.client
-
-	conn = http.client.HTTPSConnection("springfield.com)
-	key = api_key
-	auth_token = {'Authorization': 'key '+key}
-	payload = "{}"
-	headers = auth_token
-	params = '/api/v3/?page_size='+str(quantity)
-  
-    conn.request("GET", params, payload, headers=headers)
-
-    # Get the response, decode the bytes response
-    response = conn.getresponse()
-    string = response.read().decode()
-
-    # Load the string into JSON
-    json_data = json.loads(string)
-
-**TODO**
-
-## Google Maps API Billing
-
-**TODO**
+[![Ask me anything on Linkedin]({{ site.baseurl }}/assets/images/ama-linkedin-tomordonez.png)](https://www.linkedin.com/in/tomordonez/)

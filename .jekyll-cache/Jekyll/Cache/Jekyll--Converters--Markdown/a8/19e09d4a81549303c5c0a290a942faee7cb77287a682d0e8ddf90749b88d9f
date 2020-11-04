@@ -1,0 +1,56 @@
+I"è	<p>Working inside a virtual environment and running <code class="language-plaintext highlighter-rouge">pip install</code> anything was giving me this error:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip is configured with locations that require TLS/SSL,
+however the ssl module in Python is not available.
+</code></pre></div></div>
+
+<p>Also this error:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Can't connect to HTTPS URL because the SSL module
+is not available
+</code></pre></div></div>
+
+<p>I wanted to install <code class="language-plaintext highlighter-rouge">requests</code> such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(env)$ pip install requests
+</code></pre></div></div>
+
+<p>I deactivated the <code class="language-plaintext highlighter-rouge">virtualenv</code> and ran:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip install -U pip
+</code></pre></div></div>
+
+<p>I got this error:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Permission denied: 'usr/bin/pip'
+</code></pre></div></div>
+
+<p>Then ran this. As recommended on the output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip install -U pip --user
+</code></pre></div></div>
+
+<p>This worked.</p>
+
+<p>Now I wanted to install <code class="language-plaintext highlighter-rouge">requests</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip install requests --user
+</code></pre></div></div>
+
+<p>This worked too.</p>
+
+<h2 id="remove-and-create-a-new-env">Remove and Create a new <code class="language-plaintext highlighter-rouge">env</code></h2>
+
+<p>I removed the <code class="language-plaintext highlighter-rouge">virtualenv</code> and created a new one:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv -p /usr/bin/python3 env
+$ source env/bin/activate
+</code></pre></div></div>
+
+<p>Installing <code class="language-plaintext highlighter-rouge">requests</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>env$ pip install requests
+</code></pre></div></div>
+
+<p>This works now.</p>
+:ET

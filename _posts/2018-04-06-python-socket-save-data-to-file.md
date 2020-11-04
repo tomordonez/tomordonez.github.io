@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Python Socket Save Data To File"
+description: "Using Python socket to save data to file. Send and receive data using Python sockets."
 redirect_from:
   - /python-socket-save-data-to-file.html
 categories: [Code]
@@ -8,18 +9,11 @@ image: assets/images/9.jpg
 tags: [python, socket]
 ---
 
-## Setup
-
-* Python3
-* Linux Fedora 27
-
-This exercise is based on a lesson on sockets from Coursera.
-
-This can be tested using 3 methods:
+Send and receive data can be tested using 3 methods:
 
 * telnet
 * Chrome developer tools
-* sockets
+* Python socket and save data to file
 
 ## Using Telnet
 
@@ -70,7 +64,7 @@ The `Headers` tab shows similar info:
     Date: Fri, 06 Apr 2018 23:18:23 GMT
     Connection: keep-alive
 
-## Using Python socket
+## Using Python socket to save data to file
 
     import socket
     import re

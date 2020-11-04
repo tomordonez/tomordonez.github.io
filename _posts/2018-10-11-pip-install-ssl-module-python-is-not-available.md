@@ -1,20 +1,13 @@
 ---
 layout: post
 title: "pip install SSL Module in Python Is Not Available"
+description: "Troubleshooting SSL Module in Python Is Not Available"
 redirect_from:
   - /pip-install-ssl-module-python-is-not-available.html
 categories: [Code]
 image: assets/images/4.jpg
 tags: [python, SSL, pip]
 ---
-
-Troubleshooting SSL Module in Python Is Not Available
-
-
-Setup:
-
-* Linux Fedora 27
-* Python 3.6.6
 
 Working inside a virtual environment and running `pip install` anything was giving me this error:
 

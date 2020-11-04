@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Get Schema in SQLite with Python"
+description: "Get the schema in SQLite with Python using the command line"
 redirect_from:
   - /get-schema-sqlite-python.html
 categories: [Code]
@@ -10,7 +11,15 @@ tags: [python, schema, sqlite]
 
 This is how to get the **schema in SQLite with Python**.
 
-Let's say you have a SQLite database:
+You can check if you already have SQLite installed:
+
+    $ sqlite3
+
+If the prompt doesn't change to `sqlite>` then try the download options from the official docs [here](https://www.sqlite.org/download.html).
+
+## Create a SQLite database
+
+Let's setup this tutorial by creating a SQLite database. I created a simple table and added one record:
 
     $ sqlite3
     sqlite> CREATE TABLE Users(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, email TEXT);
@@ -18,9 +27,8 @@ Let's say you have a SQLite database:
     sqlite> SELECT * FROM Users;
     1|homer|homer@simpson.com
 
-I just created a simple table and added one record.
 
-Or you could do this in a Python script:
+You can also create a SQLite database and table using a Python script:
 
     import sqlite3
     conn = sqlite3.connect('users.sqlite')
@@ -31,15 +39,13 @@ Or you could do this in a Python script:
     conn.commit()
     cur.close()
 
-As seen <a href="https://stackoverflow.com/questions/11996394/is-there-a-way-to-get-a-schema-of-a-database-from-within-python" target="_blank">here</a>. There is a way to get the `schema` from a `SQLite` database.
+## Get the SQLite schema with PRAGMA
 
 Given that the table name is `Users`:
 
     PRAGMA table_info('Users')
 
-<a href="https://www.sqlite.org/pragma.html#pragma_table_info" target="_blank">Here</a> is more info about `PRAGMA`.
-
-It says that `PRAGMA` is a `SQL` extension for `SQLite`.
+`PRAGMA` is a `SQL` extension for `SQLite`.
 
 * A `PRAGMA` can take `0` or `1` argument.
 * The argument could be in parenthesis `()` or with an equal `=`
@@ -50,7 +56,9 @@ It says that `PRAGMA` is a `SQL` extension for `SQLite`.
 * If the name is omitted, the defaul is `main`.
 * In some pragmas the `schema-name` is ignored.
 
-## PRAGMA table_info
+More details about PRAGMA on the official SQLite docs [here](https://www.sqlite.org/pragma.html#pragma_table_info)
+
+## SQLite schema syntax
 
 The syntax is:
 
@@ -69,9 +77,7 @@ Each row includes:
 
 ## Get Schema in SQLite with Python
 
-Keep in mind `PRAGMA` has nothing to do with `PHASMA`. Although you could try to remember the word `pragmatic`.
-
-In `SQLite`:
+Get the SQLite schema:
 
     PRAGMA table_info('Users')
 
@@ -91,11 +97,11 @@ Let's add it here:
     1|name|TEXT|0||0
     2|email|TEXT|0||0
 
-In `Python`:
+Get the SQLite schema with Python: 
 
     cur.execute("PRAGMA table_info('Courses')").fetchall()
 
-Let's add it here:
+Using the Python shell:
 
     >>> import sqlite3
     >>> conn = sqlite3.connect('users.sqlite')
@@ -118,3 +124,13 @@ Let's add it here:
     (1, 'name', 'TEXT', 0, None, 0)
     (2, 'email', 'TEXT', 0, None, 0)
 
+## SQLite cheat sheet
+
+[SQLite cheat sheet for Python](../sqlite3-cheatsheet/)
+
+## More SQLite resources
+
+* [Aggregate functions in SQLite](https://sqlite.org/lang_aggfunc.html)
+* [Date in SQLite](https://sqlite.org/lang_datefunc.html)
+* [SQLite browser](https://github.com/sqlitebrowser/sqlitebrowser)
+* [SQLitestudio SQLite manager](https://github.com/pawelsalawa/sqlitestudio)

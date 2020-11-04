@@ -1,32 +1,29 @@
 ---
 layout: post
 title: "Additional Second Hard Drive in Ubuntu"
+description: "Installing an additional second hard drive in Ubuntu."
 redirect_from:
   - /additional-second-hard-drive-ubuntu.html
 categories: [Linux]
 image: assets/images/8.jpg
-tags: [linux, ubuntu, hard drive]
+tags: [linux, ubuntu]
 ---
 
-Tutorial for installing an additional second hard drive in Ubuntu.
+I got a refurbished Thinkpad T430 for very cheap. It came with 250GB SSD but wanted to upgrade it to 500GB.
 
-I got a refurbished Thinkpad T430 for very cheap. It came with 250GB SSD but wanted to upgrade it 500GB.
+When I got the computer and opened the hard drive panel, I noticed that it was empty. I thought that maybe I got scammed.
 
-I got a 500GB SSD.
-
-When I got the computer and opened the hard drive panel I noticed that it was empty. I thought that maybe I got scammed.
-
-After much head banging I learned that the hard drive was stored on the RAM panel. I first thought was a mini wireless card. But reading the label it said "256 GB". Uh? I learned it was an "mSATA SSD".
+After much head banging I learned that the hard drive was stored on the RAM panel. I first thought was a mini wireless card. But reading the label it said `256 GB`. Uh? I learned it was an `mSATA SSD`.
 
 I couldn't fit the new SSD in the hard drive panel cause it was missing the tray.
 
 I installed Ubuntu on the current drive.
 
-Then I got a "Caddy" adapter that replaces the DVD drive with a way to insert another hard drive. That was pretty easy to install.
+Then I got a `Caddy` adapter that replaces the DVD drive with a way to insert another hard drive. That was pretty easy to install.
 
 Now you need to configure the hard drive.
 
-I followed this <a href="https://help.ubuntu.com/community/InstallingANewHardDrive" target="_blank">tutorial</a> from the Ubuntu docs. Although it has a section that is outdated.
+I followed [this](https://help.ubuntu.com/community/InstallingANewHardDrive) from the Ubuntu docs. Although it has a section that is outdated.
 
 ## Find the logical name of the new drive
 
@@ -34,7 +31,7 @@ I followed this <a href="https://help.ubuntu.com/community/InstallingANewHardDri
 
 This means: `lshw` List hardware. `-C` with Class of type `disk`.
 
-I identified the new disk because it said `product: Crucial`. Which is the brand I got. The size was `525GB`. And it didn't say "partitioned", while the other one said `capabilities: partitioned`.
+I identified the new disk because it said `product: Crucial`. Which is the brand I got. The size was `525GB`. And it didn't say `partitioned`, while the other one said `capabilities: partitioned`.
 
 The logical drive of the new SSD was `/dev/sda`
 
@@ -66,31 +63,29 @@ Then I clicked on the green check mark to apply.
 
 Then I right clicked on the white rectangle that said my drive name.
 
-Selected: New
-Chose: Primary Partition.
-
-Filesystem: ext4
-Add.
-
-Green check mark to apply.
+* Selected: New
+* Chose: Primary Partition.
+* Filesystem: ext4
+* Add.
+* Green check mark to apply.
 
 ## Change the label of the drive
 
-When I completed the process I realized that under "Places" my drive was listed as "525 GB blabla". Kind of boring name.
+When I completed the process I realized that under `Places` my drive was listed as `525 GB...`.
 
-I right clicked on the white rectangle again and hit "Label File System". I entered an awesome name that I could remember.
+I right clicked on the white rectangle again and hit `Label File System`. I entered an awesome name that I could remember.
 
 ## Create a mount point
 
     $ sudo mkdir /media/name_of_new_drive
 
-For the `name_of_new_drive` I used the same name as the "label name".
+For the `name_of_new_drive` I used the same name as the `label name`.
 
-Now you need to find the `UUID` of the new drive as mentioned <a href="https://help.ubuntu.com/community/UsingUUID" target="_blank">here</a>. UUID means "Universal Unique Identifier".
+Now you need to find the `UUID` of the new drive as mentioned [here](https://help.ubuntu.com/community/UsingUUID). UUID means `Universal Unique Identifier`.
 
     $ sudo blkid
 
-It says that `blkid` is used to "locate device attributes".
+It says that `blkid` is used to `locate device attributes`.
 
 The result was something like this:
 
@@ -122,13 +117,13 @@ The new disk should be mounted but just in case:
 
 ## Restart and Update the BIOS
 
-I restarted and realized that it wouldn't boot. I flipped out. I just enabled the Virtualization settings so I thought that probably I broke something.
+I restarted and realized that it wouldn't boot. I flipped out. I had enabled the Virtualization settings so I thought that probably I broke something.
 
-I thought if it was booting from the 2nd hard drive and that was it.
+It was booting from the 2nd hard drive.
 
 Change the BIOS and make sure the sequence order starts with your main drive. Otherwise it won't boot.
 
-## Last observation
+## Last note
 
 Inside the `fstab` I noticed the following on my main SSD:
 
