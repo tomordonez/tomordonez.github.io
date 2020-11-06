@@ -1,0 +1,20 @@
+I"f<p>Add reading time for blog posts in Jekyll without a custom plugin.</p>
+
+<p>Similar to Medium you can show the time it will take to read the blog post.</p>
+
+<p>Here is the documentation to <a href="https://jekyllcodex.org/without-plugin/reading-time-indicator/#">reading time</a></p>
+
+<p>Create the file <code class="language-plaintext highlighter-rouge">reading-time.html</code> in your <code class="language-plaintext highlighter-rouge">_includes</code> and add the code shown on the doc.</p>
+
+<p>Go to your <code class="language-plaintext highlighter-rouge">_layouts/post.html</code> and include the <code class="language-plaintext highlighter-rouge">reading-time.html</code> line within the <code class="language-plaintext highlighter-rouge">header</code> tag, before the closing paragraph. You can test to see if it shows correctly on your blog post such as <code class="language-plaintext highlighter-rouge">Aug 29, 2020 • tom • 3 min read</code>.</p>
+
+<p>Deploy the source to <code class="language-plaintext highlighter-rouge">master</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll build
+$ git add .
+$ git commit -m "Added reading time"
+$ git push -u origin master
+</code></pre></div></div>
+
+<p>See <a href="../jekyll-without-plugins/">Jekyll without Plugins</a> for other customizations.</p>
+:ET

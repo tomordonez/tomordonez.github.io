@@ -1,0 +1,39 @@
+I"8<p>How to setup Github Pages with a custom domain.</p>
+
+<p>For more details see a step by step setup tutorial of <a href="../static-website-jekyll-github-pages/">Jekyll with Github Pages</a></p>
+
+<h2 id="setup-github">Setup Github</h2>
+
+<p>Go to Github:</p>
+
+<ul>
+  <li>Create a new repo with the format <code class="language-plaintext highlighter-rouge">username.github.io</code></li>
+</ul>
+
+<p>Setup the repo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git init
+$ git remote add origin link-to-repo
+</code></pre></div></div>
+
+<h2 id="cname-robotstxt">CNAME, robots.txt</h2>
+
+<p>If you have a custom domain, create a <code class="language-plaintext highlighter-rouge">CNAME</code> file, add a line with your website, and save it to your local blog root directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>www.yoursite.com
+</code></pre></div></div>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">robots.txt</code> and add this line to the file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+</code></pre></div></div>
+
+<p>You can also use <code class="language-plaintext highlighter-rouge">Disallow</code> for bad URLs.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+Disallow: /bad.html
+Allow: /
+</code></pre></div></div>
+
+<p>Setup: <a href="../jekyll-cloudflare/">Jekyll and Cloudflare</a></p>
+:ET

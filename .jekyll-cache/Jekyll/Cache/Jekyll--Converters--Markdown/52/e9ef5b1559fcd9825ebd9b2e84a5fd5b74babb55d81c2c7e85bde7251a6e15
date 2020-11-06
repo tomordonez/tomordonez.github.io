@@ -1,0 +1,21 @@
+I"V<p>Cheat sheet Jekyll build and deploy to Github Pages.</p>
+
+<p>Build in development and test in localhost:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec jekyll serve
+</code></pre></div></div>
+
+<p>Backup development files to Github:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add .
+$ git commit -m "Awesome commit message here"
+$ git push -u origin master
+</code></pre></div></div>
+
+<p>Deploy to production:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ JEKYLL_ENV=production jgd
+</code></pre></div></div>
+
+<p>For more details see a step by step setup tutorial of <a href="../static-website-jekyll-github-pages/">Jekyll with Github Pages</a></p>
+:ET

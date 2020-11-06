@@ -1,0 +1,51 @@
+I"~
+<p>Create Jekyll redirect links when migrating your website, for links that changed or that were removed.</p>
+
+<p>Add this to the <code class="language-plaintext highlighter-rouge">Gemfile</code> in the <code class="language-plaintext highlighter-rouge">plugins</code> block:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
+</code></pre></div></div>
+
+<p>Then run <code class="language-plaintext highlighter-rouge">bundle install</code>.</p>
+
+<p>As seen in the docs <a href="https://github.com/jekyll/jekyll-redirect-from">here</a></p>
+
+<p>Add it to the <code class="language-plaintext highlighter-rouge">_config.yml</code> under <code class="language-plaintext highlighter-rouge">plugins</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- jekyll-redirect-from
+</code></pre></div></div>
+
+<p>My problem was that for my previous website, the blog posts had this format:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blog_post_name.html
+</code></pre></div></div>
+
+<p>This new website removes the <code class="language-plaintext highlighter-rouge">.html</code> and a lot of blog posts crawled by google are being sent to a <code class="language-plaintext highlighter-rouge">404 File not found page</code>.</p>
+
+<p>I want to redirect <code class="language-plaintext highlighter-rouge">blog_post_name.html</code> to <code class="language-plaintext highlighter-rouge">blog_post_name/</code></p>
+
+<p>In the blog post the header should show something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>title: "Blog Post Name"
+redirect_from:
+  - /blog_post_name.html
+</code></pre></div></div>
+
+<h2 id="404-page">404 page</h2>
+
+<p>More about 404 pages <a href="https://help.github.com/en/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site">here</a></p>
+
+<p>You can create a <code class="language-plaintext highlighter-rouge">404.md</code> file if you add this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: page
+title: "Not Found"
+permalink: "/404.html"
+comments: false
+redirect_from:
+  - /index2.html
+---
+</code></pre></div></div>
+
+<p>Use the <code class="language-plaintext highlighter-rouge">redirect_from:</code> to redirect bad URLs from Google search results. Or use the same approach for blog posts. You can also try to fix them in your Google Search Console.</p>
+:ET

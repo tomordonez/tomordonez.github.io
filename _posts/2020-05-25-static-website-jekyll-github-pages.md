@@ -7,7 +7,7 @@ image: assets/images/5.jpg
 tags: [jekyll, github pages]
 ---
 
-This is a step by step tutorial to build a **static website with Jekyll and Github Pages**.
+This is a step by step tutorial to build a Github Pages site with Jekyll. Github Pages are freely hosted on Github and you can use Jekyll, a static website generator to customize your Github Pages site.
 
 ## Summary
 
@@ -26,24 +26,6 @@ This is a step by step tutorial to build a **static website with Jekyll and Gith
 * Search Box
 * Text Expand/Collapse
 * Open external site in new window
-
-## Cheat Sheet for Building and Deploying
-
-Build in development and test in localhost:
-
-	$ bundle exec jekyll serve
-
-Backup development files to Github:
-
-	$ git add .
-	$ git commit -m "Awesome commit message here"
-	$ git push -u origin master
-
-Deploy to production:
-
-	$ JEKYLL_ENV=production jgd
-
-More details below...
 
 ## Install Ruby
 

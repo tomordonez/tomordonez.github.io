@@ -1,0 +1,50 @@
+I")
+<p>How to setup Jekyll and Pagination.</p>
+
+<p>Jekyll comes with a default plugin <code class="language-plaintext highlighter-rouge">jekyll-paginate</code> that you can set by adding the line <code class="language-plaintext highlighter-rouge">paginate: 5</code> to <code class="language-plaintext highlighter-rouge">_config.yml</code>. This is the Jekyll <a href="https://jekyllrb.com/docs/pagination/">doc</a>.</p>
+
+<p>Go to <code class="language-plaintext highlighter-rouge">_config.yml</code> and make sure this line is under <code class="language-plaintext highlighter-rouge">plugins</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
+  - jekyll-paginate
+</code></pre></div></div>
+
+<p>Then add another line (outside of plugins):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>paginate: 5
+</code></pre></div></div>
+
+<p>If your theme’s index is <code class="language-plaintext highlighter-rouge">index.markdown</code>, change it to <code class="language-plaintext highlighter-rouge">index.html</code> or you will get this error:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pagination: Pagination is enabled, but I couldn't find an index.html
+page to use as the pagination template. Skipping pagination.
+</code></pre></div></div>
+
+<p>Update your <code class="language-plaintext highlighter-rouge">_layouts/home.html</code>. Change this line, from this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for post in site.posts
+</code></pre></div></div>
+
+<p>To this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for post in paginator.posts
+</code></pre></div></div>
+
+<p>For pagination links, add the code as shown on <a href="https://jekyllrb.com/docs/pagination/#render-the-paginated-posts">Jekyll’s Render the paginated posts</a>. Before the closing <code class="language-plaintext highlighter-rouge">endif</code> of <code class="language-plaintext highlighter-rouge">if site.posts.size &gt; 0</code>.</p>
+
+<p>You can center the CSS of pagination in <code class="language-plaintext highlighter-rouge">assets/main.scss</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.pagination {
+	display: flex;
+}
+.previous, a.previous {
+	flex: 1;
+}
+.page_number {
+	flex: 1;
+}
+next, a.next {
+	flex: 1;
+}
+</code></pre></div></div>
+:ET

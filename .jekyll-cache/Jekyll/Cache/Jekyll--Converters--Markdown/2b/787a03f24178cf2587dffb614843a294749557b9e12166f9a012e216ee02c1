@@ -1,0 +1,47 @@
+I"õ<p>How to setup Jekyll with CloudFlare.</p>
+
+<p>Setup an account with Cloudflare if you donâ€™t have one. Find the DNS name server</p>
+
+<p>In your DNS provider point it to Cloudflare.</p>
+
+<h2 id="cloudflare-settings">Cloudflare settings</h2>
+
+<p>Create these records in Cloudflare:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Type    Name               Content
+ALIAS   yoursite.com       youruser.github.io
+CNAME   www.yoursite.com   youruser.github.io
+TXT     yoursite.com       youruser.github.io
+</code></pre></div></div>
+
+<p>Add <code class="language-plaintext highlighter-rouge">A</code> records as seen on <a href="https://help.github.com/articles/setting-up-an-apex-domain/">Setting up an Apex domain</a></p>
+
+<p>Add <code class="language-plaintext highlighter-rouge">TXT</code> record to verify Google webmaster tools:</p>
+
+<ul>
+  <li>Add property</li>
+  <li>Add TXT google verification code</li>
+</ul>
+
+<p>Setup these Page rules. As seen <a href="https://www.jonathan-petitcolas.com/2017/01/13/using-https-with-custom-domain-name-on-github-pages.html">here</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.yoursite.com/*
+Cache Level: Cache Everything
+
+https://yoursite.com/*
+Forwarding URL: (Status Code: 301 - Permanent Redirect, URl: https://www.yoursite.com$1)
+
+http://www.yoursite.com/*
+Always Use HTTPS
+</code></pre></div></div>
+
+<p>In your Overview dashboard set these (if you are on the free plan)</p>
+
+<ul>
+  <li>Security level: medium</li>
+  <li>SSL: Full</li>
+  <li>Caching level: Standard</li>
+</ul>
+
+<p>See a step by step setup tutorial of <a href="../static-website-jekyll-github-pages/">Jekyll with Github Pages</a></p>
+:ET

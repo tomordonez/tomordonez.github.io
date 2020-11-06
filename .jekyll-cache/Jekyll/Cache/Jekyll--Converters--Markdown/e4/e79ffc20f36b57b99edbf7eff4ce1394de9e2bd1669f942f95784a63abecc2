@@ -1,0 +1,22 @@
+I"ã<p>Use Jekyll without plugins instead of using restricted custom plugins since these custom plugins might not work on Github Pages.</p>
+
+<p>Here is a list of features to use <a href="https://jekyllcodex.org/without-plugins/">Jekyll without plugins</a>.</p>
+
+<h3 id="reading-time">Reading Time</h3>
+
+<p>Similar to Medium you can show the time it will take to read the blog post.</p>
+
+<p>Setup: <a href="../jekyll-reading-time-blog-posts/">Jekyll Reading Time for Blog Posts</a></p>
+
+<h3 id="search-box">Search Box</h3>
+
+<p>You can also install a search bar.</p>
+
+<p>Setup: <a href="../jekyll-search-bar/">Install a Jekyll Search Bar</a></p>
+
+<h2 id="text-expandcollapse-or-collapbsible-markdown">Text Expand/Collapse or Collapbsible Markdown</h2>
+
+<p>I often add whole output to every command I use. This can take a large space in a blog post and might disrupt reading focus.</p>
+
+<p>Setup: <a href="../jekyll-text-expand-collapsible-markdown/">Jekyll Text Expand or Collapsible Markdown</a></p>
+:ET

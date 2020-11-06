@@ -1,0 +1,73 @@
+I"_<p>How to setup Jekyll related posts using tags.</p>
+
+<p>This is a Jekyll custom plugin. Documentation <a href="https://github.com/toshimaru/jekyll-tagging-related_posts">here</a>.</p>
+
+<p>Update your <code class="language-plaintext highlighter-rouge">Gemfile</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll-tagging-related_posts'
+</code></pre></div></div>
+
+<p>Run <code class="language-plaintext highlighter-rouge">bundle</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Fetching nuggets 1.6.0
+Installing nuggets 1.6.0
+Fetching jekyll-tagging 1.1.0
+Installing jekyll-tagging 1.1.0
+Fetching jekyll-tagging-related_posts 1.1.0 
+Installing jekyll-tagging-related_posts 1.1.0
+
+Post-install message from nuggets:
+
+nuggets-1.6.0 [2018-07-12]:
+
+* Added &lt;tt&gt;JSON.*_{multi,canonical}&lt;/tt&gt;.
+
+Post-install message from jekyll-tagging:
+
+jekyll-tagging-1.1.0 [2017-03-07]:
+
+* Added ability to append extra data to all tag pages. (tfe)
+* Provides compatibility to the current jekyll (3.4.1).
+* A few fixes. (felipe)
+* Some documentation improvements. (wsmoak, jonathanpberger)
+* Prooves who is the worst open source maintainer. (pattex ^__^)
+</code></pre></div></div>
+
+<p>Update <code class="language-plaintext highlighter-rouge">_config.yml</code> and <code class="language-plaintext highlighter-rouge">_config-deploy.yml</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plugins:
+  - jekyll/tagging
+  - jekyll-tagging-related_posts
+</code></pre></div></div>
+
+<p>Create a <code class="language-plaintext highlighter-rouge">_layouts</code> directory in blog root:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir _layouts
+</code></pre></div></div>
+
+<p>Copy the <code class="language-plaintext highlighter-rouge">post.html</code> layout from the <code class="language-plaintext highlighter-rouge">minima</code> theme Gem to this new directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/post.html _layouts/
+</code></pre></div></div>
+
+<p>Add this code to <code class="language-plaintext highlighter-rouge">post.html</code> after the blog post content and before disqus code.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if site.related_posts.size &gt;= 1 %}
+&lt;div&gt;
+  &lt;h3&gt;Related Posts&lt;/h3&gt;
+  &lt;ul&gt;
+  {% for related_post in site.related_posts limit: 5 %}
+    &lt;li&gt;&lt;a href="{{ related_post.url }}"&gt;{{ related_post.title }}&lt;/a&gt;&lt;/li&gt;
+  {% endfor %}
+  &lt;/ul&gt;
+&lt;/div&gt;
+{% endif %}
+</code></pre></div></div>
+
+<p>Setup: <a href="../jekyll-custom-plugin-deploy/">Jekyll Custom Plugin Deploy</a></p>
+:ET

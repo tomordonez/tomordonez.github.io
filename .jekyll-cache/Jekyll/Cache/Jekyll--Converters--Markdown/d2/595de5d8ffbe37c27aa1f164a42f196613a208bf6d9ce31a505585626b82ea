@@ -1,0 +1,49 @@
+I"Ë<p>Add a search bar to Jekyll.</p>
+
+<h2 id="setup-jekyll-search">Setup Jekyll Search</h2>
+
+<p>Here is the documentation to <a href="https://jekyllcodex.org/without-plugin/search-lunr/#">Search with Lunr.js</a></p>
+
+<p>Save the file <code class="language-plaintext highlighter-rouge">search-lunr.html</code> in <code class="language-plaintext highlighter-rouge">_includes</code>. In this file, you can exclude the types of documents to search. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if page.url contains '.xml' or page.url contains 'assets' or page.url contains '.json' or page.url contains 'about.html'
+</code></pre></div></div>
+
+<p>Download the file <code class="language-plaintext highlighter-rouge">lunr.js</code> into your <code class="language-plaintext highlighter-rouge">js</code> folder, then make sure that <code class="language-plaintext highlighter-rouge">search-lunr.html</code> indicates the correct location of the file. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>src="/assets/js/lunr.js"
+</code></pre></div></div>
+
+<p>I copied the <code class="language-plaintext highlighter-rouge">default.html</code> layout file from my Gem location to the <code class="language-plaintext highlighter-rouge">_layouts</code> directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/default.html _layouts/
+</code></pre></div></div>
+
+<p>Inside the <code class="language-plaintext highlighter-rouge">default.html</code> layout page, include the <code class="language-plaintext highlighter-rouge">search-lunr.html</code> as indicated in the docs inside curly percentage brackets. Add this in the <code class="language-plaintext highlighter-rouge">main</code> class, before the <code class="language-plaintext highlighter-rouge">content</code> tag.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include search-lunr.html
+</code></pre></div></div>
+
+<h2 id="css-for-jekyll-search">CSS for Jekyll Search</h2>
+
+<p>Customize the CSS for the search box. At the bottom of <code class="language-plaintext highlighter-rouge">search-lunr.html</code> there is code with the form. You can wrap this in a class:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class="search"&gt;
+    &lt;form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);"&gt;
+        &lt;p&gt;&lt;input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Search" /&gt;&lt;/p&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+</code></pre></div></div>
+
+<p>Then in <code class="language-plaintext highlighter-rouge">assets/main.scss</code> you can try something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.search input {
+    height: 30px;
+    width: 60%;
+    padding-left: 10px;
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    font-size: 16px;
+}
+</code></pre></div></div>
+:ET

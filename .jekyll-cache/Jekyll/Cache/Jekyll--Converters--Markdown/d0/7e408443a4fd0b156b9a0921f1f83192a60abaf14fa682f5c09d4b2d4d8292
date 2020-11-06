@@ -1,0 +1,103 @@
+I"Ã<p>Hide or show text in Jekyll with text expand or collapsible markdown.</p>
+
+<p>I often add whole output to every command I use. This can take a large space in a blog post and might disrupt reading focus.</p>
+
+<p>There are three options for hiding/display text that can be expanded, also known by these keywords: text expand, expand/collapse, collapsible markdown, details element.</p>
+
+<p>Use whatever works best.</p>
+
+<h3 id="text-expand">Text Expand</h3>
+
+<p>This is a JS that might need some tweaking. When you click on <code class="language-plaintext highlighter-rouge">read more</code> it expands the section but it scrolls back to the top.</p>
+
+<p>This is the doc for <a href="https://jekyllcodex.org/without-plugin/text-expand/">Jekyll Text Expand</a>.</p>
+
+<p>Download the file <code class="language-plaintext highlighter-rouge">text-expand.html</code> into the <code class="language-plaintext highlighter-rouge">_includes</code> directory. Then edit the <code class="language-plaintext highlighter-rouge">_layouts/default.html</code> and add this before the closing <code class="language-plaintext highlighter-rouge">body</code> tag:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% include text-expand.html %}
+</code></pre></div></div>
+
+<p>Then you can use the <code class="language-plaintext highlighter-rouge">expand</code> tag in a blog post by adding only one line for each of the open/closing tag such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[expand]
+Long content here
+and here
+...
+[/expand]
+</code></pre></div></div>
+
+<h3 id="collapbsible-markdown-with-details-element">Collapbsible Markdown with Details element</h3>
+
+<p>This uses the details disclosure element: <code class="language-plaintext highlighter-rouge">details</code>. More details in the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details">Mozilla details element doc</a>.</p>
+
+<p>You have to wrap your content like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;details&gt;
+	&lt;summary&gt;Click to expand&lt;/summary&gt;
+	Long content here
+	and here
+&lt;/details&gt;
+</code></pre></div></div>
+
+<p>To add a code block, you need to have a previous empty line, enclose the code block with three tildes <code class="language-plaintext highlighter-rouge">~~~</code>, optionally you can add the language at the end of the first enclosing tildes:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;details&gt;
+	&lt;summary&gt;Click to expand&lt;/summary&gt;
+	
+	~~~ python
+	Code here
+	~~~
+&lt;/details&gt;
+</code></pre></div></div>
+
+<p>However, you can encounter this issue <a href="https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d#gistcomment-2710296">Details is not formatted correctly in Jekyll/Github pages</a>. You can enclose the content with the <code class="language-plaintext highlighter-rouge">&lt;pre&gt;</code> tag.</p>
+
+<p>I am using this for my long content output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;details&gt;
+	&lt;summary&gt;Click to expand&lt;/summary&gt;
+	&lt;pre&gt;
+		
+	Long content here
+	&lt;/pre&gt;
+
+&lt;/details&gt;
+</code></pre></div></div>
+
+<p>Here is an example:</p>
+
+<details>
+	<summary>Click to expand</summary>
+	<pre>
+	Long content here
+	</pre>
+</details>
+
+<p>I also customized the CSS:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>details {
+	padding-bottom: 20px;
+	color: grey;
+}
+</code></pre></div></div>
+
+<h3 id="the-text-in-details-not-processed-correctly">The text in details not processed correctly</h3>
+
+<p>I havenâ€™t tested this. This blog post shows <a href="http://movb.de/jekyll-details-support.html">adding support for HTML5 details element to Jekyll</a>. It uses a custom plugin.</p>
+
+<p>Add the <code class="language-plaintext highlighter-rouge">ruby</code> code into <code class="language-plaintext highlighter-rouge">_plugins/details_tag.rb</code>.</p>
+
+<p>Then use like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% details Click to expand %}
+
+	~~~ python
+	Code here
+	~~~
+{% enddetails %}
+</code></pre></div></div>
+
+<p>More troubleshooting in <a href="https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d">using details in Github</a> and <a href="https://gist.github.com/joyrexus/16041f2426450e73f5df9391f7f7ae5f">collapsible markdown</a>.</p>
+
+<p>See <a href="../jekyll-without-plugins/">Jekyll without Plugins</a> for other customizations.</p>
+:ET

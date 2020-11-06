@@ -1,0 +1,47 @@
+I"g	<p>Troubleshooting Jekyll and dependency errors</p>
+
+<p>When testing the site. For <code class="language-plaintext highlighter-rouge">jekyll-3.8.5</code> it says <code class="language-plaintext highlighter-rouge">warning: Using the last argument as keyword parameters is deprecated</code>.</p>
+
+<ul>
+  <li>Also for <code class="language-plaintext highlighter-rouge">pathutil-0.16.2</code> it says the same.</li>
+  <li>More <a href="https://github.com/jekyll/jekyll/issues/7947">here</a></li>
+  <li>And <a href="https://github.com/jekyll/jekyll/pull/7948">here</a></li>
+</ul>
+
+<p>Edit the <code class="language-plaintext highlighter-rouge">Gemfile</code> and comment this line again <code class="language-plaintext highlighter-rouge">gem "github-pages", group: :jekyll_plugins</code>. Then add this one:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'jekyll', github: 'jekyll/jekyll'
+</code></pre></div></div>
+
+<p>If you have <code class="language-plaintext highlighter-rouge">plugins</code> update them to this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>group :jekyll_plugins do
+    gem 'jekyll-feed', github: 'jekyll/jekyll-feed'
+    gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'
+    gem 'jekyll-paginate', github: 'jekyll/jekyll-paginate'
+    gem 'jekyll-seo-tag', github: 'jekyll/jekyll-seo-tag'
+    gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
+end
+</code></pre></div></div>
+
+<p>My <code class="language-plaintext highlighter-rouge">Gemfile</code> currently looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source "https://rubygems.org"
+
+gem 'jekyll', github: 'jekyll/jekyll'
+
+gem "minima", "~&gt; 2.5"
+
+group :jekyll_plugins do
+    gem 'jekyll-feed', github: 'jekyll/jekyll-feed'
+    gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'
+    gem 'jekyll-paginate', github: 'jekyll/jekyll-paginate'
+    gem 'jekyll-seo-tag', github: 'jekyll/jekyll-seo-tag'
+    gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
+end
+</code></pre></div></div>
+
+<p>Then run <code class="language-plaintext highlighter-rouge">bundle install</code></p>
+
+<p>See a step by step setup tutorial of <a href="../static-website-jekyll-github-pages/">Jekyll with Github Pages</a></p>
+:ET
