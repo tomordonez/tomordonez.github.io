@@ -1,0 +1,57 @@
+I"~<p>Create a linear scale in D3 with scaleLinear.</p>
+
+<p>Given this dataset:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year     population
+1950        5
+1951        10
+1955        15
+1959        20
+</code></pre></div></div>
+
+<h2 id="d3-linear-scale-with-scalelinear">D3 Linear Scale with scaleLinear()</h2>
+
+<p>Use this syntax:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yScale = d3.scaleLinear()
+           .domain([0, d3.max(dataset, function(d) { return d.population; })])
+           .range([h - padding, padding]);
+</code></pre></div></div>
+
+<p>Mapping input domain to output range:</p>
+
+<ul>
+  <li>Input domain: From <code class="language-plaintext highlighter-rouge">0</code> to the <code class="language-plaintext highlighter-rouge">max</code> value of the <code class="language-plaintext highlighter-rouge">population</code> column</li>
+  <li>Output range: Limit the visualization to the padded limits of the <code class="language-plaintext highlighter-rouge">SVG</code> height.</li>
+</ul>
+
+<p>With SVG the coordinates increase left to right, top to bottom.</p>
+
+<p>For this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.range([h - padding, padding]);
+</code></pre></div></div>
+
+<ul>
+  <li>The height <code class="language-plaintext highlighter-rouge">h</code> is the height of the <code class="language-plaintext highlighter-rouge">SVG</code>, for example <code class="language-plaintext highlighter-rouge">var h = 300;</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">padding</code> can be set as <code class="language-plaintext highlighter-rouge">var padding = 40;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">h - padding</code> is <code class="language-plaintext highlighter-rouge">300 - 40</code> which is <code class="language-plaintext highlighter-rouge">260</code></li>
+</ul>
+
+<p>Then the range is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.range([260, 40])
+</code></pre></div></div>
+
+<p>The range is between the <code class="language-plaintext highlighter-rouge">y</code> coordinate <code class="language-plaintext highlighter-rouge">260</code> and the <code class="language-plaintext highlighter-rouge">y</code> coordinate <code class="language-plaintext highlighter-rouge">40</code>. Which is the padded region of the height of the SVG.</p>
+
+<p>More about D3 and Scales:</p>
+
+<ul>
+  <li><a href="../d3-drawing-svg/">D3 Drawing SVG</a></li>
+  <li><a href="../d3-creating-a-bar-chart/">D3 Creating a Bar Chart</a></li>
+  <li><a href="../d3-using-scales/">D3 Using Scales</a></li>
+  <li><a href="../d3-band-scale/">D3 Band Scale</a></li>
+  <li><a href="../d3-scales-in-a-bar-chart/">D3 Scales in a Bar Chart</a></li>
+</ul>
+:ET

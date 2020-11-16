@@ -1,0 +1,103 @@
+I"%<p>Different versions of D3 don’t play along well. If you are following a book or tutorials, make sure to check which version of D3 is used or some things won’t work as expected.</p>
+
+<p>Here is an example of loading a CSV file.</p>
+
+<h2 id="d3-and-incompatible-versionssyntax">D3 and Incompatible Versions/Syntax</h2>
+
+<p>Loading a CSV file in D3 changes with different versions of <code class="language-plaintext highlighter-rouge">D3</code> and this incompatibility is very confusing.</p>
+
+<p>As shown in <a href="http://datawanderings.com/2018/08/15/d3-js-v5-promise-syntax-examples/">this</a> blog post about <code class="language-plaintext highlighter-rouge">promises</code> syntax. There are differences in D3 loading a <code class="language-plaintext highlighter-rouge">CSV</code> in <code class="language-plaintext highlighter-rouge">D3.v4</code> and <code class="language-plaintext highlighter-rouge">D3.v5</code>.</p>
+
+<p>For <code class="language-plaintext highlighter-rouge">D3.v4</code> you can use this syntax:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", function(data) {
+    somethingHappens(data);
+    console.log(data);
+});
+</code></pre></div></div>
+
+<p>Create these files as shown in <a href="../setup-d3-step-by-step/">Setup D3 Step by Step</a>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">index.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">main.css</code></li>
+  <li><code class="language-plaintext highlighter-rouge">project.js</code></li>
+</ul>
+
+<p>Create a CSV file called <code class="language-plaintext highlighter-rouge">file.csv</code> that has <code class="language-plaintext highlighter-rouge">year</code> and <code class="language-plaintext highlighter-rouge">population</code> as shown:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year,population
+1950,5
+1951,10
+1955,15
+1959,20
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">index.html</code> is using this source <code class="language-plaintext highlighter-rouge">https://d3js.org/d3.v5.min.js</code>.</p>
+
+<p>Add this code to <code class="language-plaintext highlighter-rouge">project.js</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", function(data) {
+    console.log(data);
+});
+</code></pre></div></div>
+
+<p>Reload the browser and look at the console:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Navigated to http://127.0.0.1:8888/index.html
+project.js:2 {year: "1950", population: "5"}
+project.js:2 {year: "1951", population: "10"}
+project.js:2 {year: "1955", population: "15"}
+project.js:2 {year: "1959", population: "20"}
+</code></pre></div></div>
+
+<p>This works so far and we are using the source for <code class="language-plaintext highlighter-rouge">D3.v5</code> instead of <code class="language-plaintext highlighter-rouge">v4</code>.</p>
+
+<p>Clear the console with <code class="language-plaintext highlighter-rouge">Ctrl + L</code> or type <code class="language-plaintext highlighter-rouge">clear()</code> (this won’t clear if you set <code class="language-plaintext highlighter-rouge">Preserve log</code>).</p>
+
+<p>This syntax from D3 <code class="language-plaintext highlighter-rouge">v4</code> won’t work on <code class="language-plaintext highlighter-rouge">v5</code> as shown on <a href="https://github.com/d3/d3-fetch/blob/v1.1.2/README.md#csv">D3 API docs</a>. Actually this documentation is pretty confusing as it doesn’t specify which D3 version is used in the examples:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", function(data) {
+
+}).then(function(data) {
+  console.log(data);
+});
+</code></pre></div></div>
+
+<p>The data is not loaded and the console shows this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Navigated to http://127.0.0.1:8888/index.html
+[columns: Array(2)]
+ columns: Array(2)
+     0: "year"
+     1: "population"
+     length: 2
+     __proto__: Array(0)
+     ...
+     ...
+</code></pre></div></div>
+
+<p>This doesn’t work either:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var mydata = d3.csv("file.csv", function(data) {
+});
+</code></pre></div></div>
+
+<p>First it returns <code class="language-plaintext highlighter-rouge">undefined</code>. Then calling the variable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mydata
+</code></pre></div></div>
+
+<p>Shows this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Promise {&lt;resolved&gt;: Array(0)}
+__proto__: Promise
+[[PromiseStatus]]: "resolved"
+[[PromiseValue]]: Array(0)
+columns: (2) ["year", "population"]
+length: 0
+__proto__: Array(0)
+</code></pre></div></div>
+
+<p>Make sure to check which version of D3 is used since errors will drive you crazy. More about <code class="language-plaintext highlighter-rouge">promises</code> in <a href="../d3-load-a-csv-file-with-promises/">D3 Load a CSV file with Promises</a></p>
+:ET

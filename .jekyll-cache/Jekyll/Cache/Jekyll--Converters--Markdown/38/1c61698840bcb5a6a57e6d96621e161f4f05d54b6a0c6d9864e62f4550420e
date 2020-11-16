@@ -1,0 +1,118 @@
+I"N<p>Setup D3 step by step. Creating HTML, CSS, JS files. Running a web server.</p>
+
+<h2 id="setup-up-d3-project-files">Setup up D3 project files</h2>
+
+<p>First create three files:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">index.html</code></li>
+  <li><code class="language-plaintext highlighter-rouge">main.css</code></li>
+  <li><code class="language-plaintext highlighter-rouge">project.js</code></li>
+</ul>
+
+<p>Download the <code class="language-plaintext highlighter-rouge">D3.js</code> library from <a href="https://d3js.org/">D3 Website</a> or use the external reference.</p>
+
+<p>If you downloaded the D3 file into a <code class="language-plaintext highlighter-rouge">lib</code> folder, then add this to your <code class="language-plaintext highlighter-rouge">index.html</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type="text/javascript" src="lib/d3.min.js"&gt;&lt;/script&gt;
+</code></pre></div></div>
+
+<p>If you want to use an external D3 reference use one of these, depending on the D3 version:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type="text/javascript" src="https://d3js.org/d3.v4.min.js"&gt;&lt;/script&gt;
+
+&lt;script type="text/javascript" src="https://d3js.org/d3.v5.min.js"&gt;&lt;/script&gt;
+</code></pre></div></div>
+
+<h2 id="create-the-index-html-file">Create the index HTML file</h2>
+
+<p>Here is an <code class="language-plaintext highlighter-rouge">index.html</code> example including the references to <code class="language-plaintext highlighter-rouge">main.css</code>, <code class="language-plaintext highlighter-rouge">project.js</code>, and <code class="language-plaintext highlighter-rouge">d3.v5.min.js</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;title&gt;D3 Canvas&lt;/title&gt;
+        &lt;link rel="icon" type="image/png" href="icon.png"&gt;
+        &lt;script type="text/javascript" src="https://d3js.org/d3.v5.min.js"&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" type="text/css" href="main.css"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;script type="text/javascript" src="project.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<h2 id="example-of-a-d3js-file">Example of a D3.js file</h2>
+
+<p>This is an example of a D3 Javascript file. Save it into <code class="language-plaintext highlighter-rouge">project.js</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var w = 700;
+var h = 500;
+var barPadding = 3;
+var padding = 40;
+var parseTime = d3.timeParse("%Y");
+var formatTime = d3.timeFormat("%Y");
+
+var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+var rowConverter = function(d) {
+    return {
+        year: parseTime(d.year),
+        total: +d.running_total
+    };
+}
+</code></pre></div></div>
+
+<h2 id="run-a-web-server-with-python">Run a web server with Python</h2>
+
+<p>In your D3 project folder, run the web server with Python.</p>
+
+<p>Run it like this if you want the process to run in the background with <code class="language-plaintext highlighter-rouge">&amp;.</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python -m http.server 8888 --bind 127.0.0.1 &amp;.
+</code></pre></div></div>
+
+<p>Or like this if you want to see the output. With <code class="language-plaintext highlighter-rouge">--bind</code> to explicitly use localhost only:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python -m http.server 8888 --bind 127.0.0.1
+</code></pre></div></div>
+
+<p>Then open the browser on <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8888/</code> and browse to the <code class="language-plaintext highlighter-rouge">index.html</code> to see your D3 project:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Serving HTTP on 127.0.0.1 port 8888 (http://127.0.0.1:8888/)
+127.0.0.1 - - [06/Jun/2020 08:24:06] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jun/2020 08:24:06] "GET /main.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jun/2020 08:24:06] "GET /project.js HTTP/1.1" 200 -
+</code></pre></div></div>
+
+<p>Or like this if you want to access localhost from your phone:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python -m http.server 8888 --bind 0.0.0.0
+</code></pre></div></div>
+
+<p>Find the IP number of the laptop. Let’s say it is <code class="language-plaintext highlighter-rouge">192.168.1.35</code>. Then from your mobile go to:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.168.1.35:8888
+</code></pre></div></div>
+
+<p>On the browser verify that you see the <code class="language-plaintext highlighter-rouge">&lt;title&gt;</code> tag from the <code class="language-plaintext highlighter-rouge">index.html</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;title&gt;D3 Canvas&lt;/title&gt;
+</code></pre></div></div>
+
+<p>Stop the server with <code class="language-plaintext highlighter-rouge">Ctrl C</code>.</p>
+
+<h2 id="cdd-or-console-driven-development">CDD or Console Driven Development</h2>
+
+<p>It’s a good idea to follow a Console Driven Development approach as you make changes to your D3 files <code class="language-plaintext highlighter-rouge">html</code>, <code class="language-plaintext highlighter-rouge">js</code>, and <code class="language-plaintext highlighter-rouge">css</code>. When you interact with the visualization, you can see the result in the console and see if it works as expected.</p>
+
+<p>Go to the browser, right click Inspect and find the Console.</p>
+
+<p>For a detailed D3 tutorial go to <a href="../d3-tutorial-data-visualization/">D3 Tutorial Data Visualization</a></p>
+
+<p><a href="https://www.linkedin.com/in/tomordonez/"><img src="{{ site.baseurl }}/assets/images/ama-linkedin-tomordonez.png" alt="Ask me anything on Linkedin" /></a></p>
+:ET

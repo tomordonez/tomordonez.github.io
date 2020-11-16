@@ -1,0 +1,290 @@
+I"c)<p>Adding axes to a bar chart in D3.</p>
+
+<p>Follow:</p>
+
+<ul>
+  <li><a href="../d3-creating-a-bar-chart/">D3 Creating a Bar Chart</a></li>
+  <li><a href="../d3-scales-in-a-bar-chart/">D3 Scales in a Bar Chart</a></li>
+</ul>
+
+<h2 id="d3-axes-in-bar-chart">D3 axes in bar chart</h2>
+
+<p>Use any of these: <code class="language-plaintext highlighter-rouge">d3.axisTop</code>, <code class="language-plaintext highlighter-rouge">d3.axisBottom</code>, <code class="language-plaintext highlighter-rouge">d3.axisLeft</code>, <code class="language-plaintext highlighter-rouge">d3.axisRight</code>. Then append a <code class="language-plaintext highlighter-rouge">g</code> (group) element to the end of the SVG.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var xAxis = d3.axisBottom(xScale);
+var yAxis = d3.axisLeft(yScale);
+</code></pre></div></div>
+
+<p>Put this at the end of the script, since the graphics lay on top of each other, making the axes the last visible graph at the top of the SVG.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svg.append("g")
+   .attr("class", "axis")
+   .attr("transform", "translate(0," + (h - padding) + ")")
+   .call(xAxis);
+
+svg.append("g")
+   .attr("class", "axis")
+   .attr("transform", "translate(" + padding + ",0)")
+   .call(yAxis);
+</code></pre></div></div>
+
+<p>This line is a string concatenation:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("transform", "translate(0," + (h - padding) + ")")
+</code></pre></div></div>
+
+<p>It computes to the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("transform", "translate(0", + (300 -  40  ) + ")")
+</code></pre></div></div>
+
+<p>Then the result is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svg.append("g")
+   .attr("class", "axis")
+   .attr("transform", "translate(0,260)")
+   .call(xAxis);
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">translate</code> function moves the object by <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code>. More details in the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform">MDN Web Docs</a>.</p>
+
+<p>The bar chart should look like this:</p>
+
+<p><img src="/assets/images/d3-rect4.jpg" alt="D3 barchart with Axes" /></p>
+
+<details>
+  <summary>Updated Code</summary>
+  <pre>
+      
+  var w = 500;
+  var h = 300;
+  var barPadding = 3;
+  var padding = 40;
+  var svg = d3.select("#d3-barchart-vis")
+              .append("svg")
+              .attr("preserveAspectRatio", "xMinYMin meet")
+              .attr("viewBox", "0 0 " + w + " " + h);
+
+  var parseTime = d3.timeParse("%Y");
+
+  var rowConverter = function(d) {
+      return {
+          year: parseTime(d.year),
+          population: +d.population
+      }
+  }
+
+  d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+      xScale = d3.scaleBand()
+                 .domain(d3.range(dataset.length))
+                 .rangeRound([padding, w])
+                 .paddingInner(0.1)
+                 .paddingOuter(0.1);
+
+      yScale = d3.scaleLinear()
+                 .domain([0, d3.max(dataset, function(d) { return d.population; })])
+                 .range([h - padding, padding]);
+
+      var xAxis = d3.axisBottom(xScale);
+      var yAxis = d3.axisLeft(yScale);
+
+      svg.selectAll("rect")
+         .data(dataset)
+         .enter()
+         .append("rect")
+         .attr("x", function(d, i) {
+             return xScale(i);
+         })
+         .attr("y", d =&gt; yScale(d.population))
+         .attr("width", xScale.bandwidth())
+         .attr("height", d =&gt; h - padding - yScale(d.population))
+         .attr("fill", "teal");
+
+      svg.append("g")
+         .attr("class", "x axis")
+         .attr("transform", "translate(0," + (h - padding) + ")")
+         .call(xAxis);
+
+      svg.append("g")
+         .attr("class", "y axis")
+         .attr("transform", "translate(" + padding + ",0)")
+         .call(yAxis);
+  });
+  </pre>
+
+</details>
+
+<h2 id="adding-ticks-on-the-axes">Adding ticks on the Axes</h2>
+
+<p>Use <code class="language-plaintext highlighter-rouge">.ticks()</code>.</p>
+
+<p>However, D3 will override this if it wants to divide the input domain evenly.</p>
+
+<p>Use <code class="language-plaintext highlighter-rouge">.tickValues([an array of values])</code> to set them manually.</p>
+
+<p>Use <code class="language-plaintext highlighter-rouge">.tickFormat</code> to format the axis labels.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var xAxis = d3.axisBottom(xScale)
+              .ticks(someParameterHere);
+</code></pre></div></div>
+
+<h2 id="troubleshooting-the-year-on-the-x-axis">Troubleshooting the Year on the x Axis</h2>
+
+<p>The barchart still doesn’t look correct. The ticks on the x Axis are supposed to be years and not integers starting at <code class="language-plaintext highlighter-rouge">1</code>.</p>
+
+<p><img src="/assets/images/d3-rect6.jpg" alt="D3 barchart with Margins" /></p>
+
+<p>Modify the <code class="language-plaintext highlighter-rouge">scaleBand()</code> so the domain maps to the years on the converted <code class="language-plaintext highlighter-rouge">Date</code> objects from the CSV file.</p>
+
+<p>It currently looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
+           .domain(d3.range(dataset.length))
+           .rangeRound([padding, w])
+           .paddingInner(0.1)
+           .paddingOuter(0.1);
+</code></pre></div></div>
+
+<p>Changed to this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
+           .domain(dataset.map(d =&gt; d.year.getFullYear()))
+           .rangeRound([padding, w])
+           .paddingInner(0.1)
+           .paddingOuter(0.1);
+</code></pre></div></div>
+
+<p>You can test what this does on the console <code class="language-plaintext highlighter-rouge">dataset.map(d =&gt; d.year.getFullYear())</code> inside this section:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", rowConverter).then(function(dataset) {
+    console.log(dataset.map(d =&gt; d.year.getFullYear()))
+</code></pre></div></div>
+
+<p>The output should be:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Array(4) [ 1950, 1951, 1955, 1959 ]
+</code></pre></div></div>
+
+<p>Then modify implementing the <code class="language-plaintext highlighter-rouge">xScale</code> in this section. From this <code class="language-plaintext highlighter-rouge">return xScale(i)</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svg.selectAll("rect")
+   .data(dataset)
+   .enter()
+   .append("rect")
+   .attr("x", function(d, i) {
+       return xScale(i);
+   })
+   .attr("y", d =&gt; yScale(d.population))
+   .attr("width", xScale.bandwidth())
+   .attr("height", d =&gt; h - padding - yScale(d.population))
+   .attr("fill", "teal");
+</code></pre></div></div>
+
+<p>Modified to this <code class="language-plaintext highlighter-rouge">return xScale(d.year.getFullYear())</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svg.selectAll("rect")
+   .data(dataset)
+   .enter()
+   .append("rect")
+   .attr("x", function(d, i) {
+       return xScale(d.year.getFullYear());
+   })
+   .attr("y", d =&gt; yScale(d.population))
+   .attr("width", xScale.bandwidth())
+   .attr("height", d =&gt; h - padding - yScale(d.population))
+   .attr("fill", "teal");
+</code></pre></div></div>
+
+<p>The corrected barchart looks like this:</p>
+
+<p><img src="/assets/images/d3-rect7.jpg" alt="D3 barchart with corrected Year" /></p>
+
+<details>
+  <summary>Click to view updated code</summary>
+  <pre>
+    
+  var margin = {top: 20, right: 20, bottom: 20, left: 20},
+        w = 500 - margin.left - margin.right,
+        h = 300 - margin.top - margin.bottom;
+
+  var barPadding = 3;
+  var padding = 40;
+  var svg = d3.select("#d3-barchart-vis")
+              .append("svg")
+              .attr("preserveAspectRatio", "xMinYMin meet")
+              .attr("viewBox", "0 0 " + w + " " + h);
+
+  var parseTime = d3.timeParse("%Y");
+
+  var rowConverter = function(d) {
+      return {
+          year: parseTime(d.year),
+          population: +d.population
+      }
+  }
+
+  d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+    xScale = d3.scaleBand()
+               .domain(dataset.map(d =&gt; d.year.getFullYear()))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
+
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, d =&gt; d.population)])
+               .range([h - padding, padding]);
+
+    var xAxis = d3.axisBottom(xScale);
+    var yAxis = d3.axisLeft(yScale);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", d =&gt; xScale(d.year.getFullYear()))
+       .attr("y", d =&gt; yScale(d.population))
+       .attr("width", xScale.bandwidth())
+       .attr("height", d =&gt; h - padding - yScale(d.population))
+       .attr("fill", "teal");
+
+    // Add the x Axis
+    svg.append("g")
+       .attr("class", "x axis")
+       .attr("transform", "translate(0," + (h - padding) + ")")
+       .call(xAxis);
+
+    // Label for x Axis
+    svg.append("text")
+       .attr("transform", "translate(" + (w/2) + " ," + (h-10) + ")")
+       .style("text-anchor", "middle")
+       .style("font-size", "12px")
+       .text("Year");
+
+    // Add the y Axis
+    svg.append("g")
+       .attr("class", "y axis")
+       .attr("transform", "translate(" + padding + ",0)")
+       .call(yAxis);
+
+    // Label for y Axis
+    svg.append("text")
+       .attr("transform", "rotate(-90)")
+       .attr("x", -(h/2))
+       .attr("y", 10)
+       .style("text-anchor", "middle")
+       .style("font-size", "12px")
+       .text("Population");
+
+    svg.append("text")
+       .attr("x", w/2)
+       .attr("y", padding)
+       .attr("text-anchor", "middle")
+       .style("font-size", "16px")
+       .text("Awesome Barchart");
+  });
+  </pre>
+
+</details>
+:ET

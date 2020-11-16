@@ -1,0 +1,50 @@
+I"H<p>D3 and JavaScript run asynchronous. You have to grok anonymous callback functions.</p>
+
+<h2 id="d3-and-asynchronous">D3 and Asynchronous</h2>
+
+<p>JavaScript runs asynchronous. Here is a good explanation on <a href="https://stackoverflow.com/questions/14220321/how-do-i-return-the-response-from-an-asynchronous-call">StackOverflow</a>.</p>
+
+<p>The answer provides a great analogy for synchronous and asynchronous.</p>
+
+<p>Synchronous is like making a phone call to tech support to fix your Internet. While they figure out the problem, you wait on the call, until the problem is solved then you end the call.</p>
+
+<p>Asynchronous is making the same phone call. Instead of waiting on the call you ask them to call you back when they fix the problem. You end the call, go about your day, then wait for them to call back.</p>
+
+<p>Asynchronous on an app means if you are loading a page, it will load the <code class="language-plaintext highlighter-rouge">html</code>, the <code class="language-plaintext highlighter-rouge">css</code>, the <code class="language-plaintext highlighter-rouge">js</code>. If there is a feature that is not working, only that feature won’t load. If you change the data on a feature, then you won’t have to reload the page, the feature changes as you interact with the features.</p>
+
+<h2 id="d3-and-anonymous-functions">D3 and Anonymous functions</h2>
+
+<p>If you know Python, this is like a <code class="language-plaintext highlighter-rouge">lambda</code> function.</p>
+
+<p>This is what loading a <code class="language-plaintext highlighter-rouge">CSV</code> in <code class="language-plaintext highlighter-rouge">D3 v4</code> looks like. You can also load a file with <code class="language-plaintext highlighter-rouge">promises</code> as shown in <a href="../d3-load-a-csv-file-with-promises/">D3 Load a CSV file with Promises</a>.:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", function(data) {
+    somethingHappens(data);
+});
+console.log(data);
+</code></pre></div></div>
+
+<p>This is an anonymous callback function <code class="language-plaintext highlighter-rouge">function(data)</code>. It runs the code inside the curly braces and then it is called back to this function. More about <a href="../d3-and-incompatible-versions/">D3 and Incompatible Versions</a></p>
+
+<p>The script will continue and execute <code class="language-plaintext highlighter-rouge">console.log(data)</code>, regardless if the data was not completely loaded. Then the console won’t display any data.</p>
+
+<p>You could hack this code and put some sort of timer but how much time do you pass to that function?</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", function(data) {
+    somethingHappens(data);
+});
+
+someSortOfTimer(60);
+console.log(data);
+</code></pre></div></div>
+
+<p>Instead, within the callback function, write all the code that uses the <code class="language-plaintext highlighter-rouge">data</code> that is loaded:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", function(data) {
+    somethingHappens(data);
+    console.log(data);
+});
+</code></pre></div></div>
+
+<p>Here is how to <a href="../setup-d3-step-by-step/">Setup D3 Step by Step</a></p>
+:ET

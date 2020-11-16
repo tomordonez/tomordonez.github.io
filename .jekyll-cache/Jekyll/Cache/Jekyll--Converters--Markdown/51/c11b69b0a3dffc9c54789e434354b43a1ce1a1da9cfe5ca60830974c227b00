@@ -1,0 +1,312 @@
+I"eA<p>In D3 creating a bar chart after loading a CSV file.</p>
+
+<p>Using the <code class="language-plaintext highlighter-rouge">CSV</code> dataset:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year,population
+1950,5
+1951,10
+1955,15
+1959,20
+</code></pre></div></div>
+
+<h2 id="syntax-to-load-a-csv-file-in-d3">Syntax to load a CSV file in D3</h2>
+
+<p>Use this syntax to load the CSV file. See <a href="../d3-load-a-csv-file-with-promises/">D3 Load a CSV file with Promises</a>. Passing the function <code class="language-plaintext highlighter-rouge">rowConverter</code> to convert strings to dates as seen in <a href="../d3-convert-string-to-date/">D3 Convert String to Date</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", rowConverter).then(function(dataset) {
+    // add code here
+});
+</code></pre></div></div>
+
+<h2 id="svg-coordinates-in-d3">SVG coordinates in D3</h2>
+
+<p>The rectangles of the bar chart are created by adding attributes for <code class="language-plaintext highlighter-rouge">(x,y)</code>.</p>
+
+<p>SVG coordinates are measured left to right and top to bottom. The coordinate <code class="language-plaintext highlighter-rouge">(0,0)</code> is the top left corner. The coordinates increase to the right for <code class="language-plaintext highlighter-rouge">x</code> and down for <code class="language-plaintext highlighter-rouge">y</code>.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">x</code> located at the bottom left of the rectangle.</li>
+  <li><code class="language-plaintext highlighter-rouge">y</code> at the top left of the rectangle.</li>
+</ul>
+
+<p>You are drawing kind of upside down. That’s how weird SVG is.</p>
+
+<h2 id="drawing-each-rectangle-for-the-bar-chart">Drawing each rectangle for the bar chart</h2>
+
+<p>In this example, <code class="language-plaintext highlighter-rouge">width</code> draws <code class="language-plaintext highlighter-rouge">20px</code> to the right, and <code class="language-plaintext highlighter-rouge">height</code> draws <code class="language-plaintext highlighter-rouge">100px</code> downwards from the <code class="language-plaintext highlighter-rouge">y</code> coordinate. All rectangles of the bar chart are drawn downwards, following the characteristics of the <code class="language-plaintext highlighter-rouge">SVG</code> having its <code class="language-plaintext highlighter-rouge">(0,0)</code> on the top left corner.</p>
+
+<p><img src="/assets/images/d3-rect1.jpg" alt="D3 One Bar Rectangle" /></p>
+
+<p>Add this to a <code class="language-plaintext highlighter-rouge">project.js</code> file. More details in <a href="../setup-d3-step-by-step/">Setup D3 Step by Step</a>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var w = 500;
+var h = 300;
+var barPadding = 3;
+var padding = 40;
+var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+var parseTime = d3.timeParse("%Y");
+
+var rowConverter = function(d) {
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
+}
+
+d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", 0)
+       .attr("y", 0)
+       .attr("width", 20)
+       .attr("height", 100);
+});
+</code></pre></div></div>
+
+<p>Run the Python server to see the result and the HTML:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;svg width="500" height="300"&gt;
+    &lt;rect x="0" y="0" width="20" height="100"&gt;&lt;/rect&gt;
+    &lt;rect x="0" y="0" width="20" height="100"&gt;&lt;/rect&gt;
+    &lt;rect x="0" y="0" width="20" height="100"&gt;&lt;/rect&gt;
+    &lt;rect x="0" y="0" width="20" height="100"&gt;&lt;/rect&gt;
+&lt;/svg&gt;
+</code></pre></div></div>
+
+<p>However, by setting <code class="language-plaintext highlighter-rouge">.attr("x", 0)</code>, it makes the bar chart rectangles to overlap on top of each other, as they are all drawn at the same <code class="language-plaintext highlighter-rouge">(x, y)</code> position.</p>
+
+<h2 id="scaling-the-coordinates-of-the-rectangles">Scaling the coordinates of the rectangles</h2>
+
+<p>The coordinates of the rectangles need to scale dynamically. For example for <code class="language-plaintext highlighter-rouge">x values</code>, use an anonymous function to pass each value <code class="language-plaintext highlighter-rouge">d</code> of the dataset, and the index <code class="language-plaintext highlighter-rouge">i</code> for each value. Then compute <code class="language-plaintext highlighter-rouge">i</code> times the width <code class="language-plaintext highlighter-rouge">w</code> over the length of the dataset.</p>
+
+<p>Do the calculation by hand and you will understand how it works. Update the code to this and reload the browser:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var w = 500;
+var h = 300;
+var barPadding = 3;
+var padding = 40;
+var svg = d3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+var parseTime = d3.timeParse("%Y");
+
+var rowConverter = function(d) {
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
+}
+
+d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+    svg.selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr("x", function(d, i) {
+            return i * (w/dataset.length);
+            })
+        .attr("y", function(d) {
+            return h - d.population;
+            })
+        .attr("width", w/dataset.length - barPadding)
+        .attr("height", function(d) {
+            return d.population;
+            })
+        .attr("fill", "teal");
+
+});
+</code></pre></div></div>
+
+<p>The result is this:</p>
+
+<p><img src="/assets/images/d3-rect2.jpg" alt="D3 BarChart Rectangles" /></p>
+
+<p>The HTML shows this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;svg width="500" height="300"&gt;
+    &lt;rect x="0" y="295" width="122" height="5" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="125" y="290" width="122" height="10" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="250" y="285" width="122" height="15" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="375" y="280" width="122" height="20" fill="teal"&gt;&lt;/rect&gt;
+&lt;/svg&gt;
+</code></pre></div></div>
+
+<h2 id="about-this-attrx-functiond-i">About this: <code class="language-plaintext highlighter-rouge">attr("x", function(d, i)</code></h2>
+
+<p>We need to set the <code class="language-plaintext highlighter-rouge">x</code> position of each rectangle. This points to the bottom left of each rectangle.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>attr("x", function(d, i) {
+    return i * (w/dataset.length);
+})
+</code></pre></div></div>
+
+<p>For each value of the dataset:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year     population
+1950        5
+1951        10
+1955        15
+1959        20
+</code></pre></div></div>
+
+<p>The corresponding <code class="language-plaintext highlighter-rouge">x</code> values are as follows. Keep in mind the <code class="language-plaintext highlighter-rouge">d</code> values are not used for the calculation, only the <code class="language-plaintext highlighter-rouge">index</code> (i) of each value. First, let’s look at the indices:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   d           i (index)
+[1950, 5]       0
+[1951, 10]      1
+[1955, 15]      2
+[1950, 20]      3
+</code></pre></div></div>
+
+<p>The calculation <code class="language-plaintext highlighter-rouge">(w/dataset.length)</code> is done to evenly position each rectangle across the width <code class="language-plaintext highlighter-rouge">w</code> of the <code class="language-plaintext highlighter-rouge">SVG</code>.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">w</code> was set before as <code class="language-plaintext highlighter-rouge">var w = 500</code></li>
+  <li><code class="language-plaintext highlighter-rouge">length</code> of the dataset is <code class="language-plaintext highlighter-rouge">4</code></li>
+  <li><code class="language-plaintext highlighter-rouge">i</code> is used to find a starting position for each rectangle.</li>
+</ul>
+
+<p>The calculations of <code class="language-plaintext highlighter-rouge">i * (w/dataset.length)</code> are.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 * (500/4)
+1 * (500/4)
+2 * (500/4)
+3 * (500/4)
+</code></pre></div></div>
+
+<p>Then they are returned to the call back function as a parameter of each <code class="language-plaintext highlighter-rouge">x</code> attribute.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("x", 0)
+.attr("x", 125)
+.attr("x", 250)
+.attr("x", 375)
+</code></pre></div></div>
+
+<p>This means the first rectangle is positioned at <code class="language-plaintext highlighter-rouge">x = 0</code>, then second rectangle at <code class="language-plaintext highlighter-rouge">x = 125</code> and so on.</p>
+
+<h2 id="about-this-attry-functiond">About this: <code class="language-plaintext highlighter-rouge">.attr("y", function(d)</code></h2>
+
+<p>We need to set the <code class="language-plaintext highlighter-rouge">y</code> position of each rectangle. This points to the top left of each rectangle.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("y", function(d) {
+    return h - d.population;
+})
+</code></pre></div></div>
+
+<p>In this code <code class="language-plaintext highlighter-rouge">h</code> was previously set as <code class="language-plaintext highlighter-rouge">var h = 300;</code>.</p>
+
+<p>The call back function is passing every row of the dataset as <code class="language-plaintext highlighter-rouge">d</code> and we need the second value <code class="language-plaintext highlighter-rouge">population</code> of each row to calculate the <code class="language-plaintext highlighter-rouge">y</code> coordinate of each rectangle.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>return h - d.population;
+</code></pre></div></div>
+
+<p>Given these values, where a value of <code class="language-plaintext highlighter-rouge">d</code> corresponds to <code class="language-plaintext highlighter-rouge">[d.year, d.population]</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   d
+[1950, 5]
+[1951, 10]
+[1955, 15]
+[1950, 20]
+</code></pre></div></div>
+
+<p>The subtractions are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>300 - 5 = 295
+300 - 10 = 290
+300 - 15 = 285
+300 - 20 = 280
+</code></pre></div></div>
+
+<p>For the <code class="language-plaintext highlighter-rouge">SVG</code> the <code class="language-plaintext highlighter-rouge">(0,0)</code> is at the top left. Then <code class="language-plaintext highlighter-rouge">y</code> value of <code class="language-plaintext highlighter-rouge">295</code> means measure <code class="language-plaintext highlighter-rouge">295px</code> from top moving downwards.</p>
+
+<p>These are returned to the call back function to form these:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("y", 295)
+.attr("y", 290)
+.attr("y", 285)
+.attr("y", 280)
+</code></pre></div></div>
+
+<p>Putting these two attributes together, we can get the coordinates for each rectangle</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("x", 0)        .attr("y", 295)
+.attr("x", 125)        .attr("y", 290)
+.attr("x", 250)        .attr("y", 285)
+.attr("x", 375)        .attr("y", 280)
+</code></pre></div></div>
+
+<p>The rectangles are at these coordinates:</p>
+
+<ul>
+  <li>Rectangle 1: <code class="language-plaintext highlighter-rouge">(0, 295)</code></li>
+  <li>Rectangle 2: <code class="language-plaintext highlighter-rouge">(125, 290)</code></li>
+  <li>Rectangle 3: <code class="language-plaintext highlighter-rouge">(250, 285)</code></li>
+  <li>Rectangle 4: <code class="language-plaintext highlighter-rouge">(375, 280)</code></li>
+</ul>
+
+<h2 id="about-this-attrwidth-wdatasetlength---barpadding">About this: <code class="language-plaintext highlighter-rouge">.attr("width", w/dataset.length - barPadding)</code></h2>
+
+<p>Now that we got the coordinates for each rectangle, then we need to draw them.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">.attr</code> width, draws each rectangle from left to right.</p>
+
+<p>We know that <code class="language-plaintext highlighter-rouge">(w/dataset.length) = 500 / 4</code>.</p>
+
+<p>We are using a variable <code class="language-plaintext highlighter-rouge">barPadding</code> that we should have defined previously to make some separation between the rectangles.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var barPadding = 3;
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">width</code> is the same for all rectangles:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>w/dataset.length - barPadding = 500/4 - 3 = 122
+</code></pre></div></div>
+
+<p>This value is then used as a parameter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("width", w/dataset.length - barPadding)
+.attr("width", 122)
+</code></pre></div></div>
+
+<h2 id="about-this-attrheight-functiond">About this: <code class="language-plaintext highlighter-rouge">.attr("height", function(d)</code></h2>
+
+<p>As seen here:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.attr("height", function(d) {
+    return d.population;
+})
+</code></pre></div></div>
+
+<p>Set the height starting from the position <code class="language-plaintext highlighter-rouge">y</code> by returning the value <code class="language-plaintext highlighter-rouge">d.population</code> on the dataset. In other words, build the rectangle downwards from top to bottom starting at position <code class="language-plaintext highlighter-rouge">y</code>.</p>
+
+<p>Putting it all together using this format <code class="language-plaintext highlighter-rouge">(x, width, y, height)</code>:</p>
+
+<ul>
+  <li>Rectangle 1: <code class="language-plaintext highlighter-rouge">(0,   122, 295, 5)</code></li>
+  <li>Rectangle 2: <code class="language-plaintext highlighter-rouge">(125, 122, 290, 10)</code></li>
+  <li>Rectangle 3: <code class="language-plaintext highlighter-rouge">(250, 122, 285, 15)</code></li>
+  <li>Rectangle 4: <code class="language-plaintext highlighter-rouge">(375, 122, 280, 20)</code></li>
+</ul>
+
+<p>Here is a description of the first two rectangles:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Rect1</code> starts at <code class="language-plaintext highlighter-rouge">x=0</code>, draw <code class="language-plaintext highlighter-rouge">width=122</code> towards the right, at position <code class="language-plaintext highlighter-rouge">y=295</code>, draw <code class="language-plaintext highlighter-rouge">height=5</code> towards the bottom.</li>
+  <li>There is a <code class="language-plaintext highlighter-rouge">barPadding = 3</code> towards the right, separating Rect1 from Rect2.</li>
+  <li><code class="language-plaintext highlighter-rouge">Rect2</code> starts <code class="language-plaintext highlighter-rouge">x=125</code>, draw <code class="language-plaintext highlighter-rouge">width=122</code> towards the right, at position <code class="language-plaintext highlighter-rouge">y=290</code>, draw <code class="language-plaintext highlighter-rouge">height=10</code> towards the bottom.</li>
+</ul>
+
+<p>Keep in mind again the weird <code class="language-plaintext highlighter-rouge">SVG</code> way of positioning/drawing elements left to right, top to bottom.</p>
+
+<p>Next: <a href="../d3-using-scales/">D3 Using Scales</a></p>
+:ET

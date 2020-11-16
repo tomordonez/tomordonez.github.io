@@ -77,8 +77,10 @@ Here is an example:
 <details>
 	<summary>Click to expand</summary>
 	<pre>
+
 	Long content here
 	</pre>
+
 </details>
 
 I also customized the CSS:

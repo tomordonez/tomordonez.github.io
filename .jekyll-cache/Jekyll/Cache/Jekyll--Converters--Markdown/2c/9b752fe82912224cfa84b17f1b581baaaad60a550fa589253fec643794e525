@@ -1,0 +1,49 @@
+I"©	<p>How to embed a D3 visualization in a website or a blog post.</p>
+
+<p>My blog follows this directory structure:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>assets/
+  csv/
+    file.csv
+  js/
+    d3.min.js
+    d3-barchart-vis.js
+_posts/
+  this-blog-post.md
+</code></pre></div></div>
+
+<p>Add a <code class="language-plaintext highlighter-rouge">div</code> with a descriptive <code class="language-plaintext highlighter-rouge">id</code> to the section of your blog post where you want to add your visualization:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div id="d3-barchart-vis"&gt;&lt;/div&gt;
+</code></pre></div></div>
+
+<p>In the <code class="language-plaintext highlighter-rouge">d3-barchart-vis.js</code>, the <code class="language-plaintext highlighter-rouge">svg</code> selects this <code class="language-plaintext highlighter-rouge">&lt;div id</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var svg = d3.select("#d3-barchart-vis")
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">csv</code> file is called like this so it points at the correct directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("../assets/csv/file.csv", rowConverter).then(function(dataset) {
+</code></pre></div></div>
+
+<p>At the end of the blog post, after all content, add a reference to the JavaScript files:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type="text/javascript" src="../assets/js/d3.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="../assets/js/d3-barchart-vis.js"&gt;&lt;/script&gt;
+</code></pre></div></div>
+
+<h2 id="d3-visualization-in-this-blog-post">D3 visualization in this blog post</h2>
+
+<div id="d3-barchart-vis-final"></div>
+
+<p><a href="https://www.linkedin.com/in/tomordonez/"><img src="/assets/images/ama-linkedin-tomordonez.png" alt="Ask me anything on Linkedin" /></a></p>
+
+<script type="text/javascript" src="../assets/js/d3.min.js"></script>
+
+<script type="text/javascript" src="../assets/js/d3-barchart-vis-final.js"></script>
+
+:ET

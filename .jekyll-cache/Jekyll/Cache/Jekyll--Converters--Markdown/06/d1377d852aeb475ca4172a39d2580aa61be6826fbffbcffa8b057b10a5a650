@@ -1,0 +1,159 @@
+I"3!<p>Using a band scale in D3 with <code class="language-plaintext highlighter-rouge">scaleBand()</code>. More about <a href="../d3-using-scales/">D3 Using Scales</a>.</p>
+
+<p>The <a href="https://github.com/d3/d3-scale/blob/v2.2.2/README.md#band-scales">D3 Docs</a> have this great image to help visualize D3 <code class="language-plaintext highlighter-rouge">scaleBand()</code> methods:</p>
+
+<p><img src="/assets/images/d3_scaleBand.png" alt="D3 scaleBand" /></p>
+
+<p>These are the methods available:</p>
+
+<ul>
+  <li>.domain()</li>
+  <li>.range()</li>
+  <li>.rangeRound()</li>
+  <li>.round()</li>
+  <li>.paddingInner()</li>
+  <li>.paddingOuter()</li>
+  <li>.padding()</li>
+  <li>.align()</li>
+  <li>.bandwidth()</li>
+  <li>.step()</li>
+</ul>
+
+<p>Given this dataset:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>year     population
+1950        5
+1951        10
+1955        15
+1959        20
+</code></pre></div></div>
+
+<p>Set the examples below with <a href="../d3-creating-a-bar-chart/">D3 Creating a Bar Chart</a></p>
+
+<h2 id="d3scalebanddomain">d3.scaleBand().domain()</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">xScale</code> is used to scale the <code class="language-plaintext highlighter-rouge">year</code> column. Instead of using it as a <code class="language-plaintext highlighter-rouge">Date</code>, it maps the range of the dataset length to a <code class="language-plaintext highlighter-rouge">width</code> range.:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
+           .domain(d3.range(dataset.length))
+</code></pre></div></div>
+
+<p>The domain <code class="language-plaintext highlighter-rouge">.domain(d3.range(dataset.length))</code> is a <code class="language-plaintext highlighter-rouge">range</code> of <code class="language-plaintext highlighter-rouge">dataset.length</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.range(dataset.length)
+</code></pre></div></div>
+
+<p>You can use the <code class="language-plaintext highlighter-rouge">console.log()</code> inside the <code class="language-plaintext highlighter-rouge">CSV</code> function to test:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", rowConverter).then(function(dataset) {
+    console.log(dataset.length);
+    console.log(d3.range(dataset.length));
+    ...
+</code></pre></div></div>
+
+<p>The console should output this. See <a href="../setup-d3-step-by-step/">Setup D3 Step by Step</a>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4
+Array(4) [ 0, 1, 2, 3 ]
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">domain</code> for <code class="language-plaintext highlighter-rouge">scaleBand()</code> is using this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.domain([0, 1, 2, 3])
+</code></pre></div></div>
+
+<h2 id="d3scalebandrange">d3.scaleBand().range()</h2>
+
+<p>Setting the <code class="language-plaintext highlighter-rouge">range</code> to fit within the width of the SVG:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
+           .domain(d3.range(dataset.length))
+           .range([0, w]);
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">.range([0, w])</code> creates a range from <code class="language-plaintext highlighter-rouge">[0, w]</code>, where the values are implicitly calculated with this formula:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(w - 0) / .domain().length
+</code></pre></div></div>
+
+<p>If the width was set to <code class="language-plaintext highlighter-rouge">500</code> then:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(w - 0) / .domain().length
+(500 - 0) / 4 = 125
+</code></pre></div></div>
+
+<p>For a bar chart, this creates rectangles with the same width of <code class="language-plaintext highlighter-rouge">125</code>.</p>
+
+<p>So far we have this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
+           .domain([0, 1, 2, 3])
+           .range([0, 125, 250, 375])
+</code></pre></div></div>
+
+<h2 id="d3scalebandpaddinginner">d3.scaleBand().paddingInner()</h2>
+
+<p>The API docs say that if you don’t specify a <code class="language-plaintext highlighter-rouge">paddingInner</code>, the default is zero <code class="language-plaintext highlighter-rouge">0</code>. If you specify one, the number must be <code class="language-plaintext highlighter-rouge">&lt;= 1</code>. A value of <code class="language-plaintext highlighter-rouge">0</code> means there is no blank space between the bars. A value of <code class="language-plaintext highlighter-rouge">1</code> means a bandwidth of <code class="language-plaintext highlighter-rouge">0</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
+           .domain(d3.range(dataset.length))
+           .range([0, w])
+           .paddingInner(0.1);
+</code></pre></div></div>
+
+<h2 id="d3scalebandpaddingouter">d3.scaleBand().paddingOuter()</h2>
+
+<p>This is the padding to apply before the first bar and after the last bar. The number is in the range of <code class="language-plaintext highlighter-rouge">[0, 1]</code>. If not specified, the padding returns zero.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
+           .domain(d3.range(dataset.length))
+           .range([0, w])
+           .paddingInner(0.1)
+           .paddingOuter(0.1);
+</code></pre></div></div>
+
+<h2 id="d3scalebandrangeround">d3.scaleBand().rangeRound()</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">range</code> can calculate long decimal numbers such as this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;svg width="500" height="300"&gt;
+    &lt;rect x="12.195121951219477" y="205" width="122" height="55" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="134.14634146341461" y="150" width="122" height="110" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="256.0975609756098" y="95" width="122" height="165" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="378.04878048780483" y="40" width="122" height="220" fill="teal"&gt;&lt;/rect&gt;
+&lt;/svg&gt;
+</code></pre></div></div>
+
+<p>We can replace <code class="language-plaintext highlighter-rouge">range</code> with <code class="language-plaintext highlighter-rouge">rangeRound</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xScale = d3.scaleBand()
+           .domain(d3.range(dataset.length))
+           .rangeRound([padding, w])
+           .paddingInner(0.1)
+           .paddingOuter(0.1);
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">HTML</code> now shows something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;svg width="500" height="300"&gt;
+    &lt;rect x="14" y="205" width="122" height="55" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="135" y="150" width="122" height="110" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="256" y="95" width="122" height="165" fill="teal"&gt;&lt;/rect&gt;
+    &lt;rect x="377" y="40" width="122" height="220" fill="teal"&gt;&lt;/rect&gt;
+&lt;/svg&gt;
+</code></pre></div></div>
+
+<h2 id="d3scalebandbandwidth">d3.scaleBand().bandwidth()</h2>
+
+<p>In a D3 bar chart, this used to return the width of each bar.</p>
+
+<h2 id="more-about-d3-scales-and-d3-bar-chart">More about D3 Scales and D3 Bar Chart</h2>
+
+<ul>
+  <li><a href="../d3-drawing-svg/">D3 Drawing SVG</a></li>
+  <li><a href="../d3-creating-a-bar-chart/">D3 Creating a Bar Chart</a></li>
+  <li><a href="../d3-using-scales/">D3 Using Scales</a></li>
+  <li><a href="../d3-linear-scale/">D3 Linear Scale</a></li>
+  <li><a href="../d3-scales-in-a-bar-chart/">D3 Scales in a Bar Chart</a></li>
+</ul>
+:ET

@@ -1,0 +1,28 @@
+I"¤<p>Drawing an SVG in D3 to add HTML elements to a D3 visualization.</p>
+
+<p><code class="language-plaintext highlighter-rouge">SVG</code> stands for <code class="language-plaintext highlighter-rouge">Scalable Vector Graphics</code>. More info on <a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">Wikipedia</a>. This is used to draw a canvas for adding HTML elements to a D3 visualization.</p>
+
+<p>Create the <code class="language-plaintext highlighter-rouge">SVG</code> element with width <code class="language-plaintext highlighter-rouge">w</code> and height <code class="language-plaintext highlighter-rouge">h</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var w = 500;
+var h = 300;
+
+var svg = d3.select("body")
+            .append("svg");
+            .attr("width", w)
+            .attr("height", h);
+</code></pre></div></div>
+
+<p>See <a href="../setup-d3-step-by-step/">Setup D3 Step by Step</a> to add this code to a <code class="language-plaintext highlighter-rouge">project.js</code> and run a Python server to see the output on the browser.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">HTML</code> code shows that an <code class="language-plaintext highlighter-rouge">svg</code> tag was created:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;svg width="500" height="300"&gt;&lt;/svg&gt;
+</code></pre></div></div>
+
+<p>The SVG is visualized as a rectangle:</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/d3-svg.jpg" alt="D3 SVG Canvas" /></p>
+
+<p>Next: <a href="../d3-creating-a-bar-chart/">D3 Creating a Bar Chart</a></p>
+:ET

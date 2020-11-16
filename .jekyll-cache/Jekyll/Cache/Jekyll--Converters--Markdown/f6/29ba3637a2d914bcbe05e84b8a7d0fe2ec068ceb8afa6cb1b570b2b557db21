@@ -1,0 +1,91 @@
+I"Õ<p>How to make a D3 visualization responsive.</p>
+
+<p>Follow this <a href="../setup-d3-step-by-step/">Setup D3 Step by Step</a> and <a href="../d3-scales-in-a-bar-chart/">D3 Scales in a Bar Chart</a> to set the examples below.</p>
+
+<p>Add<code class="language-plaintext highlighter-rouge">&lt;div id="d3-barchart-vis"&gt;&lt;/div&gt;</code> to <code class="language-plaintext highlighter-rouge">index.html</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;title&gt;D3 Canvas&lt;/title&gt;
+        &lt;link rel="icon" type="image/png" href="icon.png"&gt;
+        &lt;script type="text/javascript" src="assets/js/d3.min.js"&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" type="text/css" href="main.css"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="d3-barchart-vis"&gt;&lt;/div&gt;
+        &lt;script type="text/javascript" src="project.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">project.js</code> needs to be modified when creating the <code class="language-plaintext highlighter-rouge">svg</code>. It has to select <code class="language-plaintext highlighter-rouge">div id="d3-barchart-vis"</code>.</p>
+
+<p>It needs to use <code class="language-plaintext highlighter-rouge">preserveAspectRatio</code> and <code class="language-plaintext highlighter-rouge">viewBox</code> for responsive. The <code class="language-plaintext highlighter-rouge">viewBox</code> follows this syntax <code class="language-plaintext highlighter-rouge">"min-x min-y width height"</code>. I concatenated the numbers and the spaces:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var svg = d3.select("#d3-barchart-vis")
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
+</code></pre></div></div>
+
+<p>The code for <code class="language-plaintext highlighter-rouge">project.js</code> looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var w = 500;
+var h = 300;
+var barPadding = 3;
+var padding = 40;
+var svg = d3.select("#d3-barchart-vis")
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", "0 0 " + w + " " + h);
+
+var parseTime = d3.timeParse("%Y");
+
+var rowConverter = function(d) {
+    return {
+        year: parseTime(d.year),
+        population: +d.population
+    }
+}
+
+d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+    xScale = d3.scaleBand()
+               .domain(d3.range(dataset.length))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
+
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, function(d) { return d.population; })])
+               .range([h - padding, padding]);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", function(d, i) {
+           return xScale(i);
+       })
+       .attr("y", function(d) {
+           return yScale(d.population);
+       })
+       .attr("width", xScale.bandwidth())
+       .attr("height", function(d) {
+           return h - padding - yScale(d.population);
+       })
+       .attr("fill", "teal");
+});
+</code></pre></div></div>
+
+<p>The result is this bar chart:</p>
+
+<div id="d3-barchart-vis"></div>
+
+<script type="text/javascript" src="../assets/js/d3.min.js"></script>
+
+<script type="text/javascript" src="../assets/js/d3-barchart-vis.js"></script>
+
+:ET

@@ -1,0 +1,86 @@
+I"õ<p>Load a CSV in D3 and bind the data to elements in the DOM.</p>
+
+<h2 id="steps-to-bind-data-to-dom-in-d3">Steps to bind data to DOM in D3:</h2>
+
+<ul>
+  <li>Select <code class="language-plaintext highlighter-rouge">HTML</code> elements with <code class="language-plaintext highlighter-rouge">.select()</code></li>
+  <li>Add the data with <code class="language-plaintext highlighter-rouge">.data()</code></li>
+  <li>Bind the data to elements with <code class="language-plaintext highlighter-rouge">.enter()</code></li>
+  <li>Append elements to the DOM with <code class="language-plaintext highlighter-rouge">.append()</code></li>
+</ul>
+
+<p>More about <code class="language-plaintext highlighter-rouge">rowConverter</code> in <a href="../d3-convert-string-to-date/">D3 Convert String to Date</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d3.csv("file.csv", rowConverter).then(function(dataset) {
+
+    d3.select("body").selectAll("p")
+    .data(dataset)
+    .enter()
+    .append("p");
+});
+</code></pre></div></div>
+
+<p>Loading the CSV uses <code class="language-plaintext highlighter-rouge">then</code> syntax. More on <a href="../d3-load-a-csv-file-with-promises/">D3 Load a CSV file with Promises</a></p>
+
+<p>This is how binding data to DOM works:</p>
+
+<ul>
+  <li>It selects the element <code class="language-plaintext highlighter-rouge">body</code>.</li>
+  <li>Then it selects all <code class="language-plaintext highlighter-rouge">p</code> elements. However, no <code class="language-plaintext highlighter-rouge">p</code> elements exist yet.</li>
+  <li>Use the attribute <code class="language-plaintext highlighter-rouge">.data</code> to read <code class="language-plaintext highlighter-rouge">dataset</code>.</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">.enter()</code> to bind the <code class="language-plaintext highlighter-rouge">dataset</code> values with <code class="language-plaintext highlighter-rouge">p</code> elements</li>
+  <li>Use <code class="language-plaintext highlighter-rouge">.append("p")</code> to append the <code class="language-plaintext highlighter-rouge">p</code> elements to the DOM.</li>
+</ul>
+
+<p>Run the D3 server in Python as seen in <a href="../setup-d3-step-by-step/">Setup D3 Step by Step</a></p>
+
+<p>Go to the <code class="language-plaintext highlighter-rouge">Elements</code> tab to see the <code class="language-plaintext highlighter-rouge">HTML</code> code. The <code class="language-plaintext highlighter-rouge">body</code> section has this now:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;body&gt;
+    &lt;script type="text/javascript" src="project.js"&gt;&lt;/script&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
+&lt;/body&gt;
+</code></pre></div></div>
+
+<p>It created four <code class="language-plaintext highlighter-rouge">p</code> tags. In the console type <code class="language-plaintext highlighter-rouge">d3.selectAll("p");</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pt {_groups: Array(1), _parents: Array(1)}
+_groups: [NodeList(4)]
+_parents: [html]
+__proto__: Object
+</code></pre></div></div>
+
+<p>Expand <code class="language-plaintext highlighter-rouge">groups</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_groups: Array(1)
+0: NodeList(4) [p, p, p, p]
+length: 1
+</code></pre></div></div>
+
+<p>Expand <code class="language-plaintext highlighter-rouge">NodeList</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0: NodeList(4)
+    0: p
+    1: p
+    2: p
+    3: p
+</code></pre></div></div>
+
+<p>Expand the first <code class="language-plaintext highlighter-rouge">0: p</code>. Itâ€™s pretty long, scroll down to the bottom:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>__data__: {year: Sun Jan 01 1950 00:00:00 GMT-0500 (Eastern Standard Time), population: 5}
+__proto__: HTMLParagraphElement
+</code></pre></div></div>
+
+<p>Expand <code class="language-plaintext highlighter-rouge">data</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>__data__:
+population: 5
+year: Sun Jan 01 1950 00:00:00 GMT-0500 (Eastern Standard Time) {}
+</code></pre></div></div>
+
+<p>Next: <a href="../d3-drawing-svg/">D3 Drawing SVG</a></p>
+:ET

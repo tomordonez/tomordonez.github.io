@@ -1,0 +1,41 @@
+I"€	<p>Understanding scales in D3. This is where things get interesting with D3, and you can spend countless hours trying to fix a visualization in the <code class="language-plaintext highlighter-rouge">SVG</code> way. More about <a href="../d3-drawing-svg/">D3 Drawing SVG</a></p>
+
+<p>Definitions:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Input domain</code> is the range of input data values</li>
+  <li><code class="language-plaintext highlighter-rouge">Output range</code> is the range of output values</li>
+</ul>
+
+<p>Given a dataset such as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataset = [5, 10, 15, 20]
+</code></pre></div></div>
+
+<p>Using scales in D3 require to map a range of input values to a range of output values.</p>
+
+<ul>
+  <li>Input domain: <code class="language-plaintext highlighter-rouge">[5, 20]</code></li>
+  <li>Output range: <code class="language-plaintext highlighter-rouge">[10, 250]</code> in pixels.</li>
+</ul>
+
+<p>The minimum input value of <code class="language-plaintext highlighter-rouge">5</code> is represented as <code class="language-plaintext highlighter-rouge">10px</code>, and the maximum value of <code class="language-plaintext highlighter-rouge">20</code> is represented as <code class="language-plaintext highlighter-rouge">250px</code>.</p>
+
+<p>The input value can be normalized and this result can be scaled to the output. For example, normalizing input values to a range of <code class="language-plaintext highlighter-rouge">0</code> to <code class="language-plaintext highlighter-rouge">1</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">0</code> can be represented as <code class="language-plaintext highlighter-rouge">0px</code> and <code class="language-plaintext highlighter-rouge">1</code> as <code class="language-plaintext highlighter-rouge">250px</code>.</p>
+
+<p>The rectangles on this bar chart look too short compared to the SVG canvas:</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/d3-rect2.jpg" alt="D3 BarChart Rectangles" /></p>
+
+<p>The rectangles can be scaled to improve the visualization.</p>
+
+<h2 id="using-scales-in-d3">Using scales in D3</h2>
+
+<ul>
+  <li><a href="../d3-linear-scale/">D3 Linear Scale</a></li>
+  <li><a href="../d3-band-scale/">D3 Band Scale</a></li>
+  <li><a href="../d3-scales-in-a-bar-chart/">D3 Scales in a Bar Chart</a></li>
+</ul>
+:ET
