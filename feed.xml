@@ -1,4 +1,426 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-11-06T10:18:30-05:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-11-15T20:43:33-05:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Install Google Cloud SDK</title><link href="https://www.tomordonez.com/install-google-cloud-sdk/" rel="alternate" type="text/html" title="Install Google Cloud SDK" /><published>2020-11-10T00:00:00-05:00</published><updated>2020-11-10T00:00:00-05:00</updated><id>https://www.tomordonez.com/install-google-cloud-sdk</id><content type="html" xml:base="https://www.tomordonez.com/install-google-cloud-sdk/">&lt;p&gt;Step by step installing Google Cloud SDK in Linux:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-315.0.0-linux-x86_64.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tar:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ tar -xvf google-cloud-sdk-315.0.0-linux-x86_64.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Install the script:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ./google-cloud-sdk/install.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;details&gt;
+	&lt;summary&gt;Click to see output&lt;/summary&gt;
+	&lt;pre&gt;
+
+	Welcome to the Google Cloud SDK!
+	To help improve the quality of this product, we collect anonymized usage data and anonymized stacktraces when crashes are encountered; additional information is available at &amp;lt;https://cloud.google.com/sdk/usage-statistics&amp;gt;. This data is 
+	handled in accordance with our privacy policy
+	&amp;lt;https://policies.google.com/privacy&amp;gt;. You may choose to opt in this collection now (by choosing 'Y' at the below prompt), or at any time in the future by running the following command: 
+	gcloud config set disable_usage_reporting false
+	Do you want to help improve the Google Cloud SDK (y/N)? n
+
+	Your current Cloud SDK version is: 315.0.0
+	The latest available version is: 315.0.0
+
+	├───────────────┬──────────────────────────────────────────────────────┬──────────────────────────┬──────────┤
+	│     Status    │                         Name                         │            ID            │   Size   │
+	├───────────────┼──────────────────────────────────────────────────────┼──────────────────────────┼──────────┤
+	│ Not Installed │ App Engine Go Extensions                             │ app-engine-go            │  4.9 MiB │
+	│ Not Installed │ Appctl                                               │ appctl                   │ 21.0 MiB │
+	│ Not Installed │ Cloud Bigtable Command Line Tool                     │ cbt                      │  7.7 MiB │
+	│ Not Installed │ Cloud Bigtable Emulator                              │ bigtable                 │  6.6 MiB │
+	│ Not Installed │ Cloud Datalab Command Line Tool                      │ datalab                  │  &amp;lt; 1 MiB │
+	│ Not Installed │ Cloud Datastore Emulator                             │ cloud-datastore-emulator │ 18.4 MiB │
+	│ Not Installed │ Cloud Firestore Emulator                             │ cloud-firestore-emulator │ 42.1 MiB │
+	│ Not Installed │ Cloud Pub/Sub Emulator                               │ pubsub-emulator          │ 56.3 MiB │
+	│ Not Installed │ Cloud SQL Proxy                                      │ cloud_sql_proxy          │  7.5 MiB │
+	│ Not Installed │ Cloud Spanner Emulator                               │ cloud-spanner-emulator   │ 21.5 MiB │
+	│ Not Installed │ Emulator Reverse Proxy                               │ emulator-reverse-proxy   │ 14.5 MiB │
+	│ Not Installed │ Google Cloud Build Local Builder                     │ cloud-build-local        │  6.3 MiB │
+	│ Not Installed │ Google Container Registry's Docker credential helper │ docker-credential-gcr    │  1.8 MiB │
+	│ Not Installed │ Kind                                                 │ kind                     │  4.5 MiB │
+	│ Not Installed │ Kustomize                                            │ kustomize                │ 25.9 MiB │
+	│ Not Installed │ Minikube                                             │ minikube                 │ 24.1 MiB │
+	│ Not Installed │ Nomos CLI                                            │ nomos                    │ 17.8 MiB │
+	│ Not Installed │ Skaffold                                             │ skaffold                 │ 14.5 MiB │
+	│ Not Installed │ anthos-auth                                          │ anthos-auth              │ 16.3 MiB │
+	│ Not Installed │ gcloud Alpha Commands                                │ alpha                    │  &amp;lt; 1 MiB │
+	│ Not Installed │ gcloud Beta Commands                                 │ beta                     │  &amp;lt; 1 MiB │
+	│ Not Installed │ gcloud app Java Extensions                           │ app-engine-java          │ 59.5 MiB │
+	│ Not Installed │ gcloud app Python Extensions                         │ app-engine-python        │  6.1 MiB │
+	│ Not Installed │ gcloud app Python Extensions (Extra Libraries)       │ app-engine-python-extras │ 27.1 MiB │
+	│ Not Installed │ kpt                                                  │ kpt                      │ 11.1 MiB │
+	│ Not Installed │ kubectl                                              │ kubectl                  │  &amp;lt; 1 MiB │
+	│ Not Installed │ pkg                                                  │ pkg                      │          │
+	│ Installed     │ BigQuery Command Line Tool                           │ bq                       │  &amp;lt; 1 MiB │
+	│ Installed     │ Cloud SDK Core Libraries                             │ core                     │ 15.4 MiB │
+	│ Installed     │ Cloud Storage Command Line Tool                      │ gsutil                   │  3.5 MiB │
+	&lt;/pre&gt;
+
+&lt;/details&gt;
+
+&lt;p&gt;To install or remove components at your current SDK version [315.0.0], run:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gcloud components install COMPONENT_ID
+$ gcloud components remove COMPONENT_ID
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To update your SDK installation to the latest version [315.0.0], run:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gcloud components update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Modify profile to update your $PATH and enable shell command completion?&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Do you want to continue (Y/n)?  y
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The Google Cloud SDK installer will now prompt you to update an rc file to bring the Google Cloud CLIs into your environment. Enter a path to an rc file to update, or leave blank to use:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[/home/tom/.bashrc]:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Backing up [/home/tom/.bashrc] to [/home/tom/.bashrc.backup].&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[/home/tom/.bashrc] has been updated.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;==&amp;gt; Start a new shell for the changes to take effect.&lt;/p&gt;
+
+&lt;p&gt;For more information on how to get started, please visit: https://cloud.google.com/sdk/docs/quickstarts&lt;/p&gt;
+
+&lt;p&gt;Initialize&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ./google-cloud-sdk/bin/gcloud init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Welcome! This command will take you through the configuration of gcloud.&lt;/p&gt;
+
+&lt;p&gt;Your current configuration has been set to: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[default]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You can skip diagnostics next time by using the following flag:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gcloud init --skip-diagnostics
+
+Network diagnostic detects and fixes local network connection issues.
+Checking network connection...done.
+Reachability Check passed.
+Network diagnostic passed (1/1 checks passed).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You must log in to continue. Would you like to log in (Y/n)?&lt;/p&gt;
+
+&lt;p&gt;Your browser has been opened to visit:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://accounts.google.com/o/oauth2/auth...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Login or choose an account. Then this page shows: https://cloud.google.com/sdk/auth_success&lt;/p&gt;
+
+&lt;p&gt;Back on the terminal…&lt;/p&gt;
+
+&lt;p&gt;You are logged in as: [your username shows here]&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Pick cloud project to use: 
+ [1] some-awesome-project
+ [2] Create a new project
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Please enter numeric choice or text value (must exactly match list item):&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Your current project has been set to:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[some-awesome-project].
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;details&gt;
+	&lt;summary&gt;More output&lt;/summary&gt;
+	&lt;pre&gt;
+
+	Not setting default zone/region (this feature makes it easier to use
+	[gcloud compute] by setting an appropriate default value for the
+	--zone and --region flag).
+	See https://cloud.google.com/compute/docs/gcloud-compute section on how to set
+	default compute region and zone manually. If you would like [gcloud init] to be
+	able to do this for you the next time you run it, make sure the
+	Compute Engine API is enabled for your project on the
+	https://console.developers.google.com/apis page.
+
+	Created a default .boto configuration file at [/home/tom/.boto]. See this file and
+	[https://cloud.google.com/storage/docs/gsutil/commands/config] for more
+	information about configuring Google Cloud Storage.
+	Your Google Cloud SDK is configured and ready to use!
+
+	* Commands that require authentication will use `your-user-name` by default
+	* Commands will reference project `some-awesome-project` by default
+	Run `gcloud help config` to learn how to change individual settings
+
+	This gcloud configuration is called [default]. You can create additional configurations if you work with multiple accounts and/or projects.
+	Run `gcloud topic configurations` to learn more.
+	&lt;/pre&gt;
+
+&lt;/details&gt;
+
+&lt;p&gt;Some things to try next:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcloud --help&lt;/code&gt; to see the Cloud Platform services you can interact with. And run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcloud help COMMAND&lt;/code&gt; to get help on any gcloud command.&lt;/li&gt;
+  &lt;li&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcloud topic --help&lt;/code&gt; to learn about advanced features of the SDK like arg files and output formatting.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.linkedin.com/in/tomordonez/&quot;&gt;&lt;img src=&quot;/assets/images/ama-linkedin-tomordonez.png&quot; alt=&quot;Ask me anything on Linkedin&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>tom</name></author><category term="Google Cloud" /><category term="GCP" /><summary type="html">Step by step installing Google Cloud SDK in Linux:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/1.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Python Adding Days to Date and Python Pandas</title><link href="https://www.tomordonez.com/python-adding-days-date-python-pandas/" rel="alternate" type="text/html" title="Python Adding Days to Date and Python Pandas" /><published>2020-11-09T00:00:00-05:00</published><updated>2020-11-09T00:00:00-05:00</updated><id>https://www.tomordonez.com/python-adding-days-date-python-pandas</id><content type="html" xml:base="https://www.tomordonez.com/python-adding-days-date-python-pandas/">&lt;p&gt;Adding days to a date in Python using datetime and timedelta. Use Python Pandas to concatenate dates with strings.&lt;/p&gt;
+
+&lt;p&gt;I wanted to create 20 files with this syntax &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;date-blog-post-name&lt;/code&gt;. I wrote a very extensive &lt;a href=&quot;../d3-tutorial-data-visualization/&quot;&gt;D3 Tutorial&lt;/a&gt; and wanted to break it down into smaller blog posts, published sequentially 5 days apart.&lt;/p&gt;
+
+&lt;p&gt;The blog posts needed to have this naming syntax:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;YYYY-MM-DD-name-of-blog-post.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I extracted the headlines &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;H2&lt;/code&gt; of the original blog post and made an array like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; posts = ['-setup-d3-step-by-step.md', '-d3-and-asynchronous.md', 
+'-d3-and-incompatible-versions.md', '-d3-load-a-csv-file-with-promises.md', 
+'-d3-convert-string-to-date.md', '-d3-bind-data-to-dom.md', '-d3-drawing-svg.md', 
+'-d3-creating-a-bar-chart.md', '-d3-using-scales.md', '-d3-linear-scale.md', 
+'-d3-band-scale.md', '-d3-scales-in-a-bar-chart.md', '-d3-responsive-visualization.md', '-d3-arrow-functions.md', '-d3-adding-axes-to-bar-chart.md', 
+'-d3-bar-chart-title-and-labels.md', '-d3-visualization-margins.md', 
+'-d3-mouse-event-handler.md', '-embedding-d3-in-a-website.md']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;How do I add the prefix dates?&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2020-05-12
+2020-05-17
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To have files like these?&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2020-05-12-setup-d3-step-by-step.md
+2020-05-17-d3-and-asynchronous.md
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;adding-days-to-a-date-in-python&quot;&gt;Adding days to a date in Python&lt;/h2&gt;
+
+&lt;p&gt;Let’s get to it.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import datetime
+&amp;gt;&amp;gt;&amp;gt; datetime.date.today() + 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Error:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;TypeError: unsupported operand type(s) for +: 'datetime.date' and 'int'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Should I then add the days to the day in the date?&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; datetime.date.today().day + 5
+14
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This can’t be right.&lt;/p&gt;
+
+&lt;h2 id=&quot;adding-days-to-date-in-python-with-timedelta&quot;&gt;Adding days to date in Python with timedelta&lt;/h2&gt;
+
+&lt;p&gt;Let’s look at the Python docs: &lt;a href=&quot;https://docs.python.org/3/library/datetime.html&quot;&gt;datetime&lt;/a&gt;. Looking at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;timedelta&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A timedelta object represents a duration, the difference between two dates or times.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can do this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;new_date = old_date + datetime.timedelta(days=N)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;With an example:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import datetime
+&amp;gt;&amp;gt;&amp;gt; today = datetime.date.today()
+datetime.date(2020, 11, 10)
+
+&amp;gt;&amp;gt;&amp;gt; tomorrow = today + datetime.timedelta(days=1)
+&amp;gt;&amp;gt;&amp;gt; tomorrow
+datetime.date(2020, 11, 11)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s test this. What happens if I add 60 days:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; sixty_days = today + datetime.timedelta(days=60)
+&amp;gt;&amp;gt;&amp;gt; sixty_days
+datetime.date(2021, 1, 9)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;using-isoformat&quot;&gt;Using isoformat&lt;/h2&gt;
+
+&lt;p&gt;The syntax to create a date is:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; datetime.date(YYYY, M, D)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Such as:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; post_date = datetime.date(2020, 5, 12)
+&amp;gt;&amp;gt;&amp;gt; post_date
+datetime.date(2020, 5, 12)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;However, I want the date string, not the weird date object.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; post_date.isoformat()
+'2020-05-12'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;creating-an-array-of-dates-adding-days-to-a-date&quot;&gt;Creating an array of dates, adding days to a date&lt;/h2&gt;
+
+&lt;p&gt;Easy for loop:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; post_date
+datetime.date(2020, 5, 12)
+
+&amp;gt;&amp;gt;&amp;gt; date_list = []
+&amp;gt;&amp;gt;&amp;gt; for post in range(1, 20):
+        post_date += datetime.timedelta(days=5)
+        date_list.append(post_date.isoformat())
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then let’s see the output&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; date_list
+['2020-05-12', '2020-05-17', '2020-05-22', '2020-05-27', '2020-06-01', 
+'2020-06-06', '2020-06-11', '2020-06-16', '2020-06-21', '2020-06-26', 
+'2020-07-01', '2020-07-06', '2020-07-11', '2020-07-16', '2020-07-21', 
+'2020-07-26', '2020-07-31', '2020-08-05', '2020-08-10']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now I have a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;date_list&lt;/code&gt; array with dates and a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;posts&lt;/code&gt; array with blog post names. How do I join them?&lt;/p&gt;
+
+&lt;h2 id=&quot;python-pandas-join-strings-or-concatenate-strings&quot;&gt;Python Pandas join strings or concatenate strings&lt;/h2&gt;
+
+&lt;p&gt;Create two dataframes:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import pandas
+&amp;gt;&amp;gt;&amp;gt; date_list_df = pandas.DataFrame(date_list)
+&amp;gt;&amp;gt;&amp;gt; posts_df = pandas.DataFrame(posts)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The dataframes show the data under column &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; date_list_df
+	0
+0   2020-05-12
+1   2020-05-17
+2   2020-05-22
+3   2020-05-27
+4   2020-06-01
+5   2020-06-06
+6   2020-06-11
+...
+
+&amp;gt;&amp;gt;&amp;gt; posts_df                                                                                                                                                                 
+	0
+0	-setup-d3-step-by-step.md
+1	-d3-and-asynchronous.md
+2	-d3-and-incompatible-versions.md
+3	-d3-load-a-csv-file-with-promises.md
+4	-d3-convert-string-to-date.md
+5	-d3-bind-data-to-dom.md
+6	-d3-drawing-svg.md
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I tried &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;join&lt;/code&gt; but this didn’t work:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; date_list_df.join(posts_df)
+
+ValueError: columns overlap but no suffix specified: RangeIndex(start=0, stop=1, step=1)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add names to the columns:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; posts_df.columns = ['post_name']
+&amp;gt;&amp;gt;&amp;gt; date_list_df.columns = ['date']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tried &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;join&lt;/code&gt; again but this isn’t what I wanted to do:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; date_list_df.join(posts_df)
+
+          date                  post_name
+0   2020-05-12  -setup-d3-step-by-step.md
+1   2020-05-17  -d3-and-asynchronous.md
+2   2020-05-22  -d3-and-incompatible-versions.md
+3   2020-05-27  -d3-load-a-csv-file-with-promises.md
+4   2020-06-01  -d3-convert-string-to-date.md
+5   2020-06-06  -d3-bind-data-to-dom.md
+6   2020-06-11  -d3-drawing-svg.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I want to concatenate the date with the post name:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; posts_names = date_list_df['date'].str.cat(posts_df['post_name'])
+
+0    2020-05-12-setup-d3-step-by-step.md
+1    2020-05-17-d3-and-asynchronous.md
+2    2020-05-22-d3-and-incompatible-versions.md
+3    2020-05-27-d3-load-a-csv-file-with-promises.md
+4    2020-06-01-d3-convert-string-to-date.md
+5    2020-06-06-d3-bind-data-to-dom.md
+6    2020-06-11-d3-drawing-svg.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then create an array from the dataframe:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; posts_names_array = posts_names.array
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;copying-and-creating-many-files-in-python&quot;&gt;Copying and creating many files in Python&lt;/h2&gt;
+
+&lt;p&gt;I wanted to do the same you do on the shell:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cp source_file new_file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And repeat for all the posts names in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;posts_names_array&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Use the Python modules &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;os&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shutil&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import os
+&amp;gt;&amp;gt;&amp;gt; import shutil
+
+&amp;gt;&amp;gt;&amp;gt; dest_dir = '_posts/'
+&amp;gt;&amp;gt;&amp;gt; source_post = '_posts/2020-02-02-d3-tutorial-data-visualization.md'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then go through the array:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; for post in posts_names_array:
+		shutil.copy2(source_post, dest_dir+post)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'_posts/2020-05-12-setup-d3-step-by-step.md'
+'_posts/2020-05-17-d3-and-asynchronous.md'
+'_posts/2020-05-22-d3-and-incompatible-versions.md'
+'_posts/2020-05-27-d3-load-a-csv-file-with-promises.md'
+'_posts/2020-06-01-d3-convert-string-to-date.md'
+'_posts/2020-06-06-d3-bind-data-to-dom.md'
+'_posts/2020-06-11-d3-drawing-svg.md'
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.linkedin.com/in/tomordonez/&quot;&gt;&lt;img src=&quot;/assets/images/ama-linkedin-tomordonez.png&quot; alt=&quot;Ask me anything on Linkedin&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>tom</name></author><category term="python" /><category term="pandas" /><summary type="html">Adding days to a date in Python using datetime and timedelta. Use Python Pandas to concatenate dates with strings.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/1.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Responsive Testing with Localhost and iPhone</title><link href="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/" rel="alternate" type="text/html" title="Responsive Testing with Localhost and iPhone" /><published>2020-08-29T00:00:00-04:00</published><updated>2020-08-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/responsive-testing-with-localhost-iphone</id><content type="html" xml:base="https://www.tomordonez.com/responsive-testing-with-localhost-iphone/">&lt;p&gt;I learned the hard way that the responsive design features from Chrome and Firefox developer tools are not an exact representation of the mobile interface.&lt;/p&gt;
 
 &lt;p&gt;My development laptop runs on Linux Fedora, 8GB RAM, and just 64GB of disk. No way to run an iPhone simulator. I had Android installed but it was taking way too much space.&lt;/p&gt;
 
@@ -231,415 +653,804 @@ Started HBase thrift daemon (hbase-thrift)
 &lt;ul&gt;
   &lt;li&gt;Edit your file with Vim (if you dare to)&lt;/li&gt;
   &lt;li&gt;Follow same process to copy from host to docker.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>tom</name></author><category term="docker" /><category term="google cloud" /><category term="GCP" /><summary type="html">I am studying the Google Cloud Platform. I’d like to take the Associate Cloud Engineer certificate in a few months.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/1.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll Build and Deploy to Github Pages</title><link href="https://www.tomordonez.com/jekyll-build-deploy-github-pages/" rel="alternate" type="text/html" title="Jekyll Build and Deploy to Github Pages" /><published>2020-07-11T00:00:00-04:00</published><updated>2020-07-11T00:00:00-04:00</updated><id>https://www.tomordonez.com/jekyll-build-deploy-github-pages</id><content type="html" xml:base="https://www.tomordonez.com/jekyll-build-deploy-github-pages/">&lt;p&gt;Cheat sheet Jekyll build and deploy to Github Pages.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>tom</name></author><category term="docker" /><category term="google cloud" /><category term="GCP" /><summary type="html">I am studying the Google Cloud Platform. I’d like to take the Associate Cloud Engineer certificate in a few months.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/1.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Embedding D3 in a Website</title><link href="https://www.tomordonez.com/embedding-d3-in-a-website/" rel="alternate" type="text/html" title="Embedding D3 in a Website" /><published>2020-08-10T00:00:00-04:00</published><updated>2020-08-10T00:00:00-04:00</updated><id>https://www.tomordonez.com/embedding-d3-in-a-website</id><content type="html" xml:base="https://www.tomordonez.com/embedding-d3-in-a-website/">&lt;p&gt;How to embed a D3 visualization in a website or a blog post.&lt;/p&gt;
 
-&lt;p&gt;Build in development and test in localhost:&lt;/p&gt;
+&lt;p&gt;My blog follows this directory structure:&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ bundle exec jekyll serve
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;assets/
+  csv/
+    file.csv
+  js/
+    d3.min.js
+    d3-barchart-vis.js
+_posts/
+  this-blog-post.md
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Backup development files to Github:&lt;/p&gt;
+&lt;p&gt;Add a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;div&lt;/code&gt; with a descriptive &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;id&lt;/code&gt; to the section of your blog post where you want to add your visualization:&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git add .
-$ git commit -m &quot;Awesome commit message here&quot;
-$ git push -u origin master
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div id=&quot;d3-barchart-vis&quot;&amp;gt;&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Deploy to production:&lt;/p&gt;
+&lt;p&gt;In the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d3-barchart-vis.js&lt;/code&gt;, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;svg&lt;/code&gt; selects this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;div id&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ JEKYLL_ENV=production jgd
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var svg = d3.select(&quot;#d3-barchart-vis&quot;)
+            .append(&quot;svg&quot;)
+            .attr(&quot;preserveAspectRatio&quot;, &quot;xMinYMin meet&quot;)
+            .attr(&quot;viewBox&quot;, &quot;0 0 &quot; + w + &quot; &quot; + h);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;For more details see a step by step setup tutorial of &lt;a href=&quot;../static-website-jekyll-github-pages/&quot;&gt;Jekyll with Github Pages&lt;/a&gt;&lt;/p&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">Cheat sheet Jekyll build and deploy to Github Pages.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Github Pages Custom Domain</title><link href="https://www.tomordonez.com/github-pages-custom-domain/" rel="alternate" type="text/html" title="Github Pages Custom Domain" /><published>2020-07-04T00:00:00-04:00</published><updated>2020-07-04T00:00:00-04:00</updated><id>https://www.tomordonez.com/github-pages-custom-domain</id><content type="html" xml:base="https://www.tomordonez.com/github-pages-custom-domain/">&lt;p&gt;How to setup Github Pages with a custom domain.&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;csv&lt;/code&gt; file is called like this so it points at the correct directory:&lt;/p&gt;
 
-&lt;p&gt;For more details see a step by step setup tutorial of &lt;a href=&quot;../static-website-jekyll-github-pages/&quot;&gt;Jekyll with Github Pages&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;d3.csv(&quot;../assets/csv/file.csv&quot;, rowConverter).then(function(dataset) {
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;setup-github&quot;&gt;Setup Github&lt;/h2&gt;
+&lt;p&gt;At the end of the blog post, after all content, add a reference to the JavaScript files:&lt;/p&gt;
 
-&lt;p&gt;Go to Github:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/d3.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/d3-barchart-vis.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;d3-visualization-in-this-blog-post&quot;&gt;D3 visualization in this blog post&lt;/h2&gt;
+
+&lt;div id=&quot;d3-barchart-vis-final&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.linkedin.com/in/tomordonez/&quot;&gt;&lt;img src=&quot;/assets/images/ama-linkedin-tomordonez.png&quot; alt=&quot;Ask me anything on Linkedin&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/d3.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/d3-barchart-vis-final.js&quot;&gt;&lt;/script&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">How to embed a D3 visualization in a website or a blog post.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">D3 Mouse Event Handler</title><link href="https://www.tomordonez.com/d3-mouse-event-handler/" rel="alternate" type="text/html" title="D3 Mouse Event Handler" /><published>2020-08-05T00:00:00-04:00</published><updated>2020-08-05T00:00:00-04:00</updated><id>https://www.tomordonez.com/d3-mouse-event-handler</id><content type="html" xml:base="https://www.tomordonez.com/d3-mouse-event-handler/">&lt;p&gt;Using mouse event handlers in D3.&lt;/p&gt;
+
+&lt;h2 id=&quot;more-about-d3-bar-charts&quot;&gt;More about D3 Bar Charts&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Create a new repo with the format &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;username.github.io&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;../d3-creating-a-bar-chart/&quot;&gt;D3 Creating a Bar Chart&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;../d3-scales-in-a-bar-chart/&quot;&gt;D3 Scales in a Bar Chart&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;../d3-adding-axes-to-bar-chart/&quot;&gt;D3 Adding Axes to Bar Chart&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;../d3-bar-chart-title-and-labels/&quot;&gt;D3 Bar Chart Title and Labels&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Setup the repo:&lt;/p&gt;
+&lt;p&gt;I want the barchart to change colors when you mouse over a bin to highlight what you are pointing at.&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ git init
-$ git remote add origin link-to-repo
+&lt;p&gt;Add two functions here:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.selectAll(&quot;rect&quot;)
+   .data(dataset)
+   .enter()
+   .append(&quot;rect&quot;)
+   .attr(&quot;x&quot;, d =&amp;gt; xScale(d.year.getFullYear()))
+   .attr(&quot;y&quot;, d =&amp;gt; yScale(d.population))
+   .attr(&quot;width&quot;, xScale.bandwidth())
+   .attr(&quot;height&quot;, d =&amp;gt; h - padding - yScale(d.population))
+   .attr(&quot;fill&quot;, &quot;teal&quot;)
+   .on(&quot;mouseover&quot;, handleMouseOver)
+   .on(&quot;mouseout&quot;, handleMouseOut);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;cname-robotstxt&quot;&gt;CNAME, robots.txt&lt;/h2&gt;
+&lt;p&gt;Then add the functions to process each interaction at the end, before the closing of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d3.csv&lt;/code&gt;:&lt;/p&gt;
 
-&lt;p&gt;If you have a custom domain, create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CNAME&lt;/code&gt; file, add a line with your website, and save it to your local blog root directory:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;www.yoursite.com
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;robots.txt&lt;/code&gt; and add this line to the file:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;User-agent: *
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You can also use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Disallow&lt;/code&gt; for bad URLs.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;User-agent: *
-Disallow: /bad.html
-Allow: /
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Setup: &lt;a href=&quot;../jekyll-cloudflare/&quot;&gt;Jekyll and Cloudflare&lt;/a&gt;&lt;/p&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">How to setup Github Pages with a custom domain.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll and Dependency Errors</title><link href="https://www.tomordonez.com/jekyll-dependency-errors/" rel="alternate" type="text/html" title="Jekyll and Dependency Errors" /><published>2020-07-02T00:00:00-04:00</published><updated>2020-07-02T00:00:00-04:00</updated><id>https://www.tomordonez.com/jekyll-dependency-errors</id><content type="html" xml:base="https://www.tomordonez.com/jekyll-dependency-errors/">&lt;p&gt;Troubleshooting Jekyll and dependency errors&lt;/p&gt;
-
-&lt;p&gt;When testing the site. For &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-3.8.5&lt;/code&gt; it says &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;warning: Using the last argument as keyword parameters is deprecated&lt;/code&gt;.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Also for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pathutil-0.16.2&lt;/code&gt; it says the same.&lt;/li&gt;
-  &lt;li&gt;More &lt;a href=&quot;https://github.com/jekyll/jekyll/issues/7947&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;And &lt;a href=&quot;https://github.com/jekyll/jekyll/pull/7948&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Edit the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; and comment this line again &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem &quot;github-pages&quot;, group: :jekyll_plugins&lt;/code&gt;. Then add this one:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'jekyll', github: 'jekyll/jekyll'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If you have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plugins&lt;/code&gt; update them to this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;group :jekyll_plugins do
-    gem 'jekyll-feed', github: 'jekyll/jekyll-feed'
-    gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'
-    gem 'jekyll-paginate', github: 'jekyll/jekyll-paginate'
-    gem 'jekyll-seo-tag', github: 'jekyll/jekyll-seo-tag'
-    gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
-end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;My &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; currently looks like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source &quot;https://rubygems.org&quot;
-
-gem 'jekyll', github: 'jekyll/jekyll'
-
-gem &quot;minima&quot;, &quot;~&amp;gt; 2.5&quot;
-
-group :jekyll_plugins do
-    gem 'jekyll-feed', github: 'jekyll/jekyll-feed'
-    gem 'jekyll-sitemap', github: 'jekyll/jekyll-sitemap'
-    gem 'jekyll-paginate', github: 'jekyll/jekyll-paginate'
-    gem 'jekyll-seo-tag', github: 'jekyll/jekyll-seo-tag'
-    gem 'jekyll-redirect-from', github: 'jekyll/jekyll-redirect-from'
-end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Then run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;See a step by step setup tutorial of &lt;a href=&quot;../static-website-jekyll-github-pages/&quot;&gt;Jekyll with Github Pages&lt;/a&gt;&lt;/p&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">Troubleshooting Jekyll and dependency errors</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll and Pagination</title><link href="https://www.tomordonez.com/jekyll-pagination/" rel="alternate" type="text/html" title="Jekyll and Pagination" /><published>2020-06-29T00:00:00-04:00</published><updated>2020-06-29T00:00:00-04:00</updated><id>https://www.tomordonez.com/jekyll-pagination</id><content type="html" xml:base="https://www.tomordonez.com/jekyll-pagination/">&lt;p&gt;How to setup Jekyll and Pagination.&lt;/p&gt;
-
-&lt;p&gt;Jekyll comes with a default plugin &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-paginate&lt;/code&gt; that you can set by adding the line &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;paginate: 5&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;. This is the Jekyll &lt;a href=&quot;https://jekyllrb.com/docs/pagination/&quot;&gt;doc&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Go to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; and make sure this line is under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plugins&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;plugins:
-  - jekyll-paginate
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Then add another line (outside of plugins):&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;paginate: 5
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If your theme’s index is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.markdown&lt;/code&gt;, change it to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.html&lt;/code&gt; or you will get this error:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Pagination: Pagination is enabled, but I couldn't find an index.html
-page to use as the pagination template. Skipping pagination.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Update your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/home.html&lt;/code&gt;. Change this line, from this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for post in site.posts
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;To this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for post in paginator.posts
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;For pagination links, add the code as shown on &lt;a href=&quot;https://jekyllrb.com/docs/pagination/#render-the-paginated-posts&quot;&gt;Jekyll’s Render the paginated posts&lt;/a&gt;. Before the closing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;endif&lt;/code&gt; of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if site.posts.size &amp;gt; 0&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;You can center the CSS of pagination in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/main.scss&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.pagination {
-	display: flex;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function handleMouseOver(d, i) {
+    d3.select(this)
+      .attr(&quot;fill&quot;, &quot;red&quot;);
 }
-.previous, a.previous {
-	flex: 1;
+
+function handleMouseOut(d, i) {
+    d3.select(this)
+      .attr(&quot;fill&quot;, &quot;teal&quot;);
 }
-.page_number {
-	flex: 1;
-}
-next, a.next {
-	flex: 1;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">How to setup Jekyll and Pagination.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll Related Posts</title><link href="https://www.tomordonez.com/jekyll-related-posts/" rel="alternate" type="text/html" title="Jekyll Related Posts" /><published>2020-06-22T00:00:00-04:00</published><updated>2020-06-22T00:00:00-04:00</updated><id>https://www.tomordonez.com/jekyll-related-posts</id><content type="html" xml:base="https://www.tomordonez.com/jekyll-related-posts/">&lt;p&gt;How to setup Jekyll related posts using tags.&lt;/p&gt;
-
-&lt;p&gt;This is a Jekyll custom plugin. Documentation &lt;a href=&quot;https://github.com/toshimaru/jekyll-tagging-related_posts&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Update your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem 'jekyll-tagging-related_posts'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The barchart with mouse event handler looks like this:&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ bundle
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Output:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Fetching nuggets 1.6.0
-Installing nuggets 1.6.0
-Fetching jekyll-tagging 1.1.0
-Installing jekyll-tagging 1.1.0
-Fetching jekyll-tagging-related_posts 1.1.0 
-Installing jekyll-tagging-related_posts 1.1.0
-
-Post-install message from nuggets:
-
-nuggets-1.6.0 [2018-07-12]:
-
-* Added &amp;lt;tt&amp;gt;JSON.*_{multi,canonical}&amp;lt;/tt&amp;gt;.
-
-Post-install message from jekyll-tagging:
-
-jekyll-tagging-1.1.0 [2017-03-07]:
-
-* Added ability to append extra data to all tag pages. (tfe)
-* Provides compatibility to the current jekyll (3.4.1).
-* A few fixes. (felipe)
-* Some documentation improvements. (wsmoak, jonathanpberger)
-* Prooves who is the worst open source maintainer. (pattex ^__^)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Update &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config-deploy.yml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;plugins:
-  - jekyll/tagging
-  - jekyll-tagging-related_posts
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; directory in blog root:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkdir _layouts
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Copy the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;post.html&lt;/code&gt; layout from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minima&lt;/code&gt; theme Gem to this new directory.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cp /home/tom/.rvm/gems/ruby-2.7.1@blog/gems/minima-2.5.1/_layouts/post.html _layouts/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Add this code to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;post.html&lt;/code&gt; after the blog post content and before disqus code.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% if site.related_posts.size &amp;gt;= 1 %}
-&amp;lt;div&amp;gt;
-  &amp;lt;h3&amp;gt;Related Posts&amp;lt;/h3&amp;gt;
-  &amp;lt;ul&amp;gt;
-  {% for related_post in site.related_posts limit: 5 %}
-    &amp;lt;li&amp;gt;&amp;lt;a href=&quot;{{ related_post.url }}&quot;&amp;gt;{{ related_post.title }}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-  {% endfor %}
-  &amp;lt;/ul&amp;gt;
-&amp;lt;/div&amp;gt;
-{% endif %}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Setup: &lt;a href=&quot;../jekyll-custom-plugin-deploy/&quot;&gt;Jekyll Custom Plugin Deploy&lt;/a&gt;&lt;/p&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">How to setup Jekyll related posts using tags.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll and External Links</title><link href="https://www.tomordonez.com/jekyll-external-links/" rel="alternate" type="text/html" title="Jekyll and External Links" /><published>2020-06-19T00:00:00-04:00</published><updated>2020-06-19T00:00:00-04:00</updated><id>https://www.tomordonez.com/jekyll-external-links</id><content type="html" xml:base="https://www.tomordonez.com/jekyll-external-links/">&lt;p&gt;Open Jekyll external links in a new window.&lt;/p&gt;
-
-&lt;p&gt;By default linking to external sites open in the same window using this syntax:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[External Title](link to external site)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Jekyll uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kramdown&lt;/code&gt; and you can link like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[External Title](link to external site){:target=&quot;_blank&quot;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;What I find annoying about this, is that it adds a weird highlighted row in SublimeText. I also think it’s a weird syntax to remember.&lt;/p&gt;
-
-&lt;h2 id=&quot;setup-jekyll-and-external-links&quot;&gt;Setup Jekyll and External Links&lt;/h2&gt;
-
-&lt;p&gt;An alternative option is this JS called &lt;a href=&quot;https://jekyllcodex.org/without-plugin/new-window-fix&quot;&gt;new window fix&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Download the code into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/new-window-fix.html&lt;/code&gt; and remove the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PDF&lt;/code&gt; section if you don’t need it.&lt;/p&gt;
-
-&lt;p&gt;Add this to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/default.html&lt;/code&gt; before the closing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;body&lt;/code&gt; tag.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% include new-window-fix.html %}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;add-external-link-to-menu&quot;&gt;Add external link to menu&lt;/h2&gt;
-
-&lt;p&gt;There isn’t a clear way to add an external link to the menu as discussed on &lt;a href=&quot;https://github.com/jekyll/minima/issues/207&quot;&gt;navigation external links&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;This &lt;a href=&quot;https://github.com/jekyll/minima/issues/207#issuecomment-377095111&quot;&gt;comment&lt;/a&gt; shows a quick fix to add the external link to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/header.html&lt;/code&gt;. I added a link to my Linkedin profile as shown:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;div class=&quot;trigger&quot;&amp;gt;
-  {%- for path in page_paths -%}
-    {%- assign my_page = site.pages | where: &quot;path&quot;, path | first -%}
-    {%- if my_page.title -%}
-    &amp;lt;a class=&quot;page-link&quot; href=&quot;{{ my_page.url | relative_url }}&quot;&amp;gt;{{ my_page.title | escape }}&amp;lt;/a&amp;gt;
-    &amp;lt;a class=&quot;page-link&quot; href=&quot;https://www.linkedin.com/in/tomordonez/&quot;&amp;gt;Linkedin&amp;lt;/a&amp;gt;
-    {%- endif -%}
-  {%- endfor -%}
-&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;header_pages&lt;/code&gt; has to be enabled in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; for the menu to show. I have an about page here:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;header_pages:
-  - about.md
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">Open Jekyll external links in a new window.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll and CloudFlare</title><link href="https://www.tomordonez.com/jekyll-cloudflare/" rel="alternate" type="text/html" title="Jekyll and CloudFlare" /><published>2020-06-15T00:00:00-04:00</published><updated>2020-06-15T00:00:00-04:00</updated><id>https://www.tomordonez.com/jekyll-cloudflare</id><content type="html" xml:base="https://www.tomordonez.com/jekyll-cloudflare/">&lt;p&gt;How to setup Jekyll with CloudFlare.&lt;/p&gt;
-
-&lt;p&gt;Setup an account with Cloudflare if you don’t have one. Find the DNS name server&lt;/p&gt;
-
-&lt;p&gt;In your DNS provider point it to Cloudflare.&lt;/p&gt;
-
-&lt;h2 id=&quot;cloudflare-settings&quot;&gt;Cloudflare settings&lt;/h2&gt;
-
-&lt;p&gt;Create these records in Cloudflare:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Type    Name               Content
-ALIAS   yoursite.com       youruser.github.io
-CNAME   www.yoursite.com   youruser.github.io
-TXT     yoursite.com       youruser.github.io
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; records as seen on &lt;a href=&quot;https://help.github.com/articles/setting-up-an-apex-domain/&quot;&gt;Setting up an Apex domain&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TXT&lt;/code&gt; record to verify Google webmaster tools:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Add property&lt;/li&gt;
-  &lt;li&gt;Add TXT google verification code&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Setup these Page rules. As seen &lt;a href=&quot;https://www.jonathan-petitcolas.com/2017/01/13/using-https-with-custom-domain-name-on-github-pages.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://www.yoursite.com/*
-Cache Level: Cache Everything
-
-https://yoursite.com/*
-Forwarding URL: (Status Code: 301 - Permanent Redirect, URl: https://www.yoursite.com$1)
-
-http://www.yoursite.com/*
-Always Use HTTPS
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;In your Overview dashboard set these (if you are on the free plan)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Security level: medium&lt;/li&gt;
-  &lt;li&gt;SSL: Full&lt;/li&gt;
-  &lt;li&gt;Caching level: Standard&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;See a step by step setup tutorial of &lt;a href=&quot;../static-website-jekyll-github-pages/&quot;&gt;Jekyll with Github Pages&lt;/a&gt;&lt;/p&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">How to setup Jekyll with CloudFlare.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll Text Expand or Collapsible Markdown</title><link href="https://www.tomordonez.com/jekyll-text-expand-collapsible-markdown/" rel="alternate" type="text/html" title="Jekyll Text Expand or Collapsible Markdown" /><published>2020-06-12T00:00:00-04:00</published><updated>2020-06-12T00:00:00-04:00</updated><id>https://www.tomordonez.com/jekyll-text-expand-collapsible-markdown</id><content type="html" xml:base="https://www.tomordonez.com/jekyll-text-expand-collapsible-markdown/">&lt;p&gt;Hide or show text in Jekyll with text expand or collapsible markdown.&lt;/p&gt;
-
-&lt;p&gt;I often add whole output to every command I use. This can take a large space in a blog post and might disrupt reading focus.&lt;/p&gt;
-
-&lt;p&gt;There are three options for hiding/display text that can be expanded, also known by these keywords: text expand, expand/collapse, collapsible markdown, details element.&lt;/p&gt;
-
-&lt;p&gt;Use whatever works best.&lt;/p&gt;
-
-&lt;h3 id=&quot;text-expand&quot;&gt;Text Expand&lt;/h3&gt;
-
-&lt;p&gt;This is a JS that might need some tweaking. When you click on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;read more&lt;/code&gt; it expands the section but it scrolls back to the top.&lt;/p&gt;
-
-&lt;p&gt;This is the doc for &lt;a href=&quot;https://jekyllcodex.org/without-plugin/text-expand/&quot;&gt;Jekyll Text Expand&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Download the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;text-expand.html&lt;/code&gt; into the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes&lt;/code&gt; directory. Then edit the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/default.html&lt;/code&gt; and add this before the closing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;body&lt;/code&gt; tag:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% include text-expand.html %}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Then you can use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;expand&lt;/code&gt; tag in a blog post by adding only one line for each of the open/closing tag such as:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[expand]
-Long content here
-and here
-...
-[/expand]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;collapbsible-markdown-with-details-element&quot;&gt;Collapbsible Markdown with Details element&lt;/h3&gt;
-
-&lt;p&gt;This uses the details disclosure element: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;details&lt;/code&gt;. More details in the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details&quot;&gt;Mozilla details element doc&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;You have to wrap your content like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;details&amp;gt;
-	&amp;lt;summary&amp;gt;Click to expand&amp;lt;/summary&amp;gt;
-	Long content here
-	and here
-&amp;lt;/details&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;To add a code block, you need to have a previous empty line, enclose the code block with three tildes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~~~&lt;/code&gt;, optionally you can add the language at the end of the first enclosing tildes:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;details&amp;gt;
-	&amp;lt;summary&amp;gt;Click to expand&amp;lt;/summary&amp;gt;
-	
-	~~~ python
-	Code here
-	~~~
-&amp;lt;/details&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;However, you can encounter this issue &lt;a href=&quot;https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d#gistcomment-2710296&quot;&gt;Details is not formatted correctly in Jekyll/Github pages&lt;/a&gt;. You can enclose the content with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;pre&amp;gt;&lt;/code&gt; tag.&lt;/p&gt;
-
-&lt;p&gt;I am using this for my long content output:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;details&amp;gt;
-	&amp;lt;summary&amp;gt;Click to expand&amp;lt;/summary&amp;gt;
-	&amp;lt;pre&amp;gt;
-		
-	Long content here
-	&amp;lt;/pre&amp;gt;
-
-&amp;lt;/details&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Here is an example:&lt;/p&gt;
+&lt;div id=&quot;d3-barchart-vis-final&quot;&gt;&lt;/div&gt;
 
 &lt;details&gt;
-	&lt;summary&gt;Click to expand&lt;/summary&gt;
-	&lt;pre&gt;
-	Long content here
-	&lt;/pre&gt;
+    &lt;summary&gt;Click to see updated code&lt;/summary&gt;
+    &lt;pre&gt;
+
+    var margin = {top: 20, right: 20, bottom: 20, left: 20},
+            w = 500 - margin.left - margin.right,
+            h = 300 - margin.top - margin.bottom;
+
+    var barPadding = 3;
+    var padding = 40;
+    var svg = d3.select(&quot;#d3-barchart-vis&quot;)
+                .append(&quot;svg&quot;)
+                .attr(&quot;preserveAspectRatio&quot;, &quot;xMinYMin meet&quot;)
+                .attr(&quot;viewBox&quot;, &quot;0 0 &quot; + w + &quot; &quot; + h);
+
+    var parseTime = d3.timeParse(&quot;%Y&quot;);
+
+    var rowConverter = function(d) {
+        return {
+            year: parseTime(d.year),
+            population: +d.population
+        }
+    }
+
+    d3.csv(&quot;file.csv&quot;, rowConverter).then(function(dataset) {
+
+        xScale = d3.scaleBand()
+                   .domain(dataset.map(d =&amp;gt; d.year.getFullYear()))
+                   .rangeRound([padding, w])
+                   .paddingInner(0.1)
+                   .paddingOuter(0.1);
+
+        yScale = d3.scaleLinear()
+                   .domain([0, d3.max(dataset, d =&amp;gt; d.population)])
+                   .range([h - padding, padding]);
+
+        var xAxis = d3.axisBottom(xScale);
+        var yAxis = d3.axisLeft(yScale);
+
+        svg.selectAll(&quot;rect&quot;)
+           .data(dataset)
+           .enter()
+           .append(&quot;rect&quot;)
+           .attr(&quot;x&quot;, d =&amp;gt; xScale(d.year.getFullYear()))
+           .attr(&quot;y&quot;, d =&amp;gt; yScale(d.population))
+           .attr(&quot;width&quot;, xScale.bandwidth())
+           .attr(&quot;height&quot;, d =&amp;gt; h - padding - yScale(d.population))
+           .attr(&quot;fill&quot;, &quot;teal&quot;)
+           .on(&quot;mouseover&quot;, handleMouseOver)
+           .on(&quot;mouseout&quot;, handleMouseOut);
+
+        // Add the x Axis
+        svg.append(&quot;g&quot;)
+           .attr(&quot;class&quot;, &quot;x axis&quot;)
+           .attr(&quot;transform&quot;, &quot;translate(0,&quot; + (h - padding) + &quot;)&quot;)
+           .call(xAxis);
+
+        // Label for x Axis
+        svg.append(&quot;text&quot;)
+           .attr(&quot;transform&quot;, &quot;translate(&quot; + (w/2) + &quot; ,&quot; + (h-10) + &quot;)&quot;)
+           .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+           .style(&quot;font-size&quot;, &quot;12px&quot;)
+           .text(&quot;Year&quot;);
+
+        // Add the y Axis
+        svg.append(&quot;g&quot;)
+           .attr(&quot;class&quot;, &quot;y axis&quot;)
+           .attr(&quot;transform&quot;, &quot;translate(&quot; + padding + &quot;,0)&quot;)
+           .call(yAxis);
+
+        // Label for y Axis
+        svg.append(&quot;text&quot;)
+           .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+           .attr(&quot;x&quot;, -(h/2))
+           .attr(&quot;y&quot;, 10)
+           .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+           .style(&quot;font-size&quot;, &quot;12px&quot;)
+           .text(&quot;Population&quot;);
+
+        svg.append(&quot;text&quot;)
+           .attr(&quot;x&quot;, w/2)
+           .attr(&quot;y&quot;, padding)
+           .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
+           .style(&quot;font-size&quot;, &quot;16px&quot;)
+           .text(&quot;Awesome Barchart&quot;);
+
+        function handleMouseOver(d, i) {
+            d3.select(this)
+              .attr(&quot;fill&quot;, &quot;red&quot;);
+        }
+
+        function handleMouseOut(d, i) {
+            d3.select(this)
+              .attr(&quot;fill&quot;, &quot;teal&quot;);
+        }
+    });
+    &lt;/pre&gt;
+
 &lt;/details&gt;
 
-&lt;p&gt;I also customized the CSS:&lt;/p&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/d3.min.js&quot;&gt;&lt;/script&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;details {
-	padding-bottom: 20px;
-	color: grey;
-}
+&lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/d3-barchart-vis-final.js&quot;&gt;&lt;/script&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">Using mouse event handlers in D3.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">D3 Visualization Margins</title><link href="https://www.tomordonez.com/d3-visualization-margins/" rel="alternate" type="text/html" title="D3 Visualization Margins" /><published>2020-07-31T00:00:00-04:00</published><updated>2020-07-31T00:00:00-04:00</updated><id>https://www.tomordonez.com/d3-visualization-margins</id><content type="html" xml:base="https://www.tomordonez.com/d3-visualization-margins/">&lt;p&gt;Add margins to a D3 visualization.&lt;/p&gt;
+
+&lt;p&gt;Follow &lt;a href=&quot;../d3-bar-chart-title-and-labels/&quot;&gt;D3 Bar Chart Title and Labels&lt;/a&gt; to set the examples below.&lt;/p&gt;
+
+&lt;h2 id=&quot;adding-margins&quot;&gt;Adding Margins&lt;/h2&gt;
+
+&lt;p&gt;The label for the y Axis is too close to the left. I had to plug a few different numbers in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.attr(&quot;y&quot;, 15)&lt;/code&gt; to make it fit.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Label for y Axis
+svg.append(&quot;text&quot;)
+   .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+   .attr(&quot;x&quot;, -(h/2))
+   .attr(&quot;y&quot;, 15)
+   .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+   .text(&quot;Population&quot;);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;the-text-in-details-not-processed-correctly&quot;&gt;The text in details not processed correctly&lt;/h3&gt;
+&lt;p&gt;We can add the margins like this:&lt;/p&gt;
 
-&lt;p&gt;I haven’t tested this. This blog post shows &lt;a href=&quot;http://movb.de/jekyll-details-support.html&quot;&gt;adding support for HTML5 details element to Jekyll&lt;/a&gt;. It uses a custom plugin.&lt;/p&gt;
-
-&lt;p&gt;Add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby&lt;/code&gt; code into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_plugins/details_tag.rb&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Then use like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{% details Click to expand %}
-
-	~~~ python
-	Code here
-	~~~
-{% enddetails %}
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var margin = {top: 20, right: 20, bottom: 20, left: 20},
+    w = 500 - margin.left - margin.right,
+    h = 300 - margin.top - margin.bottom;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;More troubleshooting in &lt;a href=&quot;https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d&quot;&gt;using details in Github&lt;/a&gt; and &lt;a href=&quot;https://gist.github.com/joyrexus/16041f2426450e73f5df9391f7f7ae5f&quot;&gt;collapsible markdown&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Perhaps the labels are too big. They are the same size as the title. I added a font size for the labels, changed the position of the y label, and added the margins.&lt;/p&gt;
 
-&lt;p&gt;See &lt;a href=&quot;../jekyll-without-plugins/&quot;&gt;Jekyll without Plugins&lt;/a&gt; for other customizations.&lt;/p&gt;</content><author><name>Tom Ordonez</name></author><category term="jekyll" /><category term="github pages" /><summary type="html">Hide or show text in Jekyll with text expand or collapsible markdown.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/5.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/5.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;The barchart looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/d3-rect6.jpg&quot; alt=&quot;D3 barchart with Margins&quot; /&gt;&lt;/p&gt;
+
+&lt;details&gt;
+    &lt;summary&gt;Updated code with margins&lt;/summary&gt;
+    &lt;pre&gt;
+
+    var margin = {top: 20, right: 20, bottom: 20, left: 20},
+            w = 500 - margin.left - margin.right,
+            h = 300 - margin.top - margin.bottom;
+
+    var barPadding = 3;
+    var padding = 40;
+    var svg = d3.select(&quot;#d3-barchart-vis&quot;)
+                .append(&quot;svg&quot;)
+                .attr(&quot;preserveAspectRatio&quot;, &quot;xMinYMin meet&quot;)
+                .attr(&quot;viewBox&quot;, &quot;0 0 &quot; + w + &quot; &quot; + h);
+
+    var parseTime = d3.timeParse(&quot;%Y&quot;);
+
+    var rowConverter = function(d) {
+        return {
+            year: parseTime(d.year),
+            population: +d.population
+        }
+    }
+
+    d3.csv(&quot;file.csv&quot;, rowConverter).then(function(dataset) {
+
+        xScale = d3.scaleBand()
+                   .domain(d3.range(dataset.length))
+                   .rangeRound([padding, w])
+                   .paddingInner(0.1)
+                   .paddingOuter(0.1);
+
+        yScale = d3.scaleLinear()
+                   .domain([0, d3.max(dataset, function(d) { return d.population; })])
+                   .range([h - padding, padding]);
+
+        var xAxis = d3.axisBottom(xScale);
+        var yAxis = d3.axisLeft(yScale);
+
+        svg.selectAll(&quot;rect&quot;)
+           .data(dataset)
+           .enter()
+           .append(&quot;rect&quot;)
+           .attr(&quot;x&quot;, function(d, i) {
+               return xScale(i);
+           })
+           .attr(&quot;y&quot;, d =&amp;gt; yScale(d.population))
+           .attr(&quot;width&quot;, xScale.bandwidth())
+           .attr(&quot;height&quot;, d =&amp;gt; h - padding - yScale(d.population))
+           .attr(&quot;fill&quot;, &quot;teal&quot;);
+
+        // Add the x Axis
+        svg.append(&quot;g&quot;)
+           .attr(&quot;class&quot;, &quot;x axis&quot;)
+           .attr(&quot;transform&quot;, &quot;translate(0,&quot; + (h - padding) + &quot;)&quot;)
+           .call(xAxis);
+
+        // Label for x Axis
+        svg.append(&quot;text&quot;)
+           .attr(&quot;transform&quot;, &quot;translate(&quot; + (w/2) + &quot; ,&quot; + (h-10) + &quot;)&quot;)
+           .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+           .style(&quot;font-size&quot;, &quot;12px&quot;)
+           .text(&quot;Year&quot;);
+
+        // Add the y Axis
+        svg.append(&quot;g&quot;)
+           .attr(&quot;class&quot;, &quot;y axis&quot;)
+           .attr(&quot;transform&quot;, &quot;translate(&quot; + padding + &quot;,0)&quot;)
+           .call(yAxis);
+
+        // Label for y Axis
+        svg.append(&quot;text&quot;)
+           .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+           .attr(&quot;x&quot;, -(h/2))
+           .attr(&quot;y&quot;, 10)
+           .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+           .style(&quot;font-size&quot;, &quot;12px&quot;)
+           .text(&quot;Population&quot;);
+
+        svg.append(&quot;text&quot;)
+           .attr(&quot;x&quot;, w/2)
+           .attr(&quot;y&quot;, padding)
+           .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
+           .style(&quot;font-size&quot;, &quot;16px&quot;)
+           .text(&quot;Awesome Barchart&quot;);
+    });
+    &lt;/pre&gt;
+
+&lt;/details&gt;
+
+&lt;h2 id=&quot;more-about-d3-bar-charts&quot;&gt;More about D3 Bar Charts&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;../d3-creating-a-bar-chart/&quot;&gt;D3 Creating a Bar Chart&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;../d3-scales-in-a-bar-chart/&quot;&gt;D3 Scales in a Bar Chart&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;../d3-adding-axes-to-bar-chart/&quot;&gt;D3 Adding Axes to Bar Chart&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;../d3-bar-chart-title-and-labels/&quot;&gt;D3 Bar Chart Title and Labels&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">Add margins to a D3 visualization.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">D3 Bar Chart Title and Labels</title><link href="https://www.tomordonez.com/d3-bar-chart-title-and-labels/" rel="alternate" type="text/html" title="D3 Bar Chart Title and Labels" /><published>2020-07-26T00:00:00-04:00</published><updated>2020-07-26T00:00:00-04:00</updated><id>https://www.tomordonez.com/d3-bar-chart-title-and-labels</id><content type="html" xml:base="https://www.tomordonez.com/d3-bar-chart-title-and-labels/">&lt;p&gt;Add a title and labels to a bar chart in D3.&lt;/p&gt;
+
+&lt;h2 id=&quot;d3-bar-chart-title&quot;&gt;D3 Bar Chart Title&lt;/h2&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;append(&quot;text&quot;)&lt;/code&gt; to append a title to the graph:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.append(&quot;text&quot;)
+   .attr(&quot;x&quot;, w/2)
+   .attr(&quot;y&quot;, padding)
+   .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
+   .style(&quot;font-size&quot;, &quot;16px&quot;)
+   .text(&quot;Awesome Barchart&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Follow:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;../d3-creating-a-bar-chart/&quot;&gt;D3 Creating a Bar Chart&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;../d3-scales-in-a-bar-chart/&quot;&gt;D3 Scales in a Bar Chart&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;add-a-label-for-the-x-axis&quot;&gt;Add a label for the x Axis&lt;/h2&gt;
+
+&lt;p&gt;A label can be added to the x Axis by appending a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;text&lt;/code&gt; and using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;transform&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;translate&lt;/code&gt; to position the text.&lt;/p&gt;
+
+&lt;p&gt;The function &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;translate&lt;/code&gt; uses a string concatenation to get to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;translate(w/2, h-10)&lt;/code&gt; which is calculated to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;translate(500/2, 300-10)&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;translate(250, 290)&lt;/code&gt;. Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt; is in the middle of the SVG and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y&lt;/code&gt; is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10px&lt;/code&gt; from the bottom (or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;290px&lt;/code&gt; from the top).&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.append(&quot;text&quot;)
+   .attr(&quot;transform&quot;, &quot;translate(&quot; + (w/2) + &quot; ,&quot; + (h-10) + &quot;)&quot;)
+   .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+   .text(&quot;Year&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;add-a-label-for-the-y-axis&quot;&gt;Add a label for the y Axis&lt;/h2&gt;
+
+&lt;p&gt;The label for the y Axis is a bit different. First we need to rotate the label vertically with a negative &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-90&lt;/code&gt; degrees. Then the point of reference for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(0,0)&lt;/code&gt; changes. If I am not mistaken it’s now on the top right relative to the rotated text.&lt;/p&gt;
+
+&lt;p&gt;To center the text vertically. Move it half way to the left at an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt; distance of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-(h/2)&lt;/code&gt;. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y&lt;/code&gt; is set relative to the rotated position. If you move it down (to the right) it will be a positive number (towards the y Axis). If you move it up (to the left) it will be a negative number (away from the y Axis).&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.append(&quot;text&quot;)
+   .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+   .attr(&quot;x&quot;, -(h/2))
+   .attr(&quot;y&quot;, 15)
+   .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+   .text(&quot;Population&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The barchart looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/d3-rect5.jpg&quot; alt=&quot;D3 barchart with Axes and Labels&quot; /&gt;&lt;/p&gt;
+
+&lt;details&gt;
+    &lt;summary&gt;Click to see updated code&lt;/summary&gt;
+    &lt;pre&gt;
+        
+    var w = 500;
+    var h = 300;
+    var barPadding = 3;
+    var padding = 40;
+    var svg = d3.select(&quot;#d3-barchart-vis&quot;)
+                .append(&quot;svg&quot;)
+                .attr(&quot;preserveAspectRatio&quot;, &quot;xMinYMin meet&quot;)
+                .attr(&quot;viewBox&quot;, &quot;0 0 &quot; + w + &quot; &quot; + h);
+
+    var parseTime = d3.timeParse(&quot;%Y&quot;);
+
+    var rowConverter = function(d) {
+        return {
+            year: parseTime(d.year),
+            population: +d.population
+        }
+    }
+
+    d3.csv(&quot;file.csv&quot;, rowConverter).then(function(dataset) {
+
+        xScale = d3.scaleBand()
+                   .domain(d3.range(dataset.length))
+                   .rangeRound([padding, w])
+                   .paddingInner(0.1)
+                   .paddingOuter(0.1);
+
+        yScale = d3.scaleLinear()
+                   .domain([0, d3.max(dataset, function(d) { return d.population; })])
+                   .range([h - padding, padding]);
+
+        var xAxis = d3.axisBottom(xScale);
+        var yAxis = d3.axisLeft(yScale);
+
+        svg.selectAll(&quot;rect&quot;)
+           .data(dataset)
+           .enter()
+           .append(&quot;rect&quot;)
+           .attr(&quot;x&quot;, function(d, i) {
+               return xScale(i);
+           })
+           .attr(&quot;y&quot;, d =&amp;gt; yScale(d.population))
+           .attr(&quot;width&quot;, xScale.bandwidth())
+           .attr(&quot;height&quot;, d =&amp;gt; h - padding - yScale(d.population))
+           .attr(&quot;fill&quot;, &quot;teal&quot;);
+
+        // Add the x Axis
+        svg.append(&quot;g&quot;)
+           .attr(&quot;class&quot;, &quot;x axis&quot;)
+           .attr(&quot;transform&quot;, &quot;translate(0,&quot; + (h - padding) + &quot;)&quot;)
+           .call(xAxis);
+
+        // Label for x Axis
+        svg.append(&quot;text&quot;)
+           .attr(&quot;transform&quot;, &quot;translate(&quot; + (w/2) + &quot; ,&quot; + (h-10) + &quot;)&quot;)
+           .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+           .text(&quot;Year&quot;);
+
+        // Add the y Axis
+        svg.append(&quot;g&quot;)
+           .attr(&quot;class&quot;, &quot;y axis&quot;)
+           .attr(&quot;transform&quot;, &quot;translate(&quot; + padding + &quot;,0)&quot;)
+           .call(yAxis);
+
+        // Label for y Axis
+        svg.append(&quot;text&quot;)
+           .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+           .attr(&quot;x&quot;, -(h/2))
+           .attr(&quot;y&quot;, 15)
+           .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+           .text(&quot;Population&quot;);
+
+        svg.append(&quot;text&quot;)
+           .attr(&quot;x&quot;, w/2)
+           .attr(&quot;y&quot;, padding)
+           .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
+           .style(&quot;font-size&quot;, &quot;16px&quot;)
+           .text(&quot;Awesome Barchart&quot;);
+    });
+    &lt;/pre&gt;
+
+&lt;/details&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">Add a title and labels to a bar chart in D3.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">D3 Adding Axes to Bar Chart</title><link href="https://www.tomordonez.com/d3-adding-axes-to-bar-chart/" rel="alternate" type="text/html" title="D3 Adding Axes to Bar Chart" /><published>2020-07-21T00:00:00-04:00</published><updated>2020-07-21T00:00:00-04:00</updated><id>https://www.tomordonez.com/d3-adding-axes-to-bar-chart</id><content type="html" xml:base="https://www.tomordonez.com/d3-adding-axes-to-bar-chart/">&lt;p&gt;Adding axes to a bar chart in D3.&lt;/p&gt;
+
+&lt;p&gt;Follow:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;../d3-creating-a-bar-chart/&quot;&gt;D3 Creating a Bar Chart&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;../d3-scales-in-a-bar-chart/&quot;&gt;D3 Scales in a Bar Chart&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;d3-axes-in-bar-chart&quot;&gt;D3 axes in bar chart&lt;/h2&gt;
+
+&lt;p&gt;Use any of these: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d3.axisTop&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d3.axisBottom&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d3.axisLeft&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;d3.axisRight&lt;/code&gt;. Then append a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g&lt;/code&gt; (group) element to the end of the SVG.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var xAxis = d3.axisBottom(xScale);
+var yAxis = d3.axisLeft(yScale);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Put this at the end of the script, since the graphics lay on top of each other, making the axes the last visible graph at the top of the SVG.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.append(&quot;g&quot;)
+   .attr(&quot;class&quot;, &quot;axis&quot;)
+   .attr(&quot;transform&quot;, &quot;translate(0,&quot; + (h - padding) + &quot;)&quot;)
+   .call(xAxis);
+
+svg.append(&quot;g&quot;)
+   .attr(&quot;class&quot;, &quot;axis&quot;)
+   .attr(&quot;transform&quot;, &quot;translate(&quot; + padding + &quot;,0)&quot;)
+   .call(yAxis);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This line is a string concatenation:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.attr(&quot;transform&quot;, &quot;translate(0,&quot; + (h - padding) + &quot;)&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It computes to the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.attr(&quot;transform&quot;, &quot;translate(0&quot;, + (300 -  40  ) + &quot;)&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then the result is:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.append(&quot;g&quot;)
+   .attr(&quot;class&quot;, &quot;axis&quot;)
+   .attr(&quot;transform&quot;, &quot;translate(0,260)&quot;)
+   .call(xAxis);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;translate&lt;/code&gt; function moves the object by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y&lt;/code&gt;. More details in the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform&quot;&gt;MDN Web Docs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The bar chart should look like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/d3-rect4.jpg&quot; alt=&quot;D3 barchart with Axes&quot; /&gt;&lt;/p&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;Updated Code&lt;/summary&gt;
+  &lt;pre&gt;
+      
+  var w = 500;
+  var h = 300;
+  var barPadding = 3;
+  var padding = 40;
+  var svg = d3.select(&quot;#d3-barchart-vis&quot;)
+              .append(&quot;svg&quot;)
+              .attr(&quot;preserveAspectRatio&quot;, &quot;xMinYMin meet&quot;)
+              .attr(&quot;viewBox&quot;, &quot;0 0 &quot; + w + &quot; &quot; + h);
+
+  var parseTime = d3.timeParse(&quot;%Y&quot;);
+
+  var rowConverter = function(d) {
+      return {
+          year: parseTime(d.year),
+          population: +d.population
+      }
+  }
+
+  d3.csv(&quot;file.csv&quot;, rowConverter).then(function(dataset) {
+
+      xScale = d3.scaleBand()
+                 .domain(d3.range(dataset.length))
+                 .rangeRound([padding, w])
+                 .paddingInner(0.1)
+                 .paddingOuter(0.1);
+
+      yScale = d3.scaleLinear()
+                 .domain([0, d3.max(dataset, function(d) { return d.population; })])
+                 .range([h - padding, padding]);
+
+      var xAxis = d3.axisBottom(xScale);
+      var yAxis = d3.axisLeft(yScale);
+
+      svg.selectAll(&quot;rect&quot;)
+         .data(dataset)
+         .enter()
+         .append(&quot;rect&quot;)
+         .attr(&quot;x&quot;, function(d, i) {
+             return xScale(i);
+         })
+         .attr(&quot;y&quot;, d =&amp;gt; yScale(d.population))
+         .attr(&quot;width&quot;, xScale.bandwidth())
+         .attr(&quot;height&quot;, d =&amp;gt; h - padding - yScale(d.population))
+         .attr(&quot;fill&quot;, &quot;teal&quot;);
+
+      svg.append(&quot;g&quot;)
+         .attr(&quot;class&quot;, &quot;x axis&quot;)
+         .attr(&quot;transform&quot;, &quot;translate(0,&quot; + (h - padding) + &quot;)&quot;)
+         .call(xAxis);
+
+      svg.append(&quot;g&quot;)
+         .attr(&quot;class&quot;, &quot;y axis&quot;)
+         .attr(&quot;transform&quot;, &quot;translate(&quot; + padding + &quot;,0)&quot;)
+         .call(yAxis);
+  });
+  &lt;/pre&gt;
+
+&lt;/details&gt;
+
+&lt;h2 id=&quot;adding-ticks-on-the-axes&quot;&gt;Adding ticks on the Axes&lt;/h2&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ticks()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, D3 will override this if it wants to divide the input domain evenly.&lt;/p&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.tickValues([an array of values])&lt;/code&gt; to set them manually.&lt;/p&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.tickFormat&lt;/code&gt; to format the axis labels.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var xAxis = d3.axisBottom(xScale)
+              .ticks(someParameterHere);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;troubleshooting-the-year-on-the-x-axis&quot;&gt;Troubleshooting the Year on the x Axis&lt;/h2&gt;
+
+&lt;p&gt;The barchart still doesn’t look correct. The ticks on the x Axis are supposed to be years and not integers starting at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/d3-rect6.jpg&quot; alt=&quot;D3 barchart with Margins&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Modify the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scaleBand()&lt;/code&gt; so the domain maps to the years on the converted &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Date&lt;/code&gt; objects from the CSV file.&lt;/p&gt;
+
+&lt;p&gt;It currently looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xScale = d3.scaleBand()
+           .domain(d3.range(dataset.length))
+           .rangeRound([padding, w])
+           .paddingInner(0.1)
+           .paddingOuter(0.1);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Changed to this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xScale = d3.scaleBand()
+           .domain(dataset.map(d =&amp;gt; d.year.getFullYear()))
+           .rangeRound([padding, w])
+           .paddingInner(0.1)
+           .paddingOuter(0.1);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can test what this does on the console &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dataset.map(d =&amp;gt; d.year.getFullYear())&lt;/code&gt; inside this section:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;d3.csv(&quot;file.csv&quot;, rowConverter).then(function(dataset) {
+    console.log(dataset.map(d =&amp;gt; d.year.getFullYear()))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The output should be:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Array(4) [ 1950, 1951, 1955, 1959 ]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then modify implementing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xScale&lt;/code&gt; in this section. From this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return xScale(i)&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.selectAll(&quot;rect&quot;)
+   .data(dataset)
+   .enter()
+   .append(&quot;rect&quot;)
+   .attr(&quot;x&quot;, function(d, i) {
+       return xScale(i);
+   })
+   .attr(&quot;y&quot;, d =&amp;gt; yScale(d.population))
+   .attr(&quot;width&quot;, xScale.bandwidth())
+   .attr(&quot;height&quot;, d =&amp;gt; h - padding - yScale(d.population))
+   .attr(&quot;fill&quot;, &quot;teal&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Modified to this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return xScale(d.year.getFullYear())&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.selectAll(&quot;rect&quot;)
+   .data(dataset)
+   .enter()
+   .append(&quot;rect&quot;)
+   .attr(&quot;x&quot;, function(d, i) {
+       return xScale(d.year.getFullYear());
+   })
+   .attr(&quot;y&quot;, d =&amp;gt; yScale(d.population))
+   .attr(&quot;width&quot;, xScale.bandwidth())
+   .attr(&quot;height&quot;, d =&amp;gt; h - padding - yScale(d.population))
+   .attr(&quot;fill&quot;, &quot;teal&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The corrected barchart looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/d3-rect7.jpg&quot; alt=&quot;D3 barchart with corrected Year&quot; /&gt;&lt;/p&gt;
+
+&lt;details&gt;
+  &lt;summary&gt;Click to view updated code&lt;/summary&gt;
+  &lt;pre&gt;
+    
+  var margin = {top: 20, right: 20, bottom: 20, left: 20},
+        w = 500 - margin.left - margin.right,
+        h = 300 - margin.top - margin.bottom;
+
+  var barPadding = 3;
+  var padding = 40;
+  var svg = d3.select(&quot;#d3-barchart-vis&quot;)
+              .append(&quot;svg&quot;)
+              .attr(&quot;preserveAspectRatio&quot;, &quot;xMinYMin meet&quot;)
+              .attr(&quot;viewBox&quot;, &quot;0 0 &quot; + w + &quot; &quot; + h);
+
+  var parseTime = d3.timeParse(&quot;%Y&quot;);
+
+  var rowConverter = function(d) {
+      return {
+          year: parseTime(d.year),
+          population: +d.population
+      }
+  }
+
+  d3.csv(&quot;file.csv&quot;, rowConverter).then(function(dataset) {
+
+    xScale = d3.scaleBand()
+               .domain(dataset.map(d =&amp;gt; d.year.getFullYear()))
+               .rangeRound([padding, w])
+               .paddingInner(0.1)
+               .paddingOuter(0.1);
+
+    yScale = d3.scaleLinear()
+               .domain([0, d3.max(dataset, d =&amp;gt; d.population)])
+               .range([h - padding, padding]);
+
+    var xAxis = d3.axisBottom(xScale);
+    var yAxis = d3.axisLeft(yScale);
+
+    svg.selectAll(&quot;rect&quot;)
+       .data(dataset)
+       .enter()
+       .append(&quot;rect&quot;)
+       .attr(&quot;x&quot;, d =&amp;gt; xScale(d.year.getFullYear()))
+       .attr(&quot;y&quot;, d =&amp;gt; yScale(d.population))
+       .attr(&quot;width&quot;, xScale.bandwidth())
+       .attr(&quot;height&quot;, d =&amp;gt; h - padding - yScale(d.population))
+       .attr(&quot;fill&quot;, &quot;teal&quot;);
+
+    // Add the x Axis
+    svg.append(&quot;g&quot;)
+       .attr(&quot;class&quot;, &quot;x axis&quot;)
+       .attr(&quot;transform&quot;, &quot;translate(0,&quot; + (h - padding) + &quot;)&quot;)
+       .call(xAxis);
+
+    // Label for x Axis
+    svg.append(&quot;text&quot;)
+       .attr(&quot;transform&quot;, &quot;translate(&quot; + (w/2) + &quot; ,&quot; + (h-10) + &quot;)&quot;)
+       .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+       .style(&quot;font-size&quot;, &quot;12px&quot;)
+       .text(&quot;Year&quot;);
+
+    // Add the y Axis
+    svg.append(&quot;g&quot;)
+       .attr(&quot;class&quot;, &quot;y axis&quot;)
+       .attr(&quot;transform&quot;, &quot;translate(&quot; + padding + &quot;,0)&quot;)
+       .call(yAxis);
+
+    // Label for y Axis
+    svg.append(&quot;text&quot;)
+       .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
+       .attr(&quot;x&quot;, -(h/2))
+       .attr(&quot;y&quot;, 10)
+       .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+       .style(&quot;font-size&quot;, &quot;12px&quot;)
+       .text(&quot;Population&quot;);
+
+    svg.append(&quot;text&quot;)
+       .attr(&quot;x&quot;, w/2)
+       .attr(&quot;y&quot;, padding)
+       .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
+       .style(&quot;font-size&quot;, &quot;16px&quot;)
+       .text(&quot;Awesome Barchart&quot;);
+  });
+  &lt;/pre&gt;
+
+&lt;/details&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">Adding axes to a bar chart in D3.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">D3 Arrow Functions</title><link href="https://www.tomordonez.com/d3-arrow-functions/" rel="alternate" type="text/html" title="D3 Arrow Functions" /><published>2020-07-16T00:00:00-04:00</published><updated>2020-07-16T00:00:00-04:00</updated><id>https://www.tomordonez.com/d3-arrow-functions</id><content type="html" xml:base="https://www.tomordonez.com/d3-arrow-functions/">&lt;p&gt;Using arrow functions in D3 to simplify the syntax.&lt;/p&gt;
+
+&lt;p&gt;More about &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions&quot;&gt;arrow functions on Mozilla&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Given this example:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;elements.map(function(element) {
+    return element.length;
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This can be simplified to:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;elements.map((element) =&amp;gt; {
+    return element.length;
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If there is only one parameter and the only statement is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return&lt;/code&gt; then it can be simplified to this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;elements.map(element =&amp;gt; element.length);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Follow &lt;a href=&quot;../d3-scales-in-a-bar-chart/&quot;&gt;D3 Scales in a Bar Chart&lt;/a&gt; to review this code in detail.&lt;/p&gt;
+
+&lt;p&gt;This code was used to create the rectangles of the bar chart:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.selectAll(&quot;rect&quot;)
+   .data(dataset)
+   .enter()
+   .append(&quot;rect&quot;)
+   .attr(&quot;x&quot;, function(d, i) {
+       return xScale(i);
+   })
+   .attr(&quot;y&quot;, function(d) {
+       return yScale(d.population);
+   })
+   .attr(&quot;width&quot;, xScale.bandwidth())
+   .attr(&quot;height&quot;, function(d) {
+       return h - padding - yScale(d.population);
+   })
+   .attr(&quot;fill&quot;, &quot;teal&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This can be refactored using arrow functions:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.selectAll(&quot;rect&quot;)
+   .data(dataset)
+   .enter()
+   .append(&quot;rect&quot;)
+   .attr(&quot;x&quot;, function(d, i) {
+       return xScale(i);
+   })
+   .attr(&quot;y&quot;, d =&amp;gt; yScale(d.population))
+   .attr(&quot;width&quot;, xScale.bandwidth())
+   .attr(&quot;height&quot;, d =&amp;gt; h - padding - yScale(d.population))
+   .attr(&quot;fill&quot;, &quot;teal&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">Using arrow functions in D3 to simplify the syntax.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
