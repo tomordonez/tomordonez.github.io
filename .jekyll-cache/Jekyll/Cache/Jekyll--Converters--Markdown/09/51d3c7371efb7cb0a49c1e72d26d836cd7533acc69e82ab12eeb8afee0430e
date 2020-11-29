@@ -1,0 +1,90 @@
+I"Q<p>A plugin in SublimeText to write math and machine learning formulas.</p>
+
+<p>I have been using this plugin for SublimeText called <a href="https://github.com/mvoidex/UnicodeMath">UnicodeMath</a> to write math in SublimeText or for machine learning formulas.</p>
+
+<p>This is the squared loss function for machine learning.</p>
+
+<p><img src="{{ site.baseurl }}/assets/images/squared-loss-function-machine-learning.jpg" alt="Squared Loss Function Machine Learning" /></p>
+
+<p>Without a plugin this is the best way to write this function:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Lsq(h) = 1/n Sum(i=1 to n) (h(xi) - yi)^2
+</code></pre></div></div>
+
+<p>It’s good enough if you are familiar with the topic. However, I prefer to use subscript and superscript, without complicating typing too much.</p>
+
+<p>I am ok with this part:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Lsq(h) = 1/n Sum(i=1 to n)
+</code></pre></div></div>
+
+<p>I would prefer to have subscript and superscript here:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(h(xi) - yi)^2
+</code></pre></div></div>
+
+<h2 id="subscript-and-superscript">Subscript and Superscript</h2>
+
+<p>After installing the plugin. You can use it by typing backslash and a character/keyword, followed by a space.</p>
+
+<ul>
+  <li>Subscript (backslash, underscore, character, space): <code class="language-plaintext highlighter-rouge">\_</code> such as <code class="language-plaintext highlighter-rouge">xᵢ</code></li>
+  <li>Superscript: <code class="language-plaintext highlighter-rouge">\^</code> such as <code class="language-plaintext highlighter-rouge">(something)²</code></li>
+</ul>
+
+<p>This is the same formula using subscript and superscript.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Lsq(h) = 1/n ∑(i=1 to n) (h(xᵢ) - yᵢ)²
+</code></pre></div></div>
+
+<p>This is the zero-one loss function without the plugin. It becomes complicated writing it without any math syntax:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>L0/1(h) = 1/n Sum(i=1 to n) delta h(xi) different than yi,
+  where delta h(xi) different than yi
+  equal to
+    1, if h(xi) is different than yi
+    0, otherwise
+</code></pre></div></div>
+
+<p>This is the same function with the math plugin:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>L0/1(h) = 1/n ∑(i=1 to n) δ h(xᵢ)≠yᵢ,
+where δ h(xᵢ)≠yᵢ
+equal to
+  1, if h(xᵢ)≠yᵢ
+  0, otherwise
+</code></pre></div></div>
+
+<p>The greek symbols are easy to remember if you are familiar with this kind of math.</p>
+
+<p>Type <code class="language-plaintext highlighter-rouge">\Sigma</code> or <code class="language-plaintext highlighter-rouge">\delta</code>. Both followed by a space to convert to unicode.</p>
+
+<h2 id="math-cheat-sheet">Math Cheat Sheet</h2>
+
+<p>These are the most likely symbols to use:</p>
+
+<ul>
+  <li>Subscript <code class="language-plaintext highlighter-rouge">\_</code>: <code class="language-plaintext highlighter-rouge">Downₕₑᵣₑ</code></li>
+  <li>Superscript <code class="language-plaintext highlighter-rouge">\^</code>: <code class="language-plaintext highlighter-rouge">Upʰᵉʳᵉ</code></li>
+  <li>Forall <code class="language-plaintext highlighter-rouge">\forall</code>: <code class="language-plaintext highlighter-rouge">∀</code></li>
+  <li>Rightarrow <code class="language-plaintext highlighter-rouge">\rightarrow</code>: <code class="language-plaintext highlighter-rouge">→</code></li>
+  <li>Not equal <code class="language-plaintext highlighter-rouge">\neq</code>: <code class="language-plaintext highlighter-rouge">≠</code></li>
+  <li>“Sum” sigma <code class="language-plaintext highlighter-rouge">\sum</code>: <code class="language-plaintext highlighter-rouge">∑</code></li>
+  <li>Or use sigma <code class="language-plaintext highlighter-rouge">\Sigma</code>: <code class="language-plaintext highlighter-rouge">Σ</code></li>
+  <li>Delta <code class="language-plaintext highlighter-rouge">\delta</code>: <code class="language-plaintext highlighter-rouge">δ</code></li>
+  <li>Theta <code class="language-plaintext highlighter-rouge">\theta</code>: <code class="language-plaintext highlighter-rouge">θ</code></li>
+  <li>Lambda <code class="language-plaintext highlighter-rouge">\lambda</code>: <code class="language-plaintext highlighter-rouge">λ</code></li>
+  <li>Mu <code class="language-plaintext highlighter-rouge">\mu</code>: <code class="language-plaintext highlighter-rouge">μ</code></li>
+  <li>“Belongs to” epsilon <code class="language-plaintext highlighter-rouge">\varepsilon</code>: <code class="language-plaintext highlighter-rouge">ϵ</code></li>
+</ul>
+
+<h2 id="type-emojis">Type emojis</h2>
+
+<p>Here is the complete table for UnicodeMath: <a href="https://github.com/mvoidex/UnicodeMath/blob/master/table.md">Github repo</a></p>
+
+<p>Christmas trees <code class="language-plaintext highlighter-rouge">\fir</code>:</p>
+
+<p>🎄🎄🎄🎄🎄🎄🎄🎄</p>
+
+<p><a href="https://www.linkedin.com/in/tomordonez/"><img src="{{ site.baseurl }}/assets/images/ama-linkedin-tomordonez.png" alt="Ask me anything on Linkedin" /></a></p>
+:ET
