@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-11-15T20:43:33-05:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Install Google Cloud SDK</title><link href="https://www.tomordonez.com/install-google-cloud-sdk/" rel="alternate" type="text/html" title="Install Google Cloud SDK" /><published>2020-11-10T00:00:00-05:00</published><updated>2020-11-10T00:00:00-05:00</updated><id>https://www.tomordonez.com/install-google-cloud-sdk</id><content type="html" xml:base="https://www.tomordonez.com/install-google-cloud-sdk/">&lt;p&gt;Step by step installing Google Cloud SDK in Linux:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2020-11-29T11:22:54-05:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">SublimeText for Math and ML</title><link href="https://www.tomordonez.com/sublimetext-for-math-ml/" rel="alternate" type="text/html" title="SublimeText for Math and ML" /><published>2020-11-28T00:00:00-05:00</published><updated>2020-11-28T00:00:00-05:00</updated><id>https://www.tomordonez.com/sublimetext-for-math-ml</id><content type="html" xml:base="https://www.tomordonez.com/sublimetext-for-math-ml/">&lt;p&gt;A plugin in SublimeText to write math and machine learning formulas.&lt;/p&gt;
+
+&lt;p&gt;I have been using this plugin for SublimeText called &lt;a href=&quot;https://github.com/mvoidex/UnicodeMath&quot;&gt;UnicodeMath&lt;/a&gt; to write math in SublimeText or for machine learning formulas.&lt;/p&gt;
+
+&lt;p&gt;This is the squared loss function for machine learning.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/squared-loss-function-machine-learning.jpg&quot; alt=&quot;Squared Loss Function Machine Learning&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Without a plugin this is the best way to write this function:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Lsq(h) = 1/n Sum(i=1 to n) (h(xi) - yi)^2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It’s good enough if you are familiar with the topic. However, I prefer to use subscript and superscript, without complicating typing too much.&lt;/p&gt;
+
+&lt;p&gt;I am ok with this part:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Lsq(h) = 1/n Sum(i=1 to n)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I would prefer to have subscript and superscript here:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(h(xi) - yi)^2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;subscript-and-superscript&quot;&gt;Subscript and Superscript&lt;/h2&gt;
+
+&lt;p&gt;After installing the plugin. You can use it by typing backslash and a character/keyword, followed by a space.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Subscript (backslash, underscore, character, space): &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\_&lt;/code&gt; such as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xᵢ&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Superscript: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\^&lt;/code&gt; such as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(something)²&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is the same formula using subscript and superscript.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Lsq(h) = 1/n ∑(i=1 to n) (h(xᵢ) - yᵢ)²
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the zero-one loss function without the plugin. It becomes complicated writing it without any math syntax:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;L0/1(h) = 1/n Sum(i=1 to n) delta h(xi) different than yi,
+  where delta h(xi) different than yi
+  equal to
+    1, if h(xi) is different than yi
+    0, otherwise
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the same function with the math plugin:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;L0/1(h) = 1/n ∑(i=1 to n) δ h(xᵢ)≠yᵢ,
+where δ h(xᵢ)≠yᵢ
+equal to
+  1, if h(xᵢ)≠yᵢ
+  0, otherwise
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The greek symbols are easy to remember if you are familiar with this kind of math.&lt;/p&gt;
+
+&lt;p&gt;Type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\Sigma&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\delta&lt;/code&gt;. Both followed by a space to convert to unicode.&lt;/p&gt;
+
+&lt;h2 id=&quot;math-cheat-sheet&quot;&gt;Math Cheat Sheet&lt;/h2&gt;
+
+&lt;p&gt;These are the most likely symbols to use:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Subscript &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\_&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Downₕₑᵣₑ&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Superscript &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\^&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Upʰᵉʳᵉ&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Forall &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\forall&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;∀&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Rightarrow &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\rightarrow&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;→&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Not equal &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\neq&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;≠&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;“Sum” sigma &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\sum&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;∑&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Or use sigma &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\Sigma&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Σ&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Delta &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\delta&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;δ&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Theta &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\theta&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;θ&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Lambda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\lambda&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;λ&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Mu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\mu&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;μ&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;“Belongs to” epsilon &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\varepsilon&lt;/code&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ϵ&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;type-emojis&quot;&gt;Type emojis&lt;/h2&gt;
+
+&lt;p&gt;Here is the complete table for UnicodeMath: &lt;a href=&quot;https://github.com/mvoidex/UnicodeMath/blob/master/table.md&quot;&gt;Github repo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Christmas trees &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\fir&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;🎄🎄🎄🎄🎄🎄🎄🎄&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.linkedin.com/in/tomordonez/&quot;&gt;&lt;img src=&quot;/assets/images/ama-linkedin-tomordonez.png&quot; alt=&quot;Ask me anything on Linkedin&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>tom</name></author><category term="sublimetext" /><category term="machine learning" /><summary type="html">A plugin in SublimeText to write math and machine learning formulas.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/1.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Install Google Cloud SDK</title><link href="https://www.tomordonez.com/install-google-cloud-sdk/" rel="alternate" type="text/html" title="Install Google Cloud SDK" /><published>2020-11-10T00:00:00-05:00</published><updated>2020-11-10T00:00:00-05:00</updated><id>https://www.tomordonez.com/install-google-cloud-sdk</id><content type="html" xml:base="https://www.tomordonez.com/install-google-cloud-sdk/">&lt;p&gt;Step by step installing Google Cloud SDK in Linux:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-315.0.0-linux-x86_64.tar.gz
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -1396,61 +1484,4 @@ svg.append(&quot;g&quot;)
   });
   &lt;/pre&gt;
 
-&lt;/details&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">Adding axes to a bar chart in D3.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">D3 Arrow Functions</title><link href="https://www.tomordonez.com/d3-arrow-functions/" rel="alternate" type="text/html" title="D3 Arrow Functions" /><published>2020-07-16T00:00:00-04:00</published><updated>2020-07-16T00:00:00-04:00</updated><id>https://www.tomordonez.com/d3-arrow-functions</id><content type="html" xml:base="https://www.tomordonez.com/d3-arrow-functions/">&lt;p&gt;Using arrow functions in D3 to simplify the syntax.&lt;/p&gt;
-
-&lt;p&gt;More about &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions&quot;&gt;arrow functions on Mozilla&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Given this example:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;elements.map(function(element) {
-    return element.length;
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This can be simplified to:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;elements.map((element) =&amp;gt; {
-    return element.length;
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If there is only one parameter and the only statement is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return&lt;/code&gt; then it can be simplified to this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;elements.map(element =&amp;gt; element.length);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Follow &lt;a href=&quot;../d3-scales-in-a-bar-chart/&quot;&gt;D3 Scales in a Bar Chart&lt;/a&gt; to review this code in detail.&lt;/p&gt;
-
-&lt;p&gt;This code was used to create the rectangles of the bar chart:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.selectAll(&quot;rect&quot;)
-   .data(dataset)
-   .enter()
-   .append(&quot;rect&quot;)
-   .attr(&quot;x&quot;, function(d, i) {
-       return xScale(i);
-   })
-   .attr(&quot;y&quot;, function(d) {
-       return yScale(d.population);
-   })
-   .attr(&quot;width&quot;, xScale.bandwidth())
-   .attr(&quot;height&quot;, function(d) {
-       return h - padding - yScale(d.population);
-   })
-   .attr(&quot;fill&quot;, &quot;teal&quot;);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This can be refactored using arrow functions:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.selectAll(&quot;rect&quot;)
-   .data(dataset)
-   .enter()
-   .append(&quot;rect&quot;)
-   .attr(&quot;x&quot;, function(d, i) {
-       return xScale(i);
-   })
-   .attr(&quot;y&quot;, d =&amp;gt; yScale(d.population))
-   .attr(&quot;width&quot;, xScale.bandwidth())
-   .attr(&quot;height&quot;, d =&amp;gt; h - padding - yScale(d.population))
-   .attr(&quot;fill&quot;, &quot;teal&quot;);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">Using arrow functions in D3 to simplify the syntax.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/details&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">Adding axes to a bar chart in D3.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
