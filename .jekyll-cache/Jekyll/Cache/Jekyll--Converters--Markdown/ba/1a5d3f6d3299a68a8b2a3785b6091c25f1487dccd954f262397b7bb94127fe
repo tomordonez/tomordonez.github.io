@@ -1,0 +1,15 @@
+I"‚<p>A mind map network graph in D3 of topics I am interested in. Blue lines are topics Iâ€™ve studied. Black lines are topics I have not.</p>
+
+<div id="mindMap"></div>
+
+<p><a href="https://www.linkedin.com/in/tomordonez/"><img src="{{ site.baseurl }}/assets/images/ama-linkedin-tomordonez.png" alt="Ask me anything on Linkedin" /></a></p>
+
+<script type="text/javascript" src="../assets/js/d3.min.js"></script>
+
+<script type="text/javascript" src="../assets/js/d3-scale-chromatic.v1.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/assets/mindMap.css" />
+
+<script type="text/javascript" src="../assets/js/mindMap.js"></script>
+
+:ET
