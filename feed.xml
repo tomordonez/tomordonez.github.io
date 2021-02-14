@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2021-01-07T20:50:48-05:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Mind Map Network Graph in D3</title><link href="https://www.tomordonez.com/mind-map-network-graph-d3/" rel="alternate" type="text/html" title="Mind Map Network Graph in D3" /><published>2021-01-07T00:00:00-05:00</published><updated>2021-01-07T00:00:00-05:00</updated><id>https://www.tomordonez.com/mind-map-network-graph-d3</id><content type="html" xml:base="https://www.tomordonez.com/mind-map-network-graph-d3/">&lt;p&gt;A mind map network graph in D3 of topics I am interested in. Blue lines are topics I’ve studied. Black lines are topics I have not.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://www.tomordonez.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.tomordonez.com/" rel="alternate" type="text/html" /><updated>2021-02-13T21:34:28-05:00</updated><id>https://www.tomordonez.com/feed.xml</id><title type="html">Tom Ordonez</title><subtitle>A blog about analytics, data science, software engineering, and other thoughts.</subtitle><author><name>Tom Ordonez</name></author><entry><title type="html">Linux Cannot Format USB</title><link href="https://www.tomordonez.com/linux-cannot-format-usb/" rel="alternate" type="text/html" title="Linux Cannot Format USB" /><published>2021-02-13T00:00:00-05:00</published><updated>2021-02-13T00:00:00-05:00</updated><id>https://www.tomordonez.com/linux-cannot-format-usb</id><content type="html" xml:base="https://www.tomordonez.com/linux-cannot-format-usb/">&lt;p&gt;In Linux I tried to format an Apple SSD USB drive using the Disks application. I got the error “usb failed to meet partition size”.&lt;/p&gt;
+
+&lt;p&gt;Find the USB&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo fdisk -l
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Disk /dev/sdb: 113 GiB, 121332826112 bytes, 236978176 sectors
+Disk model: Transcend
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 33553920 bytes
+Disklabel type: gpt
+Disk identifier: 0000...
+                                           
+Device         Start       End   Sectors   Size Type
+/dev/sdb1         40    409639    409600   200M EFI System
+/dev/sdb2     409640 235708599 235298960 112.2G Apple HFS/HFS+
+/dev/sdb3  235708600 236978135   1269536 619.9M Apple boot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As seen in &lt;a href=&quot;https://askubuntu.com/questions/675649/unable-to-delete-usb-drive-partitions-block-size-error&quot;&gt;unable to delete USB drive partitions&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Make sure to note the correct disk to format. Mine was &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/dev/sdb&lt;/code&gt;. Then run this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo dd if=/dev/zero of=/dev/sdb bs=2048 count=32
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Disks&lt;/code&gt; and delete all partitions from the USB drive. If you only want to use it for Linux, format as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ext4&lt;/code&gt;, if you want to use it for Linux or Windows use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FAT&lt;/code&gt;. Also, enter a name for the drive.&lt;/p&gt;
+
+&lt;p&gt;Try the same command:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo fdisk -l
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Disk /dev/sdb: 113 GiB, 121332826112 bytes, 236978176 sectors
+Disk model: Transcend       
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 33553920 bytes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>tom</name></author><category term="linux" /><summary type="html">In Linux I tried to format an Apple SSD USB drive using the Disks application. I got the error “usb failed to meet partition size”.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/1.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Download Songs From Youtube</title><link href="https://www.tomordonez.com/download-songs-from-youtube/" rel="alternate" type="text/html" title="Download Songs From Youtube" /><published>2021-02-12T00:00:00-05:00</published><updated>2021-02-12T00:00:00-05:00</updated><id>https://www.tomordonez.com/download-songs-from-youtube</id><content type="html" xml:base="https://www.tomordonez.com/download-songs-from-youtube/">&lt;p&gt;Download songs from Youtube using Linux, Windows, or Mac.&lt;/p&gt;
+
+&lt;p&gt;Use at your own risk.&lt;/p&gt;
+
+&lt;p&gt;Tool: Youtube-dl &lt;a href=&quot;https://ytdl-org.github.io/youtube-dl/index.html&quot;&gt;doc here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Follow the download instructions for Linux, Windows, or Mac.&lt;/p&gt;
+
+&lt;p&gt;To update use:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo pip install --upgrade youtube-dl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Find the Youtube link to download. Say the link is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;awesome-link&lt;/code&gt;. Then download:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ youtube-dl -x --audio-format mp3 --audio-quality 0 --no-cache-dir &quot;awesome-link&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you want to download a playlist. Make a directory and download the files. Let’s say the playlist is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;awesome-playlist&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkdir playlist
+youtube-dl -i -o '%(playlist_index)s.%(ext)s' -x 
+--audio-format mp3 --audio-quality 0 --no-cache-dir &quot;awesome-playlist&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The files will download like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;01.mp3  03.mp3  05.mp3
+02.mp3  04.mp3  06.mp3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you want to merge the files into one big file, then correct the metadata:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat *.mp3 &amp;gt; big.mp3
+$ ffmpeg -i big.mp3 big_fixed.mp3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>tom</name></author><category term="linux" /><summary type="html">Download songs from Youtube using Linux, Windows, or Mac.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/1.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Mind Map Network Graph in D3</title><link href="https://www.tomordonez.com/mind-map-network-graph-d3/" rel="alternate" type="text/html" title="Mind Map Network Graph in D3" /><published>2021-01-07T00:00:00-05:00</published><updated>2021-01-07T00:00:00-05:00</updated><id>https://www.tomordonez.com/mind-map-network-graph-d3</id><content type="html" xml:base="https://www.tomordonez.com/mind-map-network-graph-d3/">&lt;p&gt;A mind map network graph in D3 of topics I am interested in.&lt;/p&gt;
+
+&lt;p&gt;Blue lines are topics I’ve studied. Black lines are topics I want to study. Double click on a node to hold it in place. Double click to release it. You can also click and drag a node. Or freeze any number of nodes. When a node is frozen the color changes to red.&lt;/p&gt;
 
 &lt;div id=&quot;mindMap&quot;&gt;&lt;/div&gt;
 
@@ -10,7 +91,7 @@
 
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/assets/mindMap.css&quot; /&gt;
 
-&lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/mindMap.js&quot;&gt;&lt;/script&gt;</content><author><name>tom</name></author><category term="analytics" /><category term="data visualization" /><category term="d3" /><category term="javascript" /><summary type="html">A mind map network graph in D3 of topics I am interested in. Blue lines are topics I’ve studied. Black lines are topics I have not.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/1.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">SublimeText for Math and ML</title><link href="https://www.tomordonez.com/sublimetext-for-math-ml/" rel="alternate" type="text/html" title="SublimeText for Math and ML" /><published>2020-11-28T00:00:00-05:00</published><updated>2020-11-28T00:00:00-05:00</updated><id>https://www.tomordonez.com/sublimetext-for-math-ml</id><content type="html" xml:base="https://www.tomordonez.com/sublimetext-for-math-ml/">&lt;p&gt;A plugin in SublimeText to write math and machine learning formulas.&lt;/p&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/mindMap.js&quot;&gt;&lt;/script&gt;</content><author><name>tom</name></author><category term="analytics" /><category term="data visualization" /><category term="d3" /><category term="javascript" /><summary type="html">A mind map network graph in D3 of topics I am interested in.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/1.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">SublimeText for Math and ML</title><link href="https://www.tomordonez.com/sublimetext-for-math-ml/" rel="alternate" type="text/html" title="SublimeText for Math and ML" /><published>2020-11-28T00:00:00-05:00</published><updated>2020-11-28T00:00:00-05:00</updated><id>https://www.tomordonez.com/sublimetext-for-math-ml</id><content type="html" xml:base="https://www.tomordonez.com/sublimetext-for-math-ml/">&lt;p&gt;A plugin in SublimeText to write math and machine learning formulas.&lt;/p&gt;
 
 &lt;p&gt;I have been using this plugin for SublimeText called &lt;a href=&quot;https://github.com/mvoidex/UnicodeMath&quot;&gt;UnicodeMath&lt;/a&gt; to write math in SublimeText or for machine learning formulas.&lt;/p&gt;
 
@@ -946,266 +1027,4 @@ function handleMouseOut(d, i) {
 
 &lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/d3.min.js&quot;&gt;&lt;/script&gt;
 
-&lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/d3-barchart-vis-final.js&quot;&gt;&lt;/script&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">Using mouse event handlers in D3.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">D3 Visualization Margins</title><link href="https://www.tomordonez.com/d3-visualization-margins/" rel="alternate" type="text/html" title="D3 Visualization Margins" /><published>2020-07-31T00:00:00-04:00</published><updated>2020-07-31T00:00:00-04:00</updated><id>https://www.tomordonez.com/d3-visualization-margins</id><content type="html" xml:base="https://www.tomordonez.com/d3-visualization-margins/">&lt;p&gt;Add margins to a D3 visualization.&lt;/p&gt;
-
-&lt;p&gt;Follow &lt;a href=&quot;../d3-bar-chart-title-and-labels/&quot;&gt;D3 Bar Chart Title and Labels&lt;/a&gt; to set the examples below.&lt;/p&gt;
-
-&lt;h2 id=&quot;adding-margins&quot;&gt;Adding Margins&lt;/h2&gt;
-
-&lt;p&gt;The label for the y Axis is too close to the left. I had to plug a few different numbers in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.attr(&quot;y&quot;, 15)&lt;/code&gt; to make it fit.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Label for y Axis
-svg.append(&quot;text&quot;)
-   .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
-   .attr(&quot;x&quot;, -(h/2))
-   .attr(&quot;y&quot;, 15)
-   .style(&quot;text-anchor&quot;, &quot;middle&quot;)
-   .text(&quot;Population&quot;);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;We can add the margins like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var margin = {top: 20, right: 20, bottom: 20, left: 20},
-    w = 500 - margin.left - margin.right,
-    h = 300 - margin.top - margin.bottom;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Perhaps the labels are too big. They are the same size as the title. I added a font size for the labels, changed the position of the y label, and added the margins.&lt;/p&gt;
-
-&lt;p&gt;The barchart looks like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/d3-rect6.jpg&quot; alt=&quot;D3 barchart with Margins&quot; /&gt;&lt;/p&gt;
-
-&lt;details&gt;
-    &lt;summary&gt;Updated code with margins&lt;/summary&gt;
-    &lt;pre&gt;
-
-    var margin = {top: 20, right: 20, bottom: 20, left: 20},
-            w = 500 - margin.left - margin.right,
-            h = 300 - margin.top - margin.bottom;
-
-    var barPadding = 3;
-    var padding = 40;
-    var svg = d3.select(&quot;#d3-barchart-vis&quot;)
-                .append(&quot;svg&quot;)
-                .attr(&quot;preserveAspectRatio&quot;, &quot;xMinYMin meet&quot;)
-                .attr(&quot;viewBox&quot;, &quot;0 0 &quot; + w + &quot; &quot; + h);
-
-    var parseTime = d3.timeParse(&quot;%Y&quot;);
-
-    var rowConverter = function(d) {
-        return {
-            year: parseTime(d.year),
-            population: +d.population
-        }
-    }
-
-    d3.csv(&quot;file.csv&quot;, rowConverter).then(function(dataset) {
-
-        xScale = d3.scaleBand()
-                   .domain(d3.range(dataset.length))
-                   .rangeRound([padding, w])
-                   .paddingInner(0.1)
-                   .paddingOuter(0.1);
-
-        yScale = d3.scaleLinear()
-                   .domain([0, d3.max(dataset, function(d) { return d.population; })])
-                   .range([h - padding, padding]);
-
-        var xAxis = d3.axisBottom(xScale);
-        var yAxis = d3.axisLeft(yScale);
-
-        svg.selectAll(&quot;rect&quot;)
-           .data(dataset)
-           .enter()
-           .append(&quot;rect&quot;)
-           .attr(&quot;x&quot;, function(d, i) {
-               return xScale(i);
-           })
-           .attr(&quot;y&quot;, d =&amp;gt; yScale(d.population))
-           .attr(&quot;width&quot;, xScale.bandwidth())
-           .attr(&quot;height&quot;, d =&amp;gt; h - padding - yScale(d.population))
-           .attr(&quot;fill&quot;, &quot;teal&quot;);
-
-        // Add the x Axis
-        svg.append(&quot;g&quot;)
-           .attr(&quot;class&quot;, &quot;x axis&quot;)
-           .attr(&quot;transform&quot;, &quot;translate(0,&quot; + (h - padding) + &quot;)&quot;)
-           .call(xAxis);
-
-        // Label for x Axis
-        svg.append(&quot;text&quot;)
-           .attr(&quot;transform&quot;, &quot;translate(&quot; + (w/2) + &quot; ,&quot; + (h-10) + &quot;)&quot;)
-           .style(&quot;text-anchor&quot;, &quot;middle&quot;)
-           .style(&quot;font-size&quot;, &quot;12px&quot;)
-           .text(&quot;Year&quot;);
-
-        // Add the y Axis
-        svg.append(&quot;g&quot;)
-           .attr(&quot;class&quot;, &quot;y axis&quot;)
-           .attr(&quot;transform&quot;, &quot;translate(&quot; + padding + &quot;,0)&quot;)
-           .call(yAxis);
-
-        // Label for y Axis
-        svg.append(&quot;text&quot;)
-           .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
-           .attr(&quot;x&quot;, -(h/2))
-           .attr(&quot;y&quot;, 10)
-           .style(&quot;text-anchor&quot;, &quot;middle&quot;)
-           .style(&quot;font-size&quot;, &quot;12px&quot;)
-           .text(&quot;Population&quot;);
-
-        svg.append(&quot;text&quot;)
-           .attr(&quot;x&quot;, w/2)
-           .attr(&quot;y&quot;, padding)
-           .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
-           .style(&quot;font-size&quot;, &quot;16px&quot;)
-           .text(&quot;Awesome Barchart&quot;);
-    });
-    &lt;/pre&gt;
-
-&lt;/details&gt;
-
-&lt;h2 id=&quot;more-about-d3-bar-charts&quot;&gt;More about D3 Bar Charts&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;../d3-creating-a-bar-chart/&quot;&gt;D3 Creating a Bar Chart&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;../d3-scales-in-a-bar-chart/&quot;&gt;D3 Scales in a Bar Chart&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;../d3-adding-axes-to-bar-chart/&quot;&gt;D3 Adding Axes to Bar Chart&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;../d3-bar-chart-title-and-labels/&quot;&gt;D3 Bar Chart Title and Labels&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">Add margins to a D3 visualization.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">D3 Bar Chart Title and Labels</title><link href="https://www.tomordonez.com/d3-bar-chart-title-and-labels/" rel="alternate" type="text/html" title="D3 Bar Chart Title and Labels" /><published>2020-07-26T00:00:00-04:00</published><updated>2020-07-26T00:00:00-04:00</updated><id>https://www.tomordonez.com/d3-bar-chart-title-and-labels</id><content type="html" xml:base="https://www.tomordonez.com/d3-bar-chart-title-and-labels/">&lt;p&gt;Add a title and labels to a bar chart in D3.&lt;/p&gt;
-
-&lt;h2 id=&quot;d3-bar-chart-title&quot;&gt;D3 Bar Chart Title&lt;/h2&gt;
-
-&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;append(&quot;text&quot;)&lt;/code&gt; to append a title to the graph:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.append(&quot;text&quot;)
-   .attr(&quot;x&quot;, w/2)
-   .attr(&quot;y&quot;, padding)
-   .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
-   .style(&quot;font-size&quot;, &quot;16px&quot;)
-   .text(&quot;Awesome Barchart&quot;);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Follow:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;../d3-creating-a-bar-chart/&quot;&gt;D3 Creating a Bar Chart&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;../d3-scales-in-a-bar-chart/&quot;&gt;D3 Scales in a Bar Chart&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;add-a-label-for-the-x-axis&quot;&gt;Add a label for the x Axis&lt;/h2&gt;
-
-&lt;p&gt;A label can be added to the x Axis by appending a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;text&lt;/code&gt; and using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;transform&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;translate&lt;/code&gt; to position the text.&lt;/p&gt;
-
-&lt;p&gt;The function &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;translate&lt;/code&gt; uses a string concatenation to get to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;translate(w/2, h-10)&lt;/code&gt; which is calculated to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;translate(500/2, 300-10)&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;translate(250, 290)&lt;/code&gt;. Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt; is in the middle of the SVG and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y&lt;/code&gt; is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;10px&lt;/code&gt; from the bottom (or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;290px&lt;/code&gt; from the top).&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.append(&quot;text&quot;)
-   .attr(&quot;transform&quot;, &quot;translate(&quot; + (w/2) + &quot; ,&quot; + (h-10) + &quot;)&quot;)
-   .style(&quot;text-anchor&quot;, &quot;middle&quot;)
-   .text(&quot;Year&quot;);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;add-a-label-for-the-y-axis&quot;&gt;Add a label for the y Axis&lt;/h2&gt;
-
-&lt;p&gt;The label for the y Axis is a bit different. First we need to rotate the label vertically with a negative &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-90&lt;/code&gt; degrees. Then the point of reference for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(0,0)&lt;/code&gt; changes. If I am not mistaken it’s now on the top right relative to the rotated text.&lt;/p&gt;
-
-&lt;p&gt;To center the text vertically. Move it half way to the left at an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt; distance of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-(h/2)&lt;/code&gt;. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;y&lt;/code&gt; is set relative to the rotated position. If you move it down (to the right) it will be a positive number (towards the y Axis). If you move it up (to the left) it will be a negative number (away from the y Axis).&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;svg.append(&quot;text&quot;)
-   .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
-   .attr(&quot;x&quot;, -(h/2))
-   .attr(&quot;y&quot;, 15)
-   .style(&quot;text-anchor&quot;, &quot;middle&quot;)
-   .text(&quot;Population&quot;);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The barchart looks like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/d3-rect5.jpg&quot; alt=&quot;D3 barchart with Axes and Labels&quot; /&gt;&lt;/p&gt;
-
-&lt;details&gt;
-    &lt;summary&gt;Click to see updated code&lt;/summary&gt;
-    &lt;pre&gt;
-        
-    var w = 500;
-    var h = 300;
-    var barPadding = 3;
-    var padding = 40;
-    var svg = d3.select(&quot;#d3-barchart-vis&quot;)
-                .append(&quot;svg&quot;)
-                .attr(&quot;preserveAspectRatio&quot;, &quot;xMinYMin meet&quot;)
-                .attr(&quot;viewBox&quot;, &quot;0 0 &quot; + w + &quot; &quot; + h);
-
-    var parseTime = d3.timeParse(&quot;%Y&quot;);
-
-    var rowConverter = function(d) {
-        return {
-            year: parseTime(d.year),
-            population: +d.population
-        }
-    }
-
-    d3.csv(&quot;file.csv&quot;, rowConverter).then(function(dataset) {
-
-        xScale = d3.scaleBand()
-                   .domain(d3.range(dataset.length))
-                   .rangeRound([padding, w])
-                   .paddingInner(0.1)
-                   .paddingOuter(0.1);
-
-        yScale = d3.scaleLinear()
-                   .domain([0, d3.max(dataset, function(d) { return d.population; })])
-                   .range([h - padding, padding]);
-
-        var xAxis = d3.axisBottom(xScale);
-        var yAxis = d3.axisLeft(yScale);
-
-        svg.selectAll(&quot;rect&quot;)
-           .data(dataset)
-           .enter()
-           .append(&quot;rect&quot;)
-           .attr(&quot;x&quot;, function(d, i) {
-               return xScale(i);
-           })
-           .attr(&quot;y&quot;, d =&amp;gt; yScale(d.population))
-           .attr(&quot;width&quot;, xScale.bandwidth())
-           .attr(&quot;height&quot;, d =&amp;gt; h - padding - yScale(d.population))
-           .attr(&quot;fill&quot;, &quot;teal&quot;);
-
-        // Add the x Axis
-        svg.append(&quot;g&quot;)
-           .attr(&quot;class&quot;, &quot;x axis&quot;)
-           .attr(&quot;transform&quot;, &quot;translate(0,&quot; + (h - padding) + &quot;)&quot;)
-           .call(xAxis);
-
-        // Label for x Axis
-        svg.append(&quot;text&quot;)
-           .attr(&quot;transform&quot;, &quot;translate(&quot; + (w/2) + &quot; ,&quot; + (h-10) + &quot;)&quot;)
-           .style(&quot;text-anchor&quot;, &quot;middle&quot;)
-           .text(&quot;Year&quot;);
-
-        // Add the y Axis
-        svg.append(&quot;g&quot;)
-           .attr(&quot;class&quot;, &quot;y axis&quot;)
-           .attr(&quot;transform&quot;, &quot;translate(&quot; + padding + &quot;,0)&quot;)
-           .call(yAxis);
-
-        // Label for y Axis
-        svg.append(&quot;text&quot;)
-           .attr(&quot;transform&quot;, &quot;rotate(-90)&quot;)
-           .attr(&quot;x&quot;, -(h/2))
-           .attr(&quot;y&quot;, 15)
-           .style(&quot;text-anchor&quot;, &quot;middle&quot;)
-           .text(&quot;Population&quot;);
-
-        svg.append(&quot;text&quot;)
-           .attr(&quot;x&quot;, w/2)
-           .attr(&quot;y&quot;, padding)
-           .attr(&quot;text-anchor&quot;, &quot;middle&quot;)
-           .style(&quot;font-size&quot;, &quot;16px&quot;)
-           .text(&quot;Awesome Barchart&quot;);
-    });
-    &lt;/pre&gt;
-
-&lt;/details&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">Add a title and labels to a bar chart in D3.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;script type=&quot;text/javascript&quot; src=&quot;../assets/js/d3-barchart-vis-final.js&quot;&gt;&lt;/script&gt;</content><author><name>Tom Ordonez</name></author><category term="data analytics" /><category term="data visualization" /><category term="D3" /><category term="javascript" /><summary type="html">Using mouse event handlers in D3.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.tomordonez.com/assets/images/2.jpg" /><media:content medium="image" url="https://www.tomordonez.com/assets/images/2.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

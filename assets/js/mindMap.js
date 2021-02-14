@@ -140,6 +140,11 @@ links = [
     "value": 1
   },
   {
+    "source": "Languages",
+    "target": "Scala",
+    "value": 1
+  },
+  {
     "source": "Java",
     "target": "Hadoop",
     "value": 1
