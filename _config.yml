@@ -52,6 +52,7 @@ plugins:
 
 header_pages:
   - about.md
+  - work.md
 
 paginate: 5
 

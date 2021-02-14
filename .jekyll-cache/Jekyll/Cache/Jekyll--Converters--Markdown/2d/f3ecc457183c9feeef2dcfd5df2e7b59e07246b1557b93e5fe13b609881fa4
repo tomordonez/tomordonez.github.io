@@ -1,0 +1,46 @@
+I"�	<p>In Linux I tried to format an Apple SSD USB drive using the Disks application. I got the error “usb failed to meet partition size”.</p>
+
+<p>Find the USB</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo fdisk -l
+</code></pre></div></div>
+
+<p>Output</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Disk /dev/sdb: 113 GiB, 121332826112 bytes, 236978176 sectors
+Disk model: Transcend
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 33553920 bytes
+Disklabel type: gpt
+Disk identifier: 0000...
+                                           
+Device         Start       End   Sectors   Size Type
+/dev/sdb1         40    409639    409600   200M EFI System
+/dev/sdb2     409640 235708599 235298960 112.2G Apple HFS/HFS+
+/dev/sdb3  235708600 236978135   1269536 619.9M Apple boot
+</code></pre></div></div>
+
+<p>As seen in <a href="https://askubuntu.com/questions/675649/unable-to-delete-usb-drive-partitions-block-size-error">unable to delete USB drive partitions</a></p>
+
+<p>Make sure to note the correct disk to format. Mine was <code class="language-plaintext highlighter-rouge">/dev/sdb</code>. Then run this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dd if=/dev/zero of=/dev/sdb bs=2048 count=32
+</code></pre></div></div>
+
+<p>Open <code class="language-plaintext highlighter-rouge">Disks</code> and delete all partitions from the USB drive. If you only want to use it for Linux, format as <code class="language-plaintext highlighter-rouge">Ext4</code>, if you want to use it for Linux or Windows use <code class="language-plaintext highlighter-rouge">FAT</code>. Also, enter a name for the drive.</p>
+
+<p>Try the same command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo fdisk -l
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Disk /dev/sdb: 113 GiB, 121332826112 bytes, 236978176 sectors
+Disk model: Transcend       
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 33553920 bytes
+</code></pre></div></div>
+:ET

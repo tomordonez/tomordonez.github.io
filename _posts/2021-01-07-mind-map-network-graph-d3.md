@@ -8,7 +8,9 @@ image: assets/images/1.jpg
 tags: [analytics, data visualization, d3, javascript]
 ---
 
-A mind map network graph in D3 of topics I am interested in. Blue lines are topics I've studied. Black lines are topics I have not.
+A mind map network graph in D3 of topics I am interested in.
+
+Blue lines are topics I've studied. Black lines are topics I want to study. Double click on a node to hold it in place. Double click to release it. You can also click and drag a node. Or freeze any number of nodes. When a node is frozen the color changes to red.
 
 <div id="mindMap"></div>
 

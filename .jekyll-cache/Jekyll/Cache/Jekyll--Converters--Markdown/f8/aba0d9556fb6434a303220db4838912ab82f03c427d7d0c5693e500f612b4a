@@ -1,0 +1,37 @@
+I"Þ<p>Download songs from Youtube using Linux, Windows, or Mac.</p>
+
+<p>Use at your own risk.</p>
+
+<p>Tool: Youtube-dl <a href="https://ytdl-org.github.io/youtube-dl/index.html">doc here</a></p>
+
+<p>Follow the download instructions for Linux, Windows, or Mac.</p>
+
+<p>To update use:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pip install --upgrade youtube-dl
+</code></pre></div></div>
+
+<p>Find the Youtube link to download. Say the link is <code class="language-plaintext highlighter-rouge">awesome-link</code>. Then download:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ youtube-dl -x --audio-format mp3 --audio-quality 0 --no-cache-dir "awesome-link"
+</code></pre></div></div>
+
+<p>If you want to download a playlist. Make a directory and download the files. Letâ€™s say the playlist is <code class="language-plaintext highlighter-rouge">awesome-playlist</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir playlist
+youtube-dl -i -o '%(playlist_index)s.%(ext)s' -x 
+--audio-format mp3 --audio-quality 0 --no-cache-dir "awesome-playlist"
+</code></pre></div></div>
+
+<p>The files will download like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>01.mp3  03.mp3  05.mp3
+02.mp3  04.mp3  06.mp3
+</code></pre></div></div>
+
+<p>If you want to merge the files into one big file, then correct the metadata:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat *.mp3 &gt; big.mp3
+$ ffmpeg -i big.mp3 big_fixed.mp3
+</code></pre></div></div>
+:ET
